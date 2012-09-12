@@ -39,3 +39,7 @@ gem 'jquery-rails'
 
 gem 'rspec-rails', group: [:test, :development]
 gem 'factory_girl_rails', '~> 4.0', group: [:test, :development]
+gem 'capybara', group: [:test, :development]
+gem "capybara-webkit"
+gem 'jquery-rails'
+gem 'pry', group: [:test, :development]
