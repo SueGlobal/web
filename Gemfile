@@ -38,3 +38,4 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'rspec-rails', group: [:test, :development]
+gem 'factory_girl_rails', '~> 4.0', group: [:test, :development]
