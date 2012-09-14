@@ -45,3 +45,9 @@ gem 'jquery-rails'
 gem 'pry', group: [:test, :development]
 gem 'sorcery'
 gem 'spork', group: [:test]
+gem 'guard-rspec', group: [:test, :development]
+gem 'guard-spork', group: [:test]
+gem 'guard-bundler', group: [:development]
+gem 'guard-migrate', group: [:development]
+gem 'rails_best_practices', group: [:development]
+gem'guard-rails_best_practices', group: [:development]
