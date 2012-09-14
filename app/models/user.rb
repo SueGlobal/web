@@ -6,9 +6,8 @@ class User < ActiveRecord::Base
     uniqueness: true,
     presence: true
   validates :password,
-    presence: true,
     confirmation: true,
-    length: {minimum: 6}
+    length: {minimum: 6}, if: :password
   validates :username,
     presence: true
 end
