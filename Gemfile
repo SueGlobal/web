@@ -44,3 +44,4 @@ gem "capybara-webkit"
 gem 'jquery-rails'
 gem 'pry', group: [:test, :development]
 gem 'sorcery'
+gem 'spork', group: [:test]
