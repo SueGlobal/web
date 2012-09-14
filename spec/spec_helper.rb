@@ -55,6 +55,18 @@ Spork.prefork do
     # the seed, which is printed after each run.
     #     --seed 1234
     config.order = "random"
+
+    config.before :suite do
+      DatabaseCleaner[:active_record].strategy = :truncation
+    end
+
+    config.before :each do
+      DatabaseCleaner[:active_record].start
+    end
+
+    config.after :each do
+      DatabaseCleaner[:active_record].clean
+    end
   end
 end
 

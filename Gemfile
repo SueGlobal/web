@@ -52,3 +52,5 @@ gem 'guard-migrate', group: [:development]
 gem 'rails_best_practices', group: [:development]
 gem'guard-rails_best_practices', group: [:development]
 gem 'rb-fsevent', '~> 0.9.1'
+gem 'shoulda-matchers', group: [:test]
+gem 'database_cleaner', group: [:test]
