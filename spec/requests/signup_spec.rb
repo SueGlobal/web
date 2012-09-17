@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Logins" do
+describe "Signup" do
   describe "GET /signup" do
     before :each do
       visit signup_path
