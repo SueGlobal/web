@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe "user_sessions/new.html.erb" do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should render form partial" do
+    render
+    view.should render_template(partial: '_form', count: 1)
+  end
 end
