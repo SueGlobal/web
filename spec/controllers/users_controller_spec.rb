@@ -17,15 +17,24 @@ describe UsersController do
     {}
   end
 
+  let(:user) { create :user }
+
   describe "GET index" do
+    before :each do
+      login_user user
+    end
+
     it "assigns all users as @users" do
-      user = User.create! valid_attributes
       get :index, {}, valid_session
       assigns(:users).should eq([user])
     end
   end
 
   describe "GET show" do
+    before :each do
+      login_user user
+    end
+
     it "assigns the requested user as @user" do
       user = User.create! valid_attributes
       get :show, {id: user.to_param}, valid_session
@@ -41,6 +50,10 @@ describe UsersController do
   end
 
   describe "GET edit" do
+    before :each do
+      login_user user
+    end
+
     it "assigns the requested user as @user" do
       user = User.create! valid_attributes
       get :edit, {id: user.to_param}, valid_session
@@ -86,6 +99,10 @@ describe UsersController do
   end
 
   describe "PUT update" do
+    before :each do
+      login_user user
+    end
+
     describe "with valid params" do
       it "updates the requested user" do
         user = User.create! valid_attributes
@@ -130,6 +147,10 @@ describe UsersController do
   end
 
   describe "DELETE destroy" do
+    before :each do
+      login_user user
+    end
+
     it "destroys the requested user" do
       user = User.create! valid_attributes
       expect {
