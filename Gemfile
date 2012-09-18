@@ -53,3 +53,4 @@ gem 'rb-fsevent', '~> 0.9.1'
 gem 'shoulda-matchers', group: [:test]
 gem 'database_cleaner', group: [:test]
 gem 'launchy', group: [:test]
+gem 'debugger', group: [:test, :development]
