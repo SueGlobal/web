@@ -54,3 +54,4 @@ gem 'shoulda-matchers', group: [:test]
 gem 'database_cleaner', group: [:test]
 gem 'launchy', group: [:test]
 gem 'debugger', group: [:test, :development]
+gem 'cancan', git: "git://github.com/ryanb/cancan.git", branch: '2.0'
