@@ -25,5 +25,6 @@ class User < ActiveRecord::Base
   private
   def ensure_one_role_is_set
     self.roles = [:simple] if self.roles_mask.zero?
+    true
   end
 end
