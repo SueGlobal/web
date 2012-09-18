@@ -76,6 +76,6 @@ Spork.each_run do
   # This code will be run each time you run your specs.
   FactoryGirl.reload
   silence_warnings do
-    Dir["#{Rails.root}/app/models/**/*.rb"].each {|f| load f}
+    Dir["#{Rails.root}/app/models/**/*.rb"].each {|f| require f}
   end
 end
