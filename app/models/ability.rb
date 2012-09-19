@@ -34,15 +34,17 @@ class Ability
   end
 
   def simple_abilities user
-    can [:read, :update], :users, id: user.id
+    can [:read, :update], User, id: user.id
+    cannot :index, User
   end
 
   def admin_abilities user
-    can :manage, :users do |user|
-      !user.roles.include?(:god)
+    can :manage, User do |other_user|
+      !other_user.roles.include?(:god)
     end
-    can :assign_roles, :users do |user|
-      user.roles == [:simple]
+    cannot :index, User
+    cannot :assign_roles, User do |other_user|
+      other_user.roles != [:simple]
     end
   end
 

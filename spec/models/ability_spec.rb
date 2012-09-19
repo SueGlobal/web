@@ -15,6 +15,8 @@ describe Ability do
     it { should_not be_able_to :create, User }
     it { should_not be_able_to :read, other_user }
     it { should_not be_able_to :update, other_user }
+    it { should_not be_able_to :update, create(:admin_user) }
+    it { should_not be_able_to :update, create(:god_user) }
     it { should_not be_able_to :destroy, other_user }
   end
 
@@ -24,10 +26,13 @@ describe Ability do
     let(:other_admin_user) { create :admin_user }
     let(:god_user) { create :god_user }
 
-    it { should be_able_to :manage, user }
-    it { should be_able_to :manage, other_user }
-    it { should be_able_to :manage, other_admin_user }
-    it { should_not be_able_to :manage, god_user }
+    [:show, :new, :create, :edit, :update].each do |action|
+      it { should be_able_to action, user }
+      it { should be_able_to action, other_user }
+      it { should be_able_to action, other_admin_user }
+      it { should_not be_able_to  action, god_user}
+    end
+    it { should_not be_able_to :index, User }
     it { should be_able_to :assign_roles, other_user }
     it { should_not be_able_to :assign_roles, other_admin_user }
     it { should_not be_able_to :assign_roles, god_user }
