@@ -2,7 +2,7 @@
 # The default is nothing which will include only core features (password encryption, login/logout).
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging, :external
-Rails.application.config.sorcery.submodules = []
+Rails.application.config.sorcery.submodules = [:remember_me]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -112,7 +112,6 @@ Rails.application.config.sorcery.configure do |config|
   # config.liveid.callback_url = "http://mydomain.com:3000/oauth/callback?provider=liveid"
   # config.liveid.user_info_mapping = {:username => "name"}
 
-
   # --- user config ---
   config.user_config do |user|
     # -- core --
@@ -121,6 +120,9 @@ Rails.application.config.sorcery.configure do |config|
     #
     user.username_attribute_names = [:email]
 
+
+    # Remember me for
+    user.remember_me_for = 5.days
 
     # change *virtual* password attribute, the one which is used until an encrypted one is generated.
     # Default: `:password`
@@ -391,6 +393,7 @@ Rails.application.config.sorcery.configure do |config|
     #
     # user.provider_uid_attribute_name =
   end
+
 
   # This line must come after the 'user config' block.
   # Define which model authenticates with sorcery.

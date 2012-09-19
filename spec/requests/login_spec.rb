@@ -10,13 +10,35 @@ describe "Login" do
       let(:password) { 'some_cool_password' }
       let!(:user) { create :user, password: password }
 
-      before :each do
-        fill_form email: user.email, password: password
-        submit_form
+      context "without being remembered" do
+        before :each do
+          fill_form email: user.email, password: password, remember_me: false
+          submit_form
+        end
+
+        it 'shows logout option' do
+          page.should have_content('Logout')
+        end
+
+        it "does not remember the user" do
+          user.reload.remember_me_token.should be_nil
+        end
       end
 
-      it 'shows logout option' do
-        page.should have_content('Logout')
+      context "being remembered" do
+
+        before :each do
+          fill_form email: user.email, password: password, remember_me: true
+          submit_form
+        end
+
+        it "shows logout option" do
+          page.should have_content('Logout')
+        end
+
+        it "gets the user remembered" do
+          user.reload.remember_me_token.should_not be_blank
+        end
       end
     end
 
@@ -38,6 +60,11 @@ describe "Login" do
   def fill_form data
     fill_in 'Email', with: data[:email]
     fill_in 'Password', with: data[:password]
+    if data[:remember_me]
+      check 'remember_me'
+    else
+      uncheck 'remember_me'
+    end
   end
 
   def submit_form
