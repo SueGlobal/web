@@ -17,16 +17,33 @@ describe UsersController do
     {}
   end
 
-  let(:user) { create :user }
-
   describe "GET index" do
-    before :each do
-      login_user user
+    for_users_that_can :index, :users do |role|
+      context "by #{role} user" do
+        let(:user) { create "#{role}_user" }
+        before :each do
+          login_user user
+        end
+
+        it "assigns all users as @users" do
+          get :index, {}, valid_session
+          assigns(:users).should eq([user])
+        end
+      end
     end
 
-    it "assigns all users as @users" do
-      get :index, {}, valid_session
-      assigns(:users).should eq([user])
+    for_users_that_cannot :index, :users do |role|
+      context "by #{role} user" do
+        let(:user) { create "#{role}_user" }
+        before :each do
+          login_user user
+          get :index, {}, valid_session
+        end
+
+        it "behaves as not authorized" do
+          behave_as_unauthorized
+        end
+      end
     end
   end
 
@@ -35,10 +52,73 @@ describe UsersController do
       login_user user
     end
 
-    it "assigns the requested user as @user" do
-      user = User.create! valid_attributes
-      get :show, {id: user.to_param}, valid_session
-      assigns(:user).should eq(user)
+    context "given a simple user" do
+      let(:user) { create :simple_user }
+
+      it "can see himself" do
+        get :show, {id: user.to_param}, valid_session
+        assigns(:user).should eq(user)
+      end
+
+      it "cannot see anybody else" do
+        other_user = create :user
+        get :show, {id: other_user.to_param}, valid_session
+        behave_as_unauthorized
+      end
+    end
+
+    context "given an admin user" do
+      let(:user) { create :admin_user }
+
+      it "can see himself" do
+        get :show, {id: user.to_param}, valid_session
+        assigns(:user).should eq(user)
+      end
+
+      it "can see a simple user" do
+        simple_user = create :simple_user
+        get :show, {id: simple_user.to_param}, valid_session
+        assigns(:user).should eq(simple_user)
+      end
+
+      it "can see another admin user" do
+        other_user = create :admin_user
+        get :show, {id: other_user.to_param}, valid_session
+        assigns(:user).should eq(other_user)
+      end
+
+      it "cannot see god" do
+        god = create :god_user
+        get :show, {id: god.to_param}, valid_session
+        behave_as_unauthorized
+      end
+    end
+
+    context "given a god user" do
+      let(:user) { create :god_user }
+
+      it "can see himself" do
+        get :show, {id: user.to_param}, valid_session
+        assigns(:user).should eq(user)
+      end
+
+      it "can see a simple user" do
+        simple_user = create :simple_user
+        get :show, {id: simple_user.to_param}, valid_session
+        assigns(:user).should eq(simple_user)
+      end
+
+      it "can see another admin user" do
+        admin_user = create :admin_user
+        get :show, {id: admin_user.to_param}, valid_session
+        assigns(:user).should eq(admin_user)
+      end
+
+      it "can see another god user" do
+        other_user = create :god_user
+        get :show, {id: other_user.to_param}, valid_session
+        assigns(:user).should eq(other_user)
+      end
     end
   end
 
@@ -50,14 +130,78 @@ describe UsersController do
   end
 
   describe "GET edit" do
+
     before :each do
       login_user user
     end
 
-    it "assigns the requested user as @user" do
-      user = User.create! valid_attributes
-      get :edit, {id: user.to_param}, valid_session
-      assigns(:user).should eq(user)
+    context "given a simple user" do
+      let(:user) { create :simple_user }
+
+      it "can edit himself" do
+        get :edit, {id: user.to_param}, valid_session
+        assigns(:user).should eq(user)
+      end
+
+      it "cannot edit other user" do
+        other_user = create :simple_user
+        get :edit, {id: other_user.to_param}, valid_session
+        behave_as_unauthorized
+      end
+    end
+
+    context "given an admin user" do
+      let(:user) { create :admin_user }
+
+      it "can edit himself" do
+        get :edit, {id: user.to_param}, valid_session
+        assigns(:user).should eq(user)
+      end
+
+      it "can edit simple users" do
+        simple_user = create :simple_user
+        get :edit, {id: simple_user.to_param}, valid_session
+        assigns(:user).should eq(simple_user)
+      end
+
+      it "can edit admin users" do
+        admin_user = create :admin_user
+        get :edit, {id: admin_user.to_param}, valid_session
+        assigns(:user).should eq(admin_user)
+      end
+
+      it "cannot edit god" do
+        god = create :god_user
+        get :edit, {id: god.to_param}, valid_session
+        behave_as_unauthorized
+      end
+    end
+
+    context "given a god user" do
+      let(:user) { create :god_user }
+
+      it "can edit himself" do
+        get :edit, {id: user.to_param}, valid_session
+        assigns(:user).should eq(user)
+      end
+
+      it "can edit simple users" do
+        simple_user = create :simple_user
+        get :edit, {id: simple_user.to_param}, valid_session
+        assigns(:user).should eq(simple_user)
+      end
+
+      it "can edit admin users" do
+        admin_user = create :admin_user
+        get :edit, {id: admin_user.to_param}, valid_session
+        assigns(:user).should eq(admin_user)
+      end
+
+      it "can edit god" do
+        god = create :god_user
+        get :edit, {id: god.to_param}, valid_session
+        assigns(:user).should eq(god)
+      end
     end
   end
 
@@ -75,7 +219,7 @@ describe UsersController do
         assigns(:user).should be_persisted
       end
 
-      it "redirects to the created user" do
+      it "redirects to root" do
         post :create, {user: valid_attributes}, valid_session
         response.should redirect_to(root_path)
       end
@@ -104,32 +248,166 @@ describe UsersController do
     end
 
     describe "with valid params" do
-      it "updates the requested user" do
-        user = User.create! valid_attributes
-        # Assuming there are no other users in the database, this
-        # specifies that the User created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        User.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {id: user.to_param, user: {'these' => 'params'}}, valid_session
+
+      context "given a simple user" do
+        let(:user) { create :simple_user }
+
+        it "updates the requested user" do
+          User.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+          put :update, {id: user.to_param, user: {'these' => 'params'}}, valid_session
+        end
+
+        it "assigns the requested user as @user" do
+          put :update, {id: user.to_param, user: valid_attributes}, valid_session
+          assigns(:user).should eq(user)
+        end
+
+        it "redirects to the user" do
+          put :update, {id: user.to_param, user: valid_attributes}, valid_session
+          response.should redirect_to(user)
+        end
+
+        context "when editting himself" do
+
+          it "cannot modify its email" do
+           put :update, {id: user.to_param, user: {'email' => 'other_email@example.com'}}, valid_session
+            user.reload.email.should_not eq('other_email@example.com')
+          end
+        end
+
+        context "when editting an admin user" do
+          let(:admin_user) { create :admin_user }
+
+          it "is not authorized" do
+            put :update, {id: admin_user.to_param, user: {}}, valid_session
+            behave_as_unauthorized
+          end
+        end
+
+        context "when editting a god" do
+          let(:god) { create :god_user }
+
+          it "is not authorized" do
+            put :update, {id: god.to_param, user: {}}, valid_session
+            behave_as_unauthorized
+          end
+        end
       end
 
-      it "assigns the requested user as @user" do
-        user = User.create! valid_attributes
-        put :update, {id: user.to_param, user: valid_attributes}, valid_session
-        assigns(:user).should eq(user)
+      context "given an admin user" do
+        let(:user) { create :admin_user }
+
+        it "updates the requested user" do
+          User.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+          put :update, {id: user.to_param, user: {'these' => 'params'}}, valid_session
+        end
+
+        it "assigns the requested user as @user" do
+          put :update, {id: user.to_param, user: valid_attributes}, valid_session
+          assigns(:user).should eq(user)
+        end
+
+        it "redirects to the user" do
+          put :update, {id: user.to_param, user: valid_attributes}, valid_session
+          response.should redirect_to(user)
+        end
+
+        context "when editting himself" do
+
+          it "cannot modify its email" do
+           put :update, {id: user.to_param, user: {'email' => 'other_email@example.com'}}, valid_session
+            user.reload.email.should_not eq('other_email@example.com')
+          end
+        end
+
+        context "when editting a simple user" do
+          let(:simple_user) { create :simple_user }
+
+          it "is not authorized" do
+            put :update, {id: simple_user.to_param, user: {}}, valid_session
+            assigns(:user).should eq(simple_user)
+          end
+        end
+
+        context "when editting an admin user" do
+          let(:admin_user) { create :admin_user }
+
+          it "is not authorized" do
+            put :update, {id: admin_user.to_param, user: {}}, valid_session
+            assigns(:user).should eq(admin_user)
+          end
+        end
+
+        context "when editting a god" do
+          let(:god) { create :god_user }
+
+          it "is not authorized" do
+            put :update, {id: god.to_param, user: {}}, valid_session
+            behave_as_unauthorized
+          end
+        end
       end
 
-      it "redirects to the user" do
-        user = User.create! valid_attributes
-        put :update, {id: user.to_param, user: valid_attributes}, valid_session
-        response.should redirect_to(user)
+      context "given an god user" do
+        let(:user) { create :god_user }
+
+        it "updates the requested user" do
+          User.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+          put :update, {id: user.to_param, user: {'these' => 'params'}}, valid_session
+        end
+
+        it "assigns the requested user as @user" do
+          put :update, {id: user.to_param, user: valid_attributes}, valid_session
+          assigns(:user).should eq(user)
+        end
+
+        it "redirects to the user" do
+          put :update, {id: user.to_param, user: valid_attributes}, valid_session
+          response.should redirect_to(user)
+        end
+
+        context "when editting himself" do
+
+          it "cannot modify its email" do
+           put :update, {id: user.to_param, user: {'email' => 'other_email@example.com'}}, valid_session
+            user.reload.email.should eq('other_email@example.com')
+          end
+        end
+
+        context "when editting a simple user" do
+          let(:simple_user) { create :simple_user }
+
+          it "is not authorized" do
+            put :update, {id: simple_user.to_param, user: {}}, valid_session
+            assigns(:user).should eq(simple_user)
+          end
+        end
+
+        context "when editting an admin user" do
+          let(:admin_user) { create :admin_user }
+
+          it "is not authorized" do
+            put :update, {id: admin_user.to_param, user: {}}, valid_session
+            assigns(:user).should eq(admin_user)
+          end
+        end
+
+        context "when editting a god" do
+          let(:god) { create :god_user }
+
+          it "is not authorized" do
+            other_god = create :god_user
+            put :update, {id: god.to_param, user: {}}, valid_session
+            assigns(:user).should eq(god)
+          end
+        end
       end
     end
 
     describe "with invalid params" do
+      let(:user) { create :user }
+
       it "assigns the user as @user" do
-        user = User.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         User.any_instance.stub(:save).and_return(false)
         put :update, {id: user.to_param, user: {}}, valid_session
@@ -137,7 +415,6 @@ describe UsersController do
       end
 
       it "re-renders the 'edit' template" do
-        user = User.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         User.any_instance.stub(:save).and_return(false)
         put :update, {id: user.to_param, user: {}}, valid_session
@@ -151,18 +428,40 @@ describe UsersController do
       login_user user
     end
 
-    it "destroys the requested user" do
-      user = User.create! valid_attributes
-      expect {
-        delete :destroy, {id: user.to_param}, valid_session
-      }.to change(User, :count).by(-1)
+    for_users_that_can :destroy, User do |role|
+      context "when user is #{role}" do
+        let(:user) { create "#{role}_user" }
+
+        it "destroys the requested user" do
+          other_user = User.create! valid_attributes
+          expect {
+            delete :destroy, {id: other_user.to_param}, valid_session
+          }.to change(User, :count).by(-1)
+        end
+
+        it "redirects to root" do
+          other_user = User.create! valid_attributes
+          delete :destroy, {id: other_user.to_param}, valid_session
+          response.should redirect_to(root_path)
+        end
+      end
     end
 
-    it "redirects to the users list" do
-      user = User.create! valid_attributes
-      delete :destroy, {id: user.to_param}, valid_session
-      response.should redirect_to(users_url)
+    for_users_that_cannot :destroy, User do |role|
+      context "when user is #{role}" do
+        let(:user) { create "#{role}_user" }
+
+        before :each do
+          other_user = create :user
+          lambda{
+            delete :destroy, {id: other_user.to_param}, valid_session
+          }.should_not change(User, :count)
+        end
+
+        it "behaves as unauthorized" do
+          behave_as_unauthorized
+        end
+      end
     end
   end
-
 end
