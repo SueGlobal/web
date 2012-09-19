@@ -34,4 +34,46 @@ describe User do
       user.roles.should_not include(:simple)
     end
   end
+
+  describe "#simple?" do
+    it "returns true if user is only simple" do
+      create(:user, roles: [:simple]).should be_simple
+    end
+
+    it "returns true if user is simple and something more" do
+      create(:user, roles: [:simple, :god]).should be_simple
+    end
+
+    it "returns false if it has no simple role" do
+      create(:user, roles: [:god]).should_not be_simple
+    end
+  end
+
+  describe "#admin?" do
+    it "returns true if user is only admin" do
+      create(:user, roles: [:admin]).should be_admin
+    end
+
+    it "returns true if user is admin and something more" do
+      create(:user, roles: [:admin, :god]).should be_admin
+    end
+
+    it "returns false if it has no admin role" do
+      create(:user, roles: [:god]).should_not be_admin
+    end
+  end
+
+  describe "#god?" do
+    it "returns true if user is only god" do
+      create(:user, roles: [:god]).should be_god
+    end
+
+    it "returns true if user is god and something more" do
+      create(:user, roles: [:admin, :god]).should be_god
+    end
+
+    it "returns false if it has no god role" do
+      create(:user, roles: [:admin]).should_not be_god
+    end
+  end
 end

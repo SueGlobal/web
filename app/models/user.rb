@@ -22,6 +22,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  ROLES.each do |role|
+    define_method "#{role}?" do
+      ((roles_mask || 0)) & 2**ROLES.index(role) > 0
+    end
+  end
+
   private
   def ensure_one_role_is_set
     self.roles = [:simple] if self.roles_mask.zero?
