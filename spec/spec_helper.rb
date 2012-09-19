@@ -51,6 +51,8 @@ Spork.prefork do
     config.include FactoryGirl::Syntax::Methods
     config.include Sorcery::TestHelpers::Rails
     config.include LoginMacros, type: :request
+    config.extend RoleMacros, type: :controller
+    config.include CancanMacros, type: :controller
 
     # Run specs in random order to surface order dependencies. If you find an
     # order dependency and want to debug it, you can fix the order by providing
@@ -76,6 +78,6 @@ Spork.each_run do
   # This code will be run each time you run your specs.
   FactoryGirl.reload
   silence_warnings do
-    Dir["#{Rails.root}/app/models/**/*.rb"].each {|f| require f}
+    ActiveSupport::Dependencies.clear
   end
 end
