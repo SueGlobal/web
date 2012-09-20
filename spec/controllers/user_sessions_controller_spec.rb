@@ -22,10 +22,10 @@ describe UserSessionsController do
 
   describe "POST 'create'" do
     let(:password) { 'some_cool_password' }
-    let!(:user) { create :user, password: password }
+    let!(:user) { create :user, :active, password: password }
 
     context "with valid access data" do
-      let(:attrs) { {email: user.email, password: password} }
+      let(:attrs) { {email: user.email, password: password, remember_me: true} }
 
       before :each do
         post 'create', attrs

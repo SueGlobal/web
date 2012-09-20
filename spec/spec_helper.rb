@@ -53,6 +53,7 @@ Spork.prefork do
     config.include LoginMacros, type: :request
     config.extend RoleMacros, type: :controller
     config.include CancanMacros, type: :controller
+    config.include MailerMacros
 
     # Run specs in random order to surface order dependencies. If you find an
     # order dependency and want to debug it, you can fix the order by providing
@@ -66,6 +67,7 @@ Spork.prefork do
 
     config.before :each do
       DatabaseCleaner[:active_record].start
+      ActionMailer::Base.deliveries.clear
     end
 
     config.after :each do

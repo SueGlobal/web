@@ -8,46 +8,63 @@ describe "Login" do
 
     context "with valid data" do
       let(:password) { 'some_cool_password' }
-      let!(:user) { create :user, password: password }
 
-      context "without being remembered" do
-        before :each do
-          fill_form email: user.email, password: password, remember_me: false
-          submit_form
-        end
+      context "when user is not yet active" do
 
-        it 'shows logout option' do
-          page.should have_content('Logout')
-        end
-
-        it "does not remember the user" do
-          user.reload.remember_me_token.should be_nil
-        end
-      end
-
-      context "being remembered" do
+        let!(:user) { create :user, :inactive, password: password }
 
         before :each do
           fill_form email: user.email, password: password, remember_me: true
           submit_form
         end
 
-        it "shows logout option" do
-          page.should have_content('Logout')
+        it "is not logged in" do
+          page.should have_content("Login")
+        end
+      end
+
+      context "when user is active" do
+        let!(:user) { create :user, :active,  password: password }
+
+        context "without being remembered" do
+          before :each do
+            fill_form email: user.email, password: password, remember_me: false
+            submit_form
+          end
+
+          it 'shows logout option' do
+            page.should have_content('Logout')
+          end
+
+          it "does not remember the user" do
+            user.reload.remember_me_token.should be_nil
+          end
         end
 
-        it "gets the user remembered" do
-          user.reload.remember_me_token.should_not be_blank
+        context "being remembered" do
+
+          before :each do
+            fill_form email: user.email, password: password, remember_me: true
+            submit_form
+          end
+
+          it "shows logout option" do
+            page.should have_content('Logout')
+          end
+
+          it "gets the user remembered" do
+            user.reload.remember_me_token.should_not be_blank
+          end
         end
       end
     end
 
     context "with invalid data" do
       let(:password) { 'some_cool_password' }
-      let!(:user) { create :user, password: password }
+      let!(:user) { create :user, :active, password: password }
 
       before :each do
-        fill_form email: user.email, password: "p#{password}"
+        fill_form email: user.email, password: "p#{password}", remember_me: true
         submit_form
       end
 

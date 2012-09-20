@@ -223,6 +223,12 @@ describe UsersController do
         post :create, {user: valid_attributes}, valid_session
         response.should redirect_to(root_path)
       end
+
+      it "sends an email" do
+        lambda{
+          post :create, {user: valid_attributes}, valid_session
+        }.should change{ number_of_emails }.by(1)
+      end
     end
 
     describe "with invalid params" do
@@ -238,6 +244,12 @@ describe UsersController do
         User.any_instance.stub(:save).and_return(false)
         post :create, {user: {}}, valid_session
         response.should render_template("new")
+      end
+
+      it "does not send any email" do
+        lambda{
+          post :create, {user: {}}, valid_session
+        }.should_not change{ number_of_emails }
       end
     end
   end
@@ -461,6 +473,41 @@ describe UsersController do
         it "behaves as unauthorized" do
           behave_as_unauthorized
         end
+      end
+    end
+  end
+
+  describe 'GET activate' do
+
+    let(:user) { create :user, activation_state: 'pending' }
+
+    context "when valid activation token" do
+
+      before :each do
+        get 'activate', {id: user.activation_token}, {}
+      end
+
+      it "assigns the proper user" do
+        assigns(:user).should eq(user)
+      end
+
+      it "activates the user" do
+        user.reload.activation_state.should eq('active')
+      end
+    end
+
+    context "when not valid user" do
+
+      before :each do
+        get 'activate', {id: 'p'+user.activation_token}, {}
+      end
+
+      it "behaves as not authenticated" do
+        response.should redirect_to(root_path)
+      end
+
+      it "sets a notice" do
+        flash.notice.should_not be_blank
       end
     end
   end

@@ -99,6 +99,8 @@ GEM
     json (1.7.5)
     launchy (2.1.2)
       addressable (~> 2.3)
+    letter_opener (0.0.2)
+      launchy
     libwebsocket (0.1.5)
       addressable
     listen (0.5.0)
@@ -214,6 +216,7 @@ DEPENDENCIES
   guard-spork
   jquery-rails
   launchy
+  letter_opener
   pg
   pry
   rails (= 3.2.8)

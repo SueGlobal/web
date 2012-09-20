@@ -5,7 +5,11 @@ SueGlobal::Application.routes.draw do
   match 'logout' => 'user_sessions#destroy', as: :logout
 
   get 'signup' => 'users#new', as: 'signup'
-  resources :users
+  resources :users do
+    member do
+      get :activate, as: :activate
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

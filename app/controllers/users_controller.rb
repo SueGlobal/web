@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource except: [:new, :create]
-  before_filter :require_login, except: [:new, :create]
+  load_and_authorize_resource except: [:new, :create, :activate]
+  before_filter :require_login, except: [:new, :create, :activate]
 
   # GET /users
   # GET /users.json
@@ -86,6 +86,16 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to root_path }
       format.json { head :no_content }
+    end
+  end
+
+  # GET /users/9m2p2nsqhybTF9mMKLvX/activate
+  def activate
+    if (@user = User.load_from_activation_token(params[:id]))
+      @user.activate!
+      redirect_to login_path, notice: 'User was successfully activated.'
+    else
+      not_authenticated
     end
   end
 end
