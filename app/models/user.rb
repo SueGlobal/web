@@ -28,6 +28,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def deliver_activation_or_reset_password_instructions!
+    if activation_state == 'active'
+      deliver_reset_password_instructions!
+    else
+      send_activation_needed_email!
+    end
+  end
+
   private
   def ensure_one_role_is_set
     self.roles = [:simple] if self.roles_mask.zero?

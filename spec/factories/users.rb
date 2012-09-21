@@ -24,4 +24,13 @@ FactoryGirl.define do
       u.save
     end
   end
+
+  trait :reset_password do
+    after(:create) do |u|
+      u.reset_password_token = "some_random_token_#{rand.to_s[2..-1]}"
+      u.reset_password_email_sent_at = Time.now
+      u.reset_password_token_expires_at = 5.days.from_now
+      u.save
+    end
+  end
 end

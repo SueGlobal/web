@@ -1,4 +1,6 @@
 SueGlobal::Application.routes.draw do
+
+  resources :password_resets, only: [:create, :update, :edit]
   resources :user_sessions
 
   match 'login' => 'user_sessions#new', as: :login

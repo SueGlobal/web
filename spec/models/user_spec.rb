@@ -76,4 +76,23 @@ describe User do
       create(:user, roles: [:admin]).should_not be_god
     end
   end
+
+  describe "#deliver_activation_or_reset_password_instructions!" do
+
+    context "user is active" do
+      it "calls super" do
+        user = create :user, :active
+        user.should_receive :deliver_reset_password_instructions!
+        user.deliver_activation_or_reset_password_instructions!
+      end
+    end
+
+    context "user is inactive" do
+      it "calls send_activation_needed_email!" do
+        user = create :user, :inactive
+        user.should_receive :send_activation_needed_email!
+        user.deliver_activation_or_reset_password_instructions!
+      end
+    end
+  end
 end

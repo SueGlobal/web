@@ -5,4 +5,9 @@ describe "user_sessions/new.html.erb" do
     render
     view.should render_template(partial: '_form', count: 1)
   end
+
+  it "should render forgot_password_form partial" do
+    render
+    view.should render_template(partial: '_forgot_password_form', count: 1)
+  end
 end

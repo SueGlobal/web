@@ -43,6 +43,14 @@ Spork.prefork do
     config.filter_run focus: true
     config.run_all_when_everything_filtered = true
 
+    # Reduces stretches in sorcery to speed up tests
+
+    Rails.application.config.sorcery.configure do |config|
+      config.user_config do |user|
+        user.stretches = 1
+      end
+    end
+
     # If true, the base class of anonymous controllers will be inferred
     # automatically. This will be the default behavior in future versions of
     # rspec-rails.
@@ -53,6 +61,7 @@ Spork.prefork do
     config.include LoginMacros, type: :request
     config.extend RoleMacros, type: :controller
     config.include CancanMacros, type: :controller
+    config.include SorceryMacros, type: :controller
     config.include MailerMacros
 
     # Run specs in random order to surface order dependencies. If you find an

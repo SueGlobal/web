@@ -31,5 +31,8 @@ describe UsersController do
       delete("/users/1").should route_to("users#destroy", id: "1")
     end
 
+    it "routes to activate" do
+      get("/users/123123/activate").should route_to("users#activate", id: "123123")
+    end
   end
 end
