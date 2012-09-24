@@ -1,0 +1,11 @@
+es:
+  users:
+    _form:
+      errors_header:
+        one: 'No se pudo guardar el usuario por un error:'
+        other: 'No se pudo guardar el usuario por %{count} errores'
+  helpers:
+    submit:
+      user:
+        create: 'Registrar usuario'
+        update: 'Actualizar usuario'

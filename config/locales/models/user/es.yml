@@ -1,0 +1,32 @@
+es:
+  activerecord:
+    models:
+      user: 'Usuario'
+    attributes:
+      user:
+        email: 'Email'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmación de contraseña'
+        crypted_password: 'Contraseña cifrada'
+        salt: 'Salt'
+        role_mask: 'Role mask'
+        role: 'Rol'
+        roles:
+          simple: 'Básico'
+          admin: 'Administrador'
+          god: 'Dios'
+        activation_state: 'Estado de cuenta'
+        activation_states:
+          pending: 'Pendiente de activación'
+          active: 'Activo'
+        failed_logins_count: 'Número de accesos fallidos'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'Ya existe una cuenta asociada a esa dirección de correo.'
+              blank: 'Es necesario dar un email.'
+            password:
+              confirmation: 'La contraseña ha de ser igual al campo de confirmación.'
+              too_short: 'La contraseña ha de tener al menos #{:minimum} caracteres.'

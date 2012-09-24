@@ -1,0 +1,8 @@
+es:
+  password_resets:
+    edit:
+      header: 'Escoge nueva contraseña'
+      errors_header:
+        one: 'No se pudo cambiar la contraseña debido a un error:'
+        other: 'No se pudo cambiar la contraseña debido a %{count} errores:'
+      submit: 'Cambiar contraseña'

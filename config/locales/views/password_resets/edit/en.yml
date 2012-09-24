@@ -1,0 +1,8 @@
+en:
+  password_resets:
+    edit:
+      header: 'Choose a new password'
+      errors_header:
+        one: 'An error prohibited the password from being changed:'
+        other: '%{count} erros prohibited the password from being changed:'
+      submit: 'Change password'

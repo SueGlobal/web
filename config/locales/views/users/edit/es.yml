@@ -1,0 +1,6 @@
+es:
+  users:
+    edit:
+      header: 'Editar usuario'
+      show: 'Mostrar'
+      back: 'Atrás'

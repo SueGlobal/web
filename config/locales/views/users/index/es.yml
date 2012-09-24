@@ -1,0 +1,12 @@
+es:
+  users:
+    index:
+      header: 'Listado de usuarios'
+      email_header: 'Email'
+      state_header: 'Estado'
+      actions_header: 'Acciones'
+      show: 'Mostrar'
+      edit: 'Editar'
+      destroy: 'Borrar'
+      confirm: '¿Estás seguro?'
+      new_user: 'Nuevo usuario'

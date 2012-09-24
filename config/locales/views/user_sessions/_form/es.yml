@@ -1,0 +1,5 @@
+es:
+  user_sessions:
+    _form:
+      remember_me: "Recuérdame durante 5 días"
+      submit: 'Acceder'

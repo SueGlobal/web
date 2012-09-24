@@ -1,0 +1,12 @@
+en:
+  users:
+    index:
+      header: 'Listing users'
+      email_header: 'Email'
+      state_header: 'Activation state'
+      actions_header: 'Actions'
+      show: 'Show'
+      edit: 'Edit'
+      destroy: 'Destroy'
+      confirm: 'Are you sure?'
+      new_user: 'New User'

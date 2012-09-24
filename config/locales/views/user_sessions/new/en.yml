@@ -1,0 +1,6 @@
+en:
+  user_sessions:
+    new:
+      header: 'Login'
+      forgot_question: 'Forgot your password?'
+      back: 'Back'

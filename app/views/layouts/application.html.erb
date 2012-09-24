@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SueGlobal</title>
+  <title><%= t '.title' %> ></title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -9,11 +9,11 @@
 <body>
   <div id="nav">
       <% if current_user -%>
-        <%= link_to 'Edit Profile', edit_user_path(current_user.id) %> |
-        <%= link_to 'Logout', :logout %>
+        <%= link_to t('.edit_profile'), edit_user_path(current_user.id) %> |
+        <%= link_to t('.logout'), :logout %>
       <% else -%>
-        <%= link_to "Register", new_user_path %> |
-        <%= link_to "Login", :login %>
+        <%= link_to t(".register"), new_user_path %> |
+        <%= link_to t(".login"), :login %>
       <% end -%>
   </div>
   <% if flash[:notice] -%>

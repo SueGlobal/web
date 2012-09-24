@@ -1,0 +1,8 @@
+es:
+  layouts:
+    application:
+      title: 'SueGlobal'
+      edit_profile: 'Editar perfil'
+      logout: 'Salir'
+      register: 'Registrarse'
+      login: 'Entrar'

@@ -1,21 +1,21 @@
-<h1>Listing users</h1>
+<h1><%= t '.header' %></h1>
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th><%= t('.email_header') %></th>
+    <th><%= t('.state_header') %></th>
+    <th><%= t('.actions_header') %></th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to t('.show'), user %></td>
+    <td><%= link_to t('.edit'), edit_user_path(user) %></td>
+    <td><%= link_to t('.destroy'), user, method: :delete, data: { confirm: t('.confirm') } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to t('.new_user'), new_user_path %>

@@ -1,0 +1,6 @@
+es:
+  user_sessions:
+    new:
+      header: 'Acceso'
+      forgot_question: '¿Olvidaste tu contraseña?'
+      back: 'Atrás'

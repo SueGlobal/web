@@ -1,0 +1,6 @@
+es:
+  users:
+    new:
+      header: 'Nuevo usuario'
+      back: 'Atrás'
+      signup: 'Registro'
