@@ -150,6 +150,8 @@ GEM
     rb-fsevent (0.9.1)
     rdoc (3.12)
       json (~> 1.4)
+    routing-filter (0.3.1)
+      actionpack
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -222,6 +224,7 @@ DEPENDENCIES
   pry
   rails (= 3.2.8)
   rb-fsevent (~> 0.9.1)
+  routing-filter
   rspec-rails
   sass-rails (~> 3.2.3)
   shoulda-matchers

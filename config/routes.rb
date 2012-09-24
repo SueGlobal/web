@@ -1,5 +1,6 @@
 SueGlobal::Application.routes.draw do
 
+  filter :locale
   resources :password_resets, only: [:create, :update, :edit]
   resources :user_sessions
 
