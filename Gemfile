@@ -58,3 +58,4 @@ gem 'debugger', group: [:test, :development]
 # gem 'cancan', git: "https://github.com/Serabe/cancan.git", branch: '2.0'
 gem 'cancan'
 gem 'letter_opener', group: [:test, :development]
+gem 'timecop', group: [:test]

@@ -33,4 +33,12 @@ FactoryGirl.define do
       u.save
     end
   end
+
+  trait :locked do
+    after :create do |u|
+      u.failed_logins_count = 50
+      u.lock_expires_at = (Time.now + 10.minutes)
+      u.save
+    end
+  end
 end
