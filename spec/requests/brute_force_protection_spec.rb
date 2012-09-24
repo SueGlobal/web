@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "BruteForceProtections", :focus do
+describe "BruteForceProtections" do
 
   LOGIN_RETRIES_AMOUNT_LIMIT = 10
   describe 'lock' do
