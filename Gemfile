@@ -60,3 +60,4 @@ gem 'cancan'
 gem 'letter_opener', group: [:test, :development]
 gem 'timecop', group: [:test]
 gem 'routing-filter'
+gem 'draper'
