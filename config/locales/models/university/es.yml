@@ -1,0 +1,18 @@
+es:
+  activerecord:
+    models:
+      university: 'Usuario'
+    attributes:
+      university:
+        name: 'Nombre'
+        abbreviation: 'Siglas'
+    errors:
+      models:
+        university:
+          attributes:
+            name:
+              taken: 'Ya existe una universidad con ese nombre.'
+              blank: 'Es necesario poner el nombre de la universidad.'
+            abbreviation:
+              blank: 'Es necesario dar unas siglas.'
+              taken: 'Ya existe una universidad con esas siglas.'

@@ -3,6 +3,7 @@
 
 FactoryGirl.define do
   factory :province do
-    name "MyString"
+    sequence(:id_prov){ |n| n }
+    sequence(:name){|n| "Province#{n}"}
   end
 end

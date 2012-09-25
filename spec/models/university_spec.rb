@@ -2,5 +2,17 @@
 require 'spec_helper'
 
 describe University do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  subject { create :university }
+
+  it{ should allow_mass_assignment_of(:name) }
+  it{ should allow_mass_assignment_of(:abbreviation) }
+
+  it{ should validate_presence_of(:name) }
+  it{ should validate_uniqueness_of(:name) }
+
+  it{ should validate_presence_of(:abbreviation) }
+  it{ should validate_uniqueness_of(:abbreviation) }
+
+  it{ should belong_to(:province) }
 end

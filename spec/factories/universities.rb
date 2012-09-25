@@ -3,8 +3,8 @@
 
 FactoryGirl.define do
   factory :university do
-    name "MyString"
-    abbreviation "MyString"
-    province ""
+    sequence(:name){|n| "University #{n}" }
+    sequence(:abbreviation){|n| "u#{n}" }
+    province
   end
 end
