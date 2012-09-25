@@ -11,30 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120924072714) do
+ActiveRecord::Schema.define(:version => 20120925094906) do
+
+  create_table "provinces", :force => true do |t|
+    t.integer  "id_prov",    :null => false
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "universities", :force => true do |t|
+    t.string   "name"
+    t.string   "abbreviation"
+    t.integer  "province_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "universities", ["abbreviation"], :name => "index_universities_on_abbreviation", :unique => true
 
   create_table "users", :force => true do |t|
+    t.string   "username",         :null => false
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
-    t.integer  "roles_mask",                      :default => 0
-    t.string   "remember_me_token"
-    t.datetime "remember_me_token_expires_at"
-    t.string   "activation_state"
-    t.string   "activation_token"
-    t.datetime "activation_token_expires_at"
-    t.string   "reset_password_token"
-    t.datetime "reset_password_token_expires_at"
-    t.datetime "reset_password_email_sent_at"
-    t.integer  "failed_logins_count",             :default => 0
-    t.datetime "lock_expires_at"
-    t.string   "unlock_token"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
-
-  add_index "users", ["activation_token"], :name => "index_users_on_activation_token"
-  add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
 
 end

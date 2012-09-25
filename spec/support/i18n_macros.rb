@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module I18nMacros
 
   def login_text

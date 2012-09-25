@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 SueGlobal::Application.routes.draw do
 
   filter :locale

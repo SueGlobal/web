@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
-describe "password_resets/edit.html.erb" do
+describe Province do
   pending "add some examples to (or delete) #{__FILE__}"
 end

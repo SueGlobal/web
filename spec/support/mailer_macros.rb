@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module MailerMacros
 
   def number_of_emails

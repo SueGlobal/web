@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CancanMacros
 
   def behave_as_unauthorized

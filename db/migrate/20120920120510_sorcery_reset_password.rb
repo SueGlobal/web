@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SorceryResetPassword < ActiveRecord::Migration
   def self.up
     add_column :users, :reset_password_token, :string, :default => nil

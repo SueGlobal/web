@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddUserActivationToUsers < ActiveRecord::Migration
   def self.up
     add_column :users, :activation_state, :string, default: nil

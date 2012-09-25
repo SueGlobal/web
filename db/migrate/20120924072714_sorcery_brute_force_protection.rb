@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SorceryBruteForceProtection < ActiveRecord::Migration
   def self.up
     add_column :users, :failed_logins_count, :integer, :default => 0

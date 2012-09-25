@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module LoginMacros
 
   def login_with email, password, remember=true, save_and_open_page_after_fill=false

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rubygems'
 require 'spork'
 #uncomment the following line to use spork with the debugger

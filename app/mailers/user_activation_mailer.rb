@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UserActivationMailer < ActionMailer::Base
   default from: "sue-global@example.com"
 
