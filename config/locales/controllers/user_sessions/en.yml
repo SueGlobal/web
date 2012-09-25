@@ -1,0 +1,9 @@
+en:
+  controllers:
+    user_sessions:
+      create:
+        login:
+          ok: 'Login successful.'
+          fail: 'Login failed.'
+      destroy:
+        logout: 'Logged out!'

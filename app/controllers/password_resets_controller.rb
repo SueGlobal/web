@@ -5,7 +5,7 @@ class PasswordResetsController < ApplicationController
     user.deliver_activation_or_reset_password_instructions! if user
 
 
-    redirect_to login_path, notice: 'Instructions has been sent to your email.'
+    redirect_to login_path, notice: t2('create.notice')
   end
 
   def edit
@@ -26,10 +26,15 @@ class PasswordResetsController < ApplicationController
       @user.password_confirmation = params[:user][:password_confirmation]
 
       if @user.change_password! params[:user][:password]
-        redirect_to login_path, notice: 'Password successfully updated.'
+        redirect_to login_path, notice: t2('update.notice')
       else
         render action: 'edit'
       end
     end
+  end
+
+  protected
+  def t2 path
+    I18n.t path, scope: 'controllers.password_resets'
   end
 end

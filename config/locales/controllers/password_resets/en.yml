@@ -1,0 +1,7 @@
+en:
+  controllers:
+    password_resets:
+      create:
+        notice: 'Instructions has been sent to your email.'
+      update:
+        notice: 'Password successfully updated.'

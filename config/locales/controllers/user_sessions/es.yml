@@ -1,0 +1,9 @@
+es:
+  controllers:
+    user_sessions:
+      create:
+        login:
+          ok: 'Ha entrado en su cuenta.'
+          fail: 'Los datos son incorrectos.'
+      destroy:
+        logout: 'Salió de su cuenta.'

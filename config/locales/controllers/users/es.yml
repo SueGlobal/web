@@ -1,0 +1,9 @@
+es:
+  controllers:
+    users:
+      activate:
+        notice: 'Usuario activado.'
+      update:
+        notice: 'Usuario actualizado.'
+      create:
+        notice: 'Usuario registrado.'

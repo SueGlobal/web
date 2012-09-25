@@ -28,7 +28,7 @@ describe "Signup" do
       end
 
       it "shows a flash confirming signup" do
-        page.should have_content('User was successfully created.')
+        page.should have_content(I18n.t('controllers.users.create.notice'))
       end
     end
 

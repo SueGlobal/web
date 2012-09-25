@@ -1,0 +1,9 @@
+en:
+  controllers:
+    users:
+      activate:
+        notice: 'User was successfully activated.'
+      update:
+        notice: 'User was successfully updated.'
+      create:
+        notice: 'User was successfully created.'

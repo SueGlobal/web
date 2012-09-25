@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_path, notice: 'User was successfully created.' }
+        format.html { redirect_to root_path, notice: t2('create.notice')}
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: t2('update.notice') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -93,9 +93,14 @@ class UsersController < ApplicationController
   def activate
     if (@user = User.load_from_activation_token(params[:id]))
       @user.activate!
-      redirect_to login_path, notice: 'User was successfully activated.'
+      redirect_to login_path, notice: t2('activate.notice')
     else
       not_authenticated
     end
+  end
+
+  protected
+  def t2 path
+    I18n.t path, scope: 'controllers.users'
   end
 end

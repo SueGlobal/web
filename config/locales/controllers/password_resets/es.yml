@@ -1,0 +1,7 @@
+es:
+  controllers:
+    password_resets:
+      create:
+        notice: 'Se ha enviado instrucciones a su correo.'
+      update:
+        notice: 'La contraseña ha sido actualizada.'
