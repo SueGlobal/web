@@ -8,19 +8,21 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Provincias
-inserts = [
-  'desconocida', 'Araba', 'Albacete', 'Alacant', 'Almería',
-  'Ávila', 'Badajoz', 'Balears', 'Barcelona', 'Burgos',
-  'Cáceres', 'Cádiz', 'Castellón de la Plana', 'Ciudad Real', 'Córdoba',
-  'A Coruña', 'Cuenca', 'Girona', 'Granada', 'Guadalajara',
-  'Gipuzkoa', 'Huelva', 'Huesca', 'Jaén', 'León',
-  'Lleida', 'La Rioja', 'Lugo', 'Madrid', 'Málaga',
-  'Murcia', 'Navarra', 'Ourense', 'Asturies', 'Palencia',
-  'Las Palmas', 'Pontevedra', 'Salamanca', 'S. C. Tenerife', 'Cantabria',
-  'Segovia', 'Sevilla', 'Soria', 'Tarragona', 'Teruel',
-  'Toledo', 'Valencia', 'Valladolid', 'Bizkaia', 'Zamora',
-  'Ceuta', 'Melilla'].each_with_index.map do |o, i|
-    "(#{i}, #{x})"
- end.join(', ')
+if Province.count.zero?
+  inserts = [
+    'desconocida', 'Araba', 'Albacete', 'Alacant', 'Almería',
+    'Ávila', 'Badajoz', 'Balears', 'Barcelona', 'Burgos',
+    'Cáceres', 'Cádiz', 'Castellón de la Plana', 'Ciudad Real', 'Córdoba',
+    'A Coruña', 'Cuenca', 'Girona', 'Granada', 'Guadalajara',
+    'Gipuzkoa', 'Huelva', 'Huesca', 'Jaén', 'León',
+    'Lleida', 'La Rioja', 'Lugo', 'Madrid', 'Málaga',
+    'Murcia', 'Navarra', 'Ourense', 'Asturies', 'Palencia',
+    'Las Palmas', 'Pontevedra', 'Salamanca', 'S. C. Tenerife', 'Cantabria',
+    'Segovia', 'Sevilla', 'Soria', 'Tarragona', 'Teruel',
+    'Toledo', 'Valencia', 'Valladolid', 'Bizkaia', 'Zamora',
+    'Ceuta', 'Melilla'].each_with_index.map do |o, i|
+    "(#{i}, '#{o}', now(), now())"
+    end.join(', ')
 
- Province.connection.execute "INSERT INTO provinces ('id_prov', 'name') VALUES #{inserts}"
+    Province.connection.execute "INSERT INTO provinces(id_prov, name, created_at, updated_at) VALUES #{inserts}"
+end
