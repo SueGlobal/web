@@ -12,18 +12,18 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: 'js-email' %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: 'js-password' %>
   </div>
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: 'js-password-confirmation' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'js-submit' %>
   </div>
 <% end -%>

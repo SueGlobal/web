@@ -1,4 +1,4 @@
 es:
   user_sessions:
-    _forgot_password_form:
+    forgot_password_form:
       submit: 'Cambiar contraseña'

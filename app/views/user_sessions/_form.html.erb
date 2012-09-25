@@ -1,17 +1,17 @@
-<%= form_tag user_sessions_path, method: :post do %>
+<%= form_tag user_sessions_path, method: :post, id: 'login-form' do %>
   <div class="field">
     <%= label_tag :email %><br>
-    <%= text_field_tag :email %>
+    <%= text_field_tag :email, nil, class: 'js-email' %>
   </div>
   <div class="field">
     <%= label_tag :password %><br>
-    <%= password_field_tag :password %>
+    <%= password_field_tag :password, nil, class: 'js-password' %>
   </div>
   <div class="field">
-    <%= check_box_tag :remember_me %>
-    <%= label_tag :remember_me, t('.remember_me') %>
+    <%= check_box_tag :remember_me, nil, false, class: 'js-remember' %>
+    <%= label_tag :remember_me, t('.remember_me')  %>
   </div>
   <div class="actions">
-     <%= submit_tag t('.submit') %>
+     <%= submit_tag t('.submit'), class: 'js-submit' %>
   </div>
 <% end -%>

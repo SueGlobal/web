@@ -18,7 +18,7 @@ describe "Logout" do
     end
 
     it "shows login option" do
-      page.should have_content("Login")
+      page.should have_content(login_text)
     end
   end
 end

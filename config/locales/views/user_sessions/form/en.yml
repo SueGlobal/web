@@ -1,5 +1,5 @@
 en:
   user_sessions:
-    _form:
+    form:
       remember_me: "Remember me for 5 days"
       submit: 'Login'

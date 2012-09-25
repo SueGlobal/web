@@ -2,9 +2,6 @@ require 'spec_helper'
 
 describe "Login" do
   describe "GET /logins" do
-    before :each do
-      visit login_path
-    end
 
     context "with valid data" do
       let(:password) { 'some_cool_password' }
@@ -14,12 +11,11 @@ describe "Login" do
         let!(:user) { create :user, :inactive, password: password }
 
         before :each do
-          fill_form email: user.email, password: password, remember_me: true
-          submit_form
+          login_with user.email, password, true
         end
 
         it "is not logged in" do
-          page.should have_content("Login")
+          page.should have_content(login_text)
         end
       end
 
@@ -28,12 +24,11 @@ describe "Login" do
 
         context "without being remembered" do
           before :each do
-            fill_form email: user.email, password: password, remember_me: false
-            submit_form
+            login_with user.email, password, false
           end
 
           it 'shows logout option' do
-            page.should have_content('Logout')
+            page.should have_content(logout_text)
           end
 
           it "does not remember the user" do
@@ -44,12 +39,11 @@ describe "Login" do
         context "being remembered" do
 
           before :each do
-            fill_form email: user.email, password: password, remember_me: true
-            submit_form
+            login_with user.email, password, true
           end
 
           it "shows logout option" do
-            page.should have_content('Logout')
+            page.should have_content(logout_text)
           end
 
           it "gets the user remembered" do
@@ -64,27 +58,12 @@ describe "Login" do
       let!(:user) { create :user, :active, password: password }
 
       before :each do
-        fill_form email: user.email, password: "p#{password}", remember_me: true
-        submit_form
+        login_with user.email, "p#{password}", true
       end
 
       it 'shows login option' do
-        page.should have_content('Login')
+        page.should have_content(login_text)
       end
     end
-  end
-
-  def fill_form data
-    fill_in 'Email', with: data[:email]
-    fill_in 'Password', with: data[:password]
-    if data[:remember_me]
-      check 'remember_me'
-    else
-      uncheck 'remember_me'
-    end
-  end
-
-  def submit_form
-    click_button 'Login'
   end
 end

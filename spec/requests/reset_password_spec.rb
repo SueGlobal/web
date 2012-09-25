@@ -8,8 +8,10 @@ describe "ResetPasswords" do
     it "sends an email" do
       lambda {
         visit login_path
-        fill_in 'forgot-password-email', with: user.email
-        click_button 'forgot-password-submit'
+        within '#forgot-password-form' do
+          find('.js-forgot-password-email').set user.email
+          find('.js-forgot-password-submit').click
+        end
       }.should change { number_of_emails }
     end
   end
@@ -20,7 +22,7 @@ describe "ResetPasswords" do
       visit edit_password_reset_path(user.reset_password_token)
       fill_in 'user[password]', with: 'new_password'
       fill_in 'user[password_confirmation]', with: 'new_password'
-      click_on 'Reset password' # TODO: frágil
+      find('.js-reset-password').click
     end
 
     it "changes the password" do

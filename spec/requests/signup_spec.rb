@@ -81,13 +81,13 @@ describe "Signup" do
       end
     end
     def submit_form
-      click_button 'Create User'
+      find('.js-submit').click
     end
 
     def fill_form attrs
-      fill_in 'Email', with: attrs[:email]
-      fill_in 'Password', with: attrs[:password]
-      fill_in 'Password confirmation', with: (attrs[:password_confirmation] || attrs[:password])
+      find('.js-email').set attrs[:email]
+      find('.js-password').set attrs[:password]
+      find('.js-password-confirmation').set (attrs[:password_confirmation] || attrs[:password])
     end
   end
 end

@@ -20,7 +20,7 @@ describe "BruteForceProtections" do
     it "unlocks after some time has passed" do
       Timecop.freeze(Time.now + 11.minutes) do
         login_with user.email, password
-        page.should have_content('Logout')
+        page.should have_content(logout_text)
         user.reload.lock_expires_at.should be_nil
       end
     end
@@ -28,7 +28,7 @@ describe "BruteForceProtections" do
     it "does not login if time has not passed yet" do
       Timecop.freeze(user.lock_expires_at - 10.minutes) do
         login_with user.email, password
-        page.should have_content('Login')
+        page.should have_content(login_text)
         user.reload.lock_expires_at.should_not be_nil
       end
     end
