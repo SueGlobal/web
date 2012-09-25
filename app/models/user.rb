@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   attr_accessible :email, :password, :password_confirmation
 
+  belongs_to :university
+
   validates :email,
     uniqueness: true,
     presence: true

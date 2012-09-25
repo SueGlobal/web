@@ -13,6 +13,8 @@ describe User do
   it { should validate_confirmation_of(:password) }
   it { should ensure_length_of(:password).is_at_least(6) }
 
+  it { should belong_to(:university) }
+
   describe '#roles=' do
     it "sets simple role if none is given" do
       create(:user).roles.should include(:simple)

@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
@@ -41,5 +40,9 @@ FactoryGirl.define do
       u.lock_expires_at = (Time.now + 10.minutes)
       u.save
     end
+  end
+
+  trait :university_admin do
+    university
   end
 end

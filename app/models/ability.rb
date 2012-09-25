@@ -32,14 +32,18 @@ class Ability
   end
 
   def basic_abilities
+    can :read, University
   end
 
   def simple_abilities user
+    can [:edit, :update], University, id: user.university_id
     can [:read, :update], User, id: user.id
     cannot :index, User
   end
 
   def admin_abilities user
+    can :manage, University
+    cannot :destroy, University
     can :manage, User do |other_user|
       !other_user.roles.include?(:god)
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120925094906) do
+ActiveRecord::Schema.define(:version => 20120925121241) do
 
   create_table "provinces", :force => true do |t|
     t.integer  "id_prov",    :null => false
@@ -48,10 +48,12 @@ ActiveRecord::Schema.define(:version => 20120925094906) do
     t.integer  "failed_logins_count",             :default => 0
     t.datetime "lock_expires_at"
     t.string   "unlock_token"
+    t.integer  "university_id"
   end
 
   add_index "users", ["activation_token"], :name => "index_users_on_activation_token"
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
+  add_index "users", ["university_id"], :name => "index_users_on_university_id"
 
 end
