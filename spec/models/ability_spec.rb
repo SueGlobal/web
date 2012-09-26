@@ -7,6 +7,19 @@ describe Ability do
   let(:ability) { Ability.new user }
 
   describe 'regarding users' do
+    context "when there is no user" do
+      let(:user) { nil }
+      let(:other_user) { create :user }
+
+      it { should_not be_able_to :destroy, user }
+      it { should_not be_able_to :create, User }
+      it { should_not be_able_to :read, other_user }
+      it { should_not be_able_to :update, other_user }
+      it { should_not be_able_to :update, create(:admin_user) }
+      it { should_not be_able_to :update, create(:god_user) }
+      it { should_not be_able_to :destroy, other_user }
+    end
+
     context "when it is a simple registered user" do
       let(:user) { create :simple_user }
       let(:other_user) { create :user }
@@ -48,6 +61,18 @@ describe Ability do
   end
 
   describe 'regarding universities' do
+    context "when there is no user" do
+      let(:user) { nil }
+      let(:university) { create :university }
+
+      it { should_not be_able_to :edit, university }
+      it { should_not be_able_to :update, university }
+      it { should be_able_to :read, University }
+      it { should_not be_able_to :destroy, University }
+      it { should_not be_able_to :create, University }
+      it { should_not be_able_to :new, University }
+    end
+
     context "when it is a simple user" do
       let(:university) { create :university }
       let(:other_university) { create :university }

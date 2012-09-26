@@ -21,6 +21,7 @@ class Ability
     # these will grant permission on each item in the array.
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
+    user ||= User.new.tap { |u| u.roles = [:simple] }
     basic_abilities
     return unless user
     roles = user.roles
