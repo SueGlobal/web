@@ -9,6 +9,10 @@ FactoryGirl.define do
       factory "#{role}_user" do
         roles [role]
       end
+
+      trait role do
+        roles [role]
+      end
     end
   end
 
@@ -40,9 +44,5 @@ FactoryGirl.define do
       u.lock_expires_at = (Time.now + 10.minutes)
       u.save
     end
-  end
-
-  trait :university_admin do
-    university
   end
 end
