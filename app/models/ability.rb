@@ -38,6 +38,7 @@ class Ability
 
   def simple_abilities user
     can [:edit, :update], University, id: user.university_id
+    cannot [:new, :create], University
     can [:read, :update], User, id: user.id
     cannot :index, User
   end
