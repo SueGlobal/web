@@ -1,0 +1,18 @@
+en:
+  unauthorized:
+    read:
+      user: "You cannot see this user's profile."
+    new:
+      university: 'You cannot create a university.'
+    create:
+      university: 'You cannot create a university.'
+    edit:
+      user: "You are not allowed to edit this user's profile."
+      university: "Only a university administrator can edit this profile."
+    update:
+      user: "You are not allowed to edit this user's profile."
+      university: "Only a university administrator can edit this profile."
+    index:
+      user: "You cannot access this page."
+    assign_roles:
+      user: "You cannot change this user's roles."

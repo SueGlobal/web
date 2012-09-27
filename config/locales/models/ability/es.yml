@@ -1,0 +1,18 @@
+es:
+  unauthorized:
+    read:
+      user: "No tienes acceso al perfil de este usuario."
+    new:
+      university: 'No puedes registrar nuevas universidades.'
+    create:
+      university: 'No puedes registrar nuevas universidades.'
+    edit:
+      user: "No puedes editar el perfil de este usuario."
+      university: "Sólo el administrador de la universidad puede modificar el perfil."
+    update:
+      user: "No puedes editar el perfil de este usuario."
+      university: "Sólo el administrador de la universidad puede modificar el perfil."
+    index:
+      user: "No puedes acceder a esta página."
+    assign_roles:
+      user: "No puedes editar los permisos de este usuario."
