@@ -85,6 +85,10 @@ Spork.prefork do
     config.after :each do
       DatabaseCleaner[:active_record].clean
     end
+
+    config.after :each, type: :controller do
+      logout_user
+    end
   end
 end
 
