@@ -26,7 +26,7 @@ describe UniversitiesController do
     end
   end
 
-  describe "GET new", :focus do
+  describe "GET new" do
 
     before :each do
       login_user user if user
