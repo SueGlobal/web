@@ -3,6 +3,7 @@ class University < ActiveRecord::Base
   attr_accessible :abbreviation, :name, :province
   belongs_to :province
   has_many :users
+  has_many :services
 
   validates :name,
     presence: true,

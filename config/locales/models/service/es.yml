@@ -1,0 +1,16 @@
+es:
+  activerecord:
+    models:
+      service: 'Servicio'
+    attributes:
+      service:
+        name: 'Denominación'
+        dependency: 'Dependencia'
+    errors:
+      models:
+        service:
+          attributes:
+            name:
+              blank: 'Es necesario poner la denominación del servicio.'
+            dependency:
+              blank: 'Es necesario añadir la dependencia del servicio.'

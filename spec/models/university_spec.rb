@@ -16,4 +16,5 @@ describe University do
 
   it { should belong_to(:province) }
   it { should have_many(:users) }
+  it { should have_many(:services) }
 end
