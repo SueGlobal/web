@@ -110,4 +110,60 @@ describe Ability do
       it { should be_able_to :destroy, University }
     end
   end
+
+  context "regarding services", :focus do
+    let(:service) { create :service }
+    let(:university) { service.university }
+
+    let(:other_service) { create :service }
+    let(:other_university) { other_service.university }
+    context "when there is no user" do
+      let(:user) { nil }
+
+      it { should be_able_to :read, Service }
+      it { should_not be_able_to :new, service }
+      it { should_not be_able_to :create, service }
+      it { should_not be_able_to :edit, service }
+      it { should_not be_able_to :update, service }
+      it { should_not be_able_to :destroy, service }
+    end
+
+    context "when it is a simple user" do
+      let(:user) { create :user, :simple, :active, university: university }
+
+      it { should be_able_to :read, Service }
+      it { should be_able_to :new, service }
+      it { should_not be_able_to :new, other_service }
+      it { should be_able_to :create, service }
+      it { should_not be_able_to :create, other_service }
+      it { should be_able_to :edit, service }
+      it { should_not be_able_to :edit, other_service }
+      it { should be_able_to :update, service }
+      it { should_not be_able_to :update, other_service }
+      it { should be_able_to :destroy, service }
+      it { should_not be_able_to :destroy, other_service }
+    end
+    context "when it is an admin" do
+      let(:user) { create :user, :admin, :active, university: university }
+
+
+      it { should be_able_to :read, Service }
+      it { should be_able_to :new, service }
+      it { should be_able_to :new, other_service }
+      it { should be_able_to :create, service }
+      it { should be_able_to :create, other_service }
+      it { should be_able_to :edit, service }
+      it { should be_able_to :edit, other_service }
+      it { should be_able_to :update, service }
+      it { should be_able_to :update, other_service }
+      it { should be_able_to :destroy, service }
+      it { should be_able_to :destroy, other_service }
+    end
+
+    context "when it is god" do
+      let(:user) { create :user, :god, :active }
+
+      it { should be_able_to :manage, Service }
+    end
+  end
 end
