@@ -4,7 +4,9 @@ SueGlobal::Application.routes.draw do
   filter :locale
   resources :password_resets, only: [:create, :update, :edit]
   resources :user_sessions
-  resources :universities
+  resources :universities do
+    resources :services, shallow: true, except: :show
+  end
 
   match 'login' => 'user_sessions#new', as: :login
   match 'logout' => 'user_sessions#destroy', as: :logout
