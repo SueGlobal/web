@@ -1,0 +1,7 @@
+en:
+  controllers:
+    services:
+      create:
+        notice: 'Service was successfully created.'
+      update:
+        notice: 'Service was successfully updated.'

@@ -157,6 +157,11 @@ describe ServicesController do
             post_create
             response.should redirect_to(Service.last)
           end
+
+          it "sets the flash" do
+            post_create
+            should set_the_flash
+          end
         end
 
         describe "with invalid params" do
@@ -222,6 +227,11 @@ describe ServicesController do
             service
             put :update, {:id => service.to_param, :service => valid_attributes}, valid_session
             response.should redirect_to(service)
+          end
+
+          it "sets the flash" do
+            put :update, {:id => service.to_param, :service => valid_attributes}, valid_session
+            should set_the_flash
           end
         end
 

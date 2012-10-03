@@ -35,7 +35,7 @@ class ServicesController < ApplicationController
   def create
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
+        format.html { redirect_to @service, notice: t2('create.notice') }
         format.json { render json: @service, status: :created, location: @service }
       else
         format.html { render action: "new" }
@@ -49,7 +49,7 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update_attributes(params[:service])
-        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
+        format.html { redirect_to @service, notice: t2('update.notice') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -67,5 +67,10 @@ class ServicesController < ApplicationController
       format.html { redirect_to @service.university }
       format.json { head :no_content }
     end
+  end
+
+  protected
+  def t2 path
+    I18n.t path, scope: 'controllers.services'
   end
 end

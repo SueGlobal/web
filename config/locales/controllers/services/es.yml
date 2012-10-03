@@ -1,0 +1,7 @@
+es:
+  controllers:
+    services:
+      create:
+        notice: 'Has añadido un servicio.'
+      update:
+        notice: 'Has actualizado el servicio.'
