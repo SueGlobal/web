@@ -1,19 +1,24 @@
-<h1>Listing services</h1>
+<h1><%= t '.header', university: @university.abbreviation %></h1>
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
+    <th><%= Service.human_attribute_name :name %></th>
+    <th><%= Service.human_attribute_name :dependency %></th>
+    <th><%= t('.actions') %></th>
   </tr>
 
 <% @services.each do |service| %>
   <tr>
-    <td><%= link_to 'Edit', edit_service_path(service) %></td>
-    <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= service.name %></td>
+    <td><%= service.dependency %></td>
+    <td><%= link_to t('.edit'), edit_service_path(service) %></td>
+    <td><%= link_to t('.destroy'), service,
+                     method: :delete,
+                     data: { confirm: t('.destroy_confirmation') } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Service', new_university_service_path(@university) %>
+<%= link_to t('.new_service'), new_university_service_path(@university) %>

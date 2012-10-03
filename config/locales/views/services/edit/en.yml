@@ -1,0 +1,5 @@
+en:
+  services:
+    edit:
+      header: 'Editing service'
+      back: 'Back'

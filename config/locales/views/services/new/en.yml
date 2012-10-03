@@ -1,0 +1,5 @@
+en:
+  users:
+    new:
+      header: 'New Service'
+      back: 'Back'

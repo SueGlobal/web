@@ -1,0 +1,11 @@
+es:
+  services:
+    form:
+      errors_header:
+        one: 'No se pudo guardar el servicio por un error:'
+        other: 'No se pudo guardar el servicio por %{count} errores'
+  helpers:
+    submit:
+      services:
+        create: 'Añadir servicio'
+        update: 'Actualizar servicio'

@@ -1,0 +1,9 @@
+en:
+  services:
+    index:
+      header: "Listing %{university}'s services"
+      actions: 'Actions'
+      edit: 'Edit'
+      destroy: 'Delete'
+      destroy_confirmation: 'Are you sure?'
+      new_service: 'New Service'
