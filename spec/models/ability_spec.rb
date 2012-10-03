@@ -111,7 +111,7 @@ describe Ability do
     end
   end
 
-  context "regarding services", :focus do
+  context "regarding services" do
     let(:service) { create :service }
     let(:university) { service.university }
 
