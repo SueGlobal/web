@@ -168,6 +168,11 @@ describe UniversitiesController do
             post :create, {:university => valid_attributes}, valid_session
             response.should redirect_to(University.last)
           end
+
+          it "sets flash" do
+            post :create, {:university => valid_attributes}, valid_session
+            should set_the_flash
+          end
         end
 
         describe "with invalid params" do
@@ -225,6 +230,11 @@ describe UniversitiesController do
           it "redirects to the university" do
             put :update, {:id => university.to_param, :university => valid_attributes}, valid_session
             response.should redirect_to(university)
+          end
+
+          it "sets the flash" do
+            put :update, {:id => university.to_param, :university => valid_attributes}, valid_session
+            should set_the_flash
           end
         end
 

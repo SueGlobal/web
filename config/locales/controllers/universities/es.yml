@@ -1,0 +1,7 @@
+es:
+  controllers:
+    universities:
+      create:
+        notice: 'Has creado una universidad.'
+      update:
+        notice: 'Has actualizado la universidad.'

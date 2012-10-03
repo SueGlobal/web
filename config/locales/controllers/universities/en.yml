@@ -1,0 +1,7 @@
+en:
+  controllers:
+    universities:
+      create:
+        notice: 'University was successfully created.'
+      update:
+        notice: 'University was successfully updated.'
