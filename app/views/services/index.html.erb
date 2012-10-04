@@ -21,4 +21,6 @@
 
 <br />
 
-<%= link_to t('.new_service'), new_university_service_path(@university) %>
+<% if can? :create, University -%>
+  <%= link_to t('.new_service'), new_university_service_path(@university) %>
+<% end -%>

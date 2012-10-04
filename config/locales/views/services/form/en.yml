@@ -2,8 +2,8 @@ en:
   services:
     form:
       errors_header:
-        one: 'An error prohibited this user from being saved:'
-        other: '%{count} errors prohibited this user from being saved:'
+        one: 'An error prohibited this service from being saved:'
+        other: '%{count} errors prohibited this service from being saved:'
   helpers:
     submit:
       services:
