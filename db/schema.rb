@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121002082612) do
+ActiveRecord::Schema.define(:version => 20121004094248) do
+
+  create_table "general_frames", :force => true do |t|
+    t.integer  "year"
+    t.integer  "degree_graduates"
+    t.integer  "bachelors_degree_graduates"
+    t.integer  "graduates"
+    t.integer  "master_graduates"
+    t.integer  "number_of_campus"
+    t.integer  "number_of_qualifications"
+    t.integer  "number_of_masters_degree"
+    t.integer  "university_id"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  add_index "general_frames", ["university_id"], :name => "index_general_frames_on_university_id"
+  add_index "general_frames", ["year"], :name => "index_general_frames_on_year"
 
   create_table "provinces", :force => true do |t|
     t.integer  "id_prov",    :null => false
