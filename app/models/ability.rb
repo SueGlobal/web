@@ -34,11 +34,11 @@ class Ability
 
   def basic_abilities
     can :read, University
-    can :read, Service
+    can :read, [Service, GeneralFrame]
   end
 
   def simple_abilities user
-    can :manage, Service, university_id: user.university_id
+    can :manage, [Service, GeneralFrame] , university_id: user.university_id
     can [:edit, :update], University, id: user.university_id
     cannot [:new, :create], University
     can [:read, :update], User, id: user.id
@@ -46,7 +46,7 @@ class Ability
   end
 
   def admin_abilities user
-    can :manage, Service
+    can :manage, [Service, GeneralFrame]
     can :manage, University
     cannot :destroy, University
     can :manage, User do |other_user|

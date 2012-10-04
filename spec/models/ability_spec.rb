@@ -166,4 +166,60 @@ describe Ability do
       it { should be_able_to :manage, Service }
     end
   end
+
+  context "regarding general frames" do
+    let(:general_frame) { create :general_frame }
+    let(:university) { general_frame.university }
+
+    let(:other_general_frame) { create :service }
+    let(:other_university) { other_general_frame.university }
+    context "when there is no user" do
+      let(:user) { nil }
+
+      it { should be_able_to :read, GeneralFrame }
+      it { should_not be_able_to :new, general_frame }
+      it { should_not be_able_to :create, general_frame }
+      it { should_not be_able_to :edit, general_frame }
+      it { should_not be_able_to :update, general_frame }
+      it { should_not be_able_to :destroy, general_frame }
+    end
+
+    context "when it is a simple user" do
+      let(:user) { create :user, :simple, :active, university: university }
+
+      it { should be_able_to :read, GeneralFrame }
+      it { should be_able_to :new, general_frame }
+      it { should_not be_able_to :new, other_general_frame }
+      it { should be_able_to :create, general_frame }
+      it { should_not be_able_to :create, other_general_frame }
+      it { should be_able_to :edit, general_frame }
+      it { should_not be_able_to :edit, other_general_frame }
+      it { should be_able_to :update, general_frame }
+      it { should_not be_able_to :update, other_general_frame }
+      it { should be_able_to :destroy, general_frame }
+      it { should_not be_able_to :destroy, other_general_frame }
+    end
+    context "when it is an admin" do
+      let(:user) { create :user, :admin, :active, university: university }
+
+
+      it { should be_able_to :read, GeneralFrame }
+      it { should be_able_to :new, general_frame }
+      it { should be_able_to :new, other_general_frame }
+      it { should be_able_to :create, general_frame }
+      it { should be_able_to :create, other_general_frame }
+      it { should be_able_to :edit, general_frame }
+      it { should be_able_to :edit, other_general_frame }
+      it { should be_able_to :update, general_frame }
+      it { should be_able_to :update, other_general_frame }
+      it { should be_able_to :destroy, general_frame }
+      it { should be_able_to :destroy, other_general_frame }
+    end
+
+    context "when it is god" do
+      let(:user) { create :user, :god, :active }
+
+      it { should be_able_to :manage, GeneralFrame }
+    end
+  end
 end
