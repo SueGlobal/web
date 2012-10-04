@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ServicesController < ApplicationController
   load_and_authorize_resource :university, except: [:index]
   load_and_authorize_resource :service, through: :university,

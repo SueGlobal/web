@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateGeneralFrames < ActiveRecord::Migration
   def change
     create_table :general_frames do |t|

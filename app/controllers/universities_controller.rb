@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UniversitiesController < ApplicationController
   load_and_authorize_resource except: [:index, :show]
   before_filter :require_login, except: [:index, :show]

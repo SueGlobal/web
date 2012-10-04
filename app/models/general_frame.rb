@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class GeneralFrame < ActiveRecord::Base
   belongs_to :university
   attr_accessible :bachelors_degree_graduates, :degree_graduates,

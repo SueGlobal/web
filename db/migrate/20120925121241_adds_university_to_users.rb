@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddsUniversityToUsers < ActiveRecord::Migration
   def up
     add_column :users, :university_id, :integer
