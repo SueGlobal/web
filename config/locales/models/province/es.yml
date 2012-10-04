@@ -1,0 +1,8 @@
+es:
+  activerecord:
+    models:
+      province: 'Provincia'
+    attributes:
+      university:
+        name: 'Nombre'
+        id_prov: 'Prefijo postal'
