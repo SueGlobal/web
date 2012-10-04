@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "universities/index" do
   before(:each) do
     assign(:universities, [
-      stub_model(University),
-      stub_model(University)
+      create(:university),
+      create(:university)
     ])
   end
 
