@@ -1,0 +1,9 @@
+es:
+  universities:
+    show:
+      no_services: 'La universidad no ha registrado ningún servicio de empleo.'
+      edit_service: 'Editar servicio'
+      destroy_service: 'Borrar servicio'
+      destroy_service_confirmation: '¿Está seguro de querer borrar este servicio?'
+      edit: 'Editar'
+      back: 'Atrás'

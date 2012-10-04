@@ -1,0 +1,9 @@
+en:
+  universities:
+    show:
+      no_services: 'University has registered no services.'
+      edit_service: 'Edit service'
+      destroy_service: 'Destroy service'
+      destroy_service_confirmation: 'Are you sure you want to delete this service?'
+      edit: 'Edit'
+      back: 'Back'

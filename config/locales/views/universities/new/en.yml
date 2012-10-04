@@ -1,0 +1,5 @@
+en:
+  universities:
+    new:
+      header: 'New university'
+      back: 'Back'

@@ -1,6 +1,6 @@
-<h1>Editing university</h1>
+<h1><%= t '.header' %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @university %> |
-<%= link_to 'Back', universities_path %>
+<%= link_to t('.show'), @university %> |
+<%= link_to t('.back'), universities_path %>

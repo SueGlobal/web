@@ -1,21 +1,39 @@
-<h1>Listing universities</h1>
+<h1><%= t '.header' %></h1>
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th><%= University.human_attribute_name :abbreviation %></th>
+    <th><%= University.human_attribute_name :name %></th>
+    <th><%= Province.model_name.human %></th>
+    <th><%= t '.actions' %></th>
   </tr>
 
 <% @universities.each do |university| %>
   <tr>
-    <td><%= link_to 'Show', university %></td>
-    <td><%= link_to 'Edit', edit_university_path(university) %></td>
-    <td><%= link_to 'Destroy', university, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= university.abbreviation %></td>
+    <td><%= university.name %></td>
+    <td><%= university.province.name %></td>
+    <td>
+      <ul>
+        <% if can? :read, university -%>
+          <li><%= link_to t('.show'), university %>
+        <% end -%>
+
+        <% if can? :edit, university -%>
+          <li><%= link_to t('.edit'), edit_university_path(university) %>
+        <% end -%>
+
+        <% if can? :destroy, university -%>
+          <li><%= link_to t('.destroy'), university,
+                          method: :delete,
+                          data: { confirm: t('.destroy_confirmation') } %>
+        <% end -%>
+      </ul>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New University', new_university_path %>
+<%= link_to t('.new_university'), new_university_path %>

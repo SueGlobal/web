@@ -1,0 +1,11 @@
+es:
+  universities:
+    form:
+      errors_header:
+        one: 'No se pudo guardar la universidad por un error:'
+        other: 'No se pudo guardar la universidad por %{count} errores:'
+  helper:
+    submit:
+      universities:
+        create: 'Añadir universidad'
+        update: 'Actualizar universidad'

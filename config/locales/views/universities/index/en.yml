@@ -1,0 +1,10 @@
+en:
+  universities:
+    index:
+      header: 'Listing universities'
+      actions: 'Actions'
+      show: 'Show'
+      edit: 'Edit'
+      destroy: 'Destroy'
+      destroy_confirmation: 'Are you sure?'
+      new_university: 'New university'

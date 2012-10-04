@@ -1,0 +1,6 @@
+en:
+  universities:
+    edit:
+      header: 'Editing university'
+      show: 'Show'
+      back: 'Back'

@@ -1,0 +1,11 @@
+en:
+  universities:
+    form:
+      errors_header:
+        one: 'An error prohibited this university from being saved:'
+        other: '%{count} errors prohibited this university from being saved:'
+  helper:
+    submit:
+      universities:
+        create: 'Add university'
+        update: 'Update university'
