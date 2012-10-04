@@ -29,4 +29,28 @@ class UniversityDecorator < Draper::Base
   #     h.content_tag :span, attributes["created_at"].strftime("%a %m/%d/%y"),
   #                   :class => 'timestamp'
   #   end
+
+  def general_frame_years
+    @general_frame_years ||= GeneralFrame.where(university_id: university.id).order('year ASC').uniq.pluck(:year)
+  end
+
+  def miss_general_frame_years
+    @miss_general_frame_years ||= (2000..Time.zone.now.year).to_a - general_frame_years
+  end
+
+  def general_frame_academic_years
+    general_frame_years.map { |y| to_academic_course(y) }
+  end
+
+  def miss_general_frame_academic_years_for_select
+    miss_general_frame_academic_years.zip miss_general_frame_years
+  end
+
+  def miss_general_frame_academic_years
+    miss_general_frame_years.map { |y| to_academic_course(y) }
+  end
+
+  def to_academic_course year
+    "#{year}/#{year-1999}"
+  end
 end
