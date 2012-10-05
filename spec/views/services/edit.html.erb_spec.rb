@@ -4,6 +4,7 @@ require 'spec_helper'
 describe "services/edit" do
   before(:each) do
     @service = assign(:service, create(:service))
+    @path = assign(:path, @service)
   end
 
   it "renders the edit service form" do

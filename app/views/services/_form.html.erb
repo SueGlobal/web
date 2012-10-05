@@ -1,4 +1,4 @@
-<%= form_for(@service, url: university_services_path([@university, @service])) do |f| %>
+<%= form_for(@path) do |f| %>
   <% if @service.errors.any? %>
     <div id="error_explanation">
       <h2><%= t '.errors_header', count: @service.errors.count %></h2>

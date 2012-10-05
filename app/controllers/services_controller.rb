@@ -17,6 +17,7 @@ class ServicesController < UniversityDependentModelController
   # GET /services/new
   # GET /services/new.json
   def new
+    @path = [@university, @service]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @service }
@@ -25,6 +26,7 @@ class ServicesController < UniversityDependentModelController
 
   # GET /services/1/edit
   def edit
+    @path = @service
   end
 
   # POST /services
