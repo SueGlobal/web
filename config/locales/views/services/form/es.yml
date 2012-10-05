@@ -3,7 +3,7 @@ es:
     form:
       errors_header:
         one: 'No se pudo guardar el servicio por un error:'
-        other: 'No se pudo guardar el servicio por %{count} errores'
+        other: 'No se pudo guardar el servicio por %{count} errores:'
   helpers:
     submit:
       services:
