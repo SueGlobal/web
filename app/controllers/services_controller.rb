@@ -1,9 +1,6 @@
 # -*- encoding : utf-8 -*-
-class ServicesController < ApplicationController
-  load_and_authorize_resource :university, except: [:index]
-  load_and_authorize_resource :service, through: :university,
-                              shallow: true, except: [:index]
-  before_filter :require_login, except: [:index]
+class ServicesController < UniversityDependentModelController
+  dependent_model :service
 
   # GET /services
   # GET /services.json
@@ -20,7 +17,6 @@ class ServicesController < ApplicationController
   # GET /services/new
   # GET /services/new.json
   def new
-    @service = @university.services.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @service }
