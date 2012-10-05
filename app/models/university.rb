@@ -4,6 +4,7 @@ class University < ActiveRecord::Base
   belongs_to :province
   has_many :users
   has_many :services
+  has_many :general_frames
 
   validates :name,
     presence: true,
