@@ -1,0 +1,7 @@
+en:
+  controllers:
+    general_frames:
+      create:
+        notice: 'General frame was successfully created.'
+      update:
+        notice: 'General frame was successfully updated.'

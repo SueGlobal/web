@@ -44,7 +44,7 @@ class GeneralFramesController < UniversityDependentModelController
 
     respond_to do |format|
       if @general_frame.save
-        format.html { redirect_to @general_frame, notice: 'General frame was successfully created.' }
+        format.html { redirect_to @general_frame, notice: 'create.notice' }
         format.json { render json: @general_frame, status: :created, location: @general_frame }
       else
         format.html { render action: "new" }
@@ -59,7 +59,7 @@ class GeneralFramesController < UniversityDependentModelController
 
     respond_to do |format|
       if @general_frame.update_attributes(params[:general_frame])
-        format.html { redirect_to @general_frame, notice: 'General frame was successfully updated.' }
+        format.html { redirect_to @general_frame, notice: t2('update.notice') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -77,6 +77,11 @@ class GeneralFramesController < UniversityDependentModelController
       format.html { redirect_to @general_frame.university }
       format.json { head :no_content }
     end
+  end
+
+  protected
+  def t2 path
+    I18n.t path, scope: 'controllers.general_frames'
   end
 
   protected
