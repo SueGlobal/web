@@ -41,12 +41,10 @@ describe UsersController do
 
       before :each do
         controller.should_receive(:authorize!).and_raise CanCan::AccessDenied
+        get :index, {}, valid_session
       end
 
-      it "behaves as unauthorized" do
-        get :index, {}, valid_session
-        behave_as_unauthorized
-      end
+      it_behaves_like "user is not authorized"
     end
   end
 
@@ -64,9 +62,7 @@ describe UsersController do
         get :show, {id: other_user.to_param}, valid_session
       end
 
-      it "behaves as not authenticated" do
-        behave_as_not_authenticated
-      end
+      it_behaves_like "user is not authenticated"
     end
 
     context "when logged in" do
@@ -86,12 +82,10 @@ describe UsersController do
       context "when cannot see the requested user" do
         before :each do
           controller.should_receive(:authorize!).and_raise CanCan::AccessDenied
+          get :show, {id: other_user.to_param}, valid_session
         end
 
-        it "behaves as unauthorized" do
-          get :show, {id: other_user.to_param}, valid_session
-          behave_as_unauthorized
-        end
+        it_behaves_like "user is not authorized"
       end
     end
   end
@@ -113,10 +107,11 @@ describe UsersController do
     context "when not logged in" do
       let(:user) { nil }
 
-      it "behaves as not authenticated" do
+      before :each do
         get :edit, {id: other_user.to_param}, valid_session
-        behave_as_not_authenticated
       end
+
+      it_behaves_like "user is not authenticated"
     end
 
     context "when logged in" do
@@ -138,9 +133,7 @@ describe UsersController do
           get :edit, {id: other_user.to_param}, valid_session
         end
 
-        it "behaves as unauthorized" do
-          behave_as_unauthorized
-        end
+        it_behaves_like "user is not authorized"
       end
     end
   end
@@ -198,11 +191,13 @@ describe UsersController do
     context "when not logged in" do
       let(:user) { nil }
 
-      it "behaves as not authenticated" do
+      before :each do
         put :update, {id: other_user.to_param,
                       user: {}},
                       valid_session
       end
+
+      it_behaves_like "user is not authenticated"
     end
 
     context "when logged in" do
@@ -263,9 +258,7 @@ describe UsersController do
                         valid_session
         end
 
-        it "behaves as unauthorized" do
-          behave_as_unauthorized
-        end
+        it_behaves_like "user is not authorized"
       end
     end
   end
@@ -284,9 +277,7 @@ describe UsersController do
         delete :destroy, {id: other_user.to_param}, valid_session
       end
 
-      it "behaves as not authenticated" do
-        behave_as_not_authenticated
-      end
+      it_behaves_like "user is not authenticated"
     end
 
     context "when logged in" do
@@ -314,20 +305,13 @@ describe UsersController do
       context "when cannot destroy other user" do
         before :each do
           controller.should_receive(:authorize!).and_raise CanCan::AccessDenied
-        end
-
-        it "does not destroys any user" do
           other_user
           lambda{
             delete :destroy, {id: other_user.to_param}, valid_session
           }.should_not change(User, :count)
         end
 
-        it "behaves as unauthorized" do
-          other_user
-          delete :destroy, {id: other_user.to_param}, valid_session
-          behave_as_unauthorized
-        end
+        it_behaves_like "user is not authorized"
       end
     end
   end

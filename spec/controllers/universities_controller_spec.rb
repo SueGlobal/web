@@ -36,10 +36,11 @@ describe UniversitiesController do
     context "when there is no user" do
       let(:user) { nil }
 
-      it "behaves as not authenticated" do
+      before :each do
         get :new, {}, valid_session
-        behave_as_not_authenticated
       end
+
+      it_behaves_like "user is not authenticated"
     end
 
     context "when logged in" do
@@ -63,12 +64,10 @@ describe UniversitiesController do
       context "when cannot 'new' the university" do
         before :each do
           controller.should_receive(:authorize!).and_raise CanCan::AccessDenied
+          get :new, {}, valid_session
         end
 
-        it "behaves as not authorized" do
-          get :new, {}, valid_session
-          behave_as_unauthorized
-        end
+        it_behaves_like "user is not authorized"
       end
     end
   end
@@ -82,10 +81,11 @@ describe UniversitiesController do
       let(:user) { nil }
       let(:university) { create :university }
 
-      it "should behave as not authenticated" do
+      before :each do
         get :edit, {id: university.to_param}, valid_session
-        behave_as_not_authenticated
       end
+
+      it_behaves_like "user is not authenticated"
     end
 
     context "when logged in" do
@@ -113,9 +113,7 @@ describe UniversitiesController do
           get :edit, {id: university.to_param}, valid_session
         end
 
-        it "behaves as not authorized" do
-          behave_as_unauthorized
-        end
+        it_behaves_like "user is not authorized"
       end
     end
   end
@@ -123,10 +121,11 @@ describe UniversitiesController do
   describe "POST create" do
 
     context "when not logged in" do
-      it "behaves as not authenticated" do
+      before :each do
         post :create, {university: valid_attributes}, valid_session
-        behave_as_not_authenticated
       end
+
+      it_behaves_like "user is not authenticated"
     end
 
     context "when logged in" do
@@ -138,12 +137,10 @@ describe UniversitiesController do
       context "when user cannot create universities" do
         before :each do
           controller.should_receive(:authorize!).and_raise(CanCan::AccessDenied)
+          post :create, {university: valid_attributes}, valid_session
         end
 
-        it "behaves as not authorized" do
-          post :create, {university: valid_attributes}, valid_session
-          behave_as_unauthorized
-        end
+        it_behaves_like "user is not authorized"
       end
 
       context "when user can create universities" do
@@ -202,10 +199,12 @@ describe UniversitiesController do
 
     context "when not logged in" do
       let(:user) { nil }
-      it "behaves as not authenticated" do
+
+      before :each do
         put :update, {id: university.to_param, university: {}}, valid_session
-        behave_as_not_authenticated
       end
+
+      it_behaves_like "user is not authenticated"
     end
 
     context "when logged in" do
@@ -257,12 +256,10 @@ describe UniversitiesController do
       context "when user cannot update it" do
         before :each do
           controller.should_receive(:authorize!).and_raise(CanCan::AccessDenied)
+          put :update, {id: university.to_param, university: {}}, valid_session
         end
 
-        it "behaves as unauthorized" do
-          put :update, {id: university.to_param, university: {}}, valid_session
-          behave_as_unauthorized
-        end
+        it_behaves_like "user is not authorized"
       end
     end
   end
@@ -278,11 +275,11 @@ describe UniversitiesController do
 
       let(:user) { nil }
 
-      it "behaves as not authenticated" do
+      before :each do
         delete :destroy, {id: university.to_param}, valid_session
-        behave_as_not_authenticated
       end
 
+      it_behaves_like "user is not authenticated"
     end
 
     context "when user can destroy university" do
@@ -307,12 +304,10 @@ describe UniversitiesController do
       let(:user) { create :user }
       before :each do
         controller.should_receive(:authorize!).and_raise(CanCan::AccessDenied)
+        delete :destroy, {id: university.to_param}, valid_session
       end
 
-      it "behaves as unauthorized" do
-        delete :destroy, {id: university.to_param}, valid_session
-        behave_as_unauthorized
-      end
+      it_behaves_like "user is not authorized"
     end
   end
 end

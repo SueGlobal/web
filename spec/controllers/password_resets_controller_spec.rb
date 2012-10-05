@@ -100,11 +100,11 @@ describe PasswordResetsController do
     end
 
     context "if there is no such user" do
-
-      it "behaves as not authenticated" do
+      before :each do
         get 'edit', {id: "p#{user.reset_password_token}"}, {}
-        behave_as_not_authenticated
       end
+
+      it_behaves_like "user is not authenticated"
     end
   end
 
@@ -156,10 +156,11 @@ describe PasswordResetsController do
                   password_confirmation: new_password} }
       end
 
-      it "behaves as not authenticated" do
+      before :each do
         put 'update', parameters, {}
-        behave_as_not_authenticated
       end
+
+      it_behaves_like "user is not authenticated"
     end
 
     context "when params[:token] and params[:id] are not equal" do
@@ -171,10 +172,11 @@ describe PasswordResetsController do
                   password_confirmation: new_password} }
       end
 
-      it "behaves as not authenticated" do
+      before :each do
         put 'update', parameters, {}
-        behave_as_not_authenticated
       end
+
+      it_behaves_like "user is not authenticated"
     end
 
     context "when passwords are invalid" do

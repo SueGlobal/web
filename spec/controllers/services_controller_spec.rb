@@ -41,11 +41,11 @@ describe ServicesController do
 
     context "when there is no user" do
       let(:user) { nil }
-
-      it "behaves as not authenticated" do
+      before :each do
         get :new, {university_id: university.to_param}, valid_session
-        behave_as_not_authenticated
       end
+
+      it_behaves_like "user is not authenticated"
     end
 
     context "when user is authenticated" do
@@ -72,7 +72,7 @@ describe ServicesController do
           get :new, {university_id: university.to_param}, valid_session
         end
 
-        it { behave_as_unauthorized }
+        it_behaves_like "user is not authorized"
       end
     end
   end
@@ -85,7 +85,7 @@ describe ServicesController do
         get :edit, {id: service.to_param}, valid_session
       end
 
-      it { behave_as_not_authenticated }
+      it_behaves_like "user is not authenticated"
     end
 
     context "when there is a user" do
@@ -108,7 +108,7 @@ describe ServicesController do
           get :edit, {id: service.to_param}, valid_session
         end
 
-        it { behave_as_unauthorized }
+        it_behaves_like "user is not authorized"
       end
     end
   end
@@ -127,7 +127,7 @@ describe ServicesController do
         post_create
       end
 
-      it { behave_as_not_authenticated }
+      it_behaves_like "user is not authenticated"
 
     end
 
@@ -188,7 +188,7 @@ describe ServicesController do
           post_create
         end
 
-        it { behave_as_unauthorized }
+        it_behaves_like "user is not authorized"
       end
     end
   end
@@ -201,7 +201,7 @@ describe ServicesController do
         put :update, {:id => service.to_param, :service => valid_attributes}, valid_session
       end
 
-      it { behave_as_not_authenticated }
+      it_behaves_like "user is not authenticated"
     end
 
     context "when there is a user" do
@@ -260,7 +260,7 @@ describe ServicesController do
           put :update, {:id => service.to_param, :service => valid_attributes}, valid_session
         end
 
-        it { behave_as_unauthorized }
+        it_behaves_like "user is not authorized"
       end
     end
   end
@@ -274,7 +274,7 @@ describe ServicesController do
         delete :destroy, {id: service.to_param}, valid_session
       end
 
-      it { behave_as_not_authenticated }
+      it_behaves_like "user is not authenticated"
     end
 
     context "when there is a user" do
@@ -299,6 +299,15 @@ describe ServicesController do
           delete :destroy, {:id => service.to_param}, valid_session
           response.should redirect_to(service.university)
         end
+      end
+
+      context "and it cannot 'destroy' service" do
+        before :each do
+          controller.should_receive(:authorize!).at_least(:once).and_raise CanCan::AccessDenied
+          delete :destroy, {id: service.to_param}, valid_session
+        end
+
+        it_behaves_like "user is not authorized"
       end
     end
   end

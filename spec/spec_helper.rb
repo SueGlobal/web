@@ -62,8 +62,6 @@ Spork.prefork do
     config.include Sorcery::TestHelpers::Rails
     config.include LoginMacros, type: :request
     config.extend RoleMacros, type: :controller
-    config.include CancanMacros, type: :controller
-    config.include SorceryMacros, type: :controller
     config.include MailerMacros
     config.include I18nMacros, type: :request
 
