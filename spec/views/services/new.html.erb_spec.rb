@@ -7,13 +7,13 @@ describe "services/new" do
   before(:each) do
     assign(:university, university)
     assign(:service, service)
-    assign(:path, [university, service])
+    @path = assign(:path, [university, service])
   end
 
   it "renders new service form" do
     render
 
-    assert_select "form", :action => university_services_path([university, service]), :method => "post" do
+    assert_select "form", :action => university_services_path(@path), :method => "post" do
     end
   end
 end

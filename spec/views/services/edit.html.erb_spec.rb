@@ -11,7 +11,7 @@ describe "services/edit" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => edit_service_path(@service), :method => "post" do
+    assert_select "form", :action => edit_service_path(@path), :method => "post" do
     end
   end
 end
