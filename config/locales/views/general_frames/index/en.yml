@@ -1,0 +1,10 @@
+en:
+  general_frames:
+    index:
+      header: "Listing %{university}'s general frames"
+      actions: 'Actions'
+      show: 'Show'
+      edit: 'Edit'
+      destroy: 'Delete'
+      destroy_confirmation: 'Are you sure?'
+      new_service: 'New Service'

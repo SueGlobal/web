@@ -1,7 +1,7 @@
 <%= form_for(@path) do |f| %>
   <% if @general_frame.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@general_frame.errors.count, "error") %> prohibited this general_frame from being saved:</h2>
+      <h2><%= t '.errors_header', count: @general_frame.errors.count %></h2>
 
       <ul>
       <% @general_frame.errors.full_messages.each do |msg| %>

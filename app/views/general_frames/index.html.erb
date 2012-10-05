@@ -1,21 +1,21 @@
-<h1>Listing general_frames</h1>
+<h1><%= t('.headet', university: @university) %></h1>
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th><%= GeneralFrame.human_attribute_name :year %></th>
+    <th><%= t('.actions') %></th>
   </tr>
 
 <% @general_frames.each do |general_frame| %>
   <tr>
-    <td><%= link_to 'Show', general_frame %></td>
-    <td><%= link_to 'Edit', edit_general_frame_path(general_frame) %></td>
-    <td><%= link_to 'Destroy', general_frame, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= general_frame.year %></td>
+    <td><%= link_to t('.show'), general_frame %> |
+        <%= link_to t('.edit'), edit_general_frame_path(general_frame) %> |
+        <%= link_to t('.destroy'), general_frame, method: :delete, data: { confirm: t('.destroy_confirmation')} %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New General frame', new_university_general_frame_path(@university) %>
+<%= link_to t('.new_general_frame'), new_university_general_frame_path(@university) %>

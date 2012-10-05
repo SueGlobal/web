@@ -1,6 +1,6 @@
-<h1>Editing general_frame</h1>
+<h1><%= t '.header' %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @general_frame %> |
-<%= link_to 'Back', university_general_frames_path(@general_frame.university) %>
+<%= link_to t('.show'), @general_frame %> |
+<%= link_to t('.back'), university_general_frames_path(@general_frame.university) %>

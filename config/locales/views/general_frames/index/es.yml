@@ -1,0 +1,10 @@
+es:
+  general_frames:
+    index:
+      header: "Marcos generales de %{university}"
+      actions: 'Acciones'
+      show: 'Mostrar'
+      edit: 'Editar'
+      destroy: 'Borrar'
+      destroy_confirmation: '¿Está seguro de que desea borrar este marco?'
+      new_service: 'Nuevo marco general'

@@ -1,5 +1,5 @@
-<h1>New general_frame</h1>
+<h1><%= t '.header' %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', university_general_frames_path(@university) %>
+<%= link_to t('.back'), university_general_frames_path(@university) %>

@@ -1,0 +1,11 @@
+en:
+  general_frames:
+    form:
+      errors_header:
+        one: 'An error prohibited this general frame from being saved:'
+        other: '%{count} errors prohibited this general frame from being saved:'
+  helpers:
+    submit:
+      services:
+        create: 'Add general frame'
+        update: 'Update general frame'
