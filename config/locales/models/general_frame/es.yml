@@ -7,10 +7,14 @@ es:
         degree_graduates: 'Titulados de primer ciclo'
         bachelors_degree_graduates: 'Titulados de segundo ciclo'
         graduates: 'Graduados'
+        specific_qualifications_graduates: 'Graduados en títulos propios'
+        phd_graduates: 'Doctorados'
         master_graduates: 'Posgraduados (máster oficiales y títulos propios)'
         number_of_campus: 'Número de Campus'
         number_of_qualifications: 'Número de titulaciones de grado'
         number_of_masters_degree: 'Número de máster oficiales'
+        number_of_specific_qualifications: 'Número de titulaciones propias'
+        number_of_phds: 'Número de doctorados'
         year: 'Curso'
     errors:
       models:
@@ -28,10 +32,18 @@ es:
               not_a_number: "El campo 'Graduados'  tiene que ser un número"
               greater_than_or_equal_to: "El número de 'Graduados' tiene que ser mayor que %{count}"
               not_an_integer: "El número de 'Graduados' ha de ser un entero"
+            phd_graduates:
+              not_a_number: "El campo 'Doctorados'  tiene que ser un número"
+              greater_than_or_equal_to: "El número de 'Doctorados' tiene que ser mayor que %{count}"
+              not_an_integer: "El número de 'Doctorados' ha de ser un entero"
             master_graduates:
               not_a_number: "El campo 'Posgraduados (máster oficiales y títulos propios)'  tiene que ser un número"
               greater_than_or_equal_to: "El número de 'Posgraduados (máster oficiales y títulos propios)' tiene que ser mayor que %{count}"
               not_an_integer: "El número de 'Posgraduados (máster oficiales y títulos propios)' ha de ser un entero"
+            specific_qualifications_graduates:
+              not_a_number: "El campo 'Graduados en títulos propios'  tiene que ser un número"
+              greater_than_or_equal_to: "El número de 'Graduados en títulos propios' tiene que ser mayor que %{count}"
+              not_an_integer: "El número de 'Graduados en títulos propios' ha de ser un entero"
             number_of_campus:
               not_a_number: "El campo 'Número de Campus'  tiene que ser un número"
               greater_than_or_equal_to: "El número en 'Número de Campus' tiene que ser mayor que %{count}"
@@ -44,6 +56,14 @@ es:
               not_a_number: "El campo 'Número de máster oficiales'  tiene que ser un número"
               greater_than_or_equal_to: "El número en 'Número de máster oficiales' tiene que ser mayor que %{count}"
               not_an_integer: "El número en 'Número de máster oficiales' ha de ser un entero"
+            number_of_specific_qualifications:
+              not_a_number: "El campo 'Número de titulaciones propias'  tiene que ser un número"
+              greater_than_or_equal_to: "El número en 'Número de titulaciones propias' tiene que ser mayor que %{count}"
+              not_an_integer: "El número en 'Número de titulaciones propias' ha de ser un entero"
+            number_of_phds:
+              not_a_number: "El campo 'Número de doctorados'  tiene que ser un número"
+              greater_than_or_equal_to: "El número en 'Número de doctorados' tiene que ser mayor que %{count}"
+              not_an_integer: "El número en 'Número de doctorados' ha de ser un entero"
             year:
               not_a_number: "El campo 'Curso'  tiene que ser un número"
               greater_than_or_equal_to: "El número de 'Curso' tiene que ser mayor que %{count}"

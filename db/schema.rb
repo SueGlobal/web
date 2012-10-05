@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004094248) do
+ActiveRecord::Schema.define(:version => 20121005123707) do
 
   create_table "general_frames", :force => true do |t|
     t.integer  "year"
@@ -23,8 +23,12 @@ ActiveRecord::Schema.define(:version => 20121004094248) do
     t.integer  "number_of_qualifications"
     t.integer  "number_of_masters_degree"
     t.integer  "university_id"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.integer  "specific_qualifications_graduates"
+    t.integer  "phd_graduates"
+    t.integer  "number_of_specific_qualifications"
+    t.integer  "number_of_phds"
   end
 
   add_index "general_frames", ["university_id"], :name => "index_general_frames_on_university_id"
