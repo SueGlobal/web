@@ -61,3 +61,5 @@ gem 'timecop', group: [:test]
 gem 'routing-filter'
 gem 'draper'
 gem 'fuubar', group: [:test]
+gem 'capistrano', group: [:development]
+gem 'unicorn', group: [:production]

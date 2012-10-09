@@ -1,0 +1,20 @@
+/var/www/sue/sue-web/shared/log/unicorn.stderr.log
+/var/www/sue/sue-web/shared/log/production.log
+{
+  daily
+  missingok
+  rotate 40
+  compress
+
+  # this is important if using "compress" since we need to call
+  # the "lastaction" script below before compressing:
+  delaycompress
+
+  # note the lack of the evil "copytruncate" option in this
+  # config.  Unicorn supports the USR1 signal and we send it
+  # as our "lastaction" action:
+  lastaction
+    pid=/var/www/sue/sue-web/shared/tmp/pids/unicorn.sue_web_ror.pid
+    test -s $pid && kill -USR1 "$(cat $pid)"
+  endscript
+}

@@ -16,3 +16,8 @@ Una vez hecho esto, desde la línea de comandos instalaremos las dependencias
 ejecutando el comando `bundle` y crearemos las bases de datos con
 `rake db:create`. Si todo ha ido correctamente, sólo necesitaremos añadir la
 estructura de la base de datos con el comando `rake db:migrate`.
+
+Máquina virtual de producción
+-----------------------------
+
+Necesita tener instalado git y postgresql
