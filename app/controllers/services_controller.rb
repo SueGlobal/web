@@ -37,6 +37,7 @@ class ServicesController < UniversityDependentModelController
         format.html { redirect_to @service, notice: t2('create.notice') }
         format.json { render json: @service, status: :created, location: @service }
       else
+        @path = [@university, @service]
         format.html { render action: "new" }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
@@ -51,6 +52,7 @@ class ServicesController < UniversityDependentModelController
         format.html { redirect_to @service, notice: t2('update.notice') }
         format.json { head :no_content }
       else
+        @path = @service
         format.html { render action: "edit" }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
@@ -63,7 +65,7 @@ class ServicesController < UniversityDependentModelController
     @service.destroy
 
     respond_to do |format|
-      format.html { redirect_to @service.university }
+      format.html { redirect_to @service.university, notice: t2('destroy.notice') }
       format.json { head :no_content }
     end
   end

@@ -47,6 +47,7 @@ class GeneralFramesController < UniversityDependentModelController
         format.html { redirect_to @general_frame, notice: 'create.notice' }
         format.json { render json: @general_frame, status: :created, location: @general_frame }
       else
+        @path = [@university, @general_frame]
         format.html { render action: "new" }
         format.json { render json: @general_frame.errors, status: :unprocessable_entity }
       end
@@ -62,6 +63,7 @@ class GeneralFramesController < UniversityDependentModelController
         format.html { redirect_to @general_frame, notice: t2('update.notice') }
         format.json { head :no_content }
       else
+        @path = @general_frame
         format.html { render action: "edit" }
         format.json { render json: @general_frame.errors, status: :unprocessable_entity }
       end
@@ -74,7 +76,7 @@ class GeneralFramesController < UniversityDependentModelController
     @general_frame.destroy
 
     respond_to do |format|
-      format.html { redirect_to @general_frame.university }
+      format.html { redirect_to @general_frame.university, notice: t2('destroy.notice') }
       format.json { head :no_content }
     end
   end

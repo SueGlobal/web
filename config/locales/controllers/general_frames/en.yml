@@ -5,3 +5,5 @@ en:
         notice: 'General frame was successfully created.'
       update:
         notice: 'General frame was successfully updated.'
+      destroy:
+        notice: 'General frame was successfully removed.'

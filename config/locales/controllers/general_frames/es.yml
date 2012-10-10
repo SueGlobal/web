@@ -5,3 +5,5 @@ es:
         notice: 'Has añadido un marco general.'
       update:
         notice: 'Has actualizado el marco general.'
+      destroy:
+        notice: 'Has borrado un marco general.'

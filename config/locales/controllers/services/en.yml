@@ -5,3 +5,5 @@ en:
         notice: 'Service was successfully created.'
       update:
         notice: 'Service was successfully updated.'
+      destroy:
+        notice: 'Service was successfully removed.'

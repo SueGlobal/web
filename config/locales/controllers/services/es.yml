@@ -5,3 +5,5 @@ es:
         notice: 'Has añadido un servicio.'
       update:
         notice: 'Has actualizado el servicio.'
+      delete:
+        notice: 'Has borrado un servicio.'
