@@ -26,7 +26,6 @@ class GeneralFramesController < UniversityDependentModelController
   # GET /general_frames/new
   # GET /general_frames/new.json
   def new
-    @path = [@university, @general_frame]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @general_frame }
@@ -35,19 +34,16 @@ class GeneralFramesController < UniversityDependentModelController
 
   # GET /general_frames/1/edit
   def edit
-    @path = @general_frame
   end
 
   # POST /general_frames
   # POST /general_frames.json
   def create
-
     respond_to do |format|
       if @general_frame.save
         format.html { redirect_to @general_frame, notice: 'create.notice' }
         format.json { render json: @general_frame, status: :created, location: @general_frame }
       else
-        @path = [@university, @general_frame]
         format.html { render action: "new" }
         format.json { render json: @general_frame.errors, status: :unprocessable_entity }
       end
@@ -57,13 +53,11 @@ class GeneralFramesController < UniversityDependentModelController
   # PUT /general_frames/1
   # PUT /general_frames/1.json
   def update
-
     respond_to do |format|
       if @general_frame.update_attributes(params[:general_frame])
         format.html { redirect_to @general_frame, notice: t2('update.notice') }
         format.json { head :no_content }
       else
-        @path = @general_frame
         format.html { render action: "edit" }
         format.json { render json: @general_frame.errors, status: :unprocessable_entity }
       end

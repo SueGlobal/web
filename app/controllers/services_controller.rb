@@ -17,7 +17,6 @@ class ServicesController < UniversityDependentModelController
   # GET /services/new
   # GET /services/new.json
   def new
-    @path = [@university, @service]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @service }
@@ -26,7 +25,6 @@ class ServicesController < UniversityDependentModelController
 
   # GET /services/1/edit
   def edit
-    @path = @service
   end
 
   # POST /services
@@ -37,7 +35,6 @@ class ServicesController < UniversityDependentModelController
         format.html { redirect_to @service, notice: t2('create.notice') }
         format.json { render json: @service, status: :created, location: @service }
       else
-        @path = [@university, @service]
         format.html { render action: "new" }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
@@ -52,7 +49,6 @@ class ServicesController < UniversityDependentModelController
         format.html { redirect_to @service, notice: t2('update.notice') }
         format.json { head :no_content }
       else
-        @path = @service
         format.html { render action: "edit" }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
