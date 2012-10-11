@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 shared_examples "university is decorated" do
 
   it "assigns proper university" do

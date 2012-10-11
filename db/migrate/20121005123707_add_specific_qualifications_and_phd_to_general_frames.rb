@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddSpecificQualificationsAndPhdToGeneralFrames < ActiveRecord::Migration
   def change
     add_column :general_frames, :specific_qualifications_graduates, :integer

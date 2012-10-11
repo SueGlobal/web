@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 shared_examples "a university dependent model controller" do |model, *actions|
 
   def valid_attributes

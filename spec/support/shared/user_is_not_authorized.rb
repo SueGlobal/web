@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 shared_examples "user is not authorized" do
 
   it "redirects to root" do
