@@ -4,6 +4,7 @@ es:
       errors_header:
         one: 'No se pudo guardar el marco general por un error:'
         other: 'No se pudo guardar el servicio por %{count} errores:'
+      graduates_legend: 'Número de egresados'
   helpers:
     submit:
       services:

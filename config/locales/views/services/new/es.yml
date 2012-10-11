@@ -1,5 +1,5 @@
 es:
-  users:
+  services:
     new:
       header: 'Nuevo servicio'
       back: 'Atrás'

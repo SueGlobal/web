@@ -11,6 +11,29 @@
     </div>
   <% end %>
 
+  <div class="field">
+     <%= f.label :year %>
+     <%= f.select :year, @university.miss_general_frame_academic_years_for_select %>
+  </div>
+
+  <%= numeric_field_for :number_of_campus, f %>
+
+  <fieldset class="graduates">
+    <legend><%= t '.graduates_legend' %></legend>
+
+    <% [:degree_graduates, :bachelors_degree_graduates, :graduates,
+        :master_graduates, :phd_graduates, :specific_qualifications_graduates].each do |field| -%>
+      <%= numeric_field_for field, f %>
+    <% end -%>
+  </fieldset>
+
+  <fieldset class="qualifications">
+    <% [:number_of_qualifications, :number_of_masters_degree,
+        :number_of_phds, :number_of_specific_qualifications].each do |field| -%>
+      <%= numeric_field_for field, f -%>
+    <% end -%>
+  </fieldset>
+
   <div class="actions">
     <%= f.submit %>
   </div>
