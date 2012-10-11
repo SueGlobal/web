@@ -3,7 +3,9 @@ require 'spec_helper'
 
 describe "general_frames/edit" do
   before(:each) do
-    @general_frame = assign(:general_frame, create(:general_frame))
+    plain_university = create :university
+    @university = assign(:university, UniversityDecorator.decorate(plain_university))
+    @general_frame = assign(:general_frame, create(:general_frame, university: plain_university))
     @path = assign(:path, @general_frame)
   end
 

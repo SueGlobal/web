@@ -5,7 +5,6 @@ class GeneralFramesController < UniversityDependentModelController
   # GET /general_frames
   # GET /general_frames.json
   def index
-    @university = University.find(params[:university_id])
     @general_frames = @university.general_frames
 
     respond_to do |format|
@@ -17,6 +16,7 @@ class GeneralFramesController < UniversityDependentModelController
   # GET /general_frames/1
   # GET /general_frames/1.json
   def show
+    @university = UniversityDecorator.decorate @general_frame.university
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @general_frame }
@@ -34,6 +34,7 @@ class GeneralFramesController < UniversityDependentModelController
 
   # GET /general_frames/1/edit
   def edit
+    @university = UniversityDecorator.decorate @general_frame.university
   end
 
   # POST /general_frames
@@ -41,7 +42,7 @@ class GeneralFramesController < UniversityDependentModelController
   def create
     respond_to do |format|
       if @general_frame.save
-        format.html { redirect_to @general_frame, notice: 'create.notice' }
+        format.html { redirect_to @general_frame, notice: t2('create.notice') }
         format.json { render json: @general_frame, status: :created, location: @general_frame }
       else
         format.html { render action: "new" }
@@ -53,6 +54,7 @@ class GeneralFramesController < UniversityDependentModelController
   # PUT /general_frames/1
   # PUT /general_frames/1.json
   def update
+    @university = UniversityDecorator.decorate @general_frame.university
     respond_to do |format|
       if @general_frame.update_attributes(params[:general_frame])
         format.html { redirect_to @general_frame, notice: t2('update.notice') }
@@ -67,17 +69,13 @@ class GeneralFramesController < UniversityDependentModelController
   # DELETE /general_frames/1
   # DELETE /general_frames/1.json
   def destroy
+    @university = UniversityDecorator.decorate @general_frame.university
     @general_frame.destroy
 
     respond_to do |format|
       format.html { redirect_to @general_frame.university, notice: t2('destroy.notice') }
       format.json { head :no_content }
     end
-  end
-
-  protected
-  def t2 path
-    I18n.t path, scope: 'controllers.general_frames'
   end
 
   protected

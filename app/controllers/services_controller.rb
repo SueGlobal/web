@@ -5,7 +5,6 @@ class ServicesController < UniversityDependentModelController
   # GET /services
   # GET /services.json
   def index
-    @university = University.find(params[:university_id])
     @services = @university.services
 
     respond_to do |format|
@@ -25,6 +24,7 @@ class ServicesController < UniversityDependentModelController
 
   # GET /services/1/edit
   def edit
+    @university = UniversityDecorator.decorate @service.university
   end
 
   # POST /services
@@ -44,6 +44,8 @@ class ServicesController < UniversityDependentModelController
   # PUT /services/1
   # PUT /services/1.json
   def update
+    @university = UniversityDecorator.decorate @service.university
+
     respond_to do |format|
       if @service.update_attributes(params[:service])
         format.html { redirect_to @service, notice: t2('update.notice') }
@@ -58,6 +60,7 @@ class ServicesController < UniversityDependentModelController
   # DELETE /services/1
   # DELETE /services/1.json
   def destroy
+    @university = UniversityDecorator.decorate @service.university
     @service.destroy
 
     respond_to do |format|

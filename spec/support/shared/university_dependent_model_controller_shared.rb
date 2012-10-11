@@ -25,12 +25,17 @@ shared_examples "a university dependent model controller" do |model, *actions|
     describe "GET index" do
       let(:user) { nil }
 
-      it "assign all resources as an instance variable" do
+      before :each do
         other_resource
         get :index, {university_id: university.to_param}, valid_session
+      end
+
+      it "assign all resources as an instance variable" do
         assigns(models).should eq([resource])
         assigns(models).should_not include(other_resource)
       end
+
+      it_behaves_like "university is decorated"
     end
   end
 
@@ -38,10 +43,15 @@ shared_examples "a university dependent model controller" do |model, *actions|
     describe "GET show" do
       let(:user) { nil }
 
-      it "assigns the requested resource as an instance variable" do
+      before :each do
         get :show, {id: resource.to_param}, valid_session
+      end
+
+      it "assigns the requested resource as an instance variable" do
         assigns(model_name).should eq(resource)
       end
+
+      it_behaves_like "university is decorated"
     end
   end
 
@@ -83,6 +93,8 @@ shared_examples "a university dependent model controller" do |model, *actions|
           it "assigns a proper path for the form" do
             assigns(:path).should eq([university, assigns(model_name)])
           end
+
+          it_behaves_like "university is decorated"
         end
 
         context "and cannot 'new' the resource" do
@@ -130,6 +142,8 @@ shared_examples "a university dependent model controller" do |model, *actions|
           it "assigns a proper path for the form" do
             assigns(:path).should eq(resource)
           end
+
+          it_behaves_like "university is decorated"
         end
 
         context "and it cannot 'edit' the resource" do
@@ -196,6 +210,12 @@ shared_examples "a university dependent model controller" do |model, *actions|
               post_create
               should set_the_flash
             end
+
+            it_behaves_like "university is decorated" do
+              before :each do
+                post_create
+              end
+            end
           end
 
           describe "with invalid params" do
@@ -216,6 +236,12 @@ shared_examples "a university dependent model controller" do |model, *actions|
             it "assigns a proper path for the form" do
               post_create
               assigns(:path).should eq([university, assigns(model_name)])
+            end
+
+            it_behaves_like "university is decorated" do
+              before :each do
+                post_create
+              end
             end
           end
         end
@@ -281,6 +307,12 @@ shared_examples "a university dependent model controller" do |model, *actions|
               put_update
               should set_the_flash
             end
+
+            it_behaves_like "university is decorated" do
+              before :each do
+                put_update
+              end
+            end
           end
 
           describe "with invalid params" do
@@ -301,6 +333,8 @@ shared_examples "a university dependent model controller" do |model, *actions|
             it "assigns a proper path for the form for" do
               assigns(:path).should eq(resource)
             end
+
+            it_behaves_like "university is decorated"
           end
         end
 
@@ -357,6 +391,12 @@ shared_examples "a university dependent model controller" do |model, *actions|
             delete_destroy
             should set_the_flash
           end
+
+          it_behaves_like "university is decorated" do
+            before :each do
+              delete_destroy
+            end
+          end
         end
 
         context "and cannot 'destroy' the resource" do
@@ -371,7 +411,7 @@ shared_examples "a university dependent model controller" do |model, *actions|
             }.not_to change(model, :count)
           end
 
-          it_behaves_like "user is not authenticated" do
+          it_behaves_like "user is not authorized" do
             before :each do
               delete_destroy
             end

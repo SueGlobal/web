@@ -8,7 +8,8 @@ class UniversityDependentModelController < ApplicationController
     def dependent_model model_name
       load_and_authorize_resource model_name.to_sym, through: :university,
         shallow: true, except: [:index], singleton: true
-      before_filter :decorate_university, except: [:index]
+      before_filter :load_university, only: [:index]
+      before_filter :decorate_university
       before_filter only: [:new, :create] do |controller|
         path = ["university", model_name.to_s].map do |field|
           controller.instance_variable_get(:"@#{field}")
@@ -26,5 +27,9 @@ class UniversityDependentModelController < ApplicationController
   protected
   def decorate_university
     @university = UniversityDecorator.decorate @university
+  end
+
+  def load_university
+    @university = University.find(params[:university_id])
   end
 end

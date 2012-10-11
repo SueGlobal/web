@@ -3,10 +3,10 @@ require 'spec_helper'
 
 describe "universities/index" do
   before(:each) do
-    assign(:universities, [
+    assign(:universities, UniversityDecorator.decorate([
       create(:university),
       create(:university)
-    ])
+    ]))
   end
 
   it "renders a list of universities" do
