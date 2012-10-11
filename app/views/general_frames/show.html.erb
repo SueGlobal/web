@@ -1,4 +1,28 @@
+<h1><%= t '.header', university: @university.abbreviation, year: @general_frame.year %></h1>
 
+<div class="field">
+  <span class="label"><%= GeneralFrame.human_attribute_name(:number_of_campus) %></span>
+  <span class="data"><%= @general_frame.number_of_campus %></span>
+</div>
 
+<div class="graduates">
+  <h2><%= t '.graduates' %></h2>
+  <ul>
+    <% [:degree_graduates, :bachelors_degree_graduates, :graduates,
+        :master_graduates, :phd_graduates, :specific_qualifications_graduates].each do |field| -%>
+      <%= data_for @general_frame, field %>
+    <% end -%>
+  </ul>
+</div>
+
+<div class="qualifications">
+  <h2><%= t '.qualifications' %></h2>
+  <ul>
+    <% [:number_of_qualifications, :number_of_masters_degree,
+        :number_of_phds, :number_of_specific_qualifications].each do |field| -%>
+      <%= data_for @general_frame, field %>
+    <% end -%>
+  </ul>
+</div>
 <%= link_to t('.edit'), edit_general_frame_path(@general_frame) %> |
 <%= link_to t('.back'), university_general_frames_path(@general_frame.university) %>

@@ -1,4 +1,8 @@
 es:
   general_frames:
-    edit: 'Editar'
-    back: 'Atrás'
+    show:
+      header: 'Marco general de %{university} del año %{year}'
+      graduates: 'Número de egresados'
+      qualifications: 'Número de titulaciones'
+      edit: 'Editar'
+      back: 'Atrás'

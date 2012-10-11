@@ -5,6 +5,7 @@ en:
         one: 'An error prohibited this general frame from being saved:'
         other: '%{count} errors prohibited this general frame from being saved:'
       graduates_legend: 'Number of graduates'
+      qualifications_legend: 'Number of qualifications'
   helpers:
     submit:
       services:

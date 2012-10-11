@@ -1,4 +1,8 @@
 en:
   general_frames:
-    edit: 'Edit'
-    back: 'Back'
+    show:
+      header: "%{university}'s general frame for year %{year}" 
+      graduates: 'Number of graduates'
+      qualifications: 'Number of qualifications'
+      edit: 'Edit'
+      back: 'Back'
