@@ -48,7 +48,6 @@ gem 'spork', group: [:test]
 gem 'guard-rspec', group: [:test, :development]
 gem 'guard-spork', group: [:test]
 gem 'guard-bundler', group: [:development]
-gem 'guard-migrate', group: [:development]
 gem 'rb-fsevent', '~> 0.9.1'
 gem 'shoulda-matchers', group: [:test]
 gem 'database_cleaner', group: [:test]
