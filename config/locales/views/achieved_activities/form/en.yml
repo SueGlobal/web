@@ -1,0 +1,17 @@
+en:
+  general_frames:
+    form:
+      errors_header:
+        one: 'An error prohibited this activity report from being saved:'
+        other: '%{count} errors prohibited this activity report from being saved:'
+      activities:
+        legend: 'Activities'
+        paragraph: 'Activities...'
+      sources:
+        legend: 'Sources'
+        paragraph: 'Sources...'
+  helpers:
+    submit:
+      services:
+        create: 'Add activity report'
+        update: 'Update activity report'

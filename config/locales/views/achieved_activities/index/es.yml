@@ -1,0 +1,10 @@
+es:
+  achieved_activities:
+    index:
+      header: "Listado de informe de actividad de %{university}"
+      actions: 'Acciones'
+      show: 'Mostrar'
+      edit: 'Editar'
+      destroy: 'Borrar'
+      destroy_confirmation: '¿Estás seguro de querer borrar este registro?'
+      new_achieved_activity: 'Nuevo informe de actividad'

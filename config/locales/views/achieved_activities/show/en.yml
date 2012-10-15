@@ -1,0 +1,8 @@
+en:
+  achieved_activities:
+    show:
+      header: "%{university}'s activity report for year %{year}"
+      activities: 'Activities'
+      sources: 'Sources'
+      edit: 'Edit'
+      back: 'Back'

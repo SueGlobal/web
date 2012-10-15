@@ -1,0 +1,6 @@
+en:
+  achieved_activities:
+    edit:
+      header: 'Editando informe de actividad'
+      show: 'Mostrar'
+      back: 'Atrás'

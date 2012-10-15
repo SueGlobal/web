@@ -1,0 +1,5 @@
+es:
+  achieved_activities:
+    new:
+      header: 'Nuevo informe de actividad'
+      back: 'Atrás'

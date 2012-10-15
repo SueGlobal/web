@@ -1,10 +1,10 @@
 en:
-  general_frames:
+  achieved_activities:
     index:
-      header: "Listing %{university}'s general frames"
+      header: "Listing %{university}'s activities report"
       actions: 'Actions'
       show: 'Show'
       edit: 'Edit'
       destroy: 'Delete'
       destroy_confirmation: 'Are you sure?'
-      new_general_frame: 'New general frame'
+      new_achieved_activity: 'New activity report'

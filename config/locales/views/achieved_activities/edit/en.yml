@@ -1,0 +1,6 @@
+en:
+  achieved_activities:
+    edit:
+      header: 'Editing activity report'
+      show: 'Show'
+      back: 'Back'

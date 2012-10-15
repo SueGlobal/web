@@ -1,0 +1,9 @@
+en:
+  controllers:
+    achieved_activities:
+      create:
+        notice: 'Achieved activity was successfully created.'
+      update:
+        notice: 'Achieved activity was successfully updated.'
+      destroy:
+        notice: 'Achieved activity was successfully removed.'

@@ -21,5 +21,10 @@ class AchievedActivity < ActiveRecord::Base
   ]
   attr_accessible *ACTIVITIES
   attr_accessible *SOURCES
+  attr_accessible :year
   belongs_to :university
+
+  validates :year,
+    numericality: {only_integer: true, greater_than_or_equal_to: 0},
+    presence: true
 end

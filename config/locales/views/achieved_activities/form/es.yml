@@ -1,0 +1,17 @@
+en:
+  general_frames:
+    form:
+      errors_header:
+        one: 'No se pudo guardar el informe de actividad por un error:'
+        other: 'No se pudo guardar el informe de actividad por %{count} errores:'
+      activities:
+        legend: 'Actividades'
+        paragraph: 'Actividad del Observatorio de Empleo de la Universidad y otras actividades de la Universidad para promover el empleo:'
+      sources:
+        legend: 'Fuentes'
+        paragraph: 'Marcar aquellas fuentes incluidas en el Observatorio de empleo de su Universidad, independientemente del órgano que los realice:'
+  helpers:
+    submit:
+      services:
+        create: 'Añadir informe de actividad'
+        update: 'Actualizar informe de actividad'

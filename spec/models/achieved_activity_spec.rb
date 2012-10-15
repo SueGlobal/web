@@ -11,4 +11,7 @@ describe AchievedActivity do
   AchievedActivity::SOURCES.each do |source|
     it { should allow_mass_assignment_of(source) }
   end
+
+  it { should allow_mass_assignment_of(:year) }
+  it { should validate_numericality_of(:year).only_integer }
 end

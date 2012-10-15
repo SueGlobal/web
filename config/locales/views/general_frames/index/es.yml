@@ -7,4 +7,4 @@ es:
       edit: 'Editar'
       destroy: 'Borrar'
       destroy_confirmation: '¿Está seguro de que desea borrar este marco?'
-      new_service: 'Nuevo marco general'
+      new_general_frame: 'Nuevo marco general'

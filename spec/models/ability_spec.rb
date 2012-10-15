@@ -112,114 +112,14 @@ describe Ability do
   end
 
   context "regarding services" do
-    let(:service) { create :service }
-    let(:university) { service.university }
-
-    let(:other_service) { create :service }
-    let(:other_university) { other_service.university }
-    context "when there is no user" do
-      let(:user) { nil }
-
-      it { should be_able_to :read, Service }
-      it { should_not be_able_to :new, service }
-      it { should_not be_able_to :create, service }
-      it { should_not be_able_to :edit, service }
-      it { should_not be_able_to :update, service }
-      it { should_not be_able_to :destroy, service }
-    end
-
-    context "when it is a simple user" do
-      let(:user) { create :user, :simple, :active, university: university }
-
-      it { should be_able_to :read, Service }
-      it { should be_able_to :new, service }
-      it { should_not be_able_to :new, other_service }
-      it { should be_able_to :create, service }
-      it { should_not be_able_to :create, other_service }
-      it { should be_able_to :edit, service }
-      it { should_not be_able_to :edit, other_service }
-      it { should be_able_to :update, service }
-      it { should_not be_able_to :update, other_service }
-      it { should be_able_to :destroy, service }
-      it { should_not be_able_to :destroy, other_service }
-    end
-    context "when it is an admin" do
-      let(:user) { create :user, :admin, :active, university: university }
-
-
-      it { should be_able_to :read, Service }
-      it { should be_able_to :new, service }
-      it { should be_able_to :new, other_service }
-      it { should be_able_to :create, service }
-      it { should be_able_to :create, other_service }
-      it { should be_able_to :edit, service }
-      it { should be_able_to :edit, other_service }
-      it { should be_able_to :update, service }
-      it { should be_able_to :update, other_service }
-      it { should be_able_to :destroy, service }
-      it { should be_able_to :destroy, other_service }
-    end
-
-    context "when it is god" do
-      let(:user) { create :user, :god, :active }
-
-      it { should be_able_to :manage, Service }
-    end
+    include_examples "abilities for university dependent model", Service
   end
 
   context "regarding general frames" do
-    let(:general_frame) { create :general_frame }
-    let(:university) { general_frame.university }
+    include_examples "abilities for university dependent model", GeneralFrame
+  end
 
-    let(:other_general_frame) { create :service }
-    let(:other_university) { other_general_frame.university }
-    context "when there is no user" do
-      let(:user) { nil }
-
-      it { should be_able_to :read, GeneralFrame }
-      it { should_not be_able_to :new, general_frame }
-      it { should_not be_able_to :create, general_frame }
-      it { should_not be_able_to :edit, general_frame }
-      it { should_not be_able_to :update, general_frame }
-      it { should_not be_able_to :destroy, general_frame }
-    end
-
-    context "when it is a simple user" do
-      let(:user) { create :user, :simple, :active, university: university }
-
-      it { should be_able_to :read, GeneralFrame }
-      it { should be_able_to :new, general_frame }
-      it { should_not be_able_to :new, other_general_frame }
-      it { should be_able_to :create, general_frame }
-      it { should_not be_able_to :create, other_general_frame }
-      it { should be_able_to :edit, general_frame }
-      it { should_not be_able_to :edit, other_general_frame }
-      it { should be_able_to :update, general_frame }
-      it { should_not be_able_to :update, other_general_frame }
-      it { should be_able_to :destroy, general_frame }
-      it { should_not be_able_to :destroy, other_general_frame }
-    end
-    context "when it is an admin" do
-      let(:user) { create :user, :admin, :active, university: university }
-
-
-      it { should be_able_to :read, GeneralFrame }
-      it { should be_able_to :new, general_frame }
-      it { should be_able_to :new, other_general_frame }
-      it { should be_able_to :create, general_frame }
-      it { should be_able_to :create, other_general_frame }
-      it { should be_able_to :edit, general_frame }
-      it { should be_able_to :edit, other_general_frame }
-      it { should be_able_to :update, general_frame }
-      it { should be_able_to :update, other_general_frame }
-      it { should be_able_to :destroy, general_frame }
-      it { should be_able_to :destroy, other_general_frame }
-    end
-
-    context "when it is god" do
-      let(:user) { create :user, :god, :active }
-
-      it { should be_able_to :manage, GeneralFrame }
-    end
+  context "regarding achieved activities" do
+    include_examples "abilities for university dependent model", AchievedActivity
   end
 end

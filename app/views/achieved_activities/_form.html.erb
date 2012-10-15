@@ -1,0 +1,43 @@
+<%= form_for(@path) do |f| %>
+  <% if @achieved_activity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t '.errors_header' %></h2>
+
+      <ul>
+      <% @achieved_activity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset class="activities">
+    <legend><%= t '.activities.legend' %></legend>
+    <p><%= t '.activities.paragraph' %></p>
+    <% AchievedActivity::ACTIVITIES.each do |current_activity| -%>
+      <div class="field">
+        <%= f.label current_activity %>
+        <% if current_activity == :other_activities -%>
+          <%= f.text_area current_activity %>
+        <% else -%>
+          <%= f.check_box current_activity %>
+        <% end -%>
+      </div>
+    <% end -%>
+  </fieldset>
+
+  <fieldset class="sources">
+    <legend><%= t '.sources.legend' %></legend>
+    <p><%= t '.sources.paragraph' %></p>
+    <% AchievedActivity::SOURCES.each do |current_source| -%>
+      <div class="field">
+        <%= f.label current_source %>
+        <%= f.check_box current_source %>
+      </div>
+    <% end -%>
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+<h1><%= t '.header' %></h1>
+
+<table>
+  <tr>
+    <th><%= AchievedActivity.human_attribute_name :year %></th>
+    <th><%= t '.actions' %></th>
+  </tr>
+
+<% @achieved_activities.each do |achieved_activity| %>
+  <tr>
+    <td><%= achieved_activity.year %></td>
+    <td><%= link_to t('.show'), achieved_activity %>
+        <%= link_to t('.edit'), edit_achieved_activity_path(achieved_activity) %>
+        <%= link_to t('.destroy'), achieved_activity, method: :delete, data: { confirm: t('.destroy_confirmation')} %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('.new_achieved_activity'), new_university_achieved_activity_path(@university) %>

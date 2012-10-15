@@ -1,0 +1,9 @@
+es:
+  controllers:
+    achieved_activities:
+      create:
+        notice: 'Se ha creado un registro de actividad realizada.'
+      update:
+        notice: 'Se ha actualizado el registro de actividad realizada.'
+      destroy:
+        notice: 'Se borrado el registro de la actividad realizada.'

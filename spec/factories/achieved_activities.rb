@@ -18,6 +18,7 @@ FactoryGirl.define do
     includes_non_public_secondary_sources false
     includes_university_databases "MyString"
     includes_other_studies false
+    year 2010
     university
   end
 end

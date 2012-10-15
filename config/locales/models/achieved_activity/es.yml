@@ -1,0 +1,29 @@
+es:
+  activerecord:
+    models:
+      achieved_activity: 'Marco General'
+    attributes:
+      achieved_activity:
+        studies_on_students: "Realización de estudios sobre estudiantes universitarios, graduados, licenciados, diplomados, posgraduados (Máster/Doctorado), futuros estudiantes, empleadores, fuentes secundarias de información, BBDD de la gestión de actividades de los servicios de empleo universitarios,..."
+        external_practices: "Gestión de prácticas externas en entidades colaboradoras"
+        internal_practices: "Gestión de prácticas internas en la Universidad"
+        labor_orientation: 'Orientación laboral'
+        employment_agency: 'Bolsa de Empleo'
+        external_colaborations: 'Colaboración con otros organismos públicos'
+        research_projects: 'Proyectos de investigación'
+        international_dimension: 'Su actividad tiene dimensión internacional'
+        other_activities: 'Otras actividades'
+        includes_studies_on_students: 'Estudios realizados sobre los universitarios'
+        includes_studies_on_employers: 'Estudios realizados sobre los empleadores'
+        includes_public_secondary_sources: 'Estudios realizados a partir de la información de fuentes secundarias de acceso público'
+        includes_non_public_secondary_sources: 'Estudios realizados a partir del análisis de datos obtenidos mediante convenio o acuerdo'
+        includes_university_databases: 'Estudios a partir de la información de las bases de datos de la gestión de actividades de los servicios de empleos universitarios'
+        includes_other_studies: 'Otros estudios realizados en el ámbito del empleo y no incluídos en los anteriores'
+    errors:
+      models:
+        achieved_activity:
+          attributes:
+            year:
+              not_a_number: "El campo 'Curso'  tiene que ser un número"
+              greater_than_or_equal_to: "El número de 'Curso' tiene que ser mayor que %{count}"
+              not_an_integer: "El número de 'Curso' ha de ser un entero"

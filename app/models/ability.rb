@@ -2,6 +2,8 @@
 class Ability
   include CanCan::Ability
 
+  UNIVERSITY_DEPENDENT_MODELS = [Service, GeneralFrame, AchievedActivity]
+
   def initialize(user)
     # Define abilities for the passed in (current) user. For example:
     #
@@ -34,11 +36,11 @@ class Ability
 
   def basic_abilities
     can :read, University
-    can :read, [Service, GeneralFrame]
+    can :read, UNIVERSITY_DEPENDENT_MODELS
   end
 
   def simple_abilities user
-    can :manage, [Service, GeneralFrame] , university_id: user.university_id
+    can :manage, UNIVERSITY_DEPENDENT_MODELS , university_id: user.university_id
     can [:edit, :update], University, id: user.university_id
     cannot [:new, :create], University
     can [:read, :update], User, id: user.id
@@ -46,7 +48,7 @@ class Ability
   end
 
   def admin_abilities user
-    can :manage, [Service, GeneralFrame]
+    can :manage, UNIVERSITY_DEPENDENT_MODELS
     can :manage, University
     cannot :destroy, University
     can :manage, User do |other_user|

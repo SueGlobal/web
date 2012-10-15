@@ -1,0 +1,27 @@
+<h1><%= t '.header', university: @university.abbreviation, year: @achieved_activity.year %></h1>
+
+<div class="activities">
+  <h2><%= t '.activities' %></h2>
+  <ul>
+    <% AchievedActivity::ACTIVITIES.each do |current_activity| -%>
+      <li class="field">
+        <span class="label"><%= AchievedActivity.human_attribute_name current_activity %></span>
+        <span class="data"><%= @achieved_activity.send(current_activity) %></span>
+      </li>
+    <% end -%>
+  </ul>
+</div>
+
+<div class="sources">
+  <h2><%= t '.sources' %></h2>
+  <ul>
+    <% AchievedActivity::SOURCES.each do |current_source| -%>
+      <li class="field">
+        <span class="label"><%= AchievedActivity.human_attribute_name current_source %></span>
+        <span class="data"><%= @achieved_activity.send(current_source) %></span>
+      </li>
+    <% end -%>
+  </ul>
+</div>
+<%= link_to t('.edit'), edit_achieved_activity_path(@achieved_activity) %> |
+<%= link_to t('.back'), university_achieved_activities_path(@university) %>
