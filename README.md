@@ -21,3 +21,5 @@ Máquina virtual de producción
 -----------------------------
 
 Necesita tener instalado git y postgresql
+
+Recuerda usar ```bundle config build.pg --with-pg-config=/path/to/pg_config```
