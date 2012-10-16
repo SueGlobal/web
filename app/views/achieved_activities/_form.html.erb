@@ -16,12 +16,12 @@
     <p><%= t '.activities.paragraph' %></p>
     <% AchievedActivity::ACTIVITIES.each do |current_activity| -%>
       <div class="field">
-        <%= f.label current_activity %>
         <% if current_activity == :other_activities -%>
           <%= f.text_area current_activity %>
         <% else -%>
           <%= f.check_box current_activity %>
         <% end -%>
+        <%= f.label current_activity %>
       </div>
     <% end -%>
   </fieldset>
@@ -31,8 +31,8 @@
     <p><%= t '.sources.paragraph' %></p>
     <% AchievedActivity::SOURCES.each do |current_source| -%>
       <div class="field">
-        <%= f.label current_source %>
         <%= f.check_box current_source %>
+        <%= f.label current_source %>
       </div>
     <% end -%>
   </fieldset>
