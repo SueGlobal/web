@@ -40,7 +40,7 @@ gem 'jquery-rails'
 gem 'rspec-rails', group: [:test, :development]
 gem 'factory_girl_rails', '~> 4.0', group: [:test, :development]
 gem 'capybara', group: [:test, :development]
-gem "capybara-webkit"
+gem "capybara-webkit", group: [:test, :development]
 gem 'jquery-rails'
 gem 'pry', group: [:test, :development]
 gem 'sorcery'
@@ -62,4 +62,5 @@ gem 'routing-filter'
 gem 'draper'
 gem 'fuubar', group: [:test]
 gem 'capistrano', group: [:development]
+gem 'rvm-capistrano', group: [:development]
 gem 'unicorn', group: [:production]

@@ -10,7 +10,7 @@ require "bundler/capistrano"
 # set :whenever_command, "bundle exec whenever"
 # require "whenever/capistrano"
 set :scm,             :git
-set :repository,      "git://github.com/SueGlobal/web.git"
+set :repository,      "https://github.com/SueGlobal/web.git"
 set :branch, "origin/master"
 
 role :web, "147.96.240.11"
@@ -38,10 +38,10 @@ set(:latest_revision)   { capture("cd #{current_path}; git rev-parse --short HEA
 set(:previous_revision) { capture("cd #{current_path}; git rev-parse --short HEAD@{1}").strip }
 
 
-$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
+#$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
 require "rvm/capistrano"                  # Load RVM's capistrano plugin.
 set :rvm_ruby_string, '1.9.3'        # Or whatever env you want
-set :rvm_type, :user  # Copy the exact line. I really mean :user here
+# set :rvm_type, :user  # Copy the exact line. I really mean :user here
 # it to run in.
 # Use our ruby-1.9.2-p290@my_site gemset
 #default_environment["PATH"]         = "--"
