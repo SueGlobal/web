@@ -21,7 +21,7 @@ deploy_to = "/var/www/sue/sue-web"
 current_path = "#{deploy_to}/current"
 shared_path = "#{deploy_to}/shared"
 
-pid "/tmp/pids/unicorn.teaser_ror.pid"
+pid "#{shared_path}/tmp/pids/unicorn.sue_global_ror.pid"
 
 # Production specific settings
 if env == "production"
