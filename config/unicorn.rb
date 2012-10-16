@@ -9,7 +9,7 @@ worker_processes (env == 'production' ? 4 : 1)
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
-listen "127.0.0.1:3000", :backlog => 64
+listen "127.0.0.1:5000", :backlog => 64
 
 # Preload our app for more speed
 preload_app true

@@ -22,4 +22,13 @@ Máquina virtual de producción
 
 Necesita tener instalado git y postgresql
 
+Crea el usuario y la base de datos dentro de la consola ```psql```
+
+```
+create user sue with password 'my_password';
+create database sue_production owner sue;
+```
+
+Y poner los datos en el fichero ```config/database.yml```
+
 Recuerda usar ```bundle config build.pg --with-pg-config=/path/to/pg_config```
