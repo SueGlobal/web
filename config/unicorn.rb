@@ -30,7 +30,7 @@ if env == "production"
   working_directory current_path
 
   # feel free to point this anywhere accessible on the filesystem
-  user 'sue', 'users'
+  user 'sue', 'sue'
 
   stderr_path "#{shared_path}/log/unicorn.stderr.log"
   stdout_path "#{shared_path}/log/unicorn.stdout.log"
