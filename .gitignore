@@ -17,3 +17,4 @@ rerun.txt
 pickle-email-*.html
 config/database.yml
 config/environments/production.rb
+config/app_config.yml
