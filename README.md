@@ -32,3 +32,6 @@ create database sue_production owner sue;
 Y poner los datos en el fichero ```config/database.yml```
 
 Recuerda usar ```bundle config build.pg --with-pg-config=/path/to/pg_config```
+
+En config/unicorn.rb, recordad que el usuario que pongais tiene que estar en
+users, staff o similar.
