@@ -9,7 +9,7 @@ worker_processes (env == 'production' ? 4 : 1)
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
-listen "127.0.0.1:5000", :backlog => 64
+listen 5000#, :backlog => 64
 
 # Preload our app for more speed
 preload_app true
@@ -30,7 +30,7 @@ if env == "production"
   working_directory current_path
 
   # feel free to point this anywhere accessible on the filesystem
-  user 'apache', 'apache'
+  user 'sue', 'sue'
 
   stderr_path "#{shared_path}/log/unicorn.stderr.log"
   stdout_path "#{shared_path}/log/unicorn.stdout.log"
