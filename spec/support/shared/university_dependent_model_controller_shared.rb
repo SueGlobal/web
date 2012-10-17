@@ -385,7 +385,7 @@ shared_examples "a university dependent model controller" do |model, *actions|
 
           it "redirects to the university" do
             delete_destroy
-            response.should redirect_to(university)
+            expect(response).to redirect_to(university)
           end
 
           it "sets the flash" do
