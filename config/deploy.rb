@@ -64,6 +64,8 @@ namespace :deploy do
     run "#{try_sudo} mkdir -p #{dirs.join(' ')} && #{try_sudo} chmod g+w #{dirs.join(' ')}"
     run "git clone #{repository} #{current_path}"
     put(File.read("config/database.yml"), "#{shared_path}/database.yml")
+    # For mailer configuration.
+    put(File.read("config/environments/production.rb"), "#{shared_path}/production.rb")
   end
 
   task :cold do
@@ -104,7 +106,8 @@ namespace :deploy do
       ln -s #{shared_path}/log #{latest_release}/log &&
       ln -s #{shared_path}/public/system #{latest_release}/public/system &&
       ln -s #{shared_path}/tmp/pids #{latest_release}/tmp/pids &&
-      ln -sf #{shared_path}/database.yml #{latest_release}/config/database.yml
+      ln -sf #{shared_path}/database.yml #{latest_release}/config/database.yml &&
+      ln -sf #{shared_path}/production.rb #{latest_release}/config/environments/production.rb
     CMD
 
     if fetch(:normalize_asset_timestamps, true)
