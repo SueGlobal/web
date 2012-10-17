@@ -1,0 +1,4 @@
+en:
+  mailers:
+    reset_password:
+      subject: 'Reset your password.'

@@ -10,7 +10,7 @@ describe ResetPasswordMailer do
     it "renders the headers" do
       mail.subject.should eq("Reset your password.")
       mail.to.should eq([user.email])
-      mail.from.should eq(["sue-global@example.com"])
+      mail.from.should eq([APP_CONFIG[:email_address]])
     end
 
     it "renders the body" do

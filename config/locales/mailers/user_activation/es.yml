@@ -1,0 +1,7 @@
+es:
+  mailers:
+    user_activation:
+      activation_needed_email:
+        subject: 'Activa tu cuenta.'
+      activation_success_email:
+        subject: 'Cuenta activada.'

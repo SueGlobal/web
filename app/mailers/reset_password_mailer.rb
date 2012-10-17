@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class ResetPasswordMailer < ActionMailer::Base
-  default from: "sue-global@example.com"
+  default from: APP_CONFIG[:email_address]
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -12,6 +12,6 @@ class ResetPasswordMailer < ActionMailer::Base
     @url = edit_password_reset_url id: user.reset_password_token
 
     mail to: user.email,
-         subject: 'Reset your password.'
+         subject: I18n.t('mailers.reset_password.subject')
   end
 end

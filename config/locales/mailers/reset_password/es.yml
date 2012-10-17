@@ -1,0 +1,4 @@
+es:
+  mailers:
+    reset_password:
+      subject: 'Cambia tu contraseña.'

@@ -10,7 +10,7 @@ describe UserActivationMailer do
     it "renders the headers" do
       mail.subject.should eq("Activate your account.")
       mail.to.should eq([new_user.email])
-      mail.from.should eq(["sue-global@example.com"])
+      mail.from.should eq([APP_CONFIG[:email_address]])
     end
 
     it "renders the body" do
@@ -23,8 +23,8 @@ describe UserActivationMailer do
 
     it "renders the headers" do
       mail.subject.should eq("Account activated.")
-      mail.to.should eq(["to@example.org"])
-      mail.from.should eq(["sue-global@example.com"])
+      mail.to.should eq([new_user.email])
+      mail.from.should eq([APP_CONFIG[:email_address]])
     end
 
     it "renders the body" do
