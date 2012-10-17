@@ -66,6 +66,7 @@ namespace :deploy do
     put(File.read("config/database.yml"), "#{shared_path}/database.yml")
     # For mailer configuration.
     put(File.read("config/environments/production.rb"), "#{shared_path}/production.rb")
+    put(File.read("config/app_config.yml"), "#{shared_path}/app_config.yml")
   end
 
   task :cold do
@@ -107,7 +108,8 @@ namespace :deploy do
       ln -s #{shared_path}/public/system #{latest_release}/public/system &&
       ln -s #{shared_path}/tmp/pids #{latest_release}/tmp/pids &&
       ln -sf #{shared_path}/database.yml #{latest_release}/config/database.yml &&
-      ln -sf #{shared_path}/production.rb #{latest_release}/config/environments/production.rb
+      ln -sf #{shared_path}/production.rb #{latest_release}/config/environments/production.rb &&
+      ln -sf #{shared_path}/app_config.yml #{latest_release}/config/app_config.yml
     CMD
 
     if fetch(:normalize_asset_timestamps, true)
