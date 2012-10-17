@@ -1,0 +1,8 @@
+development:
+  email_address: localhost:3000
+
+test:
+  email_address: test.host
+
+production:
+  email_address: example.com
