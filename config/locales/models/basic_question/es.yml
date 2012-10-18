@@ -1,0 +1,23 @@
+es:
+  activerecord:
+    models:
+      basic_question: 'Información básica'
+    attributes:
+      basic_question:
+        title: 'Título del estudio'
+        author: 'Autor/es del estudio'
+        year: 'Año de publicación'
+        population: 'Población objeto de estudio'
+    errors:
+      models:
+        basic_question:
+          attributes:
+            year:
+              not_a_number: "El año tiene que ser un número"
+              greater_than_or_equal_to: "El año tiene que ser mayor que %{count}"
+              not_an_integer: "El año ha de ser un entero"
+              blank: 'Es necesario poner el año de publicación'
+            title:
+              blank: 'Se ha de añadir el título del estudio'
+            author:
+              blank: 'Se ha de añadir el autor del estudio'

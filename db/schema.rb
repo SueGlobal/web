@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121018073043) do
+ActiveRecord::Schema.define(:version => 20121018103907) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(:version => 20121018073043) do
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
     t.integer  "year"
+  end
+
+  create_table "basic_questions", :force => true do |t|
+    t.text     "title"
+    t.text     "author"
+    t.text     "population"
+    t.integer  "year"
+    t.integer  "studiable_id"
+    t.string   "studiable_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "general_frames", :force => true do |t|
@@ -80,6 +91,44 @@ ActiveRecord::Schema.define(:version => 20121018073043) do
     t.datetime "updated_at",     :null => false
     t.integer  "studiable_id"
     t.string   "studiable_type"
+  end
+
+  create_table "student_studies", :force => true do |t|
+    t.text     "scope"
+    t.boolean  "participates_employment_agency"
+    t.boolean  "participates_quality_area"
+    t.boolean  "participates_university_department"
+    t.boolean  "participates_foundation"
+    t.boolean  "participates_aneca"
+    t.boolean  "participates_state_organization"
+    t.boolean  "participates_chamber_of_commerce"
+    t.boolean  "participates_state_employment_agency"
+    t.boolean  "participates_employers_association"
+    t.boolean  "participates_companies"
+    t.boolean  "participates_european_institutions"
+    t.boolean  "participates_labor_unions"
+    t.boolean  "participates_professional_associations"
+    t.boolean  "participates_others"
+    t.text     "reference_period"
+    t.boolean  "variable_graduate_profile"
+    t.boolean  "variable_complementary_activities"
+    t.boolean  "variable_satisfaction"
+    t.boolean  "variable_job_hunting"
+    t.boolean  "variable_study_job_compatibility"
+    t.boolean  "variable_first_job"
+    t.boolean  "variable_employees"
+    t.boolean  "variable_self_employees"
+    t.boolean  "variable_contract_type"
+    t.boolean  "variable_current_job"
+    t.boolean  "variable_employee_situation"
+    t.boolean  "variable_knowledge_valuation"
+    t.boolean  "variable_competence_valuation"
+    t.text     "variable_other"
+    t.text     "questionnaire_link"
+    t.text     "notes"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.boolean  "participates_other_universities"
   end
 
   create_table "universities", :force => true do |t|

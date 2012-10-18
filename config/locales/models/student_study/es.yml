@@ -1,0 +1,25 @@
+es:
+  activerecord:
+    models:
+      student_study: 'Estudio realizado sobre los universitarios'
+    attributes:
+      student_study:
+        notes: 'Notas'
+        questionnaire_link: 'Enlace al cuestionario utilizado en el estudio'
+        reference_period: 'Periodo de referencia'
+        scope: 'Ámbito del estudio'
+        participates_employment_agency: 'Servicio de empleo'
+        participates_quality_area: 'Área de calidad'
+        participates_university_department: 'Centro/Departamento/Instituto Universitario'
+        participates_foundation: 'Fundación de la Universidad'
+        participates_aneca: 'ANECA'
+        participates_state_organization: 'Organismos públicos'
+        participates_other_universities: 'Otras universidades'
+        participates_chamber_of_commerce: 'Cámara de comercio'
+        participates_state_employment_agency: 'Servicios Públicos de Empleo'
+        participates_employers_association: 'Confederación/Asociación de Empresarios'
+        participates_companies: 'Empresas'
+        participates_european_institutions: 'Instituciones europeas'
+        participates_labor_unions: 'Sindicatos'
+        participates_professional_associations: 'Asociaciones/Colegios profesionales'
+        participates_others: 'Otros colaboradores, especificar'

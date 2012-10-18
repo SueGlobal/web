@@ -1,0 +1,8 @@
+es:
+  activerecord:
+    models:
+      software_question: 'Software'
+    attributes:
+      software_question:
+        uses_some: 'Utiliza para algunas partes del proceso algún tipo de software de desarrollo propio o a medida'
+        description: 'Describa brevemente el software utilizado'

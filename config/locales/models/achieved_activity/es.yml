@@ -1,7 +1,7 @@
 es:
   activerecord:
     models:
-      achieved_activity: 'Marco General'
+      achieved_activity: 'Actividades realizadas'
     attributes:
       achieved_activity:
         studies_on_students: "Realización de estudios sobre estudiantes universitarios, graduados, licenciados, diplomados, posgraduados (Máster/Doctorado), futuros estudiantes, empleadores, fuentes secundarias de información, BBDD de la gestión de actividades de los servicios de empleo universitarios,..."
