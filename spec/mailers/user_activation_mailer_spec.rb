@@ -8,7 +8,7 @@ describe UserActivationMailer do
     let(:mail) { UserActivationMailer.activation_needed_email new_user }
 
     it "renders the headers" do
-      mail.subject.should eq("Activate your account.")
+      mail.subject.should eq(I18n.t('mailers.user_activation.activation_needed_email.subject'))
       mail.to.should eq([new_user.email])
       mail.from.should eq([APP_CONFIG[:email_address]])
     end
@@ -22,7 +22,7 @@ describe UserActivationMailer do
     let(:mail) { UserActivationMailer.activation_success_email new_user }
 
     it "renders the headers" do
-      mail.subject.should eq("Account activated.")
+      mail.subject.should eq(I18n.t('mailers.user_activation.activation_success_email.subject'))
       mail.to.should eq([new_user.email])
       mail.from.should eq([APP_CONFIG[:email_address]])
     end

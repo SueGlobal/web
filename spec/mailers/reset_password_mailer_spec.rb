@@ -8,7 +8,7 @@ describe ResetPasswordMailer do
     let(:mail) { ResetPasswordMailer.reset_password_email(user) }
 
     it "renders the headers" do
-      mail.subject.should eq("Reset your password.")
+      mail.subject.should eq(I18n.t('mailers.reset_password.subject'))
       mail.to.should eq([user.email])
       mail.from.should eq([APP_CONFIG[:email_address]])
     end
