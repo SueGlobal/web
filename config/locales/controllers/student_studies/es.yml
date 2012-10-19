@@ -1,0 +1,9 @@
+es:
+  controllers:
+    student_studies:
+      create:
+        notice: 'Se ha añadido el estudio realizado sobre los estudiantes'
+      update:
+        notice: 'Se ha actualizado el estudio realizado sobre los estudiantes'
+      destroy:
+        notice: 'Se borrado el estudio realizado sobre los estudiantes'

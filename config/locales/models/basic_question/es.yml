@@ -7,7 +7,6 @@ es:
         title: 'Título del estudio'
         author: 'Autor/es del estudio'
         year: 'Año de publicación'
-        population: 'Población objeto de estudio'
     errors:
       models:
         basic_question:

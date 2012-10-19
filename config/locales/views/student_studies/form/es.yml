@@ -1,0 +1,17 @@
+es:
+  student_studies:
+    form:
+      participation:
+        legend: 'Participantes en el estudio'
+        intern: 'Internos'
+        extern: 'Externos'
+      variables:
+        legend: 'Principales apartados y variables contemplados en el cuestionario'
+      errors_header:
+        one: 'No se pudo guardar el estudio por un error:'
+        other: 'No se pudo guardar el estudio por %{count} errores:'
+  helpers:
+    submit:
+      services:
+        create: 'Añadir estudio'
+        update: 'Actualizar estudio'

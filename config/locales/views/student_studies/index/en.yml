@@ -1,0 +1,10 @@
+en:
+  student_studies:
+    index:
+      header: "Listing %{university}'s student studies"
+      actions: 'Actions'
+      show: 'Show'
+      edit: 'Edit'
+      destroy: 'Delete'
+      destroy_confirmation: 'Are you sure?'
+      new_student_study: 'New student study'

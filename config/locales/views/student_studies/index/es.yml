@@ -1,0 +1,10 @@
+es:
+  student_studies:
+    index:
+      header: "Listado de estudios realizados sobre estudiantes de %{university}"
+      actions: 'Acciones'
+      show: 'Mostrar'
+      edit: 'Editar'
+      destroy: 'Borrar'
+      destroy_confirmation: '¿Estás seguro de borrar este estudio?'
+      new_student_study: 'Nuevo estudio realizado sobre estudiantes'

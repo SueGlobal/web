@@ -8,6 +8,9 @@ SueGlobal::Application.routes.draw do
     resources :services, shallow: true, except: :show
     resources :achieved_activities, shallow: true
     resources :general_frames, shallow: true
+
+    #studies
+    resources :student_studies, shallow: true
   end
 
   match 'login' => 'user_sessions#new', as: :login

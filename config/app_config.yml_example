@@ -1,8 +1,11 @@
 development:
   email_address: localhost:3000
+  start_year: 2000
 
 test:
   email_address: test.host
+  start_year: 2000
 
 production:
   email_address: example.com
+  start_year: 2000

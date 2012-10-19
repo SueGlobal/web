@@ -1,0 +1,9 @@
+en:
+  controllers:
+    student_studies:
+      create:
+        notice: 'Student study was successfully created.'
+      update:
+        notice: 'Student study was successfully updated.'
+      destroy:
+        notice: 'Student study was successfully removed.'

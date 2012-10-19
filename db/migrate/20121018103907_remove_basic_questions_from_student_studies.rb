@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RemoveBasicQuestionsFromStudentStudies < ActiveRecord::Migration
   def up
     remove_column :student_studies, :title

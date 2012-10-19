@@ -1,0 +1,18 @@
+<fieldset>
+  <legend><%= t 'legend', scope: 'study.basic_question_form' %></legend>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+  </div>
+
+  <div class="field">
+    <%= f.label :year %>
+    <%= select_year Date.today, start_year: Time.now.year, end_year: APP_CONFIG[:start_year] %>
+  </div>
+
+</fieldset>

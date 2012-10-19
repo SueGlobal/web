@@ -1,0 +1,4 @@
+
+
+<%= link_to_if can?(:edit, @student_study), t('.edit'), edit_student_study_path(@student_study) do "" end %> |
+<%= link_to t('.back'), university_student_studies_path(@university) %>

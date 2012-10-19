@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateBasicQuestions < ActiveRecord::Migration
   def change
     create_table :basic_questions do |t|

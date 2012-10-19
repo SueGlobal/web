@@ -11,6 +11,21 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :abbreviation %>
+    <%= f.text_field :abbreviation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :province_id, Province.model_name.human %>
+    <%= f.select :province_id, Province.for_select %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

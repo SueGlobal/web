@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class BasicQuestion < ActiveRecord::Base
   attr_accessible :author, :population, :title, :year
 

@@ -37,5 +37,6 @@ FactoryGirl.define do
     variable_other "MyText"
     questionnaire_link "MyText"
     notes "MyText"
+    university
   end
 end

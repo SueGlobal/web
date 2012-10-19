@@ -1,0 +1,15 @@
+<fieldset>
+
+  <legend><%= t 'legend', scope: 'study.software_question_form' %></legend>
+
+  <div class="field">
+    <%= f.check_box :uses_some %>
+    <%= f.label :uses_some %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+
+</fieldset>

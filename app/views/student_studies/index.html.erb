@@ -1,0 +1,23 @@
+<h1><%= t '.header', university: @university.abbreviation %></h1>
+
+<table>
+  <tr>
+    <th><%= BasicQuestion.human_attribute_name :title %></th>
+    <th><%= BasicQuestion.human_attribute_name :year %></th>
+    <th><%= t '.actions' %></th>
+  </tr>
+
+<% @student_studies.each do |student_study| %>
+  <tr>
+    <td><%= student_study.basic_question.title %></td>
+    <td><%= student_study.basic_question.year %></td>
+    <td><%= link_to t('.show'), student_study %> <br>
+      <%= link_to_if can?(:edit, student_study), t('.edit'), edit_student_study_path(student_study) do "" end %> <br>
+      <%= link_to_if can?(:destroy, student_study), t('.destroy'), student_study, method: :delete, data: { confirm: t('destroy_confirmation') } do "" end %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to_if can?(:new, StudentStudy), t('.new_student_study'), new_university_student_study_path(@university) do "" end %>

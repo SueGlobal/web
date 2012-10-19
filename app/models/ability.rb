@@ -2,7 +2,7 @@
 class Ability
   include CanCan::Ability
 
-  UNIVERSITY_DEPENDENT_MODELS = [Service, GeneralFrame, AchievedActivity]
+  UNIVERSITY_DEPENDENT_MODELS = [Service, GeneralFrame, AchievedActivity, StudentStudy]
 
   def initialize(user)
     # Define abilities for the passed in (current) user. For example:

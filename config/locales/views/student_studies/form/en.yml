@@ -1,0 +1,17 @@
+en:
+  student_studies:
+    form:
+      participation:
+        legend: 'Study participants'
+        intern: 'Intern'
+        extern: 'Extern'
+      variables:
+        legend: 'Variables'
+      errors_header:
+        one: 'An error prohibited this study from being saved:'
+        other: '%{count} errors prohibited this study from being saved:'
+  helpers:
+    submit:
+      services:
+        create: 'Add study'
+        update: 'Update study'

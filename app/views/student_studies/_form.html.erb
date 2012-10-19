@@ -1,0 +1,76 @@
+<%= form_for(@path) do |f| %>
+  <% if @student_study.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t '.errors_header', count: @student_study.errors.count %></h2>
+
+      <ul>
+      <% @student_study.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :basic_question do |builder| %>
+    <%= render 'basic_question_form', f: builder %>
+  <% end -%>
+
+  <fieldset>
+    <legend><%= t '.participation.legend' %></legend>
+    <ol>
+      <li><%= t '.participation.intern'%>
+        <ol>
+          <% StudentStudy::PARTICIPATES[:intern].each do |participates| -%>
+            <li>
+              <div class="field">
+                <%= f.check_box participates%>
+                <%= f.label participates%>
+              </div>
+            </li>
+          <% end -%>
+        </ol>
+      </li>
+      <li><%= t '.participation.extern' %>
+        <ol>
+          <% StudentStudy::PARTICIPATES[:extern].each do |participates| -%>
+            <li>
+              <div class="field">
+                <%= f.check_box participates%>
+                <%= f.label participates%>
+              </div>
+            </li>
+          <% end -%>
+        </ol>
+      </li>
+      <li>
+        <div class="field">
+          <%= f.label :participates_others %> <br>
+          <%= f.text_area :participates_others %>
+        </div>
+      </li>
+    </ol>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t '.variables.legend' %></legend>
+    <ol>
+    <% StudentStudy::VARIABLES.each do |variable| -%>
+      <li>
+        <div class="field">
+          <%= f.check_box variable %>
+          <%= f.label variable %>
+        </div>
+      </li>
+    <% end -%>
+    </ol>
+  </fieldset>
+
+  <%= f.fields_for :software_question do |builder| %>
+    <%= render 'software_question_form', f: builder %>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

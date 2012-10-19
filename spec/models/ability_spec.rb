@@ -122,4 +122,8 @@ describe Ability do
   context "regarding achieved activities" do
     include_examples "abilities for university dependent model", AchievedActivity
   end
+
+  context "regarding student studies" do
+    include_examples "abilities for university dependent model", StudentStudy
+  end
 end

@@ -1,0 +1,6 @@
+es:
+  student_studies:
+    edit:
+      header: 'Editando estudio realizado sobre estudiantes'
+      show: 'Mostrar'
+      back: 'Atrás'

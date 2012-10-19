@@ -1,0 +1,5 @@
+es:
+  student_studies:
+    new:
+      header: 'Nuevo estudio realizado sobre estudiantes'
+      back: 'Atrás'
