@@ -1,0 +1,10 @@
+en:
+  study:
+    sample_question_form:
+      legend: 'Sample data'
+      design_legend: 'Sampling design'
+      detailed_information_legend: 'Sampling detailed information'
+      sampling_option_probabilistic: 'Muestreo probabilístico'
+      sampling_option_non_probabilistic: 'Muestreo no probabilístico'
+      sampling_option_total_population: 'Población total'
+      sampling_option_undefined: 'No definido'

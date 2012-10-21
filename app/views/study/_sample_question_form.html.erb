@@ -1,0 +1,47 @@
+<fieldset class="sampling">
+  <legend><%= t 'legend', scope: 'study.sample_question_form' %></legend>
+
+  <div class="field">
+    <%= f.label :scope %> <br>
+    <%= f.text_area :scope %>
+  </div>
+
+  <div class="field">
+    <%= f.label :population %> <br>
+    <%= f.text_area :population %>
+  </div>
+
+  <fieldset class="design">
+    <legend><%= t 'design_legend', scope: 'study.sample_question_form' %></legend>
+    <div class="field">
+      <% SampleQuestion::SAMPLING_OPTIONS.each do |sampling| -%>
+        <%= radio_button_tag  :sampling_option,
+                              sampling.to_s,
+                              sampling == :undefined %>
+        <%= label_tag :"sampling_option_#{sampling}",
+                      t("sampling_option_#{sampling}",
+                        scope: 'study.sample_question_form') %> <br>
+      <% end -%>
+    </div>
+  </fieldset>
+
+  <fieldset class="detailed_information">
+    <legend><%= t 'detailed_information_legend', scope: 'study.sample_question_form' %></legend>
+    <div class="probabilistic_sampling">
+      <div class="field">
+        <%= f.label :sampling_type %> <br>
+        <%= f.text_area :sampling_type %>
+      </div>
+      <div class="field">
+        <%= f.label :disintegration_level %> <br>
+        <%= f.text_area :disintegration_level %>
+      </div>
+    </div>
+    <div class="non_probabilistic_sampling">
+      <div class="field">
+        <%= f.label :non_probabilistic_description %> <br>
+        <%= f.text_area :non_probabilistic_description %>
+      </div>
+    </div>
+  </fieldset>
+</fieldset>

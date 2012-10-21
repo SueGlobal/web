@@ -2,6 +2,7 @@
 class StudentStudy < ActiveRecord::Base
   include ContainsSoftwareQuestions
   include ContainsBasicQuestions
+  include ContainsSampleQuestions
   include Study
 
   PARTICIPATES = {

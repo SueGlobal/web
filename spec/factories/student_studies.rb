@@ -4,6 +4,7 @@
 FactoryGirl.define do
   factory :student_study do
     basic_question
+    sample_question
     software_question
     scope "MyText"
     participates_employment_agency false

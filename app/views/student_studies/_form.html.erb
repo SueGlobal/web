@@ -65,6 +65,10 @@
     </ol>
   </fieldset>
 
+  <%= f.fields_for :sample_question do |builder| %>
+    <%= render 'sample_question_form', f: builder %>
+  <% end -%>
+
   <%= f.fields_for :software_question do |builder| %>
     <%= render 'software_question_form', f: builder %>
   <% end -%>

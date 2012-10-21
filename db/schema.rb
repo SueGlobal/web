@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121019095049) do
+ActiveRecord::Schema.define(:version => 20121021180517) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -71,6 +71,19 @@ ActiveRecord::Schema.define(:version => 20121019095049) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "sample_questions", :force => true do |t|
+    t.text     "scope"
+    t.text     "population"
+    t.string   "sampling_option"
+    t.text     "non_probabilistic_description"
+    t.text     "sampling_type"
+    t.text     "disintegration_level"
+    t.integer  "studiable_id"
+    t.string   "studiable_type"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "services", :force => true do |t|

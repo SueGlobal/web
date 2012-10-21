@@ -17,4 +17,6 @@ describe "student_studies/new" do
     assert_select "form", :action => university_student_studies_path(@path), :method => "post" do
     end
   end
+
+  it_behaves_like 'rendering questions forms', :sample, :software, :basic
 end

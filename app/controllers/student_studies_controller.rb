@@ -28,6 +28,7 @@ class StudentStudiesController < StudyController
   def new
     @student_study.build_basic_question
     @student_study.build_software_question
+    @student_study.build_sample_question
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @student_study }
