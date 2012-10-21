@@ -1,0 +1,22 @@
+<fieldset>
+  <legend><%= t 'legend', scope: 'study.field_work_question_form' %></legend>
+
+  <ol>
+    <% [:phone, :email, :internet, :mail, :interview, :focus_group].each do |fw| -%>
+      <li>
+        <div class="field">
+          <%= f.check_box fw %>
+          <%= f.label fw %>
+        </div>
+      </li>
+    <% end -%>
+
+    <li>
+      <div class="field">
+        <%= f.label :other %> <br>
+        <%= f.text_area :other %>
+      </div>
+    </li>
+  </ol>
+
+</fieldset>

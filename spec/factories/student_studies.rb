@@ -4,6 +4,7 @@
 FactoryGirl.define do
   factory :student_study do
     basic_question
+    field_work_question
     funding_question
     sample_question
     software_question

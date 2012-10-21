@@ -18,5 +18,6 @@ describe "student_studies/edit" do
     end
   end
 
-  it_behaves_like 'rendering questions forms', :sample, :software, :basic, :funding
+  it_behaves_like 'rendering questions forms', :sample, :software, :basic, :funding,
+    :field_work
 end

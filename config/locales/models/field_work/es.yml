@@ -1,0 +1,13 @@
+es:
+  activerecord:
+    models:
+      field_work_question: 'Trabajo de campo'
+    attributes:
+      field_work_question:
+        phone: 'Teléfono'
+        email: 'Correo Electrónico'
+        internet: 'Internet'
+        mail: 'Correo Postal'
+        interview: 'Entrevista personal'
+        focus_group: 'Focus group'
+        other: 'Otro'
