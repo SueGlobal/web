@@ -18,5 +18,5 @@ describe "student_studies/new" do
     end
   end
 
-  it_behaves_like 'rendering questions forms', :sample, :software, :basic
+  it_behaves_like 'rendering questions forms', :sample, :software, :basic, :funding
 end

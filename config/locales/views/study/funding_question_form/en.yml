@@ -1,0 +1,8 @@
+en:
+  study:
+    funding_question_form:
+      legend: 'Funding data'
+      state_funding_legend: 'State Funding'
+      private_funding_legend: 'Private Funding'
+      fixed_funding: 'Fixed funding'
+      variable_funding: 'Variable funding'

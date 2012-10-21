@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121021180517) do
+ActiveRecord::Schema.define(:version => 20121021212908) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -44,6 +44,19 @@ ActiveRecord::Schema.define(:version => 20121021180517) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
+
+  create_table "funding_questions", :force => true do |t|
+    t.boolean  "fixed_state_funding"
+    t.boolean  "variable_state_funding"
+    t.boolean  "fixed_private_funding"
+    t.boolean  "variable_private_funding"
+    t.integer  "studiable_id"
+    t.string   "studiable_type"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "funding_questions", ["studiable_id"], :name => "index_funding_questions_on_studiable_id"
 
   create_table "general_frames", :force => true do |t|
     t.integer  "year"

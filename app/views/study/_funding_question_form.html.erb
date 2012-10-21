@@ -1,0 +1,28 @@
+<fieldset>
+  <legend><%= t 'legend', scope: 'study.funding_question_form' %></legend>
+
+  <ol>
+    <li>
+      <%= t 'state_funding_legend', scope: 'study.funding_question_form' %> <br>
+      <div class="field">
+        <%= f.check_box :fixed_state_funding %>
+        <%= f.label :fixed_state_funding, t('fixed_funding', scope: 'study.funding_question_form') %>
+      </div>
+      <div class="field">
+        <%= f.check_box :variable_state_funding %>
+        <%= f.label :variable_state_funding, t('variable_funding', scope: 'study.funding_question_form') %>
+      </div>
+    </li>
+    <li>
+      <%= t 'private_funding_legend', scope: 'study.funding_question_form' %>
+      <div class="field">
+        <%= f.check_box :fixed_private_funding %>
+        <%= f.label :fixed_private_funding, t('fixed_funding', scope: 'study.funding_question_form') %>
+      </div>
+      <div class="field">
+        <%= f.check_box :variable_private_funding %>
+        <%= f.label :variable_private_funding, t('variable_funding', scope: 'study.funding_question_form') %>
+      </div>
+    </li>
+  </ol>
+</fieldset>

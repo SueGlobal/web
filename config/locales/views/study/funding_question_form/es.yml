@@ -1,0 +1,8 @@
+es:
+  study:
+    funding_question_form:
+      legend: 'Financiación'
+      state_funding_legend: 'Financiación Pública'
+      private_funding_legend: 'Financiación Privada'
+      fixed_funding: 'Financiación Fija'
+      variable_funding: 'Financiación Variable'
