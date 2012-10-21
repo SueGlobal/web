@@ -3,7 +3,7 @@ jQuery ->
   $detailedInfo.hide()
   $probabilistic = $detailedInfo.find('.probabilistic_sampling')
   $nonProbabilistic = $detailedInfo.find('.non_probabilistic_sampling')
-  $('input[name="sampling_option"]').on 'click', (event) ->
+  $('input[name="sampling_option"]').on 'change', (event) ->
     $detailedInfo.hide()
     $probabilistic.hide()
     $nonProbabilistic.hide()

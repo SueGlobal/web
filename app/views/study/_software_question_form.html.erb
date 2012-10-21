@@ -1,13 +1,13 @@
-<fieldset>
+<fieldset class="software">
 
   <legend><%= t 'legend', scope: 'study.software_question_form' %></legend>
 
-  <div class="field">
+  <div class="field js-uses">
     <%= f.check_box :uses_some %>
     <%= f.label :uses_some %>
   </div>
 
-  <div class="field">
+  <div class="field js-description">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
