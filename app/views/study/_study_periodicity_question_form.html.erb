@@ -1,12 +1,8 @@
 <fieldset class="periodicity">
   <legend><%= t 'legend', scope: 'study.study_periodicity_question_form' %></legend>
 
-  <div class="field">
-    <%= f.label :periodicity %>
-    <%= f.select :periodicity, StudyPeriodicityQuestion.select_options %>
-  </div>
-  <div class="field other">
-    <%= f.label :other_description %><br>
-    <%= f.text_area :other_description %>
-  </div>
+  <%= f.fields_for :periodicity do |builder| %>
+    <%= render 'periodicity_form', f: builder %>
+  <% end -%>
+
 </fieldset>

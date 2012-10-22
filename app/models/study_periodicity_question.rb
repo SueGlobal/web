@@ -1,15 +1,12 @@
+# -*- encoding : utf-8 -*-
 class StudyPeriodicityQuestion < ActiveRecord::Base
   belongs_to :studiable, polymorphic: true
+  has_one :periodicity, as: :periodic
 
-  attr_accessible :other_description, :periodicity
+  attr_accessible :periodicity_attributes
+  accepts_nested_attributes_for :periodicity
 
-  def self.select_options
-    [
-      ["Anual", "anual"],
-      ["Bianual", "bianual"],
-      ["Trianual", "trianual"],
-      ["Sin periodicidad", "no periodicity"],
-      ["Otro", "other"]
-    ]
+  def periodicity
+    super || build_periodicity
   end
 end

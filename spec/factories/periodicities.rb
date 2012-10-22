@@ -2,7 +2,9 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :study_periodicity_question do
-    periodicity
+  factory :periodicity do
+    periodicity_type "MyString"
+    other_description "MyText"
+    periodic nil
   end
 end

@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121021225749) do
+ActiveRecord::Schema.define(:version => 20121022073442) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -92,6 +92,17 @@ ActiveRecord::Schema.define(:version => 20121021225749) do
 
   add_index "general_frames", ["university_id"], :name => "index_general_frames_on_university_id"
   add_index "general_frames", ["year"], :name => "index_general_frames_on_year"
+
+  create_table "periodicities", :force => true do |t|
+    t.string   "periodicity_type"
+    t.text     "other_description"
+    t.integer  "periodic_id"
+    t.string   "periodic_type"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "periodicities", ["periodic_id", "periodic_type"], :name => "index_periodicities_on_periodic_id_and_periodic_type"
 
   create_table "provinces", :force => true do |t|
     t.integer  "id_prov",    :null => false
@@ -174,14 +185,14 @@ ActiveRecord::Schema.define(:version => 20121021225749) do
   add_index "student_studies", ["university_id"], :name => "index_student_studies_on_university_id"
 
   create_table "study_periodicity_questions", :force => true do |t|
-    t.string   "periodicity"
-    t.text     "other_description"
     t.integer  "studiable_id"
     t.string   "studiable_type"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "periodicity_id"
   end
 
+  add_index "study_periodicity_questions", ["periodicity_id"], :name => "index_study_periodicity_questions_on_periodicity_id"
   add_index "study_periodicity_questions", ["studiable_id"], :name => "index_study_periodicity_questions_on_studiable_id"
 
   create_table "universities", :force => true do |t|

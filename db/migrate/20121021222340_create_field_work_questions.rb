@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateFieldWorkQuestions < ActiveRecord::Migration
   def change
     create_table :field_work_questions do |t|

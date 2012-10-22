@@ -1,0 +1,14 @@
+es:
+  activerecord:
+    models:
+      periodicity: 'Periodicidad'
+    attributes:
+      periodicity:
+        periodicity_type: 'Periodicidad'
+        other_description: 'Otro, especificar'
+        select_attributes:
+          anual: 'Anual'
+          six_monthly: 'Semestral'
+          four_monthly: 'Cuatrimestral'
+          no_periodicity: 'Sin periodicidad'
+          other: 'Otro'
