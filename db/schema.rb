@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022092725) do
+ActiveRecord::Schema.define(:version => 20121022115402) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -113,6 +113,55 @@ ActiveRecord::Schema.define(:version => 20121022092725) do
 
   add_index "general_frames", ["university_id"], :name => "index_general_frames_on_university_id"
   add_index "general_frames", ["year"], :name => "index_general_frames_on_year"
+
+  create_table "information_questions", :force => true do |t|
+    t.boolean  "university_government_check"
+    t.integer  "university_government_periodicity_id"
+    t.boolean  "social_council_check"
+    t.integer  "social_council_periodicity_id"
+    t.boolean  "faculties_management_check"
+    t.integer  "faculties_management_periodicity_id"
+    t.boolean  "university_other_check"
+    t.integer  "university_other_periodicity_id"
+    t.text     "university_other_description"
+    t.boolean  "students_check"
+    t.integer  "students_periodicity_id"
+    t.boolean  "prestudent_check"
+    t.integer  "prestudent_periodicity_id"
+    t.boolean  "counselor_check"
+    t.integer  "counselor_periodicity_id"
+    t.boolean  "students_parents_check"
+    t.integer  "students_parents_periodicity_id"
+    t.boolean  "prestudents_parents_check"
+    t.integer  "prestudents_parents_periodicity_id"
+    t.boolean  "society_check"
+    t.integer  "society_periodicity_id"
+    t.boolean  "employers_check"
+    t.integer  "employers_periodicity_id"
+    t.boolean  "public_administrations_check"
+    t.integer  "public_administrations_periodicity_id"
+    t.boolean  "external_other_check"
+    t.integer  "external_other_periodicity_id"
+    t.text     "external_other_description"
+    t.integer  "studiable_id"
+    t.string   "studiable_type"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+  end
+
+  add_index "information_questions", ["counselor_periodicity_id"], :name => "counselor_periodicity_id"
+  add_index "information_questions", ["employers_periodicity_id"], :name => "employers_periodicity_id"
+  add_index "information_questions", ["faculties_management_periodicity_id"], :name => "faculties_management_periodicity_id"
+  add_index "information_questions", ["prestudent_periodicity_id"], :name => "prestudent_periodicity_id"
+  add_index "information_questions", ["prestudents_parents_periodicity_id"], :name => "prestudents_parents_periodicity_id"
+  add_index "information_questions", ["public_administrations_periodicity_id"], :name => "public_administrations_periodicity_id"
+  add_index "information_questions", ["social_council_periodicity_id"], :name => "social_council_periodicity_id"
+  add_index "information_questions", ["society_periodicity_id"], :name => "society_periodicity_id"
+  add_index "information_questions", ["students_parents_periodicity_id"], :name => "students_parents_periodicity_id"
+  add_index "information_questions", ["students_periodicity_id"], :name => "student_periodicity_id"
+  add_index "information_questions", ["studiable_id", "studiable_type"], :name => "index_information_questions_on_studiable_id_and_studiable_type"
+  add_index "information_questions", ["university_government_periodicity_id"], :name => "university_government_periodicity_id"
+  add_index "information_questions", ["university_other_periodicity_id"], :name => "university_other_periodicity_id"
 
   create_table "periodicities", :force => true do |t|
     t.string   "periodicity_type"

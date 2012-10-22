@@ -4,11 +4,13 @@
 FactoryGirl.define do
   factory :student_study do
     basic_question
+    class_year_question
     field_work_question
     funding_question
     sample_question
     software_question
     study_periodicity_question
+    information_question
     scope "MyText"
     participates_employment_agency false
     participates_quality_area false

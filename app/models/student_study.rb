@@ -7,6 +7,7 @@ class StudentStudy < ActiveRecord::Base
   include ContainsFieldWorkQuestions
   include ContainsStudyPeriodicityQuestions
   include ContainsClassYearQuestions
+  include ContainsInformationQuestions
   include Study
 
   PARTICIPATES = {

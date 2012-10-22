@@ -19,5 +19,5 @@ describe "student_studies/new" do
   end
 
   it_behaves_like 'rendering questions forms', :sample, :software, :basic, :funding,
-    :field_work, :study_periodicity
+    :field_work, :study_periodicity, :class_year, :information
 end

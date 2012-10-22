@@ -1,0 +1,21 @@
+es:
+  activerecord:
+    models:
+      information_question: 'Datos tiempo transcurrido desde la graduación'
+    attributes:
+      information_question:
+        university_government_check: 'Equipo de gobierno de la Universidad'
+        social_council_check: 'Consejo Social de la Universidad'
+        faculties_management_check: 'Equipos de dirección de los Centros docentes'
+        students_check: 'Alumnos universitarios'
+        prestudent_check: 'Alumnos preuniversitarios'
+        counselor_check: 'Orientadores'
+        students_parents_check: 'Padres de alumnos universitarios'
+        prestudents_parents_check: 'Padres de alumnos preuniversitarios'
+        society_check: 'Sociedad en general'
+        employers_check: 'Empleadores'
+        public_administrations_check: 'Administraciones Públicas'
+        university_other_check: 'Otros'
+        university_other_description: 'Especificar'
+        external_other_check: 'Otros'
+        external_other_description: 'Especificar'

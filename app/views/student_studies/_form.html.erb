@@ -89,6 +89,10 @@
     <%= render 'funding_question_form', f: builder %>
   <% end -%>
 
+  <%= f.fields_for :information_question do |builder| %>
+    <%= render 'information_question_form', f: builder %>
+  <% end -%>
+
   <div class="actions">
     <%= f.submit %>
   </div>
