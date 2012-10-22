@@ -1,0 +1,17 @@
+es:
+  activerecord:
+    models:
+      class_year: 'Curso académico'
+    attributes:
+      class_year:
+        significant: 'Contiene datos estadísticamente significativos'
+        year: 'Curso'
+    errors:
+      models:
+        class_year:
+          attributes:
+            year:
+              not_a_number: "El curso tiene que ser un número"
+              greater_than_or_equal_to: "El curso tiene que ser mayor que %{count}"
+              not_an_integer: "El curso ha de ser un entero"
+              blank: 'Es necesario poner el curso de publicación'

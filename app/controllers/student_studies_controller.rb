@@ -32,6 +32,7 @@ class StudentStudiesController < StudyController
     @student_study.build_funding_question
     @student_study.build_field_work_question
     @student_study.build_study_periodicity_question
+    @student_study.build_class_year_question
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @student_study }

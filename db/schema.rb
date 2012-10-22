@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022073442) do
+ActiveRecord::Schema.define(:version => 20121022092725) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -44,6 +44,27 @@ ActiveRecord::Schema.define(:version => 20121022073442) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
+
+  create_table "class_year_questions", :force => true do |t|
+    t.string   "time_from_graduation_type"
+    t.text     "time_from_graduation_other"
+    t.integer  "studiable_id"
+    t.string   "studiable_type"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  add_index "class_year_questions", ["studiable_id", "studiable_type"], :name => "index_class_year_questions_on_studiable_id_and_studiable_type"
+
+  create_table "class_years", :force => true do |t|
+    t.integer  "year"
+    t.boolean  "significant"
+    t.integer  "class_year_question_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  add_index "class_years", ["class_year_question_id"], :name => "index_class_years_on_class_year_question_id"
 
   create_table "field_work_questions", :force => true do |t|
     t.boolean  "phone"

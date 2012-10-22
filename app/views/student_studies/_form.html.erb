@@ -55,6 +55,10 @@
     </ol>
   </fieldset>
 
+  <%= f.fields_for :class_year_question do |builder| %>
+    <%= render 'class_year_question_form', f: builder %>
+  <% end -%>
+
   <fieldset>
     <legend><%= t '.variables.legend' %></legend>
     <ol>

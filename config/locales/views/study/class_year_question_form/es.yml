@@ -1,0 +1,5 @@
+es:
+  study:
+    class_year_question_form:
+      legend: 'Tiempo desde la graduación'
+      add_class_year: 'Añadir curso'

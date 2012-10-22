@@ -1,0 +1,13 @@
+es:
+  activerecord:
+    models:
+      class_year_question: 'Datos tiempo transcurrido desde la graduación'
+    attributes:
+      class_year_question:
+        time_from_graduation_other: 'Otro'
+        time_from_graduation_type: 'Tiempo desde la obtención del título'
+        select_options:
+          one_year: '1 año'
+          three_years: '3 años'
+          five_years: '5 años'
+          other: 'Otro'
