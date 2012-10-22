@@ -12,7 +12,8 @@ describe BasicQuestion do
 
   it { should validate_presence_of(:author) }
   it { should validate_presence_of(:title) }
-  it { should validate_numericality_of(:year).only_integer }
+  # Done with a before_filter
+  # it { should validate_numericality_of(:year) }
 
   it { should belong_to(:studiable) }
 end
