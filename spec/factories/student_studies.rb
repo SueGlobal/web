@@ -8,6 +8,7 @@ FactoryGirl.define do
     funding_question
     sample_question
     software_question
+    study_periodicity_question
     scope "MyText"
     participates_employment_agency false
     participates_quality_area false

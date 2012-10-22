@@ -15,6 +15,10 @@
     <%= render 'basic_question_form', f: builder %>
   <% end -%>
 
+  <%= f.fields_for :study_periodicity_question do |builder| %>
+    <%= render 'study_periodicity_question_form', f: builder %>
+  <% end -%>
+
   <fieldset>
     <legend><%= t '.participation.legend' %></legend>
     <ol>

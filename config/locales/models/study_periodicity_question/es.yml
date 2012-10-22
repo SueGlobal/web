@@ -1,0 +1,8 @@
+es:
+  activerecord:
+    models:
+      study_periodicity_question: 'Periodicidad de los estudios'
+    attributes:
+      study_periodicity_question:
+        periodicity: 'Periodicidad'
+        other_description: 'Otro, especificar'
