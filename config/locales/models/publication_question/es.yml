@@ -1,0 +1,20 @@
+es:
+  activerecord:
+    models:
+      publication_question: 'Datos tiempo transcurrido desde la graduación'
+    attributes:
+      publication_question:
+        app_check: 'Aplicación con mecanismos de consulta'
+        dynamic_web_check: 'Web como sistema de consulta dinámico en base de datos o similar'
+        dynamic_web_url: 'URL'
+        limited_distribution_check: 'Publicación en papel para distribución interna o una distribución limitada'
+        multimedia_check: 'Formato multimedia'
+        other_check: 'Otros'
+        other_description: 'Especificar'
+        papers_check: 'Contribuciones a congresos o papers'
+        pdf_check: 'Formato electrónico, pdf o similar'
+        static_web_check: 'Web como medio de distribución de contenidos estáticos'
+        static_web_url: 'URL'
+        thesis_check: 'Tesis doctorales'
+        with_isbn_check: 'Publicación editada con ISBN o similar'
+        without_isbn_check: 'Publicación editada sin ISBN o similar'

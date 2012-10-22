@@ -45,6 +45,14 @@ class InformationQuestion < ActiveRecord::Base
 
   belongs_to :studiable, polymorphic: true
 
+  has_one :publication_question
+  accepts_nested_attributes_for :publication_question
+  attr_accessible :publication_question_attributes
+
+  def publication_question
+    super || self.build_publication_question
+  end
+
   FIELDS.each do |f|
     accepts_nested_attributes_for :"#{f}_periodicity"
     attr_accessible :"#{f}_periodicity_attributes"
@@ -54,5 +62,12 @@ class InformationQuestion < ActiveRecord::Base
     end
   end
 
-  attr_accessible :counselor_check, :employers_check, :external_other_check, :external_other_description, :external_other_periodicity, :faculties_management_check, :prestudent_check, :prestudents_parents_check, :public_administrations_check, :social_council_check, :society_check, :students_check, :students_parents_check, :university_government_check, :university_other_check, :university_other_description
+  attr_accessible :counselor_check, :employers_check,
+                  :external_other_check, :external_other_description,
+                  :external_other_periodicity, :faculties_management_check,
+                  :prestudent_check, :prestudents_parents_check,
+                  :public_administrations_check, :social_council_check,
+                  :society_check, :students_check, :students_parents_check,
+                  :university_government_check, :university_other_check,
+                  :university_other_description
 end

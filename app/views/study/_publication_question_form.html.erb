@@ -1,0 +1,74 @@
+<li class="publication">
+  <%= t 'legend', scope: 'study.publication_question_form' %>
+
+  <ol>
+    <li class="field">
+      <%= f.check_box :with_isbn_check %>
+      <%= f.label :with_isbn_check %>
+    </li>
+
+    <li class="field">
+      <%= f.check_box :without_isbn_check %>
+      <%= f.label :without_isbn_check %>
+    </li>
+
+    <li class="field">
+      <%= f.check_box :limited_distribution_check %>
+      <%= f.label :limited_distribution_check %>
+    </li>
+
+    <li class="field">
+      <%= f.check_box :static_web_check %>
+      <%= f.label :static_web_check %>
+      <div class="other_description">
+         <%= f.label :static_web_url %>
+         <%= f.text_field :static_web_url %>
+      </div>
+    </li>
+
+    <li class="field">
+      <%= f.check_box :dynamic_web_check %>
+      <%= f.label :dynamic_web_check %>
+      <div class="other-description">
+         <%= f.label :dynamic_web_url %>
+         <%= f.text_field :dynamic_web_url %>
+      </div>
+    </li>
+
+    <li class="field">
+      <%= f.check_box :pdf_check %>
+      <%= f.label :pdf_check %>
+    </li>
+
+    <li class="field">
+      <%= f.check_box :multimedia_check %>
+      <%= f.label :multimedia_check %>
+    </li>
+
+    <li class="field">
+      <%= f.check_box :app_check %>
+      <%= f.label :app_check %>
+    </li>
+
+    <li class="field">
+      <%= f.check_box :papers_check %>
+      <%= f.label :papers_check %>
+    </li>
+
+    <li class="field">
+      <%= f.check_box :thesis_check %>
+      <%= f.label :thesis_check %>
+    </li>
+
+    <li class="field">
+      <%= f.check_box :other_check %>
+      <%= f.label :other_check %>
+      <div class="other-description">
+         <%= f.label :other_description %>
+         <%= f.text_field :other_description %>
+      </div>
+    </li>
+
+
+  </ol>
+</li>

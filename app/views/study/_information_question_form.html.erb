@@ -70,6 +70,10 @@
       </ol>
     </li>
 
+    <%= f.fields_for :publication_question do |builder| %>
+      <%= render 'publication_question_form', f: builder %>
+    <% end -%>
+
   </ol>
 
 </fieldset>

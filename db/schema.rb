@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022115402) do
+ActiveRecord::Schema.define(:version => 20121022211224) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -180,6 +180,28 @@ ActiveRecord::Schema.define(:version => 20121022115402) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "publication_questions", :force => true do |t|
+    t.integer  "information_question_id"
+    t.boolean  "with_isbn_check"
+    t.boolean  "without_isbn_check"
+    t.boolean  "limited_distribution_check"
+    t.boolean  "static_web_check"
+    t.text     "static_web_url"
+    t.boolean  "dynamic_web_check"
+    t.text     "dynamic_web_url"
+    t.boolean  "pdf_check"
+    t.boolean  "multimedia_check"
+    t.boolean  "app_check"
+    t.boolean  "papers_check"
+    t.boolean  "thesis_check"
+    t.boolean  "other_check"
+    t.text     "other_description"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  add_index "publication_questions", ["information_question_id"], :name => "index_publication_questions_on_information_question_id"
 
   create_table "sample_questions", :force => true do |t|
     t.text     "scope"
