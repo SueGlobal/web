@@ -10,8 +10,11 @@ class UserActivationMailer < ActionMailer::Base
   def activation_needed_email user
     @user = user
     @url = activate_user_url @user.activation_token
-    mail(to: @user.email,
-         subject: I18n.t('mailers.user_activation.activation_needed_email.subject'))
+
+    I18n.with_locale(@user.locale) do
+      mail to: @user.email,
+           subject: I18n.t("mailers.user_activation.activation_needed_email.subject")
+    end
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -23,7 +26,20 @@ class UserActivationMailer < ActionMailer::Base
     @user = user
     @url = login_url
 
-    mail to: @user.email,
-         subject: I18n.t('mailers.user_activation.activation_success_email.subject')
+    I18n.with_locale(@user.locale) do
+      mail to: @user.email,
+           subject: I18n.t('mailers.user_activation.activation_success_email.subject')
+    end
+  end
+
+  def activation_for_registered_users_email user
+    @user = user
+    @url = login_url
+    @university = user.university
+
+    I18n.with_locale(@user.locale) do
+      mail to: @user.email,
+           subject: I18n.t('mailers.user_activation.activation_for_registered_users_email.subject')
+    end
   end
 end

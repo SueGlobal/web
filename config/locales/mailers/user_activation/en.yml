@@ -5,3 +5,5 @@ en:
         subject: 'Activate your account.'
       activation_success_email:
         subject: 'Account activated.'
+      activation_for_registered_users:
+        subject: 'Account registered'

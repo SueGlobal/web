@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121023081720) do
+ActiveRecord::Schema.define(:version => 20121023091737) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -304,8 +304,8 @@ ActiveRecord::Schema.define(:version => 20121023081720) do
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
     t.integer  "roles_mask",                      :default => 0
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
@@ -319,6 +319,7 @@ ActiveRecord::Schema.define(:version => 20121023081720) do
     t.datetime "lock_expires_at"
     t.string   "unlock_token"
     t.integer  "university_id"
+    t.string   "locale",                          :default => "es"
   end
 
   add_index "users", ["activation_token"], :name => "index_users_on_activation_token"

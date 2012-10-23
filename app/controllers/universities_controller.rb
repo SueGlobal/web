@@ -42,8 +42,10 @@ class UniversitiesController < ApplicationController
   # POST /universities
   # POST /universities.json
   def create
+    emails = (params[:university][:admin_emails] || "").split(',')
+    register = UniversityRegister.new(@university, emails)
     respond_to do |format|
-      if @university.save
+      if register.save
         format.html { redirect_to @university, notice: t2('create.notice') }
         format.json { render json: @university, status: :created, location: @university }
       else

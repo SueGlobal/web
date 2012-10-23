@@ -93,7 +93,5 @@ end
 Spork.each_run do
   # This code will be run each time you run your specs.
   FactoryGirl.reload
-  silence_warnings do
-    ActiveSupport::Dependencies.clear
-  end
+  ActiveSupport::Dependencies.clear
 end

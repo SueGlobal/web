@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_locale
 
+  # CanCan related
   rescue_from CanCan::AccessDenied do |exception|
     Rails.logger.debug "Access denied on #{exception.action} #{exception.subject.inspect}"
     redirect_to root_url, notice: 'You are not authorized.'
@@ -13,9 +14,19 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, notice: 'You need to log in to access that page.'
   end
 
+  # Record not found
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    Rails.logger.info "User: #{current_user} tried to access ..."
+    redirect_to root_url, notice: 'Nothing to see here'
+  end
+
   protected
   def set_locale
-    I18n.locale = params[:locale] || I18n.locale
+    if current_user
+      I18n.locale = current_user.locale
+    else
+      I18n.locale = params[:locale] || I18n.locale
+    end
   end
 
   def default_url_options(options={})

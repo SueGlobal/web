@@ -5,6 +5,7 @@ FactoryGirl.define do
   factory :university do
     sequence(:name){|n| "University #{n}" }
     sequence(:abbreviation){|n| "u#{n}" }
+    admin_emails "e1@s.com, e2@s.com, e3@s.com"
     province
   end
 end

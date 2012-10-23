@@ -6,6 +6,6 @@ module MailerMacros
   end
 
   def last_email
-    ActionMailer::Base.deliveries.size
+    ActionMailer::Base.deliveries.last
   end
 end

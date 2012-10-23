@@ -1,10 +1,10 @@
-# -*- encoding : utf-8 -*-
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
   factory :user do
     sequence(:email) { |n| "user#{n}@example.com" }
     password "123456"
+    locale 'es'
     ::User::ROLES.each do |role|
 
       factory "#{role}_user" do
@@ -12,7 +12,7 @@ FactoryGirl.define do
       end
 
       trait role do
-        roles [role]
+        roles [role ]
       end
     end
   end

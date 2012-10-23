@@ -26,6 +26,13 @@
     <%= f.select :province_id, Province.for_select %>
   </div>
 
+  <% unless @university.persisted? -%>
+    <div class="field">
+      <%= f.label :admin_emails %>
+      <%= f.text_field :admin_emails %>
+    </div>
+  <% end -%>
+
   <div class="actions">
     <%= f.submit %>
   </div>
