@@ -1,7 +1,9 @@
 es:
   activerecord:
     models:
-      general_frame: 'Marco General'
+      general_frame:
+        one: 'Marco General'
+        other: 'Marcos Generales'
     attributes:
       general_frame:
         degree_graduates: 'Titulados de primer ciclo'

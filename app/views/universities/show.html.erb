@@ -1,11 +1,12 @@
 <h1><%= @university.name %> (<%= @university.abbreviation %>)</h1>
 
-<% if @university.services.any? -%>
-  <h2><%= Service.model_name.human.pluralize %></h2>
+<div class="services">
+  <h2><%= Service.model_name.human(count: 2) %></h2>
+  <% if @university.services.any? -%>
 
-  <ul id="services">
-    <% @university.services.each do |service| -%>
-      <li>
+    <ul id="services">
+      <% @university.services.each do |service| -%>
+        <li>
         <%= service.name %> <span class="dependency"><%= service.dependency %></span>
         <span class="actions">
           <% if can? :edit, service -%>
@@ -13,17 +14,105 @@
           <% end -%>
           <% if can? :destroy, service -%>
             <%= link_to t('.destroy_service'), service_path(service),
-                        method: :delete,
-                        data: {confirm: t('.destroy_service_confirmation') },
-                        :class => 'destroy' %>
-          <% end -%>
-        </span>
-      </li>
+              method: :delete,
+              data: {confirm: t('.destroy_service_confirmation') },
+              :class => 'destroy' %>
+            <% end -%>
+          </span>
+          </li>
+        <% end -%>
+      </ul>
+    <% else -%>
+      <p><%= t '.no_services' %></p>
     <% end -%>
-  </ul>
-<% else -%>
-  <p><%= t '.no_services' %></p>
-<% end -%>
+    <%= link_to_if can?(:edit, @university), t('.new_service'), new_university_service_path(@university) do "" end %>
+</div>
 
-<%= link_to t('.edit'), edit_university_path(@university) %> |
+<div class="achieved_activities">
+  <h2><%= AchievedActivity.model_name.human(count: 2) %></h2>
+  <% if @university.achieved_activities.any? -%>
+
+    <ul id="achieved_activities">
+      <% @university.achieved_activities.each do |achieved_activity| -%>
+        <li>
+        <%= link_to achieved_activity.year, achieved_activity %>
+        <span class="actions">
+          <% if can? :edit, achieved_activity -%>
+            <%= link_to t('.edit_achieved_activity'), edit_achieved_activity_path(achieved_activity), {:class => 'edit'} %>
+          <% end -%>
+          <% if can? :destroy, achieved_activity -%>
+            <%= link_to t('.destroy_achieved_activity'), achieved_activity_path(achieved_activity),
+              method: :delete,
+              data: {confirm: t('.destroy_achieved_activity_confirmation') },
+              :class => 'destroy' %>
+            <% end -%>
+          </span>
+          </li>
+        <% end -%>
+      </ul>
+    <% else -%>
+      <p><%= t '.no_achieved_activities' %></p>
+    <% end -%>
+    <%= link_to_if can?(:edit, @university), t('.new_achieved_activity'), new_university_achieved_activity_path(@university) do "" end %>
+</div>
+
+<div class="general_frames">
+  <h2><%= GeneralFrame.model_name.human(count: 2) %></h2>
+  <% if @university.achieved_activities.any? -%>
+
+    <ul id="general_frames">
+      <% @university.general_frames.each do |general_frame| -%>
+        <li>
+        <%= link_to general_frame.year, general_frame %>
+        <span class="actions">
+          <% if can? :edit, general_frame -%>
+            <%= link_to t('.edit_general_frame'), edit_general_frame_path(general_frame), {:class => 'edit'} %>
+          <% end -%>
+          <% if can? :destroy, general_frame -%>
+            <%= link_to t('.destroy_general_frame'), general_frame_path(general_frame),
+              method: :delete,
+              data: {confirm: t('.destroy_general_frame_confirmation') },
+              :class => 'destroy' %>
+            <% end -%>
+          </span>
+          </li>
+        <% end -%>
+      </ul>
+    <% else -%>
+      <p><%= t '.no_general_frames' %></p>
+    <% end -%>
+    <%= link_to_if can?(:edit, @university), t('.new_general_frame'), new_university_general_frame_path(@university) do "" end %>
+</div>
+
+<div class="student_studies">
+  <h2><%= AchievedActivity.model_name.human(count: 2) %></h2>
+  <% if @university.student_studies.any? -%>
+
+    <ul id="student_studies">
+      <% @university.student_studies.each do |student_study| -%>
+        <li>
+        <%= link_to student_study.basic_question.title, student_study %>
+        <span class="actions">
+          <% if can? :edit, student_study -%>
+            <%= link_to t('.edit_student_study'), edit_student_study_path(student_study), {:class => 'edit'} %>
+          <% end -%>
+          <% if can? :destroy, student_study -%>
+            <%= link_to t('.destroy_student_study'), student_study_path(student_study),
+              method: :delete,
+              data: {confirm: t('.destroy_student_study_confirmation') },
+              :class => 'destroy' %>
+            <% end -%>
+          </span>
+          </li>
+        <% end -%>
+      </ul>
+    <% else -%>
+      <p><%= t '.no_student_studies' %></p>
+    <% end -%>
+    <%= link_to_if can?(:edit, @university), t('.new_student_study'), new_university_student_study_path(@university) do "" end %>
+</div>
+
+<% if can?(:edit, @university) -%>
+  <%= link_to t('.edit'), edit_university_path(@university) %> |
+<% end -%>
 <%= link_to t('.back'), universities_path %>

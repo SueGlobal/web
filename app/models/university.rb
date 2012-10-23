@@ -8,7 +8,7 @@ class University < ActiveRecord::Base
   has_many :users
   has_many :services
   has_many :general_frames
-  has_many :achieved_activities
+  has_many :achieved_activities, order: 'year DESC'
   has_many :student_studies
 
   validates :name,

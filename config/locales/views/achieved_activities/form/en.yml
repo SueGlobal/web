@@ -1,5 +1,5 @@
 en:
-  general_frames:
+  achieved_activities:
     form:
       errors_header:
         one: 'An error prohibited this activity report from being saved:'
@@ -12,6 +12,6 @@ en:
         paragraph: 'Sources...'
   helpers:
     submit:
-      services:
+      achieved_activities:
         create: 'Add activity report'
         update: 'Update activity report'

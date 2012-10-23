@@ -4,6 +4,7 @@ es:
       achieved_activity: 'Actividades realizadas'
     attributes:
       achieved_activity:
+        year: 'Curso'
         studies_on_students: "Realización de estudios sobre estudiantes universitarios, graduados, licenciados, diplomados, posgraduados (Máster/Doctorado), futuros estudiantes, empleadores, fuentes secundarias de información, BBDD de la gestión de actividades de los servicios de empleo universitarios,..."
         external_practices: "Gestión de prácticas externas en entidades colaboradoras"
         internal_practices: "Gestión de prácticas internas en la Universidad"
