@@ -17,6 +17,6 @@ FactoryGirl.define do
     papers_check false
     thesis_check false
     other_check false
-    other_description "MyText"
+    other "MyText"
   end
 end

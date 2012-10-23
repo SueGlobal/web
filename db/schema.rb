@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022234630) do
+ActiveRecord::Schema.define(:version => 20121023081720) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20121022234630) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.text     "questionnaire_link"
+    t.boolean  "other_check"
   end
 
   create_table "funding_questions", :force => true do |t|
@@ -197,7 +198,7 @@ ActiveRecord::Schema.define(:version => 20121022234630) do
     t.boolean  "papers_check"
     t.boolean  "thesis_check"
     t.boolean  "other_check"
-    t.text     "other_description"
+    t.text     "other"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
   end
@@ -272,6 +273,8 @@ ActiveRecord::Schema.define(:version => 20121022234630) do
     t.datetime "updated_at",                             :null => false
     t.boolean  "participates_other_universities"
     t.integer  "university_id"
+    t.boolean  "variable_other_check"
+    t.boolean  "participates_others_check"
   end
 
   add_index "student_studies", ["university_id"], :name => "index_student_studies_on_university_id"

@@ -13,10 +13,16 @@ describe StudentStudy do
   end
   StudentStudy::PARTICIPATES[:other].each do |participation|
     it { should allow_mass_assignment_of(participation) }
+    it { should allow_mass_assignment_of("#{participation}_check") }
   end
 
   StudentStudy::VARIABLES.each do |var|
     it { should allow_mass_assignment_of(var) }
+  end
+
+  StudentStudy::VARIABLES_OTHER.each do |var|
+    it { should allow_mass_assignment_of(var) }
+    it { should allow_mass_assignment_of("#{var}_check") }
   end
 
   it { should allow_mass_assignment_of(:notes) }

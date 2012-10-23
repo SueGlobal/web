@@ -20,12 +20,10 @@
         </li>
       <% end -%>
 
-      <li>
-      <div class="field">
-        <%= f.label :other %> <br>
-        <%= f.text_area :other %>
-      </div>
-      </li>
+      <%= render  partial: 'other_collapsable_field',
+                  object: :other,
+                  locals: { surrounding_tag: "li",
+                            f: f} %>
     </ol>
     </li>
   </ol>

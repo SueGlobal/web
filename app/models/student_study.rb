@@ -46,12 +46,18 @@ class StudentStudy < ActiveRecord::Base
     :variable_employee_situation,
     :variable_knowledge_valuation,
     :variable_competence_valuation,
+  ]
+
+  VARIABLES_OTHER = [
     :variable_other
   ]
 
   attr_accessible *PARTICIPATES[:intern]
   attr_accessible *PARTICIPATES[:extern]
   attr_accessible *PARTICIPATES[:other]
+  attr_accessible *(PARTICIPATES[:other].map{|x| "#{x}_check"})
   attr_accessible *VARIABLES
+  attr_accessible *VARIABLES_OTHER
+  attr_accessible *(VARIABLES_OTHER.map{|x| "#{x}_check"})
   attr_accessible :notes, :reference_period, :scope
 end

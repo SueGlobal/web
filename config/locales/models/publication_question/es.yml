@@ -10,7 +10,7 @@ es:
         limited_distribution_check: 'Publicación en papel para distribución interna o una distribución limitada'
         multimedia_check: 'Formato multimedia'
         other_check: 'Otros'
-        other_description: 'Especificar'
+        other: 'Especificar'
         papers_check: 'Contribuciones a congresos o papers'
         pdf_check: 'Formato electrónico, pdf o similar'
         static_web_check: 'Web como medio de distribución de contenidos estáticos'

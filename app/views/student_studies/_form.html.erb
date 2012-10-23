@@ -46,12 +46,11 @@
           <% end -%>
         </ol>
       </li>
-      <li>
-        <div class="field">
-          <%= f.label :participates_others %> <br>
-          <%= f.text_area :participates_others %>
-        </div>
-      </li>
+
+    <%= render partial: 'other_collapsable_field',
+              collection: StudentStudy::PARTICIPATES[:other],
+              locals: { surrounding_tag: "li",
+                        f: f} %>
     </ol>
   </fieldset>
 
@@ -70,6 +69,11 @@
         </div>
       </li>
     <% end -%>
+
+    <%= render partial: 'other_collapsable_field',
+              collection: StudentStudy::VARIABLES_OTHER,
+              locals: { surrounding_tag: "li",
+                        f: f} %>
     </ol>
   </fieldset>
 

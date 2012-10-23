@@ -11,7 +11,7 @@ describe PublicationQuestion do
   it { should allow_mass_assignment_of(:limited_distribution_check) }
   it { should allow_mass_assignment_of(:multimedia_check) }
   it { should allow_mass_assignment_of(:other_check) }
-  it { should allow_mass_assignment_of(:other_description) }
+  it { should allow_mass_assignment_of(:other) }
   it { should allow_mass_assignment_of(:papers_check) }
   it { should allow_mass_assignment_of(:pdf_check) }
   it { should allow_mass_assignment_of(:static_web_check) }

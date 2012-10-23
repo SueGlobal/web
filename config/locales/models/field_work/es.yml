@@ -11,4 +11,5 @@ es:
         interview: 'Entrevista personal'
         focus_group: 'Focus group'
         questionnaire_link: 'Enlace al cuestionario del estudio'
-        other: 'Otro'
+        other: 'Especificar'
+        other_check: 'Otro'

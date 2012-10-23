@@ -60,14 +60,10 @@
       <%= f.label :thesis_check %>
     </li>
 
-    <li class="field">
-      <%= f.check_box :other_check %>
-      <%= f.label :other_check %>
-      <div class="other-description">
-         <%= f.label :other_description %>
-         <%= f.text_field :other_description %>
-      </div>
-    </li>
+    <%= render partial: 'other_collapsable_field',
+               object: :other,
+               locals: { surrounding_tag: "li",
+                         f: f} %>
 
 
   </ol>
