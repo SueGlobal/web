@@ -2,6 +2,7 @@
 *.rbc
 *.sassc
 .sass-cache
+.cap_task_cache
 capybara-*.html
 .rspec
 /.bundle
