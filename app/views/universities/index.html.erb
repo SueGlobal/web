@@ -36,4 +36,4 @@
 
 <br />
 
-<%= link_to t('.new_university'), new_university_path %>
+<%= link_to_if can?(:new, University), t('.new_university'), new_university_path do "" end %>
