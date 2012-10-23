@@ -1,0 +1,8 @@
+<div class="periodicity">
+  <p>
+    <%= t study_periodicity_question.periodicity.periodicity_type, scope: 'study.study_periodicity_question.types' %>
+  </p>
+  <% if study_periodicity_question.periodicity.periodicity_type == "other" -%>
+    <blockquote><%= study_periodicity_question.periodicity.other_description %></blockquote>
+  <% end -%>
+</div>

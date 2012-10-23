@@ -32,8 +32,8 @@ shared_examples "a university dependent model controller" do |model, *actions|
       end
 
       it "assign all resources as an instance variable" do
-        assigns(models).should eq([resource])
-        assigns(models).should_not include(other_resource)
+        expect(assigns(models)).to eq([resource])
+        expect(assigns(models)).to include(other_resource)
       end
 
       it_behaves_like "university is decorated"

@@ -1,0 +1,9 @@
+en:
+  study:
+    study_periodicity_question:
+      types:
+        anual: 'Study is done once per year.'
+        six_monthly: 'Study is done twice a year.'
+        four_monthly: 'Study is done three times a year.'
+        no_periodicity: 'Study has no periodicity.'
+        other: 'Study has no standard periodicity. Explanation follows:'

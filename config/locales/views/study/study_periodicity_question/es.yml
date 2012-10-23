@@ -1,0 +1,9 @@
+es:
+  study:
+    study_periodicity_question:
+      types:
+        anual: 'La periodicidad del estudio es anual.'
+        six_monthly: 'La periodicidad del estudio es semestral.'
+        four_monthly: 'La periodicidad del estudio es cuatrimestral.'
+        no_periodicity: 'El estudio no se realiza con periodicidad.'
+        other: 'Otra periodicidad:'

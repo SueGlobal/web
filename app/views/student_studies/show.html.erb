@@ -1,3 +1,6 @@
+<%= render partial: 'basic_question', object: @student_study.basic_question %>
+
+<%= render partial: 'study_periodicity_question', object: @student_study.study_periodicity_question %>
 
 
 <%= link_to_if can?(:edit, @student_study), t('.edit'), edit_student_study_path(@student_study) do "" end %> |
