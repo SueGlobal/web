@@ -6,6 +6,7 @@ es:
       university:
         name: 'Nombre'
         abbreviation: 'Siglas'
+        admin_emails: 'Correos de administradores'
     errors:
       models:
         university:
