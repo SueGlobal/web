@@ -12,6 +12,7 @@ describe FieldWorkQuestion do
   it { should allow_mass_assignment_of(:mail) }
   it { should allow_mass_assignment_of(:phone) }
   it { should allow_mass_assignment_of(:other) }
+  it { should allow_mass_assignment_of(:questionnaire_link) }
 
   it { should belong_to(:studiable) }
 end

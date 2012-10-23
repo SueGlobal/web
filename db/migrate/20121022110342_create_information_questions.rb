@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateInformationQuestions < ActiveRecord::Migration
   def change
     create_table :information_questions do |t|

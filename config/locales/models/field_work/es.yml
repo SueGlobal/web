@@ -10,4 +10,5 @@ es:
         mail: 'Correo Postal'
         interview: 'Entrevista personal'
         focus_group: 'Focus group'
+        questionnaire_link: 'Enlace al cuestionario del estudio'
         other: 'Otro'

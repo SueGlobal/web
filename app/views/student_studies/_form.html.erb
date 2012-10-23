@@ -93,6 +93,11 @@
     <%= render 'information_question_form', f: builder %>
   <% end -%>
 
+  <div class="field">
+    <%= f.label :notes %> <br>
+    <%= f.text_area :notes %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

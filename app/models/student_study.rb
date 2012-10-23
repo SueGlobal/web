@@ -53,5 +53,5 @@ class StudentStudy < ActiveRecord::Base
   attr_accessible *PARTICIPATES[:extern]
   attr_accessible *PARTICIPATES[:other]
   attr_accessible *VARIABLES
-  attr_accessible :notes, :questionnaire_link, :reference_period, :scope
+  attr_accessible :notes, :reference_period, :scope
 end

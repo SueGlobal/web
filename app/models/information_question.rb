@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class InformationQuestion < ActiveRecord::Base
   INTERNAL_PUB = [
     :university_government,

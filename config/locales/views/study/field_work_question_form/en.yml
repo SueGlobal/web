@@ -2,3 +2,4 @@ en:
   study:
     field_work_question_form:
       legend: 'Field Work'
+      method: 'Method'

@@ -20,12 +20,11 @@ describe StudentStudy do
   end
 
   it { should allow_mass_assignment_of(:notes) }
-  it { should allow_mass_assignment_of(:questionnaire_link) }
   it { should allow_mass_assignment_of(:reference_period) }
   it { should allow_mass_assignment_of(:scope) }
 
   it { should belong_to(:university) }
 
   it_behaves_like "has questions", :basic, :software, :sample, :funding,
-    :field_work, :study_periodicity, :class_year
+    :field_work, :study_periodicity, :class_year, :information
 end

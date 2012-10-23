@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChangeStudentPeriodicityIdToStudentsPeriodicityIdInInformationQuestion < ActiveRecord::Migration
   def up
     rename_column :information_questions, :student_periodicity_id, :students_periodicity_id

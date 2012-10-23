@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PublicationQuestion < ActiveRecord::Base
   belongs_to :information_question
   attr_accessible :app_check, :dynamic_web_check,
