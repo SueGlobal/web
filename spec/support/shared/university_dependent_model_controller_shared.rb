@@ -202,9 +202,16 @@ shared_examples "a university dependent model controller" do |model, *actions|
               assigns(model_name).should be_persisted
             end
 
-            it "redirects to the created resource" do
-              post_create
-              response.should redirect_to(model.last)
+            if actions.include? :show
+              it "redirects to the created resource" do
+                post_create
+                response.should redirect_to(model.last)
+              end
+            else
+              it "redirects to the university" do
+                post_create
+                expect(response).to redirect_to(university)
+              end
             end
 
             it "sets the flash" do
@@ -299,9 +306,16 @@ shared_examples "a university dependent model controller" do |model, *actions|
               assigns(model_name).should eq(resource)
             end
 
-            it "redirects to the resource" do
-              put_update
-              response.should redirect_to(resource)
+            if actions.include? :show
+              it "redirects to the created resource" do
+                put_update
+                response.should redirect_to(resource)
+              end
+            else
+              it "redirects to the university" do
+                put_update
+                expect(response).to redirect_to(university)
+              end
             end
 
             it "sets a flash" do

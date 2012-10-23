@@ -32,7 +32,7 @@ class ServicesController < UniversityDependentModelController
   def create
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: t2('create.notice') }
+        format.html { redirect_to @university, notice: t2('create.notice') }
         format.json { render json: @service, status: :created, location: @service }
       else
         format.html { render action: "new" }
@@ -48,7 +48,7 @@ class ServicesController < UniversityDependentModelController
 
     respond_to do |format|
       if @service.update_attributes(params[:service])
-        format.html { redirect_to @service, notice: t2('update.notice') }
+        format.html { redirect_to @university, notice: t2('update.notice') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
