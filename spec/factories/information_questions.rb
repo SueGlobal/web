@@ -3,6 +3,7 @@
 
 FactoryGirl.define do
   factory :information_question do
+    publication_question
     university_government_check false
     association :university_government_periodicity, factory: :periodicity
     social_council_check false

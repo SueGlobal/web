@@ -1,14 +1,11 @@
 # -*- encoding : utf-8 -*-
 class StudentStudy < ActiveRecord::Base
-  include ContainsSoftwareQuestions
-  include ContainsBasicQuestions
-  include ContainsSampleQuestions
-  include ContainsFundingQuestions
-  include ContainsFieldWorkQuestions
-  include ContainsStudyPeriodicityQuestions
-  include ContainsClassYearQuestions
-  include ContainsInformationQuestions
   include Study
+  include_questions :basic_question, :sample_question,
+                    :funding_question, :field_work_question,
+                    :study_periodicity_question,
+                    :class_year_question, :information_question,
+                    :software_question
 
   PARTICIPATES = {
     intern: [
