@@ -8,6 +8,16 @@ module GeneralFramesHelper
     end
   end
 
+  def optional_numeric_field_for(field, form)
+    content_tag :div, :class => 'field' do
+      concat form.check_box "#{field}_check", {:class => "js-other-change js-optional-numeric", checked: true}
+      concat form.label("#{field}_check")
+      concat(content_tag(:span, :class => 'js-other-collapsable') do
+        concat form.number_field(field, min: 0, value: 0)
+      end)
+    end
+  end
+
   def data_for(resource, field)
     content_tag :li, :class => 'field' do
       concat content_tag :span, GeneralFrame.human_attribute_name(field), :class => 'label'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121023091737) do
+ActiveRecord::Schema.define(:version => 20121024190549) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -105,12 +105,24 @@ ActiveRecord::Schema.define(:version => 20121023091737) do
     t.integer  "number_of_qualifications"
     t.integer  "number_of_masters_degree"
     t.integer  "university_id"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.integer  "specific_qualifications_graduates"
     t.integer  "phd_graduates"
     t.integer  "number_of_specific_qualifications"
     t.integer  "number_of_phds"
+    t.boolean  "bachelors_degree_graduates_check"
+    t.boolean  "degree_graduates_check"
+    t.boolean  "graduates_check"
+    t.boolean  "master_graduates_check"
+    t.boolean  "number_of_campus_check"
+    t.boolean  "number_of_masters_degree_check"
+    t.boolean  "number_of_qualifications_check"
+    t.boolean  "year_check"
+    t.boolean  "phd_graduates_check"
+    t.boolean  "specific_qualifications_graduates_check"
+    t.boolean  "number_of_phds_check"
+    t.boolean  "number_of_specific_qualifications_check"
   end
 
   add_index "general_frames", ["university_id"], :name => "index_general_frames_on_university_id"

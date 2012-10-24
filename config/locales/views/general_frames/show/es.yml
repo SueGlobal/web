@@ -2,7 +2,10 @@ es:
   general_frames:
     show:
       header: 'Marco general de %{university} del año %{year}'
+      no_campus_data: 'El número de campus este año es desconocido.'
       graduates: 'Número de egresados'
+      no_graduates_data: 'No hay datos sobre egresados para este año.'
       qualifications: 'Número de titulaciones'
+      no_qualifications_data: 'No hay datos sobre titulaciones para este año.'
       edit: 'Editar'
       back: 'Atrás'

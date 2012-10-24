@@ -2,7 +2,10 @@ en:
   general_frames:
     show:
       header: "%{university}'s general frame for year %{year}"
+      no_campus_data: 'There is no data for the number of campuses this year.'
       graduates: 'Number of graduates'
+      no_graduates_data: 'There is no data about graduates for this year.'
       qualifications: 'Number of qualifications'
+      no_qualifications_data: 'There is no data about qualifications for this year.'
       edit: 'Edit'
       back: 'Back'
