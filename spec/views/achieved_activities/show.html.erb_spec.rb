@@ -3,6 +3,7 @@ require 'spec_helper'
 
 describe "achieved_activities/show" do
   before(:each) do
+    view.lookup_context.prefixes << "application"
     plain_university = create :university
     @university = assign(:university, UniversityDecorator.decorate(plain_university))
     @achieved_activity = assign(:achieved_activity, create(:achieved_activity))
