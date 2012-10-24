@@ -3,11 +3,14 @@ jQuery ->
 
   $periodicities.each (idx, el) ->
     $el = $(el)
+    $select = $el.find('select')
     $other = $el.find('div.other')
-    $other.hide()
+    callback = do ($select, $other) ->
+      (evt) ->
+        $other.hide()
+        value = $select.children('option:selected').val()
+        if value is 'other'
+          $other.show()
 
-    $el.find('select').on 'change', (evt) ->
-      $other.hide()
-      value = $(this).children('option:selected').val()
-      if value is 'other'
-        $other.show()
+    callback()
+    $el.find('select').on 'change', callback
