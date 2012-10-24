@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= "#{controller.controller_name} #{controller.action_name}" %>">
   <div id="nav">
       <% if current_user -%>
         <%= link_to t('.edit_profile'), edit_user_path(current_user.id) %> |
