@@ -27,4 +27,8 @@ class AchievedActivity < ActiveRecord::Base
   validates :year,
     numericality: {only_integer: true, greater_than_or_equal_to: 0},
     presence: true
+
+  before_validation do
+    self.year = self.year.to_i
+  end
 end
