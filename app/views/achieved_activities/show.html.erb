@@ -5,8 +5,8 @@
   <ul>
     <% AchievedActivity::ACTIVITIES.each do |current_activity| -%>
       <li class="field">
-        <span class="label"><%= AchievedActivity.human_attribute_name current_activity %></span>
-        <span class="data"><%= @achieved_activity.send(current_activity) %></span>
+        <%= boolean_field AchievedActivity.human_attribute_name current_activity,
+                          @achieved_activity.send(current_activity) %>
       </li>
     <% end -%>
   </ul>
@@ -17,8 +17,8 @@
   <ul>
     <% AchievedActivity::SOURCES.each do |current_source| -%>
       <li class="field">
-        <span class="label"><%= AchievedActivity.human_attribute_name current_source %></span>
-        <span class="data"><%= @achieved_activity.send(current_source) %></span>
+        <%= boolean_field AchievedActivity.human_attribute_name current_source,
+            @achieved_activity.send(current_source) %>
       </li>
     <% end -%>
   </ul>

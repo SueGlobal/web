@@ -12,6 +12,12 @@ module ApplicationHelper
             data: {id: id, fields: fields.gsub("\n", "")}
   end
 
+  def boolean_value text, value
+    render  partial: 'boolean_field',
+            locals: { text: text,
+                      value: value ? "true" : "false" }
+  end
+
   def select_years f, field, opts={}
     options = {start_year: Time.now.year, end_year: APP_CONFIG[:start_year], course: false}
     options.merge! opts
