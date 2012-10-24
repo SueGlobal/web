@@ -7,9 +7,13 @@ class University < ActiveRecord::Base
   belongs_to :province
   has_many :users
   has_many :services
-  has_many :general_frames
-  has_many :achieved_activities, order: 'year DESC'
-  has_many :student_studies
+  has_many :general_frames,
+           order: 'year DESC'
+  has_many :achieved_activities,
+           order: 'year DESC'
+  has_many :student_studies,
+    include: :basic_question,
+    order: 'basic_questions.year DESC'
 
   validates :name,
     presence: true,

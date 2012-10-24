@@ -63,7 +63,7 @@
     <ul id="general_frames">
       <% @university.general_frames.each do |general_frame| -%>
         <li>
-        <%= link_to general_frame.year, general_frame %>
+        <%= link_to format_for_year(general_frame.year, true),  general_frame %>
         <span class="actions">
           <% if can? :edit, general_frame -%>
             <%= link_to t('.edit_general_frame'), edit_general_frame_path(general_frame), {:class => 'edit'} %>
