@@ -12,7 +12,7 @@
 
   <div class="field">
     <%= f.label :year %>
-    <%= select_year Date.today, start_year: Time.now.year, end_year: APP_CONFIG[:start_year] %>
+    <%= select_years f, :year %>
   </div>
 
 </fieldset>

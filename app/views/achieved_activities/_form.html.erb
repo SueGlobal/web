@@ -1,7 +1,7 @@
 <%= form_for(@path) do |f| %>
   <% if @achieved_activity.errors.any? %>
     <div id="error_explanation">
-      <h2><%= t 'errors_header' %></h2>
+      <h2><%= t '.errors_header' %></h2>
 
       <ul>
       <% @achieved_activity.errors.full_messages.each do |msg| %>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :year %>
-    <%= select_year Date.today, start_year: Time.now.year, end_year: APP_CONFIG[:start_year] %>
+    <%= select_years f, :year %>
   </div>
 
   <fieldset class="activities">

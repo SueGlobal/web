@@ -1,4 +1,4 @@
-<fieldset>
+<fieldset class="information_question_form">
   <legend><%= t 'legend', scope: 'study.information_question_form' %></legend>
 
   <ol>
@@ -7,29 +7,33 @@
       <ol>
         <% InformationQuestion::INTERNAL_PUB.each do |field| -%>
           <li class="field">
-            <%= f.check_box :"#{field}_check" %>
+            <%= f.check_box :"#{field}_check", "class" => "js-other-change"  %>
             <%= f.label :"#{field}_check" %> <br>
 
-            <%= f.fields_for :"#{field}_periodicity" do |builder| %>
-              <%= render 'periodicity_form', f: builder %>
-            <% end -%>
+            <div class="js-other-collabsable other-description">
+              <%= f.fields_for :"#{field}_periodicity" do |builder| %>
+                <%= render 'periodicity_form', f: builder %>
+              <% end -%>
+            </div>
           </li>
         <% end -%>
 
 
         <% InformationQuestion::INTERNAL_OTHER.each do |field| -%>
           <li class="field">
-            <%= f.check_box :"#{field}_check" %>
+            <%= f.check_box :"#{field}_check", "class" => "js-other-change" %>
             <%= f.label :"#{field}_check" %> <br>
 
-            <%= f.fields_for :"#{field}_periodicity" do |builder| %>
-              <%= render 'periodicity_form', f: builder %>
-            <% end -%>
+            <div class="js-other-collabsable other-description">
+              <%= f.fields_for :"#{field}_periodicity" do |builder| %>
+                <%= render 'periodicity_form', f: builder %>
+              <% end -%>
 
-            <br>
-            <div class="field">
-              <%= f.label :"#{field}_description" %><br>
-              <%= f.text_area :"#{field}_description" %>
+              <br>
+              <div class="field">
+                <%= f.label :"#{field}_description" %><br>
+                <%= f.text_area :"#{field}_description" %>
+              </div>
             </div>
           </li>
         <% end -%>
@@ -41,29 +45,33 @@
       <ol>
         <% InformationQuestion::EXTERNAL_PUB.each do |field| -%>
           <li class="field">
-            <%= f.check_box :"#{field}_check" %>
+            <%= f.check_box :"#{field}_check", "class" => "js-other-change"  %>
             <%= f.label :"#{field}_check" %> <br>
 
-            <%= f.fields_for :"#{field}_periodicity" do |builder| %>
-              <%= render 'periodicity_form', f: builder %>
-            <% end -%>
+            <div class="js-other-collabsable other-description">
+              <%= f.fields_for :"#{field}_periodicity" do |builder| %>
+                <%= render 'periodicity_form', f: builder %>
+              <% end -%>
+            </div>
           </li>
         <% end -%>
 
 
         <% InformationQuestion::EXTERNAL_OTHER.each do |field| -%>
           <li class="field">
-            <%= f.check_box :"#{field}_check" %>
+            <%= f.check_box :"#{field}_check", "class" => "js-other-change"  %>
             <%= f.label :"#{field}_check" %> <br>
 
-            <%= f.fields_for :"#{field}_periodicity" do |builder| %>
-              <%= render 'periodicity_form', f: builder %>
-            <% end -%>
+            <div class="js-other-collabsable other-description">
+              <%= f.fields_for :"#{field}_periodicity" do |builder| %>
+                <%= render 'periodicity_form', f: builder %>
+              <% end -%>
 
-            <br>
-            <div class="field">
-              <%= f.label :"#{field}_description" %><br>
-              <%= f.text_area :"#{field}_description" %>
+              <br>
+              <div class="field">
+                <%= f.label :"#{field}_description" %><br>
+                <%= f.text_area :"#{field}_description" %>
+              </div>
             </div>
           </li>
         <% end -%>
