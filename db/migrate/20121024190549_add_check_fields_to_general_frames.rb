@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCheckFieldsToGeneralFrames < ActiveRecord::Migration
   def change
     add_column :general_frames, :bachelors_degree_graduates_check, :boolean

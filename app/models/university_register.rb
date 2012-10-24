@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UniversityRegister
 
   def initialize university, emails
