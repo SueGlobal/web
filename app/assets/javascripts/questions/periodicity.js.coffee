@@ -1,16 +1,10 @@
 jQuery ->
   $periodicities = $('div.periodicity')
 
+  SelectHandler = window.SueGlobal.SelectHandler
+
   $periodicities.each (idx, el) ->
     $el = $(el)
-    $select = $el.find('select')
-    $other = $el.find('div.other')
-    callback = do ($select, $other) ->
-      (evt) ->
-        $other.hide()
-        value = $select.children('option:selected').val()
-        if value is 'other'
-          $other.show()
+    toggler = new SelectHandler $el.find('select'), $el.find('div.other'), 'other'
 
-    callback()
-    $el.find('select').on 'change', callback
+    toggler.setUp()

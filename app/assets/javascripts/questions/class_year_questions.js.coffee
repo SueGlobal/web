@@ -1,14 +1,12 @@
 jQuery ->
+  SelectHandler = window.SueGlobal.SelectHandler
   # Other option
   $classYear = $('fieldset.class_year')
   $other = $classYear.find('div.other')
   $other.hide()
 
-  $classYear.find('select').on 'change', (evt) ->
-    value = $(this).find('option:selected').val()
-    $other.hide()
-    if value is 'other'
-      $other.show()
+  toggler = new SelectHandler $classYear.find('select'), $other, 'other'
+  toggler.setUp()
 
   # Add fields
   $classYear.on 'click', '.add_fields', (evt) ->
