@@ -33,7 +33,7 @@ shared_examples "a university dependent model controller" do |model, *actions|
 
       it "assign all resources as an instance variable" do
         expect(assigns(models)).to eq([resource])
-        expect(assigns(models)).to include(other_resource)
+        expect(assigns(models)).not_to include(other_resource)
       end
 
       it_behaves_like "university is decorated"
