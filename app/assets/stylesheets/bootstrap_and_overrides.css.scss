@@ -25,4 +25,11 @@ ul.actions {
   }
 }
 
+a {
+  &.new {
+    i {
+      vertical-align: text-top;
+    }
+  }
+}
 @import "bootstrap-responsive"

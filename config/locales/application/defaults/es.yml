@@ -4,3 +4,4 @@ es:
     edit: "Editar"
     destroy: "Borrar"
     index: 'Listado'
+    new: 'Nuevo'

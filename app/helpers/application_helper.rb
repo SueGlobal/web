@@ -13,6 +13,10 @@ module ApplicationHelper
     action_link :destroy, url, options
   end
 
+  def new_link url, options={}
+    action_link :new, url, options
+  end
+
   def action_link action, url, options
     add_action_as_class action, options
     link_to content_action(action),
@@ -64,7 +68,8 @@ module ApplicationHelper
   end
 
   def i_class_for action
-    {edit: "icon-edit", destroy: "icon-remove", show: "icon-info-sign"}[action.to_sym]
+    {edit: "icon-edit", destroy: "icon-remove", show: "icon-info-sign",
+     new: "icon-plus-sign"}[action.to_sym]
   end
 
   def add_action_as_class action, options

@@ -1,9 +1,13 @@
-<h1><%= t '.header' %></h1>
+<h1>
+  <%= t '.header' %>
+  <% if can? :new, University -%>
+    <%= new_link new_university_path %>
+  <% end -%>
+</h1>
 
 <table class="table table-hover">
   <thead>
-    <th><%= University.human_attribute_name :abbreviation %></th>
-    <th><%= University.human_attribute_name :name %></th>
+    <th><%= University.model_name.human count: 1 %></th>
     <th><%= Province.model_name.human %></th>
     <th><%= t '.actions' %></th>
   </thead>
@@ -11,8 +15,10 @@
   <tbody>
     <% @universities.each do |university| %>
       <tr>
-        <td><%= university.abbreviation %></td>
-        <td><%= university.name %></td>
+        <td>
+          <%= university.name %>
+          <span class="university_abbreviation">(<%= university.abbreviation %>)</span>
+        </td>
         <td><%= university.province_name %></td>
         <td>
           <ul class="actions">
