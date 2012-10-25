@@ -23,5 +23,7 @@
     <% end -%>
   </ul>
 </div>
-<%= link_to t('.edit'), edit_achieved_activity_path(@achieved_activity) %> |
-<%= link_to t('.back'), university_achieved_activities_path(@university) %>
+<% if can? :edit, @achieved_activity -%>
+  <%= link_to t('.edit'), edit_achieved_activity_path(@achieved_activity) %> |
+<% end -%>
+<%= link_to t('.back'), @university %>
