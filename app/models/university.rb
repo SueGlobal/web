@@ -1,5 +1,10 @@
 # -*- encoding : utf-8 -*-
 class University < ActiveRecord::Base
+
+  default_scope do
+    order('name ASC')
+  end
+
   attr_accessor :admin_emails
   attr_accessible :admin_emails
 
