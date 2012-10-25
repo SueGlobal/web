@@ -1,0 +1,6 @@
+es:
+  actions:
+    show: "Mostrar"
+    edit: "Editar"
+    destroy: "Borrar"
+    index: 'Listado'

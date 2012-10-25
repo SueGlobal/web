@@ -1,7 +1,9 @@
 es:
   activerecord:
     models:
-      service: 'Servicio'
+      service:
+        one: 'Servicio'
+        other: 'Servicios'
     attributes:
       service:
         name: 'Denominación'

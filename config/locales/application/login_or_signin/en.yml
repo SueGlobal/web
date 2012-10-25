@@ -1,0 +1,7 @@
+en:
+  application:
+    login_or_signin:
+      profile: 'Profile'
+      logout: 'Logout'
+      login: 'Login'
+      register: 'Signup'

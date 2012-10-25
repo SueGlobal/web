@@ -1,6 +1,25 @@
 # -*- encoding : utf-8 -*-
 module ApplicationHelper
 
+  def show_link url, options={}
+    action_link :show, url, options
+  end
+
+  def edit_link url, options={}
+    action_link :edit, url, options
+  end
+
+  def destroy_link url, options={}
+    action_link :destroy, url, options
+  end
+
+  def action_link action, url, options
+    add_action_as_class action, options
+    link_to content_action(action),
+            url,
+            options
+  end
+
   def link_to_add_fields(name, f, association)
     new_object = f.object.send(association).klass.new
     id = new_object.object_id
@@ -36,6 +55,21 @@ module ApplicationHelper
       "#{year}/#{year+1}"
     else
       "#{year}"
+    end
+  end
+
+  protected
+  def content_action action
+    content_tag :i,"", title: I18n.t("actions.#{action}"), :class => i_class_for(action)
+  end
+
+  def i_class_for action
+    {edit: "icon-edit", destroy: "icon-remove", show: "icon-info-sign"}[action.to_sym]
+  end
+
+  def add_action_as_class action, options
+    unless options[:class] && options[:class].include?(action.to_s)
+      options[:class] = "#{action} #{options[:class]}"
     end
   end
 end

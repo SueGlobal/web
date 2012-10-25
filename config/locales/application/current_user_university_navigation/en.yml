@@ -1,0 +1,11 @@
+en:
+  application:
+    current_user_university_navigation:
+      service:
+        new: 'New service'
+      achieved_activity:
+        new: 'New achieved activity'
+      general_frame:
+        new: 'New general frame'
+      student_study:
+        new: 'New student study'

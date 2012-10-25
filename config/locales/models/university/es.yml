@@ -1,7 +1,9 @@
 es:
   activerecord:
     models:
-      university: 'Universidad'
+      university:
+        one: 'Universidad'
+        other: 'Universidades'
     attributes:
       university:
         name: 'Nombre'

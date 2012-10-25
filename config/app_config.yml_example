@@ -2,13 +2,19 @@ development:
   email_address: localhost:3000
   start_year: 2000
   courses_start_year: 1980
+  name: 'ObservaEmpleo'
+  copyright: ''
 
 test:
   email_address: test.host
   start_year: 2000
   courses_start_year: 1980
+  name: 'ObservaEmpleo'
+  copyright: ''
 
 production:
   email_address: example.com
   start_year: 2000
   courses_start_year: 1980
+  name: 'ObservaEmpleo'
+  copyright: ''

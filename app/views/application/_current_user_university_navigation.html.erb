@@ -1,0 +1,37 @@
+
+<li class="dropdown">
+<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+  <%= university.abbreviation %>
+  <b class="caret"></b>
+</a>
+
+<ul class="dropdown-menu">
+  <li class="dropdown-submenu">
+  <a href="#"><%= Service.model_name.human count: 2 %></a>
+  <ul class="dropdown-menu">
+    <li><%= link_to t('.service.new'), new_university_service_path(university) %>
+  </ul>
+  </li>
+
+  <li class="dropdown-submenu">
+  <a href="#"><%= AchievedActivity.model_name.human count: 2 %></a>
+  <ul class="dropdown-menu">
+    <li><%= link_to t('.achieved_activity.new'), new_university_achieved_activity_path(university) %>
+  </ul>
+  </li>
+
+  <li class="dropdown-submenu">
+  <a href="#"><%= GeneralFrame.model_name.human count: 2 %></a>
+  <ul class="dropdown-menu">
+    <li><%= link_to t('.general_frame.new'), new_university_general_frame_path(university) %>
+  </ul>
+  </li>
+
+  <li class="dropdown-submenu">
+  <a href="#"><%= StudentStudy.model_name.human count: 2 %></a>
+  <ul class="dropdown-menu">
+    <li><%= link_to t('.student_study.new'), new_university_student_study_path(university) %>
+  </ul>
+  </li>
+</ul>
+</li>

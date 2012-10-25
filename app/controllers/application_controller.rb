@@ -2,6 +2,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_locale
+  layout "bootstrap"
 
   # CanCan related
   rescue_from CanCan::AccessDenied do |exception|

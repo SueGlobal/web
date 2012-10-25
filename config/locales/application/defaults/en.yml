@@ -1,0 +1,6 @@
+en:
+  actions:
+    show: "Show"
+    edit: "Edit"
+    destroy: "Remove"
+    index: 'Index'
