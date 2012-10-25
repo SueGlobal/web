@@ -19,6 +19,10 @@ class GeneralFrame < ActiveRecord::Base
   (GRADUATES | QUALIFICATIONS | [:number_of_campus]).each do |grad_field|
     attr_accessible grad_field
 
+    define_method(grad_field) do
+      super() || 0
+    end
+
     validates grad_field,
       presence: true,
       numericality: { only_integer: true,

@@ -10,10 +10,12 @@ module GeneralFramesHelper
 
   def optional_numeric_field_for(field, form)
     content_tag :div, :class => 'field' do
-      concat form.check_box "#{field}_check", {:class => "js-other-change js-optional-numeric", checked: true}
+      options = {:class => "js-other-change js-optional-numeric"}
+      options.merge!({ checked: true }) if action_name == 'new'
+      concat form.check_box("#{field}_check", options)
       concat form.label("#{field}_check")
       concat(content_tag(:span, :class => 'js-other-collapsable') do
-        concat form.number_field(field, min: 0, value: 0)
+        concat form.number_field(field, min: 0)
       end)
     end
   end

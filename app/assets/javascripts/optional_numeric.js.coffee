@@ -1,2 +1,2 @@
 jQuery ->
-  $('.js-optional-numeric').removeAttr("checked")
+  $('body.new .js-optional-numeric').removeAttr("checked")
