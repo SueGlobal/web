@@ -8,7 +8,7 @@ describe "Signup" do
     end
 
     it "shows a textfield" do
-      page.should have_xpath("//input[@type='text']")
+      expect(page).to have_xpath("//input[@type='text']")
     end
 
     it "shows a textfield for email, password and password confirmation" do
@@ -18,18 +18,18 @@ describe "Signup" do
     context "with valid data" do
       let(:user_attrs) { attributes_for :user }
       before :each do
-        lambda{
-        fill_form user_attrs
-        submit_form
-        }.should change(User, :count).by(1)
+        expect {
+          fill_form user_attrs
+          submit_form
+        }.to change(User, :count).by(1)
       end
 
       it "redirects to root" do
-        current_path.should == root_path
+        expect(current_path).to  eql(root_path)
       end
 
       it "shows a flash confirming signup" do
-        page.should have_content(I18n.t('controllers.users.create.notice'))
+        expect(page).to have_content(I18n.t('controllers.users.create.notice'))
       end
     end
 
@@ -40,10 +40,10 @@ describe "Signup" do
       end
 
       before :each do
-        lambda {
+        expect {
           fill_form new_attrs
           submit_form
-        }.should_not change(User, :count)
+        }.not_to change(User, :count)
       end
 
       it 'renders the form' do
@@ -51,7 +51,7 @@ describe "Signup" do
       end
 
       it 'shows one error' do
-        page.should have_css('div#error_explanation ul li', count: 1)
+        expect(page).to have_css('div#error_explanation ul li', count: 1)
       end
     end
 
@@ -61,10 +61,10 @@ describe "Signup" do
       end
 
       before :each do
-        lambda{
+        expect {
           fill_form user_attrs
           submit_form
-        }.should_not change(User, :count)
+        }.not_to change(User, :count)
       end
 
       it "renders the form" do
@@ -72,23 +72,27 @@ describe "Signup" do
       end
 
       it 'shows one error' do
-        page.should have_css('div#error_explanation ul li', count: 1)
+        expect(page).to have_css('div#error_explanation ul li', count: 1)
       end
     end
 
     def shows_input_fields
       [:email, :password, :password_confirmation].each do |field|
-        page.should have_xpath("//input[@name='user[#{field.to_s}]']")
+        expect(page).to have_xpath("//input[@name='user[#{field.to_s}]']")
       end
     end
     def submit_form
-      find('.js-submit').click
+      within('form#new_user') do
+        find('.js-submit').click
+      end
     end
 
     def fill_form attrs
-      find('.js-email').set attrs[:email]
-      find('.js-password').set attrs[:password]
-      find('.js-password-confirmation').set (attrs[:password_confirmation] || attrs[:password])
+      within("form.new_user") do
+        find('.js-email').set attrs[:email]
+        find('.js-password').set attrs[:password]
+        find('.js-password-confirmation').set (attrs[:password_confirmation] || attrs[:password])
+      end
     end
   end
 end

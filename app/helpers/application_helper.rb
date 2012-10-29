@@ -42,14 +42,18 @@ module ApplicationHelper
   end
 
   def select_years f, field, opts={}
-    options = {start_year: Time.now.year, end_year: APP_CONFIG[:start_year], course: false}
-    options.merge! opts
-
-    f.select field, years_for_select(options)
+    f.select field, years_for_select(opts)
   end
 
-  def years_for_select opts
-    opts[:start_year].step(opts[:end_year], (opts[:start_year] > opts[:end_year]) ? -1 : 1).map do |x|
+  def year_collection_for_select opts={}
+    options = {start_year: Time.now.year, end_year: APP_CONFIG[:start_year], course: false}
+    opts = options.merge opts
+
+    opts[:start_year].step(opts[:end_year], (opts[:start_year] > opts[:end_year]) ? -1 : 1)
+  end
+
+  def years_for_select opts={}
+    year_collection_for_select.map do |x|
       [format_for_year(x, opts[:course]), x]
     end
   end

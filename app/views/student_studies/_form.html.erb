@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= f.fields_for :basic_question do |builder| %>
+  <%= f.simple_fields_for :basic_question do |builder| %>
     <%= render 'basic_question_form', f: builder %>
   <% end -%>
 

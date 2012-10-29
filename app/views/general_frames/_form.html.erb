@@ -1,4 +1,4 @@
-<%= form_for(@path) do |f| %>
+<%= simple_form_for(@path) do |f| %>
   <% if @general_frame.errors.any? %>
     <div id="error_explanation">
       <h2><%= t '.errors_header', count: @general_frame.errors.count %></h2>
@@ -13,6 +13,7 @@
 
   <div class="explanation"><%= t('.explanation') %></div>
 
+  <%= f.input :year, collection: @university.miss_general_frame_years, as: :course %>
   <div class="field">
      <%= f.label :year %>
      <%= f.select :year, @university.miss_general_frame_academic_years_for_select %>

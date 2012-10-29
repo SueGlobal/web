@@ -15,7 +15,7 @@ describe "Logout" do
     end
 
     it "shows a notice" do
-      page.should have_css("p#notice")
+      page.should have_css("div#notice")
     end
 
     it "shows login option" do

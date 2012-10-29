@@ -12,12 +12,12 @@ body {
 
 ul.actions {
   list-style: none;
-  margin: {
-    left: 0px;
-  }
+  margin-left: 0;
+  overflow: hidden;
 
   li {
-    display: inline;
+    float: left;
+    width: auto;
 
     a {
       display: inline;
@@ -32,4 +32,5 @@ a {
     }
   }
 }
+
 @import "bootstrap-responsive"

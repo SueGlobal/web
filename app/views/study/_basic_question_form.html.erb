@@ -1,18 +1,8 @@
 <fieldset>
   <legend><%= t 'legend', scope: 'study.basic_question_form' %></legend>
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
 
-  <div class="field">
-    <%= f.label :author %>
-    <%= f.text_field :author %>
-  </div>
-
-  <div class="field">
-    <%= f.label :year %>
-    <%= select_years f, :year %>
-  </div>
+  <%= f.input :title, as: :string %>
+  <%= f.input :author, as: :string %>
+  <%= f.input :year, as: :course %>
 
 </fieldset>
