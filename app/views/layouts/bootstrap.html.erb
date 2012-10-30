@@ -62,7 +62,11 @@
           </div><!--/span-->
 
           <div class="span9">
-             <%= yield %>
+            <% if @breadcrumbs -%>
+              <%= render partial: 'breadcrumbs', object: @breadcrumbs %>
+            <% end -%>
+
+            <%= yield %>
           </div>
         </div><!--/row-->
 

@@ -5,11 +5,20 @@ class UniversityDependentModelController < ApplicationController
   load_and_authorize_resource :university, except: [:index]
 
   class << self
-    def dependent_model model_name
+    def dependent_model model_name, with_show=true
       load_and_authorize_resource model_name.to_sym, through: :university,
         shallow: true, except: [:index], singleton: true
+
+      # Loading University
       before_filter :load_university, only: [:index]
+      before_filter only: [:edit, :update, :show, :destroy] do |controller|
+        resource = controller.instance_variable_get(:"@#{model_name}")
+        controller.instance_variable_set(:"@university", resource.university)
+      end
+
       before_filter :decorate_university
+
+      # Load path
       before_filter only: [:new, :create] do |controller|
         path = ["university", model_name.to_s].map do |field|
           controller.instance_variable_get(:"@#{field}")
@@ -20,6 +29,19 @@ class UniversityDependentModelController < ApplicationController
       before_filter only: [:edit, :update] do |controller|
         path = controller.instance_variable_get(:"@#{model_name}")
         controller.instance_variable_set :@path, path
+      end
+
+      # Breadcrumbs
+      before_filter except: [:index] do |controller|
+        university = controller.instance_variable_get(:@university)
+        add_breadcrumb university.abbreviation, university_path(university)
+      end
+
+      if with_show
+        before_filter only: [:show, :destroy, :edit, :update] do |controller|
+          resource = controller.instance_variable_get(:"@#{model_name}")
+          add_breadcrumb eval(model_name.to_s.camelize).model_name.human(count: 1), resource
+        end
       end
     end
   end

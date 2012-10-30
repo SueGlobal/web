@@ -1,0 +1,10 @@
+<ul class="breadcrumb">
+
+  <% breadcrumbs[0...-1].each do |bc| -%>
+    <li>
+      <%= link_to bc.name, bc.path %>
+      <span class="divider">&gt;</span>
+    </li>
+  <% end -%>
+  <li><%= link_to breadcrumbs.last.name, breadcrumbs.last.path %></li>
+</ul>

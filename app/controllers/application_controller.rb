@@ -2,6 +2,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_locale
+  before_filter :set_root_breadcrumb
   layout "bootstrap"
 
   # CanCan related
@@ -22,6 +23,10 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+  def set_root_breadcrumb
+    add_breadcrumb University.model_name.human(count: 2), root_path
+  end
+
   def set_locale
     if current_user
       I18n.locale = current_user.locale

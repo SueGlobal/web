@@ -2,6 +2,7 @@
 class UniversitiesController < ApplicationController
   load_and_authorize_resource except: [:index, :show]
   before_filter :require_login, except: [:index, :show]
+  before_filter :add_breadcrumb_for_university, only: [:edit, :update]
 
   # GET /universities
   # GET /universities.json
@@ -36,7 +37,6 @@ class UniversitiesController < ApplicationController
 
   # GET /universities/1/edit
   def edit
-    @university = University.find(params[:id])
   end
 
   # POST /universities
@@ -81,6 +81,11 @@ class UniversitiesController < ApplicationController
   end
 
   protected
+
+  def add_breadcrumb_for_university
+    add_breadcrumb @university.abbreviation, university_path(@university)
+  end
+
   def t2 path
     I18n.t path, scope: 'controllers.universities'
   end

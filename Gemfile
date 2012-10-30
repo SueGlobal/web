@@ -67,3 +67,4 @@ gem 'rvm-capistrano', group: [:development]
 gem 'unicorn', group: [:production]
 gem 'nifty-generators', group: [:development]
 gem 'simple_form'
+gem 'breadcrumbs_on_rails'
