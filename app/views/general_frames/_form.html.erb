@@ -13,7 +13,9 @@
 
   <div class="explanation"><%= t('.explanation') %></div>
 
-  <%= f.input :year, collection: @university.miss_general_frame_years, as: :course %>
+  <%= f.input :year,
+    collection: @university.miss_general_frame_years(@general_frame),
+    as: :course %>
 
   <%= optional_numeric_field_for :number_of_campus, f %>
 

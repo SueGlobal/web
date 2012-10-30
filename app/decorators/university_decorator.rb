@@ -35,8 +35,13 @@ class UniversityDecorator < Draper::Base
     @general_frame_years ||= GeneralFrame.where(university_id: university.id).order('year ASC').uniq.pluck(:year)
   end
 
-  def miss_general_frame_years
+  def miss_general_frame_years general_frame=nil
     @miss_general_frame_years ||= (2000..Time.zone.now.year).to_a - general_frame_years
+    if general_frame && general_frame.year
+      (@miss_general_frame_years | [general_frame.year]).sort
+    else
+      @miss_general_frame_years
+    end
   end
 
   def general_frame_academic_years
