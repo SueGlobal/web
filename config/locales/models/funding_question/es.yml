@@ -1,0 +1,10 @@
+es:
+  activerecord:
+    models:
+      funding_question: 'Financiación'
+    attributes:
+      funding_question:
+        fixed_state_funding: 'Financiación Fija Pública'
+        fixed_private_funding: 'Financiación Fija Privada'
+        variable_state_funding: 'Financiación Variable Pública'
+        variable_private_funding: 'Financiación Variable Privada'

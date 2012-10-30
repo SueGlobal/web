@@ -4,6 +4,7 @@ es:
       legend: 'Datos de la muesta'
       design_legend: 'Diseño muestral'
       detailed_information_legend: 'Información detallada del diseño muestral'
+      no_more_info_needed: 'No se requiere más información para este tipo de muestreo.'
       sampling_option_probabilistic: 'Muestreo probabilístico'
       sampling_option_non_probabilistic: 'Muestreo no probabilístico'
       sampling_option_total_population: 'Población total'

@@ -1,14 +1,15 @@
 <% if surrounding_tag -%>
   <<%= surrounding_tag %>>
 <% end -%>
-<div class="field other">
-  <%= f.check_box "#{other_collapsable_field}_check", "class" => "js-other-change" %>
-  <%= f.label "#{other_collapsable_field}_check" %>
+  <%= f.input "#{other_collapsable_field}_check",
+              wrapper: :checkbox,
+              label_html: { :class => :checkbox },
+              input_html: { :class => "js-other-change" } %>
   <div class="js-other-collapsable other-description">
-    <%= f.label other_collapsable_field %><br>
-    <%= f.text_area other_collapsable_field %>
+    <%= f.input other_collapsable_field,
+                as: :text,
+                input_html: {rows: 4} %>
   </div>
-</div>
 <% if surrounding_tag -%>
   </<%= surrounding_tag %>>
 <% end -%>

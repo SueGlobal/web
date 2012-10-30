@@ -2,14 +2,13 @@
 
   <legend><%= t 'legend', scope: 'study.software_question_form' %></legend>
 
-  <div class="field js-uses">
-    <%= f.check_box :uses_some %>
-    <%= f.label :uses_some %>
-  </div>
+  <%= f.input :uses_some,
+              wrapper: :checkbox,
+              label_html: {:class => 'js-uses checkbox'} %>
 
   <div class="field js-description">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.input :description,
+                input_html: {rows: 4} %>
   </div>
 
 </fieldset>

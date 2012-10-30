@@ -33,4 +33,39 @@ a {
   }
 }
 
+ol.options {
+
+  list-style: none;
+
+  input {
+    display: inline;
+    margin: 0;
+  }
+}
+
+label.checkbox {
+  display: inline;
+}
+
+fieldset.software {
+  input[type='checkbox'] {
+    margin: 0;
+  }
+
+  label {
+    display: inline;
+  }
+}
+
+.checkbox {
+  padding-left: 10px;
+}
+
+legend + .control-group {
+  margin-top: 0;
+}
+
+span.radio > input.radio_buttons {
+  display: inline;
+}
 @import "bootstrap-responsive"

@@ -1,63 +1,75 @@
 <li class="publication">
   <%= t 'legend', scope: 'study.publication_question_form' %>
 
-  <ol>
+  <ol class="options">
     <li class="field">
-      <%= f.check_box :with_isbn_check %>
-      <%= f.label :with_isbn_check %>
+    <%= f.input :with_isbn_check,
+                wrapper: :checkbox,
+                label_html: {:class => 'checkbox'} %>
     </li>
 
     <li class="field">
-      <%= f.check_box :without_isbn_check %>
-      <%= f.label :without_isbn_check %>
+      <%= f.input :without_isbn_check,
+                  wrapper: :checkbox,
+                  label_html: {:class => 'checkbox'} %>
     </li>
 
     <li class="field">
-      <%= f.check_box :limited_distribution_check %>
-      <%= f.label :limited_distribution_check %>
+      <%= f.input :limited_distribution_check,
+                  wrapper: :checkbox,
+                  label_html: {:class => 'checkbox'} %>
     </li>
 
     <li class="field">
-      <%= f.check_box :static_web_check %>
-      <%= f.label :static_web_check %>
-      <div class="other_description">
-         <%= f.label :static_web_url %>
-         <%= f.text_field :static_web_url %>
+      <%= f.input :static_web_check,
+                  wrapper: :checkbox,
+                  input_html: {:class => 'js-other-change'},
+                  label_html: {:class => 'checkbox'} %>
+      <div class="js-other-collapsable other_description">
+        <%= f.input :static_web_url,
+                    as: :string %>
       </div>
     </li>
 
     <li class="field">
-      <%= f.check_box :dynamic_web_check %>
-      <%= f.label :dynamic_web_check %>
-      <div class="other-description">
-         <%= f.label :dynamic_web_url %>
-         <%= f.text_field :dynamic_web_url %>
+      <%= f.input :dynamic_web_check,
+                  wrapper: :checkbox,
+                  input_html: {:class => 'js-other-change'},
+                  label_html: {:class => 'checkbox'} %>
+      <div class="js-other-collapsable other-description">
+        <%= f.input :dynamic_web_url,
+                    as: :string %>
       </div>
     </li>
 
     <li class="field">
-      <%= f.check_box :pdf_check %>
-      <%= f.label :pdf_check %>
+      <%= f.input :pdf_check,
+                  wrapper: :checkbox,
+                  label_html: {:class => 'checkbox'} %>
     </li>
 
     <li class="field">
-      <%= f.check_box :multimedia_check %>
-      <%= f.label :multimedia_check %>
+      <%= f.input :multimedia_check,
+                  wrapper: :checkbox,
+                  label_html: {:class => 'checkbox'} %>
     </li>
 
     <li class="field">
-      <%= f.check_box :app_check %>
-      <%= f.label :app_check %>
+      <%= f.input :app_check,
+                  wrapper: :checkbox,
+                  label_html: {:class => 'checkbox'} %>
     </li>
 
     <li class="field">
-      <%= f.check_box :papers_check %>
-      <%= f.label :papers_check %>
+      <%= f.input :papers_check,
+                  wrapper: :checkbox,
+                  label_html: {:class => 'checkbox'} %>
     </li>
 
     <li class="field">
-      <%= f.check_box :thesis_check %>
-      <%= f.label :thesis_check %>
+      <%= f.input :thesis_check,
+                  wrapper: :checkbox,
+                  label_html: {:class => 'checkbox'} %>
     </li>
 
     <%= render partial: 'other_collapsable_field',

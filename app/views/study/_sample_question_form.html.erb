@@ -1,47 +1,36 @@
 <fieldset class="sampling">
   <legend><%= t 'legend', scope: 'study.sample_question_form' %></legend>
 
-  <div class="field">
-    <%= f.label :scope %> <br>
-    <%= f.text_area :scope %>
-  </div>
+  <%= f.input :scope,
+              input_html: {rows: 4} %>
 
-  <div class="field">
-    <%= f.label :population %> <br>
-    <%= f.text_area :population %>
-  </div>
+  <%= f.input :population,
+              input_html: {rows: 4} %>
 
   <fieldset class="design">
     <legend><%= t 'design_legend', scope: 'study.sample_question_form' %></legend>
-    <div class="field">
-      <% SampleQuestion::SAMPLING_OPTIONS.each do |sampling| -%>
-        <%= radio_button_tag  :sampling_option,
-                              sampling.to_s,
-                              sampling == :undefined %>
-        <%= label_tag :"sampling_option_#{sampling}",
-                      t("sampling_option_#{sampling}",
-                        scope: 'study.sample_question_form') %> <br>
-      <% end -%>
-    </div>
+
+    <%= f.input :sampling_option,
+                collection: SampleQuestion::SAMPLING_OPTIONS,
+                include_blank: false,
+                label_method: ->(x) { t("sampling_option_#{x}", scope: 'study.sample_question_form') } %>
   </fieldset>
 
   <fieldset class="detailed_information">
     <legend><%= t 'detailed_information_legend', scope: 'study.sample_question_form' %></legend>
-    <div class="probabilistic_sampling">
-      <div class="field">
-        <%= f.label :sampling_type %> <br>
-        <%= f.text_area :sampling_type %>
-      </div>
-      <div class="field">
-        <%= f.label :disintegration_level %> <br>
-        <%= f.text_area :disintegration_level %>
-      </div>
+    <div class="control-group probabilistic_sampling">
+      <%= f.input :sampling_type,
+                  input_html: {rows: 4} %>
+      <%= f.input :disintegration_level,
+                  input_html: {rows: 4} %>
     </div>
-    <div class="non_probabilistic_sampling">
-      <div class="field">
-        <%= f.label :non_probabilistic_description %> <br>
-        <%= f.text_area :non_probabilistic_description %>
-      </div>
+    <div class="control-group non_probabilistic_sampling">
+      <%= f.input :non_probabilistic_description,
+                  input_html: {rows: 4} %>
+    </div>
+
+    <div class="control-group no_more_info_needed">
+      <%= t '.no_more_info_needed' %>
     </div>
   </fieldset>
 </fieldset>

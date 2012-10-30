@@ -4,7 +4,8 @@
     <%= f.select :periodicity_type, Periodicity.select_options %>
   </div>
   <div class="field other">
-    <%= f.label :other_description %><br>
-    <%= f.text_area :other_description %>
+    <%= f.input :other_description, input_html: { rows: 4 } %>
+    <%# f.label :other_description %><br>
+    <%# f.text_area :other_description %>
   </div>
 </div>

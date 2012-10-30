@@ -2,28 +2,23 @@
   <legend><%= t 'legend', scope: 'study.field_work_question_form' %></legend>
   <ol>
     <li>
-    <div class="field">
-      <%= f.label :questionnaire_link %> <br>
-      <%= f.text_field :questionnaire_link %>
-    </div>
+    <%= f.input :questionnaire_link, as: :string %>
     </li>
 
     <li>
     <%= t 'method', scope: 'study.field_work_question_form' %>
-    <ol>
+    <ol class="options">
       <% [:phone, :email, :internet, :mail, :interview, :focus_group].each do |fw| -%>
         <li>
-        <div class="field">
-          <%= f.check_box fw %>
-          <%= f.label fw %>
-        </div>
+        <%= f.input fw, wrapper: :checkbox, label_html: { :class => :checkbox } %>
         </li>
       <% end -%>
 
       <%= render  partial: 'other_collapsable_field',
                   object: :other,
                   locals: { surrounding_tag: "li",
-                            f: f} %>
+                            f: f } %>
+
     </ol>
     </li>
   </ol>

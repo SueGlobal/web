@@ -4,14 +4,16 @@
   <ol>
     <li>
       <%= t 'intern_legend', scope: 'study.information_question_form' %>
-      <ol>
+      <ol class="options">
         <% InformationQuestion::INTERNAL_PUB.each do |field| -%>
           <li class="field">
-            <%= f.check_box :"#{field}_check", "class" => "js-other-change"  %>
-            <%= f.label :"#{field}_check" %> <br>
+            <%= f.input :"#{field}_check",
+                        wrapper: :checkbox,
+                        input_html: {:class => 'js-other-change'},
+                        label_html: {:class => 'checkbox'} %>
 
             <div class="js-other-collapsable other-description">
-              <%= f.fields_for :"#{field}_periodicity" do |builder| %>
+              <%= f.simple_fields_for :"#{field}_periodicity" do |builder| %>
                 <%= render 'periodicity_form', f: builder %>
               <% end -%>
             </div>
@@ -21,19 +23,19 @@
 
         <% InformationQuestion::INTERNAL_OTHER.each do |field| -%>
           <li class="field">
-            <%= f.check_box :"#{field}_check", "class" => "js-other-change" %>
-            <%= f.label :"#{field}_check" %> <br>
+            <%= f.input :"#{field}_check",
+                        wrapper: :checkbox,
+                        input_html: {:class => 'js-other-change'},
+                        label_html: {:class => 'checkbox'} %>
 
             <div class="js-other-collapsable other-description">
-              <%= f.fields_for :"#{field}_periodicity" do |builder| %>
+              <%= f.simple_fields_for :"#{field}_periodicity" do |builder| %>
                 <%= render 'periodicity_form', f: builder %>
               <% end -%>
 
               <br>
-              <div class="field">
-                <%= f.label :"#{field}_description" %><br>
-                <%= f.text_area :"#{field}_description" %>
-              </div>
+              <%= f.input :"#{field}_description",
+                          input_html: {rows: 4} %>
             </div>
           </li>
         <% end -%>
@@ -42,14 +44,16 @@
 
     <li>
       <%= t 'extern_legend', scope: 'study.information_question_form' %>
-      <ol>
+      <ol class="options">
         <% InformationQuestion::EXTERNAL_PUB.each do |field| -%>
           <li class="field">
-            <%= f.check_box :"#{field}_check", "class" => "js-other-change"  %>
-            <%= f.label :"#{field}_check" %> <br>
+            <%= f.input :"#{field}_check",
+                        wrapper: :checkbox,
+                        input_html: {:class => 'js-other-change'},
+                        label_html: {:class => 'checkbox'} %>
 
             <div class="js-other-collapsable other-description">
-              <%= f.fields_for :"#{field}_periodicity" do |builder| %>
+              <%= f.simple_fields_for :"#{field}_periodicity" do |builder| %>
                 <%= render 'periodicity_form', f: builder %>
               <% end -%>
             </div>
@@ -59,26 +63,26 @@
 
         <% InformationQuestion::EXTERNAL_OTHER.each do |field| -%>
           <li class="field">
-            <%= f.check_box :"#{field}_check", "class" => "js-other-change"  %>
-            <%= f.label :"#{field}_check" %> <br>
+            <%= f.input :"#{field}_check",
+                        wrapper: :checkbox,
+                        input_html: {:class => 'js-other-change'},
+                        label_html: {:class => 'checkbox'} %>
 
             <div class="js-other-collapsable other-description">
-              <%= f.fields_for :"#{field}_periodicity" do |builder| %>
+              <%= f.simple_fields_for :"#{field}_periodicity" do |builder| %>
                 <%= render 'periodicity_form', f: builder %>
               <% end -%>
 
               <br>
-              <div class="field">
-                <%= f.label :"#{field}_description" %><br>
-                <%= f.text_area :"#{field}_description" %>
-              </div>
+              <%= f.input :"#{field}_description",
+                          input_html: {rows: 4} %>
             </div>
           </li>
         <% end -%>
       </ol>
     </li>
 
-    <%= f.fields_for :publication_question do |builder| %>
+    <%= f.simple_fields_for :publication_question do |builder| %>
       <%= render 'publication_question_form', f: builder %>
     <% end -%>
 

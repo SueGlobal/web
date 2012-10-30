@@ -37,9 +37,14 @@ SimpleForm.setup do |config|
     end
   end
 
+  config.wrappers :checkbox, tag: false do |b|
+    b.use :label_input
+  end
+
   # Wrappers for forms and inputs using the Twitter Bootstrap toolkit.
   # Check the Bootstrap docs (http://twitter.github.com/bootstrap)
   # to learn about the different styles for forms and inputs,
   # buttons and other elements.
   config.default_wrapper = :bootstrap
+  config.boolean_style = :inline
 end

@@ -1,8 +1,9 @@
 <div class="field class_year">
   <%= f.select :year, ClassYear.select_options %>
   <div class="significant">
-    <%= f.check_box :significant %>
-    <%= f.label :significant %>
+    <%= f.input :significant,
+                wrapper: :checkbox,
+                label_html: {:class => 'checkbox'} %>
   </div>
   <%= f.hidden_field :_destroy %>
   <%= link_to t('actions.delete'), '#', "class" => "remove_fields remove_class_year" %>

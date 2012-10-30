@@ -4,6 +4,7 @@ en:
       legend: 'Sample data'
       design_legend: 'Sampling design'
       detailed_information_legend: 'Sampling detailed information'
+      no_more_info_needed: 'No more information is required for this sampling type.'
       sampling_option_probabilistic: 'Muestreo probabilístico'
       sampling_option_non_probabilistic: 'Muestreo no probabilístico'
       sampling_option_total_population: 'Población total'

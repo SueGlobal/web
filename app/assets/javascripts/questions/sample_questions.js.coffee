@@ -1,16 +1,23 @@
 jQuery ->
   $detailedInfo = $('fieldset.sampling > fieldset.detailed_information')
-  $detailedInfo.hide()
   $probabilistic = $detailedInfo.find('.probabilistic_sampling')
   $nonProbabilistic = $detailedInfo.find('.non_probabilistic_sampling')
-  $('input[name="sampling_option"]').on 'change', (event) ->
-    $detailedInfo.hide()
+  $noMoreInfoNeeded = $detailedInfo.find('.no_more_info_needed')
+
+  showOrHideInfo = ($select) ->
     $probabilistic.hide()
     $nonProbabilistic.hide()
-    value = $(this).attr('value')
+    $noMoreInfoNeeded.hide()
+
+    value = $select.find(':selected').val()
     if value is 'probabilistic'
-      $detailedInfo.show()
       $probabilistic.show()
     else if value is "non_probabilistic"
-      $detailedInfo.show()
       $nonProbabilistic.show()
+    else
+      $noMoreInfoNeeded.show()
+
+  $select = $('fieldset.sampling select')
+  showOrHideInfo($select)
+  $select.on 'change', (event) ->
+    showOrHideInfo($(this))
