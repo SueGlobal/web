@@ -1,4 +1,4 @@
-<%= form_for(@path) do |f| %>
+<%= simple_form_for(@path) do |f| %>
   <% if @service.errors.any? %>
     <div id="error_explanation">
       <h2><%= t '.errors_header', count: @service.errors.count %></h2>
@@ -11,15 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :dependency %>
-    <%= f.text_field :dependency %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.input :name, as: :string %>
+
+  <%= f.input :dependency, as: :string %>
+
+  <%= f.button :submit %>
 <% end %>
