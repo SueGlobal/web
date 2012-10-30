@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121024190549) do
+ActiveRecord::Schema.define(:version => 20121030151914) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(:version => 20121024190549) do
     t.boolean  "includes_studies_on_employers"
     t.boolean  "includes_public_secondary_sources"
     t.boolean  "includes_non_public_secondary_sources"
-    t.string   "includes_university_databases"
     t.boolean  "includes_other_studies"
     t.integer  "university_id"
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
     t.integer  "year"
+    t.boolean  "includes_university_databases"
   end
 
   create_table "basic_questions", :force => true do |t|

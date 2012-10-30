@@ -1,4 +1,4 @@
-<%= form_for(@path) do |f| %>
+<%= simple_form_for(@path) do |f| %>
   <% if @achieved_activity.errors.any? %>
     <div id="error_explanation">
       <h2><%= t '.errors_header' %></h2>
@@ -11,39 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :year %>
-    <%= select_years f, :year %>
-  </div>
+  <%= f.input :year, as: :course %>
 
   <fieldset class="activities">
     <legend><%= t '.activities.legend' %></legend>
     <p><%= t '.activities.paragraph' %></p>
-    <% AchievedActivity::ACTIVITIES.each do |current_activity| -%>
-      <div class="field">
+    <ol class="options">
+      <% AchievedActivity::ACTIVITIES.each do |current_activity| -%>
+        <li class="field">
         <% if current_activity == :other_activities -%>
-          <%= f.label current_activity %><br>
-          <%= f.text_area current_activity %>
+          <%= f.input current_activity,
+                      input_html: {rows: 4} %>
         <% else -%>
-          <%= f.check_box current_activity %>
-          <%= f.label current_activity %>
+          <%= f.input current_activity,
+                      wrapper: :checkbox,
+                      label_html: {:class => 'checkbox'} %>
         <% end -%>
-      </div>
-    <% end -%>
+        </li>
+      <% end -%>
+    </ol>
   </fieldset>
 
   <fieldset class="sources">
     <legend><%= t '.sources.legend' %></legend>
     <p><%= t '.sources.paragraph' %></p>
-    <% AchievedActivity::SOURCES.each do |current_source| -%>
-      <div class="field">
-        <%= f.check_box current_source %>
-        <%= f.label current_source %>
-      </div>
-    <% end -%>
+    <ol class="options">
+      <% AchievedActivity::SOURCES.each do |current_source| -%>
+        <li class="field">
+        <%= f.input current_source,
+                    wrapper: :checkbox,
+                    label_html: {:class => 'checkbox'} %>
+        </li>
+      <% end -%>
+    </ol>
   </fieldset>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit %>
 <% end %>
