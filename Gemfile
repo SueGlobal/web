@@ -68,3 +68,4 @@ gem 'unicorn', group: [:production]
 gem 'nifty-generators', group: [:development]
 gem 'simple_form'
 gem 'breadcrumbs_on_rails'
+gem 'friendly_id', "~> 4.0"

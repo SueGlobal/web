@@ -4,6 +4,9 @@ require 'spec_helper'
 describe GeneralFrame do
 
   subject { create :general_frame, :all_checks_true }
+
+  it_behaves_like "a university dependent model"
+
   it { should allow_mass_assignment_of(:bachelors_degree_graduates) }
   it { should allow_mass_assignment_of(:degree_graduates) }
   it { should allow_mass_assignment_of(:graduates) }

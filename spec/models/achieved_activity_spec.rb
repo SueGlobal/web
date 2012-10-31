@@ -18,5 +18,6 @@ describe AchievedActivity do
     it { should allow_mass_assignment_of(:year) }
     #   Done in before filter
     #  it { should validate_numericality_of(:year).only_integer }
+    it_behaves_like "a university dependent model"
   end
 end

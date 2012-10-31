@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Service < ActiveRecord::Base
-  belongs_to :university
+  include UniversityDependentModel
   attr_accessible :dependency, :name
 
   validates :name,

@@ -31,6 +31,6 @@ describe StudentStudy do
 
   it { should belong_to(:university) }
 
-  it_behaves_like "has questions", :basic, :software, :sample, :funding,
+  it_behaves_like "a study", :basic, :software, :sample, :funding,
     :field_work, :study_periodicity, :class_year, :information
 end

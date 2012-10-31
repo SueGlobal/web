@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 module Study
   def self.included(base)
-    base.belongs_to :university
+    base.send :include, ::UniversityDependentModel
     base.extend ClassMethods
   end
 

@@ -4,7 +4,7 @@ require 'spec_helper'
 describe Service do
   subject { create :service }
 
-  it { should belong_to(:university) }
+  it_behaves_like "a university dependent model"
   it { should allow_mass_assignment_of(:name) }
   it { should allow_mass_assignment_of(:dependency) }
 

@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class GeneralFrame < ActiveRecord::Base
-  belongs_to :university
+  include UniversityDependentModel
 
   GRADUATES = [:degree_graduates, :bachelors_degree_graduates, :graduates,
         :master_graduates, :phd_graduates, :specific_qualifications_graduates]
