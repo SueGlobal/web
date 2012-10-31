@@ -8,7 +8,7 @@ class SampleQuestion < ActiveRecord::Base
 
   SAMPLING_OPTIONS.each do |opt|
     define_method :"#{opt}?" do
-      self.sampling_type.to_sym == opt
+      self.sampling_option.to_sym == opt
     end
   end
 
