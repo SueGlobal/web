@@ -1,4 +1,5 @@
 es:
+  link: 'Enlace'
   actions:
     show: "Mostrar"
     edit: "Editar"
