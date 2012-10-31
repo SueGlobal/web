@@ -1,0 +1,18 @@
+ul.boolean_list {
+  list-style: none;
+  margin-left: 0;
+
+  li {
+    list-style: none;
+  }
+
+  .false {
+    padding-left: 24px;
+    background: url(image-path('exclamation.png')) 0 0 no-repeat;
+  }
+
+  .true {
+    padding-left: 24px;
+    background: url(image-path('tick.png')) 0 0 no-repeat;
+  }
+}

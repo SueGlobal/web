@@ -1,7 +1,28 @@
-<%= render partial: 'basic_question', object: @student_study.basic_question %>
+<%= render  partial: 'basic_question',
+            object: @student_study.basic_question,
+            locals: {study: @student_study } %>
 
-<%= render partial: 'study_periodicity_question', object: @student_study.study_periodicity_question %>
+<%= render  partial: 'study_periodicity_question',
+            object: @student_study.study_periodicity_question,
+            locals: {study: @student_study } %>
 
+<div class="participants">
+	<ol>
+    <li>
+    <%= t '.participation.legend' %>
+    <ul class="boolean_list">
+      <% StudentStudy::PARTICIPATES[:intern].each do |participates| -%>
+        <li>
+        <%= render  partial: 'boolean_field',
+                    locals: { value: @student_study.send(participates),
+                              text: StudentStudy.human_attribute_name(participates)} %>
+        </li>
+      <% end -%>
+    </ul>
+    </li>
+		<li></li>
+	</ol>
+</div>
 
 <%= link_to_if can?(:edit, @student_study), t('.edit'), edit_student_study_path(@student_study) do "" end %> |
 <%= link_to t('.back'), university_student_studies_path(@university) %>

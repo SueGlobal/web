@@ -8,7 +8,6 @@
 <table class="table table-hover">
   <thead>
     <th><%= University.model_name.human count: 1 %></th>
-    <th><%= Province.model_name.human %></th>
     <th><%= t '.actions' %></th>
   </thead>
 
@@ -16,16 +15,11 @@
     <% @universities.each do |university| %>
       <tr>
         <td>
-          <%= university.name %>
+          <%= link_to university.name, university %>
           <span class="university_abbreviation">(<%= university.abbreviation %>)</span>
         </td>
-        <td><%= university.province_name %></td>
         <td>
           <ul class="actions">
-            <% if can? :read, university -%>
-              <li><%= show_link university %>
-            <% end -%>
-
             <% if can? :edit, university -%>
               <li><%= edit_link edit_university_path(university) %>
             <% end -%>

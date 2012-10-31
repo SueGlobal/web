@@ -1,5 +1,8 @@
 <h2 class="basic_question">
   <span class="title"><%= basic_question.title %></span>
   <span class="author"><%= basic_question.author %></span>
-  <span class="year"><%= basic_question.year %></span>
+  <span class="year">(<%= basic_question.year %>)</span>
+  <% if can? :edit, study -%>
+    <%= edit_link edit_student_study_path(study) %>
+  <% end -%>
 </h2>

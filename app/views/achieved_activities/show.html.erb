@@ -2,9 +2,9 @@
 
 <div class="activities">
   <h2><%= t '.activities' %></h2>
-  <ul>
+  <ul class="boolean_list">
     <% AchievedActivity::ACTIVITIES.each do |current_activity| -%>
-      <li class="field">
+      <li>
         <%= boolean_value AchievedActivity.human_attribute_name(current_activity),
                           @achieved_activity.send(current_activity) %>
       </li>
@@ -14,9 +14,9 @@
 
 <div class="sources">
   <h2><%= t '.sources' %></h2>
-  <ul>
+  <ul class="boolean_list">
     <% AchievedActivity::SOURCES.each do |current_source| -%>
-      <li class="field">
+      <li>
         <%= boolean_value AchievedActivity.human_attribute_name(current_source),
                           @achieved_activity.send(current_source) %>
       </li>
