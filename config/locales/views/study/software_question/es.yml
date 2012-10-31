@@ -1,0 +1,7 @@
+es:
+  study:
+    software_question:
+      legend: 'Software'
+      uses_some:
+        'true': 'Usa software a medida'
+        'false': 'No usa software a medida'

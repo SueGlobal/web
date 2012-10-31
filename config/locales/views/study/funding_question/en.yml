@@ -1,0 +1,6 @@
+en:
+  study:
+    funding_question:
+      legend: 'Funding'
+      state_funding_legend: 'State funding'
+      private_funding_legend: 'Private funding'

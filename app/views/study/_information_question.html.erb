@@ -1,0 +1,78 @@
+<div class="information_question">
+  <h2><%= t '.legend' %></h2>
+  <ol>
+    <li>
+      <%= t '.intern_legend' %>
+      <ul class="boolean_list">
+        <% InformationQuestion::INTERNAL_PUB.each do |field| -%>
+          <li>
+          <%= render  partial: 'boolean_field',
+                      locals: { value: information_question.send("#{field}_check"),
+                                text: InformationQuestion.human_attribute_name("#{field}_check")} %>
+          <% if information_question.send("#{field}_check") -%>
+            <%= render partial: 'periodicity',
+                      object: information_question.send("#{field}_periodicity") %>
+          <% end -%>
+          </li>
+        <% end -%>
+
+        <% InformationQuestion::INTERNAL_OTHER.each do |field| -%>
+          <li>
+          <%= render  partial: 'boolean_field',
+                      locals: { value: information_question.send("#{field}_check"),
+                                text: InformationQuestion.human_attribute_name("#{field}_check")} %>
+
+          <% if information_question.send("#{field}_check") -%>
+            <%= render  partial: 'periodicity',
+                        object: information_question.send("#{field}_periodicity") %>
+            <div class="field">
+              <blockquote>
+                <%= information_question.send("#{field}_description") %>
+              </blockquote>
+            </div>
+          <% end -%>
+          </li>
+        <% end -%>
+      </ul>
+    </li>
+
+    <li>
+      <%= t '.extern_legend' %>
+      <ul class="boolean_list">
+        <% InformationQuestion::EXTERNAL_PUB.each do |field| -%>
+          <li>
+          <%= render  partial: 'boolean_field',
+                      locals: { value: information_question.send("#{field}_check"),
+                                text: InformationQuestion.human_attribute_name("#{field}_check")} %>
+          <% if information_question.send("#{field}_check") -%>
+            <%= render partial: 'periodicity',
+                      object: information_question.send("#{field}_periodicity") %>
+          <% end -%>
+          </li>
+        <% end -%>
+
+        <% InformationQuestion::EXTERNAL_OTHER.each do |field| -%>
+          <li>
+          <%= render  partial: 'boolean_field',
+                      locals: { value: information_question.send("#{field}_check"),
+                                text: InformationQuestion.human_attribute_name("#{field}_check")} %>
+
+          <% if information_question.send("#{field}_check") -%>
+            <%= render  partial: 'periodicity',
+                        object: information_question.send("#{field}_periodicity") %>
+            <div class="field">
+              <blockquote>
+                <%= information_question.send("#{field}_description") %>
+              </blockquote>
+            </div>
+          <% end -%>
+          </li>
+        <% end -%>
+      </ul>
+    </li>
+
+    <%= render  partial: 'publication_question',
+                object: information_question.publication_question,
+                locals: {study: study} %>
+  </ol>
+</div>

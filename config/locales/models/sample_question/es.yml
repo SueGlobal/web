@@ -10,3 +10,9 @@ es:
         non_probabilistic_description: 'Descripción de la técnica utilizada'
         sampling_type: 'Tipo de muestreo'
         disintegration_level: 'Nivel de desagregación'
+        sampling_options:
+          probabilistic: 'Muestreo probabilístico'
+          non_probabilistic: 'Muestreo no probabilístico'
+          total_population: 'Población total'
+          undefined: 'No definido'
+

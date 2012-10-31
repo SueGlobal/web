@@ -1,0 +1,7 @@
+en:
+  study:
+    software_question:
+      legend: 'Software'
+      uses_some:
+        true: 'Uses homemade software'
+        false: 'Does not use homemade software'

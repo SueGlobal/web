@@ -1,8 +1,9 @@
 en:
-  general_frames:
+  student_studies:
     show:
-      header: "%{university}'s general frame for year %{year}"
-      graduates: 'Number of graduates'
-      qualifications: 'Number of qualifications'
-      edit: 'Edit'
-      back: 'Back'
+      participation:
+        legend: 'Participation'
+        intern: 'Intern'
+        extern: 'Extern'
+      variables:
+        legend: 'Variables'

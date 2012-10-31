@@ -1,0 +1,8 @@
+<div class="notes">
+  <h2><%= t '.legend' %></h2>
+  <% if notes.blank? -%>
+    <p><%= t '.no_notes' %></p>
+  <% else -%>
+    <blockquote><%= notes %></blockquote>
+  <% end -%>
+</div>

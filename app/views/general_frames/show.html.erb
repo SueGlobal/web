@@ -1,8 +1,13 @@
-<h1><%= t '.header', university: @university.abbreviation, year: @general_frame.year %></h1>
+<h1>
+  <%= t '.header', university: @university.abbreviation, year: @general_frame.year %>
+  <% if can? :edit, @general_frame -%>
+    <%= edit_link edit_general_frame_path(@general_frame) %>
+  <% end -%>
+</h1>
 
 <% if @general_frame.number_of_campus_check -%>
   <div class="field">
-    <span class="label"><%= GeneralFrame.human_attribute_name(:number_of_campus) %></span>
+    <span class="data-label"><%= GeneralFrame.human_attribute_name(:number_of_campus) %></span>
     <span class="data"><%= @general_frame.number_of_campus %></span>
   </div>
 <% else -%>
@@ -11,7 +16,7 @@
 
 <% ["graduates", "qualifications"].each do |section| -%>
   <div class="<%= section %>">
-    <h2><%= t ".#{section}" %></h2>
+    <h3><%= t ".#{section}" %></h3>
     <% if @general_frame.send(:"any_#{section.singularize}_data?") -%>
       <ul>
         <% GeneralFrame::const_get(section.upcase).each do |field| -%>
@@ -26,7 +31,3 @@
   </div>
 <% end -%>
 
-<% if can? :edit, @general_frame -%>
-  <%= link_to t('.edit'), edit_general_frame_path(@general_frame) %> |
-<% end -%>
-<%= link_to t('.back'), @university %>

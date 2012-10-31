@@ -1,0 +1,44 @@
+<div class="sampling">
+  <h2><%= t '.legend' %></h2>
+  <div class="field">
+    <%= SampleQuestion.human_attribute_name(:scope) %>
+    <blockquote>
+      <%= sample_question.scope %>
+    </blockquote>
+  </div>
+
+  <div class="field">
+    <%= SampleQuestion.human_attribute_name(:population) %>
+    <blockquote>
+      <%= sample_question.population %>
+    </blockquote>
+  </div>
+
+  <div class="design">
+    <div class="field">
+      <span class="data-label"><%= SampleQuestion.human_attribute_name(:sampling_option) %></span>
+      <span class="data"><%= SampleQuestion.translate_option sample_question.sampling_option %></span>
+    </div>
+
+    <% if sample_question.probabilistic? -%>
+      <div class="field">
+        <%= SampleQuestion.human_attribute_name(:sampling_type) %>
+        <blockquote><%= sample_question.sampling_type %></blockquote>
+      </div>
+
+      <div class="field">
+        <%= SampleQuestion.human_attribute_name(:disintegration_level) %>
+        <blockquote><%= sample_question.disintegration_level %></blockquote>
+      </div>
+    <% elsif sample_question.non_probabilistic? -%>
+      <div class="field">
+        <%= SampleQuestion.human_attribute_name(:non_probabilistic_description) %>
+        <blockquote><%= sample_question.non_probabilistic_description %></blockquote>
+      </div>
+    <% elsif sample_question.total_population? -%>
+      <%# left blank %>
+    <% elsif sample_question.undefined? -%>
+      <%# left blank %>
+    <% end -%>
+  </div>
+</div>

@@ -7,3 +7,4 @@ es:
         four_monthly: 'La periodicidad del estudio es cuatrimestral.'
         no_periodicity: 'El estudio no se realiza con periodicidad.'
         other: 'Otra periodicidad:'
+      legend: 'Periodicidad del estudio'

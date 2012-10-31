@@ -12,8 +12,12 @@ class ClassYearQuestion < ActiveRecord::Base
 
     def select_options
       [:one_year, :three_years, :five_years, :other].map do |opt|
-        [I18n.t(opt, scope: 'activerecord.attributes.class_year_question.select_options'), opt.to_s]
+        [translate_option(opt), opt.to_s]
       end
+    end
+
+    def translate_option opt
+      I18n.t(opt, scope: 'activerecord.attributes.class_year_question.select_options')
     end
   end
 end

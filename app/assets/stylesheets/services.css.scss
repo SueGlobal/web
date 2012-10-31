@@ -1,0 +1,18 @@
+.services {
+  li {
+    font-size: larger;
+
+    .dependency {
+      font-style: italic;
+      font-size: smaller;
+
+      &:before {
+        content: "(";
+      }
+
+      &:after {
+        content: ")";
+      }
+    }
+  }
+}

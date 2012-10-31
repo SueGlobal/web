@@ -1,0 +1,6 @@
+en:
+  study:
+    information_question:
+      legend: 'Information'
+      extern_legend: 'Extern'
+      intern_legend: 'Intern'

@@ -31,6 +31,10 @@ a {
       vertical-align: text-top;
     }
   }
+
+  &.show {
+    display: inline;
+  }
 }
 
 ol.options {

@@ -1,0 +1,11 @@
+<p>
+  <%= Periodicity.model_name.human(count: 1) %>
+  <span class="periodicity_type">
+    <%= Periodicity.translate_option(periodicity.periodicity_type) %>
+  </span>
+</p>
+<% if periodicity.other? -%>
+  <blockquote>
+    <%= periodicity_type.other_description %>
+  </blockquote>
+<% end -%>

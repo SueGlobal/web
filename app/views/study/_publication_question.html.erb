@@ -1,0 +1,78 @@
+<li class="publication">
+  <%= t '.legend' %>
+
+  <ul class="boolean_list">
+    <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: publication_question.with_isbn_check,
+                            text: PublicationQuestion.human_attribute_name(:with_isbn_check) } %>
+    </li>
+
+    <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: publication_question.without_isbn_check,
+                            text: PublicationQuestion.human_attribute_name(:without_isbn_check) } %>
+    </li>
+
+    <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: publication_question.limited_distribution_check,
+                            text: PublicationQuestion.human_attribute_name(:limited_distribution_check) } %>
+    </li>
+
+    <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: publication_question.static_web_check,
+                            text: PublicationQuestion.human_attribute_name(:static_web_check) } %>
+      <% if publication_question.static_web_check -%>
+        <p><%= link_to t('link'), publication_question.static_web_url %></p>
+      <% end -%>
+    </li>
+
+    <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: publication_question.dynamic_web_check,
+                            text: PublicationQuestion.human_attribute_name(:dynamic_web_check) } %>
+      <% if publication_question.dynamic_web_check -%>
+        <p><%= link_to t('link'), publication_question.dynamic_web_url %></p>
+      <% end -%>
+    </li>
+
+
+    <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: publication_question.pdf_check,
+                            text: PublicationQuestion.human_attribute_name(:pdf_check) } %>
+    </li>
+
+    <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: publication_question.multimedia_check,
+                            text: PublicationQuestion.human_attribute_name(:multimedia_check) } %>
+    </li>
+
+    <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: publication_question.app_check,
+                            text: PublicationQuestion.human_attribute_name(:app_check) } %>
+    </li>
+
+    <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: publication_question.papers_check,
+                            text: PublicationQuestion.human_attribute_name(:papers_check) } %>
+    </li>
+
+    <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: publication_question.thesis_check,
+                            text: PublicationQuestion.human_attribute_name(:thesis_check) } %>
+    </li>
+
+    <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: publication_question.other_check,
+                            text: PublicationQuestion.human_attribute_name(:other_check) } %>
+    </li>
+  </ul>
+</li>

@@ -1,0 +1,5 @@
+es:
+  study:
+    notes:
+      legend: 'Notas'
+      no_notes: 'No hay notas para este estudio'

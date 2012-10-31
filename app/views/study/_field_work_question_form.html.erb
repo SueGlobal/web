@@ -1,4 +1,4 @@
-<fieldset>
+<fieldset class="field_work">
   <legend><%= t 'legend', scope: 'study.field_work_question_form' %></legend>
   <ol>
     <li>
@@ -8,7 +8,7 @@
     <li>
     <%= t 'method', scope: 'study.field_work_question_form' %>
     <ol class="options">
-      <% [:phone, :email, :internet, :mail, :interview, :focus_group].each do |fw| -%>
+      <% FieldWorkQuestion::FIELDS.each do |fw| -%>
         <li>
         <%= f.input fw, wrapper: :checkbox, label_html: { :class => :checkbox } %>
         </li>

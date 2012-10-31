@@ -1,0 +1,6 @@
+es:
+  study:
+    funding_question:
+      legend: 'Financiación'
+      state_funding_legend: 'Financiación pública'
+      private_funding_legend: 'Financiación privada'

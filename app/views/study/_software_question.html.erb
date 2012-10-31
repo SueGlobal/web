@@ -1,0 +1,15 @@
+<div class="software">
+  <h2><%= t '.legend' %></h2>
+
+  <% if software_question.uses_some -%>
+    <p><%= t('.uses_some.true') %></p>
+    <div class="field">
+      <p><%= SoftwareQuestion.human_attribute_name(:description) %>:</p>
+      <blockquote>
+        <%= software_question.description %>
+      </blockquote>
+    </div>
+  <% else -%>
+    <p><%= t('.uses_some.false') %></p>
+  <% end -%>
+</div>

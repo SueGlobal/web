@@ -1,0 +1,7 @@
+en:
+  study:
+    class_year_question:
+      legend: 'Time from graduation'
+      significant:
+        true: 'Contains significant data'
+        false: 'Does not contain significant data'

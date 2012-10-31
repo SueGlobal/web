@@ -1,6 +1,6 @@
-<h1><%= t '.header' %></h1>
+<h1>
+  <%= t '.header' %>
+  <%= show_link general_frame_path(@general_frame) %>
+</h1>
 
 <%= render 'form' %>
-
-<%= link_to t('.show'), @general_frame %> |
-<%= link_to t('.back'), @general_frame %>

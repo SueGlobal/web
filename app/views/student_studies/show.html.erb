@@ -7,9 +7,10 @@
             locals: {study: @student_study } %>
 
 <div class="participants">
+  <h2><%= t '.participation.legend' %></h2>
 	<ol>
     <li>
-    <%= t '.participation.legend' %>
+    <%= t '.participation.intern' %>
     <ul class="boolean_list">
       <% StudentStudy::PARTICIPATES[:intern].each do |participates| -%>
         <li>
@@ -20,9 +21,79 @@
       <% end -%>
     </ul>
     </li>
-		<li></li>
+    <li>
+    <%= t '.participation.extern' %>
+    <ul class="boolean_list">
+      <% StudentStudy::PARTICIPATES[:extern].each do |participates| -%>
+        <li>
+        <%= render  partial: 'boolean_field',
+                    locals: { value: @student_study.send(participates),
+                              text: StudentStudy.human_attribute_name(participates)} %>
+        </li>
+      <% end -%>
+    </ul>
+    </li>
+    <% StudentStudy::PARTICIPATES[:other].each do |participates| -%>
+      <% if @student_study.send("#{participates}_check") -%>
+        <li>
+        <%= StudentStudy.human_attribute_name("#{participates}_check") %>
+        <blockquote>
+          <%= @student_study.send(participates) %>
+        </blockquote>
+        </li>
+      <% end -%>
+    <% end -%>
 	</ol>
 </div>
 
-<%= link_to_if can?(:edit, @student_study), t('.edit'), edit_student_study_path(@student_study) do "" end %> |
-<%= link_to t('.back'), university_student_studies_path(@university) %>
+<%= render  partial: 'class_year_question',
+            object: @student_study.class_year_question,
+            locals: {study: @student_study} %>
+
+<div class="variables">
+  <h2><%= t '.variables.legend' %></h2>
+  <ul class="boolean_list">
+    <% StudentStudy::VARIABLES.each do |variable| %>
+      <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: @student_study.send(variable),
+                            text: StudentStudy.human_attribute_name(variable) } %>
+      </li>
+    <% end -%>
+
+    <% StudentStudy::VARIABLES_OTHER.each do |variable| -%>
+      <% if @student_study.send("#{variable}_check") -%>
+        <li>
+        <%= StudentStudy.human_attribute_name("#{variable}_check") %>
+        <blockquote>
+          <%= @student_study.send(variable) %>
+        </blockquote>
+        </li>
+      <% end -%>
+    <% end -%>
+  </ul>
+</div>
+
+<%= render  partial: 'sample_question',
+            object: @student_study.sample_question,
+            locals: {study: @student_study} %>
+
+<%= render  partial: 'field_work_question',
+            object: @student_study.field_work_question,
+            locals: {study: @student_study} %>
+
+<%= render  partial: 'software_question',
+            object: @student_study.software_question,
+            locals: {study: @student_study} %>
+
+<%= render  partial: 'funding_question',
+            object: @student_study.funding_question,
+            locals: {study: @student_study} %>
+
+<%= render  partial: 'information_question',
+            object: @student_study.information_question,
+            locals: {study: @student_study} %>
+
+<%= render  partial: 'notes',
+            object: @student_study.notes,
+            locals: {study: @student_study} %>

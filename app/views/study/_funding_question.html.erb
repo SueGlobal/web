@@ -1,0 +1,36 @@
+<div class="funding">
+  <h2><%= t '.legend' %></h2>
+
+  <ol>
+    <li>
+      <%= t '.state_funding_legend' %> <br>
+      <ul class="boolean_list">
+        <li>
+        <%= render  partial: 'boolean_field',
+                    locals: { value: funding_question.fixed_state_funding,
+                              text: FundingQuestion.human_attribute_name(:fixed_state_funding) } %>
+        </li>
+        <li>
+        <%= render  partial: 'boolean_field',
+                    locals: { value: funding_question.variable_state_funding,
+                              text: FundingQuestion.human_attribute_name(:variable_state_funding) } %>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <%= t '.private_funding_legend' %>
+      <ul class="boolean_list">
+        <li>
+        <%= render  partial: 'boolean_field',
+                    locals: { value: funding_question.fixed_private_funding,
+                              text: FundingQuestion.human_attribute_name(:fixed_private_funding) } %>
+        </li>
+        <li>
+        <%= render  partial: 'boolean_field',
+                    locals: { value: funding_question.variable_private_funding,
+                              text: FundingQuestion.human_attribute_name(:variable_private_funding) } %>
+        </li>
+      </ul>
+    </li>
+  </ol>
+</div>

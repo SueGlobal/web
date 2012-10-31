@@ -7,3 +7,4 @@ en:
         four_monthly: 'Study is done three times a year.'
         no_periodicity: 'Study has no periodicity.'
         other: 'Study has no standard periodicity. Explanation follows:'
+      legend: 'Study periodicity'

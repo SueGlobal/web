@@ -1,0 +1,9 @@
+es:
+  student_studies:
+    show:
+      participation:
+        legend: 'Participantes en el estudio'
+        intern: 'Internos'
+        extern: 'Externos'
+      variables:
+        legend: 'Principales apartados y variables contemplados en el cuestionario'

@@ -1,4 +1,9 @@
-<h1><%= t('.header', university: @university.abbreviation) %></h1>
+<h1>
+  <%= t('.header', university: @university.abbreviation) %>
+  <% if can? :edit, @university -%>
+    <%= new_link new_university_general_frame_path(@university) %>
+  <% end -%>
+</h1>
 
 <table>
   <tr>
@@ -8,10 +13,17 @@
 
 <% @general_frames.each do |general_frame| %>
   <tr>
-    <td><%= general_frame.year %></td>
-    <td><%= link_to t('.show'), general_frame %> |
-        <%= link_to t('.edit'), edit_general_frame_path(general_frame) %> |
-        <%= link_to t('.destroy'), general_frame, method: :delete, data: { confirm: t('.destroy_confirmation')} %></td>
+    <td><%= link_to general_frame.year, general_frame %></td>
+    <td>
+      <% if can? :edit, general_frame -%>
+        <%= edit_link edit_general_frame_path(general_frame) %>
+      <% end -%>
+      <% if can? :destroy, general_frame -%>
+        <%= destroy_link  general_frame,
+                          method: :delete,
+                          data: { confirm: t('.destroy_confirmation')} %>
+      <% end -%>
+    </td>
   </tr>
 <% end %>
 </table>

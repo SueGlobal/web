@@ -1,4 +1,9 @@
-<h1><%= t '.header', university: @university.abbreviation, year: @achieved_activity.year %></h1>
+<h1>
+  <%= t '.header', university: @university.abbreviation, year: @achieved_activity.year %>
+  <% if can? :edit, @achieved_activity -%>
+    <%= edit_link edit_achieved_activity_path(@achieved_activity) %>
+  <% end -%>
+</h1>
 
 <div class="activities">
   <h2><%= t '.activities' %></h2>
@@ -23,7 +28,3 @@
     <% end -%>
   </ul>
 </div>
-<% if can? :edit, @achieved_activity -%>
-  <%= link_to t('.edit'), edit_achieved_activity_path(@achieved_activity) %> |
-<% end -%>
-<%= link_to t('.back'), @university %>

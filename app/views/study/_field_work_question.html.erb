@@ -1,0 +1,21 @@
+<div class="field_work">
+  <h2><%= t '.legend' %></h2>
+  <ul class="boolean_list">
+    <% FieldWorkQuestion::FIELDS.each do |fw| -%>
+      <li>
+       <%= render partial: 'boolean_field',
+                  locals: { value: field_work_question.send(fw),
+                            text: FieldWorkQuestion.human_attribute_name(fw) } %>
+      </li>
+    <% end -%>
+
+    <% if field_work_question.other_check -%>
+      <li>
+      <%= FieldWorkQuestion.human_attribute_name(:other_check) %>
+      <blockquote>
+        <%= field_work_question.other %>
+      </blockquote>
+      </li>
+    <% end -%>
+  </ul>
+</div>

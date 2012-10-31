@@ -1,6 +1,6 @@
-<h1><%= t '.header' %></h1>
+<h1>
+  <%= t '.header' %>
+  <%= show_link achieved_activity_path(@achieved_activity) %>
+</h1>
 
 <%= render 'form' %>
-
-<%= link_to t('.show'), @achieved_activity %> |
-<%= link_to t('.back'), @achieved_activity %>

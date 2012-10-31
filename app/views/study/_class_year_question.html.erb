@@ -1,0 +1,33 @@
+<div class="class_year">
+  <h3><%= t '.legend' %></h3>
+
+  <div class="field">
+    <span class="data-label">
+      <%= ClassYearQuestion.human_attribute_name(:time_from_graduation_type) %>
+    </span>
+    <span class="data">
+      <%= ClassYearQuestion.translate_option class_year_question.time_from_graduation_type %>
+    </span>
+
+    <% if :other == class_year_question.time_from_graduation_type -%>
+      <blockquote><%= class_year_question.time_from_graduation_other %></blockquote>
+    <% end -%>
+  </div>
+
+  <h4>
+    <%= ClassYear.model_name.human(count: class_year_question.class_years.size) %>
+  </h4>
+
+  <% if class_year_question.class_years.empty? -%>
+    <p><%= t('.no_class_years') %></p>
+  <% else -%>
+    <ul class="class_years">
+      <% class_year_question.class_years.each do |cy| -%>
+        <li>
+          <%= cy.year %>
+          <span class="significant"><%= t(".significant.#{cy.significant}") %></span>
+        </li>
+      <% end -%>
+    </ul>
+  <% end -%>
+</div>
