@@ -27,4 +27,17 @@ class University < ActiveRecord::Base
   validates :abbreviation,
     presence: true,
     uniqueness: true
+
+  validates :slug,
+    presence: true
+
+  def should_generate_new_friendly_id?
+    new_record? || self[:slug].blank?
+  end
+
+  include FriendlyId
+  friendly_id :name_for_slug, use: :slugged
+  def name_for_slug
+    abbreviation
+  end
 end

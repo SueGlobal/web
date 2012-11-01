@@ -8,4 +8,8 @@ class Service < ActiveRecord::Base
 
   validates :dependency,
     presence: true
+
+  def column_for_slug
+    name
+  end
 end

@@ -5,6 +5,7 @@ FactoryGirl.define do
   factory :general_frame do
     year 2010
     degree_graduates 1
+    sequence(:slug) { |n| "slug-#{n}" }
     bachelors_degree_graduates 1
     graduates 1
     specific_qualifications_graduates 1

@@ -2,7 +2,16 @@
 shared_examples "a university dependent model controller" do |model, *actions|
 
   def valid_attributes
-    attributes_for model_name
+    attributes_for(model_name).tap do |attrs|
+      attrs.delete(:slug)
+      if model_class.respond_to? :questions
+        model_class.questions.each do |q|
+          attrs[:"#{q}_attributes"] = attributes_for(q).tap do |q_attr|
+            q_attr.delete(:studiable)
+          end
+        end
+      end
+    end
   end
 
   def valid_session
@@ -21,6 +30,7 @@ shared_examples "a university dependent model controller" do |model, *actions|
 
   let(:model_name) { model.name.underscore.to_sym }
   let(:models) { model_name.to_s.pluralize.to_sym }
+  let(:model_class) { model }
 
   if actions.include? :index
     describe "GET index" do

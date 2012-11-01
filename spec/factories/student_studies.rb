@@ -11,6 +11,7 @@ FactoryGirl.define do
     software_question
     study_periodicity_question
     information_question
+    sequence(:slug) { |n| "slug-#{n}" }
     scope "MyText"
     participates_employment_agency false
     participates_quality_area false

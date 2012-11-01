@@ -57,4 +57,8 @@ class StudentStudy < ActiveRecord::Base
   attr_accessible *VARIABLES_OTHER
   attr_accessible *(VARIABLES_OTHER.map{|x| "#{x}_check"})
   attr_accessible :notes, :reference_period, :scope
+
+  def column_for_slug
+    basic_question.title
+  end
 end

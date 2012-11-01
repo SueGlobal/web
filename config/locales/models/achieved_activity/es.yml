@@ -28,3 +28,5 @@ es:
               not_a_number: "El campo 'Curso'  tiene que ser un número"
               greater_than_or_equal_to: "El número de 'Curso' tiene que ser mayor que %{count}"
               not_an_integer: "El número de 'Curso' ha de ser un entero"
+            slug:
+              blank: "No se pudo calcular correctamente el slug"

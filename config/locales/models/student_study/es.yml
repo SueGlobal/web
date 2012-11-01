@@ -41,3 +41,9 @@ es:
         variable_competence_valuation: 'Valoración de las competencias desarrolladas por los graduados. Las competencias se desarrollan, (Capacidad de trabajo en equipo, liderazgo, capacidad de comunicación, gestión de proyectos, cultura de la calidad, etc.)'
         variable_other_check: 'Otros'
         variable_other: 'Especificar'
+    errors:
+      models:
+        student_study:
+          attributes:
+            slug:
+              blank: 'No se generó el slug correctamente.'

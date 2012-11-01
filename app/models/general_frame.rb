@@ -41,4 +41,8 @@ class GeneralFrame < ActiveRecord::Base
   def any_qualification_data?
     QUALIFICATIONS.map{|field| self[:"#{field}_check"]}.any?
   end
+
+  def column_for_slug
+    "general_frame_#{year}_#{year+1}"
+  end
 end

@@ -19,3 +19,5 @@ es:
             abbreviation:
               blank: 'Es necesario dar unas siglas.'
               taken: 'Ya existe una universidad con esas siglas.'
+            slug:
+              blank: 'No se pudo calcular el slug.'

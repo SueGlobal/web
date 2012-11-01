@@ -4,7 +4,9 @@ require 'spec_helper'
 describe UniversitiesController do
 
   def valid_attributes
-    attributes_for :university
+    attributes_for(:university).tap do |attr|
+      attr.delete :slug
+    end
   end
 
   def valid_session

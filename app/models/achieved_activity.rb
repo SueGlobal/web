@@ -32,4 +32,8 @@ class AchievedActivity < ActiveRecord::Base
   before_validation do
     self.year = self.year.to_i
   end
+
+  def column_for_slug
+    "achieved_activity_#{year}_#{year+1}"
+  end
 end

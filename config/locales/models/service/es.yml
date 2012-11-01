@@ -12,6 +12,8 @@ es:
       models:
         service:
           attributes:
+            slug:
+              blank: 'No se generó el slug correctamente.'
             name:
               blank: 'Es necesario poner la denominación del servicio.'
             dependency:

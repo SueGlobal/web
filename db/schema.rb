@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030151914) do
+ActiveRecord::Schema.define(:version => 20121031234241) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -33,7 +33,10 @@ ActiveRecord::Schema.define(:version => 20121030151914) do
     t.datetime "updated_at",                            :null => false
     t.integer  "year"
     t.boolean  "includes_university_databases"
+    t.string   "slug"
   end
+
+  add_index "achieved_activities", ["slug"], :name => "index_achieved_activities_on_slug", :unique => true
 
   create_table "basic_questions", :force => true do |t|
     t.text     "title"
@@ -123,8 +126,10 @@ ActiveRecord::Schema.define(:version => 20121030151914) do
     t.boolean  "specific_qualifications_graduates_check"
     t.boolean  "number_of_phds_check"
     t.boolean  "number_of_specific_qualifications_check"
+    t.string   "slug"
   end
 
+  add_index "general_frames", ["slug"], :name => "index_general_frames_on_slug", :unique => true
   add_index "general_frames", ["university_id"], :name => "index_general_frames_on_university_id"
   add_index "general_frames", ["year"], :name => "index_general_frames_on_year"
 
@@ -236,8 +241,10 @@ ActiveRecord::Schema.define(:version => 20121030151914) do
     t.integer  "university_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "slug"
   end
 
+  add_index "services", ["slug"], :name => "index_services_on_slug", :unique => true
   add_index "services", ["university_id"], :name => "index_services_on_university_id"
 
   create_table "software_questions", :force => true do |t|
@@ -287,8 +294,10 @@ ActiveRecord::Schema.define(:version => 20121030151914) do
     t.integer  "university_id"
     t.boolean  "variable_other_check"
     t.boolean  "participates_others_check"
+    t.string   "slug"
   end
 
+  add_index "student_studies", ["slug"], :name => "index_student_studies_on_slug", :unique => true
   add_index "student_studies", ["university_id"], :name => "index_student_studies_on_university_id"
 
   create_table "study_periodicity_questions", :force => true do |t|
@@ -308,9 +317,11 @@ ActiveRecord::Schema.define(:version => 20121030151914) do
     t.integer  "province_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "slug"
   end
 
   add_index "universities", ["abbreviation"], :name => "index_universities_on_abbreviation", :unique => true
+  add_index "universities", ["slug"], :name => "index_universities_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email"

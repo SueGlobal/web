@@ -19,6 +19,7 @@ FactoryGirl.define do
     includes_university_databases "MyString"
     includes_other_studies false
     year 2010
+    sequence(:slug) { |n| "slug-#{n}" }
     university
   end
 end
