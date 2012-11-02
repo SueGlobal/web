@@ -5,7 +5,8 @@ class GeneralFrame < ActiveRecord::Base
   GRADUATES = [:degree_graduates, :bachelors_degree_graduates, :graduates,
         :master_graduates, :phd_graduates, :specific_qualifications_graduates]
 
-  QUALIFICATIONS = [:number_of_qualifications, :number_of_masters_degree,
+  QUALIFICATIONS = [:number_of_degrees, :number_of_bachelor_degrees,
+        :number_of_qualifications, :number_of_masters_degree,
         :number_of_phds, :number_of_specific_qualifications]
 
   attr_accessible *GRADUATES

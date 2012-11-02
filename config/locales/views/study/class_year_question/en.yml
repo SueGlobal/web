@@ -5,3 +5,4 @@ en:
       significant:
         true: 'Contains significant data'
         false: 'Does not contain significant data'
+      no_class_years: 'No academic courses were added to this study.'

@@ -37,6 +37,8 @@ FactoryGirl.define do
       phd_graduates_check true
       master_graduates_check true
       number_of_campus_check true
+      number_of_degrees_check true
+      number_of_bachelor_degrees_check true
       number_of_qualifications_check true
       number_of_masters_degree_check true
       number_of_specific_qualifications_check true

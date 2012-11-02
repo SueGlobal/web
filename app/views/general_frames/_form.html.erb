@@ -23,8 +23,7 @@
     <legend><%= t '.graduates_legend' %></legend>
 
     <ol class="options">
-      <% [:degree_graduates, :bachelors_degree_graduates, :graduates,
-          :master_graduates, :phd_graduates, :specific_qualifications_graduates].each do |field| -%>
+      <% GeneralFrame::GRADUATES.each do |field| -%>
         <%= optional_numeric_field_for field, f, :li %>
       <% end -%>
     </ol>
@@ -33,8 +32,7 @@
   <fieldset class="qualifications">
     <legend><%= t '.qualifications_legend' %></legend>
     <ol class="options">
-      <% [:number_of_qualifications, :number_of_masters_degree,
-        :number_of_phds, :number_of_specific_qualifications].each do |field| -%>
+      <% GeneralFrame::QUALIFICATIONS.each do |field| -%>
         <%= optional_numeric_field_for field, f, :li %>
       <% end -%>
     </ol>

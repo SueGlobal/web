@@ -10,6 +10,8 @@ describe GeneralFrame do
   it { should allow_mass_assignment_of(:bachelors_degree_graduates) }
   it { should allow_mass_assignment_of(:degree_graduates) }
   it { should allow_mass_assignment_of(:graduates) }
+  it { should allow_mass_assignment_of(:number_of_degrees) }
+  it { should allow_mass_assignment_of(:number_of_bachelor_degrees) }
   it { should allow_mass_assignment_of(:master_graduates) }
   it { should allow_mass_assignment_of(:number_of_campus) }
   it { should allow_mass_assignment_of(:number_of_masters_degree) }
@@ -25,6 +27,8 @@ describe GeneralFrame do
   it { should allow_mass_assignment_of(:graduates_check) }
   it { should allow_mass_assignment_of(:master_graduates_check) }
   it { should allow_mass_assignment_of(:number_of_campus_check) }
+  it { should allow_mass_assignment_of(:number_of_degrees_check) }
+  it { should allow_mass_assignment_of(:number_of_bachelor_degrees_check) }
   it { should allow_mass_assignment_of(:number_of_masters_degree_check) }
   it { should allow_mass_assignment_of(:number_of_qualifications_check) }
   it { should allow_mass_assignment_of(:specific_qualifications_graduates_check) }
@@ -37,6 +41,8 @@ describe GeneralFrame do
   it { should validate_numericality_of(:graduates).only_integer }
   it { should validate_numericality_of(:master_graduates).only_integer }
   it { should validate_numericality_of(:number_of_campus).only_integer }
+  it { should validate_numericality_of(:number_of_degrees).only_integer }
+  it { should validate_numericality_of(:number_of_bachelor_degrees).only_integer }
   it { should validate_numericality_of(:number_of_masters_degree).only_integer }
   it { should validate_numericality_of(:number_of_qualifications).only_integer }
   it { should validate_numericality_of(:number_of_specific_qualifications).only_integer }

@@ -17,12 +17,16 @@ es:
         number_of_masters_degree: 'Número de máster oficiales'
         number_of_specific_qualifications: 'Número de titulaciones propias'
         number_of_phds: 'Número de doctorados'
+        number_of_degrees: 'Número de titulaciones de primer ciclo'
+        number_of_bachelor_degrees: 'Número de titulaciones de segundo ciclo'
+        number_of_degrees_check: 'Número de titulaciones de primer ciclo'
+        number_of_bachelor_degrees_check: 'Número de titulaciones de segundo ciclo'
         degree_graduates_check: 'Titulados de primer ciclo'
         bachelors_degree_graduates_check: 'Titulados de segundo ciclo'
         graduates_check: 'Graduados'
         specific_qualifications_graduates_check: 'Titulados en títulos propios'
         phd_graduates_check: 'Doctorados'
-        master_graduates_check: 'Posgraduados (máster oficiales y títulos propios)'
+        master_graduates_check: 'Máster oficiales'
         number_of_campus_check: 'Número de Campus'
         number_of_qualifications_check: 'Número de titulaciones de grado'
         number_of_masters_degree_check: 'Número de máster oficiales'
@@ -65,6 +69,14 @@ es:
               not_a_number: "El campo 'Número de titulaciones'  tiene que ser un número"
               greater_than_or_equal_to: "El número en 'Número de titulaciones de grado' tiene que ser mayor que %{count}"
               not_an_integer: "El número de 'Número en titulaciones de grado' ha de ser un entero"
+            number_of_degrees:
+              not_a_number: "El campo 'Número de titulaciones de primer ciclo'  tiene que ser un número"
+              greater_than_or_equal_to: "El número en 'Número de titulaciones de primer ciclo' tiene que ser mayor que %{count}"
+              not_an_integer: "El número en 'Número de titulaciones de primer ciclo' ha de ser un entero"
+            number_of_bachelor_degrees:
+              not_a_number: "El campo 'Número de titulaciones de segundo ciclo'  tiene que ser un número"
+              greater_than_or_equal_to: "El número en 'Número de titulaciones de segundo ciclo' tiene que ser mayor que %{count}"
+              not_an_integer: "El número en 'Número de titulaciones de segundo ciclo' ha de ser un entero"
             number_of_masters_degree:
               not_a_number: "El campo 'Número de máster oficiales'  tiene que ser un número"
               greater_than_or_equal_to: "El número en 'Número de máster oficiales' tiene que ser mayor que %{count}"

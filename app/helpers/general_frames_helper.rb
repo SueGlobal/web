@@ -17,7 +17,7 @@ module GeneralFramesHelper
                         label_html: {:class => 'checkbox'},
                         input_html: {:class => 'js-other-change js-optional-numeric'})
       concat(content_tag(:span, :class => 'js-other-collapsable other-description') do
-        concat form.input(field, input_html: {min: 0})
+        concat form.input(field, label: false, input_html: {min: 0})
       end)
     end
   end
