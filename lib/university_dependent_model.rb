@@ -13,6 +13,6 @@ module UniversityDependentModel
   end
 
   def name_for_slug
-    "#{university.abbreviation} #{column_for_slug}"
+    "#{university.abbreviation} #{column_for_slug}".delete "."
   end
 end

@@ -38,6 +38,6 @@ class University < ActiveRecord::Base
   include FriendlyId
   friendly_id :name_for_slug, use: :slugged
   def name_for_slug
-    abbreviation
+    (abbreviation || "").delete "."
   end
 end
