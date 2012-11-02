@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121102111941) do
+ActiveRecord::Schema.define(:version => 20121102123246) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -70,6 +70,31 @@ ActiveRecord::Schema.define(:version => 20121102111941) do
   end
 
   add_index "class_years", ["class_year_question_id"], :name => "index_class_years_on_class_year_question_id"
+
+  create_table "employer_studies", :force => true do |t|
+    t.boolean  "variable_selection_process"
+    t.boolean  "variable_extra_experience"
+    t.boolean  "variable_offer_requirements"
+    t.boolean  "variable_contract_characteristics"
+    t.boolean  "variable_knowledge_evaluation"
+    t.boolean  "variable_competence_evaluation"
+    t.text     "variable_other"
+    t.boolean  "segmentation_variable_activity_sector"
+    t.boolean  "segmentation_variable_organization_size"
+    t.boolean  "segmentation_variable_companies_using_ues"
+    t.boolean  "segmentation_variable_companies_hiring_graduates"
+    t.text     "segmentation_variable_others"
+    t.boolean  "segmentation_variable_no_segmentation"
+    t.string   "slug",                                             :null => false
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+    t.integer  "university_id"
+    t.boolean  "segmentation_variable_others_check"
+    t.boolean  "variable_other_check"
+    t.text     "notes"
+  end
+
+  add_index "employer_studies", ["university_id"], :name => "index_employer_studies_on_university_id"
 
   create_table "field_work_questions", :force => true do |t|
     t.boolean  "phone"

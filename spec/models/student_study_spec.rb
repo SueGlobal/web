@@ -29,8 +29,6 @@ describe StudentStudy do
   it { should allow_mass_assignment_of(:reference_period) }
   it { should allow_mass_assignment_of(:scope) }
 
-  it { should belong_to(:university) }
-
   it_behaves_like "a study", :basic, :software, :sample, :funding,
     :field_work, :study_periodicity, :class_year, :information
 end
