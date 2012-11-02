@@ -11,7 +11,7 @@ es:
         graduates: 'Graduados'
         specific_qualifications_graduates: 'Graduados en títulos propios'
         phd_graduates: 'Doctorados'
-        master_graduates: 'Posgraduados (máster oficiales y títulos propios)'
+        master_graduates: 'Máster oficiales'
         number_of_campus: 'Número de Campus'
         number_of_qualifications: 'Número de titulaciones de grado'
         number_of_masters_degree: 'Número de máster oficiales'
@@ -20,7 +20,7 @@ es:
         degree_graduates_check: 'Titulados de primer ciclo'
         bachelors_degree_graduates_check: 'Titulados de segundo ciclo'
         graduates_check: 'Graduados'
-        specific_qualifications_graduates_check: 'Graduados en títulos propios'
+        specific_qualifications_graduates_check: 'Titulados en títulos propios'
         phd_graduates_check: 'Doctorados'
         master_graduates_check: 'Posgraduados (máster oficiales y títulos propios)'
         number_of_campus_check: 'Número de Campus'
@@ -50,9 +50,9 @@ es:
               greater_than_or_equal_to: "El número de 'Doctorados' tiene que ser mayor que %{count}"
               not_an_integer: "El número de 'Doctorados' ha de ser un entero"
             master_graduates:
-              not_a_number: "El campo 'Posgraduados (máster oficiales y títulos propios)'  tiene que ser un número"
-              greater_than_or_equal_to: "El número de 'Posgraduados (máster oficiales y títulos propios)' tiene que ser mayor que %{count}"
-              not_an_integer: "El número de 'Posgraduados (máster oficiales y títulos propios)' ha de ser un entero"
+              not_a_number: "El campo 'Máster oficiales'  tiene que ser un número"
+              greater_than_or_equal_to: "El número de 'Máster oficiales' tiene que ser mayor que %{count}"
+              not_an_integer: "El número de 'Máster oficiales' ha de ser un entero"
             specific_qualifications_graduates:
               not_a_number: "El campo 'Graduados en títulos propios'  tiene que ser un número"
               greater_than_or_equal_to: "El número de 'Graduados en títulos propios' tiene que ser mayor que %{count}"
