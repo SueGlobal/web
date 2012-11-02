@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 shared_examples "a study" do |*questions|
 
   it_behaves_like "a university dependent model"

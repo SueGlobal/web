@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CourseInput < SimpleForm::Inputs::CollectionSelectInput
 
   def detect_collection_methods

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module UniversityDependentModel
 
   def self.included(base)

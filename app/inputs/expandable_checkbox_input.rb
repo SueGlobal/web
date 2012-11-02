@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ExpandableCheckboxInput < SimpleForm::Inputs::BooleanInput
 
   def input

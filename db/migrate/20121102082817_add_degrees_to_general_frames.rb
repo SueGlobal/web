@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDegreesToGeneralFrames < ActiveRecord::Migration
   def change
     add_column :general_frames, :number_of_degrees, :integer

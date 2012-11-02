@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddSlugsToUniversityDependentModel < ActiveRecord::Migration
   def change
     tables = [:achieved_activities, :general_frames, :student_studies, :services]

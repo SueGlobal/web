@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddFieldsToAchievedActivities < ActiveRecord::Migration
   def change
     add_column :achieved_activities, :entrepreneur_advising, :boolean
