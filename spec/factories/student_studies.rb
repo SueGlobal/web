@@ -32,6 +32,7 @@ FactoryGirl.define do
     variable_graduate_profile false
     variable_complementary_activities false
     variable_satisfaction false
+    variable_job_satisfaction false
     variable_job_hunting false
     variable_study_job_compatibility false
     variable_first_job false

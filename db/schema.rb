@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121102111347) do
+ActiveRecord::Schema.define(:version => 20121102111941) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -301,6 +301,7 @@ ActiveRecord::Schema.define(:version => 20121102111347) do
     t.boolean  "variable_other_check"
     t.boolean  "participates_others_check"
     t.string   "slug"
+    t.boolean  "variable_job_satisfaction"
   end
 
   add_index "student_studies", ["slug"], :name => "index_student_studies_on_slug", :unique => true

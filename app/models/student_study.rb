@@ -33,6 +33,7 @@ class StudentStudy < ActiveRecord::Base
     :variable_graduate_profile,
     :variable_complementary_activities,
     :variable_satisfaction,
+    :variable_job_satisfaction,
     :variable_job_hunting,
     :variable_study_job_compatibility,
     :variable_first_job,
