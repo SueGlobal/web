@@ -1,0 +1,34 @@
+<table class="table table-hover">
+  <thead>
+    <th><%= BasicQuestion.human_attribute_name :title %></th>
+    <th><%= BasicQuestion.human_attribute_name :year %></th>
+    <th><%= t '.actions' %></th>
+  </thead>
+
+  <tbody>
+    <% studies.each do |study| %>
+      <tr>
+        <td><%=link_to study.basic_question.title, study %></td>
+        <td><%= study.basic_question.year %></td>
+        <td>
+          <ul class="actions">
+            <% if can? :edit, study -%>
+              <li>
+              <%= edit_link polymorphic_path(study, action: :edit) %>
+              </li>
+            <% end -%>
+
+            <% if can? :destroy, study -%>
+              <li>
+              <%= destroy_link  study,
+                                method: :delete,
+                                data: { confirm: t('.destroy_confirmation') } %>
+              </li>
+            <% end -%>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

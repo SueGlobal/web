@@ -1,1 +1,79 @@
+<%= render  partial: 'basic_question',
+            object: @employer_study.basic_question,
+            locals: {study: @employer_study } %>
 
+<%= render  partial: 'study_periodicity_question',
+            object: @employer_study.study_periodicity_question,
+            locals: {study: @employer_study } %>
+
+<div class="variables">
+  <h2><%= t '.variables.legend' %></h2>
+  <ul class="boolean_list">
+    <% EmployerStudy::VARIABLES.each do |variable| %>
+      <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: @employer_study.send(variable),
+                            text: EmployerStudy.human_attribute_name(variable) } %>
+      </li>
+    <% end -%>
+
+    <% EmployerStudy::VARIABLES_OTHER.each do |variable| -%>
+      <% if @employer_study.send("#{variable}_check") -%>
+        <li>
+        <%= EmployerStudy.human_attribute_name("#{variable}_check") %>
+        <blockquote>
+          <%= @employer_study.send(variable) %>
+        </blockquote>
+        </li>
+      <% end -%>
+    <% end -%>
+  </ul>
+</div>
+
+<div class="segmentation_variables">
+  <h2><%= t '.segmentation_variables.legend' %></h2>
+  <ul class="boolean_list">
+    <% EmployerStudy::SEGMENTATION_VARIABLES.each do |variable| %>
+      <li>
+      <%= render  partial: 'boolean_field',
+                  locals: { value: @employer_study.send(variable),
+                            text: EmployerStudy.human_attribute_name(variable) } %>
+      </li>
+    <% end -%>
+
+    <% EmployerStudy::SEGMENTATION_VARIABLES_OTHER.each do |variable| -%>
+      <% if @employer_study.send("#{variable}_check") -%>
+        <li>
+        <%= EmployerStudy.human_attribute_name("#{variable}_check") %>
+        <blockquote>
+          <%= @employer_study.send(variable) %>
+        </blockquote>
+        </li>
+      <% end -%>
+    <% end -%>
+  </ul>
+</div>
+
+<%= render  partial: 'sample_question',
+            object: @employer_study.sample_question,
+            locals: {study: @employer_study} %>
+
+<%= render  partial: 'field_work_question',
+            object: @employer_study.field_work_question,
+            locals: {study: @employer_study} %>
+
+<%= render  partial: 'software_question',
+            object: @employer_study.software_question,
+            locals: {study: @employer_study} %>
+
+<%= render  partial: 'funding_question',
+            object: @employer_study.funding_question,
+            locals: {study: @employer_study} %>
+
+<%= render  partial: 'information_question',
+            object: @employer_study.information_question,
+            locals: {study: @employer_study} %>
+
+<%= render  partial: 'notes',
+            object: @employer_study.notes,
+            locals: {study: @employer_study} %>

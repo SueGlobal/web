@@ -1,0 +1,12 @@
+es:
+  employer_studies:
+    form:
+      variables:
+        legend: 'Principales apartados y variables contemplados en el cuestionario'
+      segmentation_variables:
+        legend: 'Variables de segmentación'
+  helpers:
+    submit:
+      employer_study:
+        create: 'Añadir estudio'
+        update: 'Actualizar estudio'

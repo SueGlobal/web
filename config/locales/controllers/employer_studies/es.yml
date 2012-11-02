@@ -1,0 +1,9 @@
+es:
+  controllers:
+    employer_studies:
+      create:
+        notice: 'Se ha añadido el estudio realizado sobre los empleadores'
+      update:
+        notice: 'Se ha actualizado el estudio realizado sobre los empleadores'
+      destroy:
+        notice: 'Se borrado el estudio realizado sobre los empleadores'

@@ -1,0 +1,7 @@
+es:
+  employer_studies:
+    show:
+      variables:
+        legend: 'Principales apartados y variables contemplados en el cuestionario'
+      segmentation_variables:
+        legend: 'Variables de segmentación'

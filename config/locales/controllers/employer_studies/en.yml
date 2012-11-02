@@ -1,0 +1,9 @@
+en:
+  controllers:
+    employer_studies:
+      create:
+        notice: 'Employer study was successfully created.'
+      update:
+        notice: 'Employer study was successfully updated.'
+      destroy:
+        notice: 'Employer study was successfully removed.'

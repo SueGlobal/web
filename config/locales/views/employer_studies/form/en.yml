@@ -1,0 +1,12 @@
+en:
+  employer_studies:
+    form:
+      variables:
+        legend: 'Variables'
+      segmentation_variables:
+        legend: 'Segmentation variables'
+  helpers:
+    submit:
+      employer_study:
+        create: 'Add study'
+        update: 'Update study'

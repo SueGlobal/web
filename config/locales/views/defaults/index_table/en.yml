@@ -1,0 +1,5 @@
+en:
+  study:
+    index_table:
+      actions: 'Actions'
+      destroy_confirmation: 'Are you sure you want to delete this study?'

@@ -1,0 +1,7 @@
+en:
+  employer_studies:
+    show:
+      variables:
+        legend: 'Variables'
+      segmentation_variables:
+        legend: 'Segmentation variables'

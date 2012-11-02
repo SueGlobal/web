@@ -1,0 +1,5 @@
+en:
+  employer_studies:
+    index:
+      header: "Listing %{university}'s employer studies"
+      new_employer_study: 'New employer study'

@@ -3,6 +3,7 @@ require 'spec_helper'
 
 describe "employer_studies/index" do
   before(:each) do
+    view.lookup_context.prefixes << "study" << "application"
     @university = assign(:university, create(:university))
     assign(:employer_studies, [
       create(:employer_study, university: @university),
