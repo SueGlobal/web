@@ -26,14 +26,7 @@ class StudentStudiesController < StudyController
   # GET /student_studies/new
   # GET /student_studies/new.json
   def new
-    @student_study.build_basic_question
-    @student_study.build_software_question
-    @student_study.build_sample_question
-    @student_study.build_funding_question
-    @student_study.build_field_work_question
-    @student_study.build_study_periodicity_question
-    @student_study.build_class_year_question
-    @student_study.build_information_question # Yes, I know I should refactor this.
+    @student_study.build_questions
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @student_study }

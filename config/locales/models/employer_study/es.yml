@@ -19,7 +19,8 @@ es:
         segmentation_variable_companies_using_ues: 'Empresas que solicitan puestos al Servicio de Empleo de la Universidad'
         segmentation_variable_companies_hiring_graduates: 'Empresas de la Comunidad Autónoma colaboradoras del Servicio de Empleo de la Universidad que hayan contratado graduados en los últimos tres años'
         segmentation_variable_no_segmentation: 'No hay variables de segmentación'
-        segmentation_variable_others: 'Otros'
+        segmentation_variable_others: 'Especificar'
+        segmentation_variable_others_check: 'Otros'
     errors:
       models:
         employer_study:

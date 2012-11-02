@@ -5,6 +5,12 @@ module Study
     base.extend ClassMethods
   end
 
+  def build_questions
+    self.class.questions.each do |q|
+      self.send(:"build_#{q}")
+    end
+  end
+
   module ClassMethods
 
     def questions

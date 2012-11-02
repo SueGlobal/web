@@ -18,6 +18,5 @@ describe "student_studies/edit" do
     end
   end
 
-  it_behaves_like 'rendering questions forms', :sample, :software, :basic, :funding,
-    :field_work, :study_periodicity, :class_year, :information
+  it_behaves_like 'rendering questions forms', *StudentStudy.questions
 end
