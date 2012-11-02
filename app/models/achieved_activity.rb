@@ -8,6 +8,8 @@ class AchievedActivity < ActiveRecord::Base
     :employment_agency,
     :external_colaborations,
     :research_projects,
+    :entrepreneur_advising,
+    :formation_for_employement,
     :international_dimension,
     :other_activities
   ]

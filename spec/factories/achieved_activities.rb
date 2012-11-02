@@ -11,6 +11,8 @@ FactoryGirl.define do
     external_colaborations false
     research_projects false
     international_dimension false
+    entrepreneur_advising false
+    formation_for_employement false
     other_activities "MyText"
     includes_studies_on_students false
     includes_studies_on_employers false

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121102090320) do
+ActiveRecord::Schema.define(:version => 20121102111347) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20121102090320) do
     t.integer  "year"
     t.boolean  "includes_university_databases"
     t.string   "slug"
+    t.boolean  "entrepreneur_advising"
+    t.boolean  "formation_for_employement"
   end
 
   add_index "achieved_activities", ["slug"], :name => "index_achieved_activities_on_slug", :unique => true
