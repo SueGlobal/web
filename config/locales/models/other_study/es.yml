@@ -1,0 +1,18 @@
+es:
+  activerecord:
+    models:
+      other_study:
+        one: 'Otro tipo de estudio realizado en el ámbito del empleo'
+        other: 'Otros tipo de estudios realizados en el ámbito del empleo'
+    attributes:
+      other_study:
+        description: 'Descripción'
+        notes: 'Notas'
+    errors:
+      models:
+        other_study:
+          attributes:
+            slug:
+              blank: 'No se generó el slug correctamente.'
+            description:
+              blank: 'Complete la descripción del estudio'

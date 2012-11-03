@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121102123246) do
+ActiveRecord::Schema.define(:version => 20121103220327) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -212,6 +212,18 @@ ActiveRecord::Schema.define(:version => 20121102123246) do
   add_index "information_questions", ["studiable_id", "studiable_type"], :name => "index_information_questions_on_studiable_id_and_studiable_type"
   add_index "information_questions", ["university_government_periodicity_id"], :name => "university_government_periodicity_id"
   add_index "information_questions", ["university_other_periodicity_id"], :name => "university_other_periodicity_id"
+
+  create_table "other_studies", :force => true do |t|
+    t.text     "description"
+    t.text     "notes"
+    t.integer  "university_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.text     "slug"
+  end
+
+  add_index "other_studies", ["slug"], :name => "index_other_studies_on_slug"
+  add_index "other_studies", ["university_id"], :name => "index_other_studies_on_university_id"
 
   create_table "periodicities", :force => true do |t|
     t.string   "periodicity_type"
