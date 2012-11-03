@@ -25,7 +25,7 @@
           <% if can? :destroy, service -%>
             <%= destroy_link service_path(service),
               method: :delete,
-              data: {confirm: t('.destroy_service_confirmation') },
+              data: {confirm: t('.services.destroy_confirmation') },
               :class => 'destroy' %>
           <% end -%>
           </span>
@@ -33,9 +33,9 @@
         <% end -%>
       </ul>
     <% else -%>
-      <p><%= t '.no_services' %></p>
+      <p><%= t '.services.none_found' %></p>
     <% end -%>
-    <%= link_to_if can?(:edit, @university), t('.new_service'), new_university_service_path(@university) do "" end %>
+    <%= link_to_if can?(:edit, @university), t('.services.new'), new_university_service_path(@university), :class => 'btn' do "" end %>
 </div>
 
 <div class="achieved_activities">
@@ -58,7 +58,7 @@
           <% if can? :destroy, achieved_activity -%>
             <%= destroy_link achieved_activity_path(achieved_activity),
               method: :delete,
-              data: {confirm: t('.destroy_achieved_activity_confirmation') },
+              data: {confirm: t('.achieved_activities.destroy_confirmation') },
               :class => 'destroy' %>
             <% end -%>
           </span>
@@ -66,9 +66,9 @@
         <% end -%>
       </ul>
     <% else -%>
-      <p><%= t '.no_achieved_activities' %></p>
+      <p><%= t '.achieved_activities.none_found' %></p>
     <% end -%>
-    <%= link_to_if can?(:edit, @university), t('.new_achieved_activity'), new_university_achieved_activity_path(@university) do "" end %>
+    <%= link_to_if can?(:edit, @university), t('.achieved_activities.new'), new_university_achieved_activity_path(@university), :class => 'btn' do "" end %>
 </div>
 
 <div class="general_frames">
@@ -91,16 +91,16 @@
           <% if can? :destroy, general_frame -%>
             <%= destroy_link general_frame_path(general_frame),
               method: :delete,
-              data: {confirm: t('.destroy_general_frame_confirmation') } %>
+              data: {confirm: t('.general_frames.destroy_confirmation') } %>
             <% end -%>
           </span>
           </li>
         <% end -%>
       </ul>
     <% else -%>
-      <p><%= t '.no_general_frames' %></p>
+      <p><%= t '.general_frames.none_found' %></p>
     <% end -%>
-    <%= link_to_if can?(:edit, @university), t('.new_general_frame'), new_university_general_frame_path(@university) do "" end %>
+    <%= link_to_if can?(:edit, @university), t('.general_frames.new'), new_university_general_frame_path(@university), :class => 'btn' do "" end %>
 </div>
 
 <div class="student_studies">
@@ -123,14 +123,46 @@
           <% if can? :destroy, student_study -%>
             <%= destroy_link student_study_path(student_study),
               method: :delete,
-              data: {confirm: t('.destroy_student_study_confirmation') } %>
+              data: {confirm: t('.student_studies.destroy_confirmation') } %>
             <% end -%>
           </span>
           </li>
         <% end -%>
       </ul>
     <% else -%>
-      <p><%= t '.no_student_studies' %></p>
+      <p><%= t '.student_studies.none_found' %></p>
     <% end -%>
-    <%= link_to_if can?(:edit, @university), t('.new_student_study'), new_university_student_study_path(@university) do "" end %>
+    <%= link_to_if can?(:edit, @university), t('.student_studies.new'), new_university_student_study_path(@university), :class => 'btn' do "" end %>
+</div>
+
+<div class="employer_studies">
+  <h2>
+    <%= EmployerStudy.model_name.human(count: 2) %>
+    <% if can? :edit, @university -%>
+      <%= new_link new_university_employer_study_path(@university) %>
+    <% end -%>
+  </h2>
+  <% if @university.employer_studies.any? -%>
+
+    <ul id="employer_studies">
+      <% @university.employer_studies.each do |employer_study| -%>
+        <li>
+        <%= link_to employer_study.basic_question.title, employer_study %>
+        <span class="actions">
+          <% if can? :edit, employer_study -%>
+            <%= edit_link edit_employer_study_path(employer_study) %>
+          <% end -%>
+          <% if can? :destroy, employer_study -%>
+            <%= destroy_link employer_study_path(employer_study),
+              method: :delete,
+              data: {confirm: t('.employer_studies..destroy_confirmation') } %>
+            <% end -%>
+          </span>
+          </li>
+        <% end -%>
+      </ul>
+    <% else -%>
+      <p><%= t '.employer_studies.none_found' %></p>
+    <% end -%>
+    <%= link_to_if can?(:edit, @university), t('.employer_studies.new'), new_university_employer_study_path(@university), :class => 'btn' do "" end %>
 </div>

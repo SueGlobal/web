@@ -7,5 +7,8 @@ en:
         new: 'New achieved activity'
       general_frame:
         new: 'New general frame'
+      studies: 'Studies'
       student_study:
         new: 'New student study'
+      employer_study:
+        new: 'New employer study'
