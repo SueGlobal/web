@@ -12,5 +12,7 @@ en:
         new: 'New student study'
       employer_study:
         new: 'New employer study'
+      public_source_study:
+        new: 'New public source study'
       other_study:
         new: 'New other study'

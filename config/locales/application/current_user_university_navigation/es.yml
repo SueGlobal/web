@@ -12,5 +12,7 @@ es:
         new: 'Nuevo estudio realizado sobre los estudiantes'
       employer_study:
         new: 'Nuevo estudio realizado sobre los empleadores'
+      public_source_study:
+        new: 'Nuevo estudio de fuentes públicas'
       other_study:
         new: 'Nuevo estudio de otro tipo'
