@@ -155,7 +155,7 @@
           <% if can? :destroy, employer_study -%>
             <%= destroy_link employer_study_path(employer_study),
               method: :delete,
-              data: {confirm: t('.employer_studies..destroy_confirmation') } %>
+              data: {confirm: t('.employer_studies.destroy_confirmation') } %>
             <% end -%>
           </span>
           </li>
@@ -165,4 +165,36 @@
       <p><%= t '.employer_studies.none_found' %></p>
     <% end -%>
     <%= link_to_if can?(:edit, @university), t('.employer_studies.new'), new_university_employer_study_path(@university), :class => 'btn' do "" end %>
+</div>
+
+<div class="other_studies">
+  <h2>
+    <%= OtherStudy.model_name.human(count: 2) %>
+    <% if can? :edit, @university -%>
+      <%= new_link new_university_other_study_path(@university) %>
+    <% end -%>
+  </h2>
+  <% if @university.other_studies.any? -%>
+
+    <ul id="other_studies">
+      <% @university.other_studies.each do |employer_study| -%>
+        <li>
+        <%= link_to other_study.basic_question.title, other_study %>
+        <span class="actions">
+          <% if can? :edit, other_study -%>
+            <%= edit_link edit_other_study_path(other_study) %>
+          <% end -%>
+          <% if can? :destroy, other_study -%>
+            <%= destroy_link other_study_path(other_study),
+              method: :delete,
+              data: {confirm: t('.other_studies.destroy_confirmation') } %>
+            <% end -%>
+          </span>
+          </li>
+        <% end -%>
+      </ul>
+    <% else -%>
+      <p><%= t '.other_studies.none_found' %></p>
+    <% end -%>
+    <%= link_to_if can?(:edit, @university), t('.other_studies.new'), new_university_employer_study_path(@university), :class => 'btn' do "" end %>
 </div>

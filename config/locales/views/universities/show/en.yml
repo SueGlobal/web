@@ -31,5 +31,11 @@ en:
         edit: 'Edit employer study'
         destroy: 'Destroy employer study'
         new: 'New employer study'
+      other_studies:
+        destroy_confirmation: 'Are you sure you want to delete this other study?'
+        none_found: 'University has registered no other studies.'
+        edit: 'Edit other study'
+        destroy: 'Destroy other study'
+        new: 'New other study'
       edit: 'Edit'
       back: 'Back'
