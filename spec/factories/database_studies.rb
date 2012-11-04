@@ -8,6 +8,7 @@ FactoryGirl.define do
     software_question
     funding_question
     information_question
+    study_periodicity_question
     description "MyText"
     database "MyText"
     variables "MyText"

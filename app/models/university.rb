@@ -16,6 +16,7 @@ class University < ActiveRecord::Base
            order: 'year DESC'
   has_many :achieved_activities,
            order: 'year DESC'
+
   has_many :student_studies,
     include: :basic_question,
     order: 'basic_questions.year DESC'
@@ -26,7 +27,11 @@ class University < ActiveRecord::Base
 
   has_many :public_source_studies,
     include: :basic_question,
-    order: 'basic_questions.year DESC'
+    order: 'basic_questions.year desc'
+
+  has_many :database_studies,
+    include: :basic_question,
+    order: 'basic_questions.year desc'
 
   has_many :other_studies,
     include: :basic_question,

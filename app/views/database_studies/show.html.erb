@@ -1,0 +1,48 @@
+<%= render  partial: 'basic_question',
+            object: @database_study.basic_question,
+            locals: {study: @database_study } %>
+<div class="description">
+  <h2><%= t '.description.legend' %></h2>
+  <blockquote><%= @database_study.description %></blockquote>
+</div>
+
+<%= render  partial: 'study_periodicity_question',
+            object: @database_study.study_periodicity_question,
+            locals: {study: @database_study } %>
+
+<div class="database">
+  <h2><%= t '.database.legend' %></h2>
+  <div class="field">
+    <span class="data-label"><%= DatabaseStudy.human_attribute_name :database %></span>
+    <span class="data"><%= @database_study.database %></span>
+  </div>
+  <div class="field">
+    <span class="data-label"><%= DatabaseStudy.human_attribute_name :producer %></span>
+    <span class="data"><%= @database_study.producer %></span>
+  </div>
+  <div class="field">
+    <span class="data-label"><%= DatabaseStudy.human_attribute_name :analyzer %></span>
+    <span class="data"><%= @database_study.analyzer %></span>
+  </div>
+</div>
+
+<div class="variables">
+  <h2><%= t '.variables.legend' %></h2>
+  <blockquote><%= @database_study.variables %></blockquote>
+</div>
+
+<%= render  partial: 'software_question',
+            object: @database_study.software_question,
+            locals: {study: @database_study} %>
+
+<%= render  partial: 'funding_question',
+            object: @database_study.funding_question,
+            locals: {study: @database_study} %>
+
+<%= render  partial: 'information_question',
+            object: @database_study.information_question,
+            locals: {study: @database_study} %>
+
+<%= render  partial: 'notes',
+            object: @database_study.notes,
+            locals: {study: @database_study} %>

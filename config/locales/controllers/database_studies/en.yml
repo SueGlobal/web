@@ -1,0 +1,9 @@
+en:
+  controllers:
+    database_studies:
+      create:
+        notice: 'Database study was successfully created.'
+      update:
+        notice: 'Database study was successfully updated.'
+      destroy:
+        notice: 'Database study was successfully removed.'

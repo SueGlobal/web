@@ -1,0 +1,5 @@
+es:
+  database_studies:
+    index:
+      header: "Listado de estudios de los servicios de empleo universitarios de %{university}"
+      new_database_study: 'Nuevo estudio'

@@ -16,5 +16,5 @@ describe DatabaseStudy do
   it { should validate_presence_of(:description) }
 
   it_behaves_like "a study", :basic, :software,
-    :funding, :information
+    :funding, :information, :study_periodicity
 end

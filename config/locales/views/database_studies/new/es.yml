@@ -1,0 +1,4 @@
+es:
+  database_studies:
+    new:
+      header: 'Nuevo estudio'

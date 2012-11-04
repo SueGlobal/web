@@ -1,0 +1,9 @@
+en:
+  database_studies:
+    show:
+      description:
+        legend: 'Description'
+      database:
+        legend: 'Database info'
+      variables:
+        legend: 'Variables'

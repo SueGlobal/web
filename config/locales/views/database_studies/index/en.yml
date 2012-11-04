@@ -1,0 +1,5 @@
+en:
+  database_studies:
+    index:
+      header: "Listing %{university}'s database studies"
+      new_database_study: 'New database study'

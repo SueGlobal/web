@@ -7,8 +7,28 @@
     <% end -%>
 
     <fieldset class="description">
-      <legend><%= OtherStudy.human_attribute_name :description %></legend>
+      <legend><%= DatabaseStudy.human_attribute_name :description %></legend>
       <%= f.input :description, input_html: {rows: 6, :class => 'notes'} %>
+    </fieldset>
+
+    <%= f.simple_fields_for :study_periodicity_question do |builder| %>
+      <%= render 'study_periodicity_question_form', f: builder %>
+    <% end -%>
+
+    <fieldset class="database">
+      <legend><%= t '.database.legend' %></legend>
+
+      <%= f.input :database, as: :string %>
+      <%= f.input :producer, as: :string %>
+      <%= f.input :analyzer, as: :string %>
+    </fieldset>
+
+    <fieldset class="variables">
+      <legend><%= DatabaseStudy.human_attribute_name :variables %></legend>
+
+      <%= f.input :variables,
+                  label: t('.variables.explanation'),
+                  input_html: {rows: 4, :class => 'notes'} %>
     </fieldset>
 
     <%= f.simple_fields_for :software_question do |builder| %>
@@ -26,7 +46,7 @@
     <%= render  partial: 'notes_form',
                 object: :notes,
                 locals: { f: f,
-                          klass: OtherStudy } %>
+                          klass: DatabaseStudy } %>
   </div>
 
   <div class="form-actions">

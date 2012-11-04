@@ -1,0 +1,12 @@
+es:
+  database_studies:
+    form:
+      database:
+        legend: 'Información de la base de datos'
+      variables:
+        explanation: 'Añade las variables consideradas separadas por comas'
+  helpers:
+    submit:
+      database_study:
+        create: 'Añadir estudio'
+        update: 'Actualizar estudio'

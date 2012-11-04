@@ -1,0 +1,4 @@
+es:
+  database_studies:
+    edit:
+      header: 'Editando estudio'
