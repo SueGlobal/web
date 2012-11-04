@@ -31,6 +31,12 @@ es:
         destroy: 'Borrar estudio realizado sobre los empleadores'
         destroy_confirmation: '¿Está seguro de querer borrar este estudio realizado sobre los empleadores?'
         new: 'Nuevo estudio realizado sobre los empleadores'
+      public_source_studies:
+        none_found: 'La universidad no ha registrado ningún estudio realizado a partir de la información de fuentes secundarias de acceso público.'
+        edit: 'Editar estudio realizado a partir de fuentes secundarias públicas'
+        destroy: 'Borrar estudio realizado a partir de fuentes secundarias públicas'
+        destroy_confirmation: '¿Está seguro de querer borrar este estudio realizado a partir de fuentes secundarias públicas?'
+        new: 'Nuevo estudio realizado a partir de fuentes secundarias públicas'
       database_studies:
         none_found: 'La universidad no ha registrado ningún estudio realizado a partir de las bases de datos de los servicios de empleo universitarios.'
         edit: 'Editar estudio'
