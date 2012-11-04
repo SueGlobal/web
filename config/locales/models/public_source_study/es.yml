@@ -1,0 +1,16 @@
+es:
+  activerecord:
+    models:
+      public_source_study:
+        one: 'Estudio realizado a partir de información de fuentes secundarias de acceso público'
+        other: 'Estudios realizados a partir de información de fuentes secundarias de acceso público'
+    attributes:
+      public_source_study:
+        variables: 'Variables'
+        notes: 'Notas'
+    errors:
+      models:
+        public_source_study:
+          attributes:
+            slug:
+              blank: 'No se generó el slug correctamente.'

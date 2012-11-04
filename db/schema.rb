@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121104010253) do
+ActiveRecord::Schema.define(:version => 20121104132929) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -242,6 +242,18 @@ ActiveRecord::Schema.define(:version => 20121104010253) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "public_source_studies", :force => true do |t|
+    t.integer  "university_id"
+    t.text     "slug"
+    t.text     "variables"
+    t.text     "notes"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "public_source_studies", ["slug"], :name => "index_public_source_studies_on_slug", :unique => true
+  add_index "public_source_studies", ["university_id"], :name => "index_public_source_studies_on_university_id"
 
   create_table "publication_questions", :force => true do |t|
     t.integer  "information_question_id"
