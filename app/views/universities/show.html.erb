@@ -167,6 +167,38 @@
     <%= link_to_if can?(:edit, @university), t('.employer_studies.new'), new_university_employer_study_path(@university), :class => 'btn' do "" end %>
 </div>
 
+<div class="database_studies">
+  <h2>
+    <%= DatabaseStudy.model_name.human(count: 2) %>
+    <% if can? :edit, @university -%>
+      <%= new_link new_university_database_study_path(@university) %>
+    <% end -%>
+  </h2>
+  <% if @university.database_studies.any? -%>
+
+    <ul id="database_studies">
+      <% @university.database_studies.each do |database_study| -%>
+        <li>
+        <%= link_to database_study.basic_question.title, database_study %>
+        <span class="actions">
+          <% if can? :edit, database_study -%>
+            <%= edit_link edit_database_study_path(database_study) %>
+          <% end -%>
+          <% if can? :destroy, database_study -%>
+            <%= destroy_link database_study_path(database_study),
+              method: :delete,
+              data: {confirm: t('.database_studies.destroy_confirmation') } %>
+            <% end -%>
+          </span>
+          </li>
+        <% end -%>
+      </ul>
+    <% else -%>
+      <p><%= t '.database_studies.none_found' %></p>
+    <% end -%>
+    <%= link_to_if can?(:edit, @university), t('.database_studies.new'), new_university_database_study_path(@university), :class => 'btn' do "" end %>
+</div>
+
 <div class="other_studies">
   <h2>
     <%= OtherStudy.model_name.human(count: 2) %>

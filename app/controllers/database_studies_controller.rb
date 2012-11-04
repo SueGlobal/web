@@ -76,7 +76,7 @@ class DatabaseStudiesController < StudyController
     @database_study.destroy
 
     respond_to do |format|
-      format.html { redirect_to database_studies_url, notice: t2('destroy.notice') }
+      format.html { redirect_to @university, notice: t2('destroy.notice') }
       format.json { head :no_content }
     end
   end

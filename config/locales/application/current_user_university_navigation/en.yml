@@ -14,5 +14,7 @@ en:
         new: 'New employer study'
       public_source_study:
         new: 'New public source study'
+      database_study:
+        new: 'New database study'
       other_study:
         new: 'New other study'

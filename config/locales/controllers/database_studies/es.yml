@@ -6,4 +6,4 @@ es:
       update:
         notice: 'Se ha actualizado el estudio'
       destroy:
-        notice: 'Se borrado el estudio'
+        notice: 'Se ha borrado el estudio'

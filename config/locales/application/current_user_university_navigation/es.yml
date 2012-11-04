@@ -14,5 +14,7 @@ es:
         new: 'Nuevo estudio realizado sobre los empleadores'
       public_source_study:
         new: 'Nuevo estudio de fuentes públicas'
+      database_study:
+        new: 'Nuevo estudio a partir de datos de los servicios de empleo universitarios'
       other_study:
         new: 'Nuevo estudio de otro tipo'
