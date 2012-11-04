@@ -1,0 +1,9 @@
+es:
+  activerecord:
+    models:
+      source_question: 'Información de la fuente'
+    attributes:
+      source_question:
+        source: 'Fuente de información'
+        data_format: 'Formato de los datos recibidos'
+        bias: 'Sesgos implícitos'

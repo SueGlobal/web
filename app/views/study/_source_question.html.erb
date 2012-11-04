@@ -1,0 +1,24 @@
+<div class="source">
+  <h2><%= t '.legend' %></h2>
+
+  <div class="field">
+    <%= SourceQuestion.human_attribute_name(:source) %>
+    <blockquote>
+      <%= source_question.source %>
+    </blockquote>
+  </div>
+
+  <div class="field">
+    <%= SourceQuestion.human_attribute_name(:data_format) %>
+    <blockquote>
+      <%= source_question.data_format %>
+    </blockquote>
+  </div>
+
+  <div class="field">
+    <%= SourceQuestion.human_attribute_name(:bias) %>
+    <blockquote>
+      <%= source_question.bias %>
+    </blockquote>
+  </div>
+</div>
