@@ -12,6 +12,7 @@ SueGlobal::Application.routes.draw do
     #studies
     resources :student_studies, shallow: true
     resources :employer_studies, shallow: true
+    resources :other_studies, shallow: true
   end
 
   match 'login' => 'user_sessions#new', as: :login

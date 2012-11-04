@@ -1,28 +1,19 @@
 <%= simple_form_for(@path) do |f| %>
-  <% if @student_study.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= t '.errors_header', count: @student_study.errors.count %></h2>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @student_study.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="form-inputs">
+    <%= f.simple_fields_for :basic_question do |builder| %>
+      <%= render 'basic_question_form', f: builder %>
+    <% end -%>
 
-  <%= f.simple_fields_for :basic_question do |builder| %>
-    <%= render 'basic_question_form', f: builder %>
-  <% end -%>
+    <%= f.simple_fields_for :study_periodicity_question do |builder| %>
+      <%= render 'study_periodicity_question_form', f: builder %>
+    <% end -%>
 
-  <%= f.simple_fields_for :study_periodicity_question do |builder| %>
-    <%= render 'study_periodicity_question_form', f: builder %>
-  <% end -%>
-
-  <fieldset>
-    <legend><%= t '.participation.legend' %></legend>
-    <ol class="options">
-      <li><%= t '.participation.intern'%>
+    <fieldset>
+      <legend><%= t '.participation.legend' %></legend>
+      <ol class="options">
+        <li><%= t '.participation.intern'%>
         <ol class="options">
           <% StudentStudy::PARTICIPATES[:intern].each do |participates| -%>
             <li>
@@ -32,8 +23,8 @@
             </li>
           <% end -%>
         </ol>
-      </li>
-      <li><%= t '.participation.extern' %>
+        </li>
+        <li><%= t '.participation.extern' %>
         <ol class="options">
           <% StudentStudy::PARTICIPATES[:extern].each do |participates| -%>
             <li>
@@ -43,61 +34,64 @@
             </li>
           <% end -%>
         </ol>
-      </li>
+        </li>
 
-    <%= render partial: 'other_collapsable_field',
-              collection: StudentStudy::PARTICIPATES[:other],
-              locals: { surrounding_tag: "li",
-                        f: f} %>
-    </ol>
-  </fieldset>
+        <%= render  partial: 'other_collapsable_field',
+                    collection: StudentStudy::PARTICIPATES[:other],
+                    locals: { surrounding_tag: "li",
+                              f: f} %>
+      </ol>
+    </fieldset>
 
-  <%= f.simple_fields_for :class_year_question do |builder| %>
-    <%= render 'class_year_question_form', f: builder %>
-  <% end -%>
-
-  <fieldset>
-    <legend><%= t '.variables.legend' %></legend>
-    <ol class="options">
-    <% StudentStudy::VARIABLES.each do |variable| -%>
-      <li>
-      <%= f.input variable,
-                  wrapper: :checkbox,
-                  label_html: {:class => 'checkbox' } %>
-      </li>
+    <%= f.simple_fields_for :class_year_question do |builder| %>
+      <%= render 'class_year_question_form', f: builder %>
     <% end -%>
 
-    <%= render partial: 'other_collapsable_field',
-               collection: StudentStudy::VARIABLES_OTHER,
-               locals: { surrounding_tag: "li",
-                         f: f} %>
-    </ol>
-  </fieldset>
+    <fieldset>
+      <legend><%= t '.variables.legend' %></legend>
+      <ol class="options">
+        <% StudentStudy::VARIABLES.each do |variable| -%>
+          <li>
+          <%= f.input variable,
+                      wrapper: :checkbox,
+                      label_html: {:class => 'checkbox' } %>
+          </li>
+        <% end -%>
 
-  <%= f.simple_fields_for :sample_question do |builder| %>
-    <%= render 'sample_question_form', f: builder %>
-  <% end -%>
+        <%= render  partial: 'other_collapsable_field',
+                    collection: StudentStudy::VARIABLES_OTHER,
+                    locals: { surrounding_tag: "li",
+                              f: f} %>
+      </ol>
+    </fieldset>
 
-  <%= f.simple_fields_for :field_work_question do |builder| %>
-    <%= render 'field_work_question_form', f: builder %>
-  <% end -%>
+    <%= f.simple_fields_for :sample_question do |builder| %>
+      <%= render 'sample_question_form', f: builder %>
+    <% end -%>
 
-  <%= f.simple_fields_for :software_question do |builder| %>
-    <%= render 'software_question_form', f: builder %>
-  <% end -%>
+    <%= f.simple_fields_for :field_work_question do |builder| %>
+      <%= render 'field_work_question_form', f: builder %>
+    <% end -%>
 
-  <%= f.simple_fields_for :funding_question do |builder| %>
-    <%= render 'funding_question_form', f: builder %>
-  <% end -%>
+    <%= f.simple_fields_for :software_question do |builder| %>
+      <%= render 'software_question_form', f: builder %>
+    <% end -%>
 
-  <%= f.simple_fields_for :information_question do |builder| %>
-    <%= render 'information_question_form', f: builder %>
-  <% end -%>
+    <%= f.simple_fields_for :funding_question do |builder| %>
+      <%= render 'funding_question_form', f: builder %>
+    <% end -%>
 
-  <%= render  partial: 'notes_form',
-              object: :notes,
-              locals: { f: f,
-                        klass: StudentStudy } %>
+    <%= f.simple_fields_for :information_question do |builder| %>
+      <%= render 'information_question_form', f: builder %>
+    <% end -%>
 
-  <%= f.button :submit %>
+    <%= render  partial: 'notes_form',
+                object: :notes,
+                locals: { f: f,
+                          klass: StudentStudy } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
 <% end %>

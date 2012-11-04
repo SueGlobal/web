@@ -1,0 +1,31 @@
+<%= simple_form_for(@path) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for :basic_question do |builder| %>
+      <%= render 'basic_question_form', f: builder %>
+    <% end -%>
+
+    <div class="fieldset description">
+      <legend><%= OtherStudy.human_attribute_name :description %></legend>
+      <%= f.input :description, input_html: {rows: 6, :class => 'notes'} %>
+    </div>
+
+    <%= f.simple_fields_for :funding_question do |builder| %>
+      <%= render 'funding_question_form', f: builder %>
+    <% end -%>
+
+    <%= f.simple_fields_for :information_question do |builder| %>
+      <%= render 'information_question_form', f: builder %>
+    <% end -%>
+
+    <%= render  partial: 'notes_form',
+                object: :notes,
+                locals: { f: f,
+                          klass: OtherStudy } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

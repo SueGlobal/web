@@ -1,0 +1,11 @@
+es:
+  other_studies:
+    form:
+      errors_header:
+        one: 'No se pudo guardar el estudio por un error:'
+        other: 'No se pudo guardar el estudio por %{count} errores:'
+  helpers:
+    other_study:
+      services:
+        create: 'Añadir estudio'
+        update: 'Actualizar estudio'

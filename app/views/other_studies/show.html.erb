@@ -1,0 +1,24 @@
+<%= render  partial: 'basic_question',
+            object: @other_study.basic_question,
+            locals: {study: @other_study } %>
+
+<div class="description">
+  <h2><%= OtherStudy.human_attribute_name :description %></h2>
+
+  <blockquote>
+    <%= @other_study.description %>
+  </blockquote>
+</div>
+
+
+<%= render  partial: 'funding_question',
+            object: @other_study.funding_question,
+            locals: {study: @other_study} %>
+
+<%= render  partial: 'information_question',
+            object: @other_study.information_question,
+            locals: {study: @other_study} %>
+
+<%= render  partial: 'notes',
+            object: @other_study.notes,
+            locals: {study: @other_study} %>

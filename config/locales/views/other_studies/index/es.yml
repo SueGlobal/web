@@ -1,0 +1,5 @@
+es:
+  other_studies:
+    index:
+      header: "Listado de otro tipo de estudios de %{university}"
+      new_other_study: 'Nuevo estudio'
