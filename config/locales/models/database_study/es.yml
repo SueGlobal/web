@@ -1,0 +1,22 @@
+es:
+  activerecord:
+    models:
+      database_study:
+        one: 'Estudio a partir de la información de las bases de datos de la gestión de actividades de los servicios de empleo universitarios'
+        other: 'Estudios a partir de la información de las bases de datos de la gestión de actividades de los servicios de empleo universitarios'
+    attributes:
+      database_study:
+        notes: 'Notas'
+        description: 'Descripción del estudio'
+        database: 'Base de datos utilizada'
+        variables: 'Variables'
+        producer: 'Unidad productora de los datos'
+        analyzer: 'Unidad responsable del estudio'
+    errors:
+      models:
+        database_study:
+          attributes:
+            slug:
+              blank: 'No se generó el slug correctamente.'
+            description:
+              blank: 'La descripción del estudio es un campo obligatoria.'

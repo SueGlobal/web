@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121104132929) do
+ActiveRecord::Schema.define(:version => 20121104193121) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -70,6 +70,22 @@ ActiveRecord::Schema.define(:version => 20121104132929) do
   end
 
   add_index "class_years", ["class_year_question_id"], :name => "index_class_years_on_class_year_question_id"
+
+  create_table "database_studies", :force => true do |t|
+    t.integer  "university_id"
+    t.text     "description"
+    t.text     "database"
+    t.text     "variables"
+    t.text     "producer"
+    t.text     "analyzer"
+    t.text     "notes"
+    t.text     "slug"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "database_studies", ["slug"], :name => "index_database_studies_on_slug", :unique => true
+  add_index "database_studies", ["university_id"], :name => "index_database_studies_on_university_id"
 
   create_table "employer_studies", :force => true do |t|
     t.boolean  "variable_selection_process"
