@@ -1,0 +1,9 @@
+en:
+  controllers:
+    other_studies:
+      create:
+        notice: 'Other study was successfully created.'
+      update:
+        notice: 'Other study was successfully updated.'
+      destroy:
+        notice: 'Other study was successfully removed.'

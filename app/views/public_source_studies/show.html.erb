@@ -1,0 +1,32 @@
+<%= render  partial: 'basic_question',
+            object: @public_source_study.basic_question,
+            locals: {study: @public_source_study } %>
+
+<%= render  partial: 'source_question',
+            object: @public_source_study.source_question,
+            locals: {study: @public_source_study } %>
+
+<%= render  partial: 'class_year_question',
+            object: @public_source_study.class_year_question,
+            locals: {study: @public_source_study} %>
+
+<div class="variables">
+  <h2><%= t '.variables.legend' %></h2>
+  <blockquote><%= @public_source_study.variables %></blockquote>
+</div>
+
+<%= render  partial: 'software_question',
+            object: @public_source_study.software_question,
+            locals: {study: @public_source_study} %>
+
+<%= render  partial: 'funding_question',
+            object: @public_source_study.funding_question,
+            locals: {study: @public_source_study} %>
+
+<%= render  partial: 'information_question',
+            object: @public_source_study.information_question,
+            locals: {study: @public_source_study} %>
+
+<%= render  partial: 'notes',
+            object: @public_source_study.notes,
+            locals: {study: @public_source_study} %>

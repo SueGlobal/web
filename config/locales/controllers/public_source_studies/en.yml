@@ -1,0 +1,9 @@
+en:
+  controllers:
+    public_source_studies:
+      create:
+        notice: 'Public source study was successfully created.'
+      update:
+        notice: 'Public source study was successfully updated.'
+      destroy:
+        notice: 'Public source study was successfully removed.'

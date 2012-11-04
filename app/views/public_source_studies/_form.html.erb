@@ -1,0 +1,46 @@
+<%= simple_form_for(@path) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for :basic_question do |builder| %>
+      <%= render 'basic_question_form', f: builder %>
+    <% end -%>
+
+    <%= f.simple_fields_for :source_question do |builder| %>
+      <%= render 'source_question_form', f: builder %>
+    <% end -%>
+
+    <%= f.simple_fields_for :class_year_question do |builder| %>
+      <%= render 'class_year_question_form', f: builder %>
+    <% end -%>
+
+    <fieldset class="variables">
+      <legend><%= PublicSourceStudy.human_attribute_name :variables %></legend>
+
+      <%= f.input :variables,
+                  label: t('.variables.explanation'),
+                  input_html: {rows: 4, :class => 'notes'} %>
+    </fieldset>
+
+    <%= f.simple_fields_for :software_question do |builder| %>
+      <%= render 'software_question_form', f: builder %>
+    <% end -%>
+
+    <%= f.simple_fields_for :funding_question do |builder| %>
+      <%= render 'funding_question_form', f: builder %>
+    <% end -%>
+
+    <%= f.simple_fields_for :information_question do |builder| %>
+      <%= render 'information_question_form', f: builder %>
+    <% end -%>
+
+    <%= render  partial: 'notes_form',
+                object: :notes,
+                locals: { f: f,
+                          klass: PublicSourceStudy } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

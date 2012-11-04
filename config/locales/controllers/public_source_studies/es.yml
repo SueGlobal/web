@@ -1,0 +1,9 @@
+es:
+  controllers:
+    public_source_studies:
+      create:
+        notice: 'Se ha añadido el estudio'
+      update:
+        notice: 'Se ha actualizado el estudio'
+      destroy:
+        notice: 'Se borrado el estudio'

@@ -1,0 +1,5 @@
+es:
+  public_source_studies:
+    show:
+      variables:
+        legend: 'Variables'

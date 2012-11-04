@@ -1,0 +1,5 @@
+es:
+  public_source_studies:
+    index:
+      header: "Listado de estudios de fuentes públicas de %{university}"
+      new_other_study: 'Nuevo estudio'

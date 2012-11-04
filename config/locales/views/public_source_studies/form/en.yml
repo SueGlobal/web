@@ -1,0 +1,10 @@
+en:
+  public_source_studies:
+    form:
+      variables:
+        explanation: 'Add all variables separated by commas'
+  helpers:
+    submit:
+      student_study:
+        create: 'Add study'
+        update: 'Update study'

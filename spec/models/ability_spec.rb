@@ -131,6 +131,10 @@ describe Ability do
     include_examples "abilities for university dependent model", EmployerStudy
   end
 
+  context "regarding public source studies" do
+    include_examples "abilities for university dependent model", PublicSourceStudy
+  end
+
   context "regarding other studies" do
     include_examples "abilities for university dependent model", OtherStudy
   end

@@ -1,0 +1,5 @@
+en:
+  public_source_studies:
+    index:
+      header: "Listing %{university}'s public source studies"
+      new_other_study: 'New public source study'
