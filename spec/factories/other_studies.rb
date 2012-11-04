@@ -6,6 +6,7 @@ FactoryGirl.define do
     description "MyText"
     notes "MyText"
     basic_question
+    software_question
     funding_question
     information_question
     university

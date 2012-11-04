@@ -3,7 +3,7 @@ class OtherStudy < ActiveRecord::Base
   include Study
 
   include_questions :basic_question, :funding_question,
-                    :information_question
+                    :information_question, :software_question
   attr_accessible :description, :notes
 
   validates :description,

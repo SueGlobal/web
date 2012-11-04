@@ -11,6 +11,10 @@
       <%= f.input :description, input_html: {rows: 6, :class => 'notes'} %>
     </div>
 
+    <%= f.simple_fields_for :software_question do |builder| %>
+      <%= render 'software_question_form', f: builder %>
+    <% end -%>
+
     <%= f.simple_fields_for :funding_question do |builder| %>
       <%= render 'funding_question_form', f: builder %>
     <% end -%>

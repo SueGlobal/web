@@ -10,6 +10,9 @@
   </blockquote>
 </div>
 
+<%= render  partial: 'software_question',
+            object: @other_study.software_question,
+            locals: {study: @other_study} %>
 
 <%= render  partial: 'funding_question',
             object: @other_study.funding_question,
