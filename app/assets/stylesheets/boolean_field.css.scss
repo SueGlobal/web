@@ -8,11 +8,11 @@ ul.boolean_list {
 
   .false {
     padding-left: 24px;
-    background: url(image-path('exclamation.png')) 0 0 no-repeat;
+    background: url(image-path('exclamation.png')) 0 1px no-repeat;
   }
 
   .true {
     padding-left: 24px;
-    background: url(image-path('tick.png')) 0 0 no-repeat;
+    background: url(image-path('tick.png')) 0 1px no-repeat;
   }
 }

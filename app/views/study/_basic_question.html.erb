@@ -4,6 +4,6 @@
   <span class="author"><%= basic_question.author %></span>
   <span class="year">(<%= basic_question.year %>)</span>
   <% if can? :edit, study -%>
-    <%= edit_link edit_student_study_path(study) %>
+    <%= edit_link polymorphic_path(study, action: :edit) %>
   <% end -%>
 </h2>

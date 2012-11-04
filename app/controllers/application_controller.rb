@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
   # Record not found
   rescue_from ActiveRecord::RecordNotFound do |exception|
     Rails.logger.info "User: #{current_user} tried to access ..."
+    binding.pry
     redirect_to root_url, notice: 'Nothing to see here'
   end
 

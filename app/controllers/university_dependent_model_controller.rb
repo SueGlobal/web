@@ -2,12 +2,12 @@
 class UniversityDependentModelController < ApplicationController
   before_filter :require_login, except: [:index, :show]
 
-  load_and_authorize_resource :university, except: [:index]
+  load_and_authorize_resource :university, except: [:index], find_by: :slug
 
   class << self
     def dependent_model model_name, with_show=true
       load_and_authorize_resource model_name.to_sym, through: :university,
-        shallow: true, except: [:index], singleton: true
+        shallow: true, except: [:index], singleton: true, find_by: :slug
 
       # Loading University
       before_filter :load_university, only: [:index]
