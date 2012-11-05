@@ -5,6 +5,6 @@ en:
         explanation: 'Add all variables separated by commas'
   helpers:
     submit:
-      student_study:
+      public_source_study:
         create: 'Add study'
         update: 'Update study'
