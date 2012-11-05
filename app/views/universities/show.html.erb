@@ -273,7 +273,7 @@
   <% if @university.other_studies.any? -%>
 
     <ul id="other_studies">
-      <% @university.other_studies.each do |employer_study| -%>
+      <% @university.other_studies.each do |other_study| -%>
         <li>
         <%= link_to other_study.basic_question.title, other_study %>
         <span class="actions">
