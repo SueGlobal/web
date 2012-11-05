@@ -1,0 +1,54 @@
+es:
+  activerecord:
+    models:
+      agreement_source_study:
+        one: 'Estudio realizado a partir del análisis de datos obtenidos mediante convenio o acuerdo.'
+        other: 'Estudios realizados a partir del análisis de datos obtenidos mediante convenio o acuerdo'
+    attributes:
+      agreement_source_study:
+        notes: 'Notas'
+        variable_pes_insertion: 'Inserción'
+        variable_pes_contract_type: 'Tipo de contrato'
+        variable_pes_cno: 'Ocupación del contrato (CNO)'
+        variable_pes_municipality: 'Municipio del contrato'
+        variable_pes_init_contract_date: 'Fecha de inicio del contrato'
+        variable_pes_end_contract_date: 'Fecha de término del contrato'
+        variable_pes_number_of_workers: 'Número de trabajadores de la empresa'
+        variable_pes_number_of_workers_last_contract: 'Número de trabajadores de la empresa en el último contrato (agrupado)'
+        variable_pes_cnae: 'Actividad de la empresa del contrato (CNAE)'
+        variable_pes_cnae_2009: 'Actividad de la empresa del contrato (CNAE revisión 2009)'
+        variable_pes_other_check: 'Otros'
+        variable_pes_other: 'Especificar'
+        variable_jd_unemployment: 'Paro'
+        variable_jd_demand_ocupation: 'Ocupación de la demanda'
+        variable_jd_unemployment_duration: 'Duración del paro'
+        variable_jd_long_time_unemployed: 'Parado de larga duración'
+        variable_jd_demand_activity: 'Actividad de la demanda'
+        variable_jd_demand_activity_2009: 'Actividad de la demanda (CNAE revisión 2009)'
+        variable_jd_unemployment_benefit: 'Indicador de perceptor de prestaciones'
+        variable_jd_index: 'Índice de ocupabilidad'
+        variable_jd_other_check: 'Otro'
+        variable_jd_other: 'Especificar'
+        variable_ss_working_life: 'Vida Laboral'
+        variable_ss_crossing_date: 'Fecha del cruce'
+        variable_ss_user_id: 'NIF Usuarios'
+        variable_ss_ss_number: 'Número de Identificación de la Seguridad Social'
+        variable_ss_birth_date: 'Fecha de Nacimiento'
+        variable_ss_cif: 'CIF Empresa contratante'
+        variable_ss_contribution_type: 'Grupo de Cotización'
+        variable_ss_firm_name: 'Razón social'
+        variable_ss_registration_date: 'Fecha de alta'
+        variable_ss_discharge_date: 'Fecha de baja'
+        variable_ss_total_days: 'Días totales acreditados'
+        variable_ss_ctp: 'CTP (Coeficiente del contrato a Tiempo Parcial)'
+        variable_ss_special_regime_type: 'Tipo de régimen especial'
+        variable_ss_other_check: 'Otros'
+        variable_ss_other: 'Especificar'
+        variable_other_check: 'Otros'
+        variable_other: 'Especificar'
+    errors:
+      models:
+        agreement_source_study:
+          attributes:
+            slug:
+              blank: 'No se generó el slug correctamente.'
