@@ -60,11 +60,11 @@ class UniversityDecorator < Draper::Base
     "#{year}/#{year-1999}"
   end
 
-  def province_name
-    if university.province
-      university.province.name
+  def community_name
+    if university.community
+      university.community.name
     else
-      h.content_tag :em, I18n.t('university_decorator.no_province_name')
+      h.content_tag :em, I18n.t('university_decorator.no_community_name')
     end
   end
 end

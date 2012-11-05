@@ -89,21 +89,21 @@ describe UniversityDecorator do
     it { should eql(@years.map(&:to_s).zip(@years))}
   end
 
-  describe ".province_name" do
-    let(:university) { UniversityDecorator.decorate create(:university, province: province)}
-    context "when there is a province" do
-      let(:province) { create :province }
+  describe ".community_name" do
+    let(:university) { UniversityDecorator.decorate create(:university, community: community)}
+    context "when there is a community" do
+      let(:community) { create :community }
 
-      it "returns province name" do
-        expect(university.province_name).to eq(province.name)
+      it "returns community name" do
+        expect(university.community_name).to eq(community.name)
       end
     end
 
-    context "when there is no province" do
-      let(:province) { nil }
+    context "when there is no community" do
+      let(:community) { nil }
 
       it "returns a default message" do
-        expect(university.province_name).to include(I18n.t('university_decorator.no_province_name'))
+        expect(university.community_name).to include(I18n.t('university_decorator.no_community_name'))
       end
     end
   end

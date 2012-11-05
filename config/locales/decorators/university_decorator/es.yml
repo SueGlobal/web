@@ -1,3 +1,3 @@
 es:
   university_decorator:
-    no_province_name: 'Sin provincia'
+    no_community_name: 'No se ha introducido la provincia'
