@@ -2,6 +2,18 @@
             object: @agreement_source_study.basic_question,
             locals: {study: @agreement_source_study } %>
 
+<div class="agreement_data">
+  <h2><%= t '.agreement_data.legend' %></h2>
+  <div class="field">
+    <span class="data-label"><%= AgreementSourceStudy.human_attribute_name :agreement_signers %></span>
+    <span class="data"><%= @agreement_source_study.agreement_signers %></span>
+  </div>
+  <div class="field">
+    <span class="data-label"><%= AgreementSourceStudy.human_attribute_name :agreement_transience %></span>
+    <span class="data"><%= @agreement_source_study.agreement_transience %></span>
+  </div>
+</div>
+
 <%= render  partial: 'source_question',
             object: @agreement_source_study.source_question,
             locals: {study: @agreement_source_study } %>

@@ -49,6 +49,9 @@ FactoryGirl.define do
     variable_other_check false
     variable_other "MyText"
     university
+    notes "Notes"
+    agreement_transience "Anual"
+    agreement_signers "Some people"
     slug "MyText"
   end
 end

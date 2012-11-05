@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105101735) do
+ActiveRecord::Schema.define(:version => 20121105104852) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20121105101735) do
     t.text     "slug"
     t.datetime "created_at",                                   :null => false
     t.datetime "updated_at",                                   :null => false
+    t.text     "agreement_signers"
+    t.text     "agreement_transience"
   end
 
   add_index "agreement_source_studies", ["slug"], :name => "index_agreement_source_studies_on_slug", :unique => true

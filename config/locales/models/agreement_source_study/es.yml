@@ -6,6 +6,8 @@ es:
         other: 'Estudios realizados a partir del análisis de datos obtenidos mediante convenio o acuerdo'
     attributes:
       agreement_source_study:
+        agreement_signers: 'Firmantes del Convenio'
+        agreement_transience: 'Temporalidad del intercambio'
         notes: 'Notas'
         variable_pes_insertion: 'Inserción'
         variable_pes_contract_type: 'Tipo de contrato'

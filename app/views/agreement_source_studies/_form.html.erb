@@ -6,6 +6,13 @@
       <%= render 'basic_question_form', f: builder %>
     <% end -%>
 
+    <fieldset class="agreement_data">
+      <legend><%= t '.agreement_data.legend' %></legend>
+
+      <%= f.input :agreement_signers, as: :string %>
+      <%= f.input :agreement_transience, as: :string %>
+    </fieldset>
+
     <%= f.simple_fields_for :source_question do |builder| %>
       <%= render 'source_question_form', f: builder %>
     <% end -%>

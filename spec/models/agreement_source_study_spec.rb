@@ -38,6 +38,8 @@ describe AgreementSourceStudy do
   end
 
   it { should allow_mass_assignment_of(:notes) }
+  it { should allow_mass_assignment_of(:agreement_signers) }
+  it { should allow_mass_assignment_of(:agreement_transience) }
 
   it_behaves_like "a study", :basic, :source, :class_year,
     :software, :funding, :information

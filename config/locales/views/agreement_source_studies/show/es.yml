@@ -1,6 +1,8 @@
 es:
   agreement_source_studies:
     show:
+      agreement_data:
+        legend: 'Información del convenio'
       variables:
         legend: 'Variables'
         pes:

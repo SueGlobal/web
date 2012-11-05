@@ -62,7 +62,7 @@ class AgreementSourceStudy < ActiveRecord::Base
     :variable_other
   ]
 
-  attr_accessible :slug, :notes
+  attr_accessible :slug, :notes, :agreement_signers, :agreement_transience
 
   attr_accessible *VARIABLES_PES
   attr_accessible *VARIABLES_PES_OTHER
