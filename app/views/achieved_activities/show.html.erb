@@ -10,8 +10,16 @@
   <ul class="boolean_list">
     <% AchievedActivity::ACTIVITIES.each do |current_activity| -%>
       <li>
-        <%= boolean_value AchievedActivity.human_attribute_name(current_activity),
-                          @achieved_activity.send(current_activity) %>
+        <% if current_activity == :other_activities -%>
+          <%= boolean_value AchievedActivity.human_attribute_name(current_activity),
+                            @achieved_activity.send(current_activity).present? %>
+          <% if @achieved_activity.other_activities.present? -%>
+            <blockquote><%= @achieved_activity.other_activities %></blockquote>
+          <% end -%>
+        <% else -%>
+          <%= boolean_value AchievedActivity.human_attribute_name(current_activity),
+                            @achieved_activity.send(current_activity) %>
+        <% end -%>
       </li>
     <% end -%>
   </ul>
