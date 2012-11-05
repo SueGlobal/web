@@ -10,5 +10,6 @@ describe OtherStudy do
 
   it { should validate_presence_of(:description) }
 
-  it_behaves_like "a study", :basic, :funding, :information
+  it_behaves_like "a study", :basic, :software,
+    :funding, :information
 end
