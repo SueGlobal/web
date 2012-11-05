@@ -1,0 +1,9 @@
+en:
+  controllers:
+    agreement_source_studies:
+      create:
+        notice: 'Agreement source study was successfully created.'
+      update:
+        notice: 'Agreement source study was successfully updated.'
+      destroy:
+        notice: 'Agreement source study was successfully removed.'

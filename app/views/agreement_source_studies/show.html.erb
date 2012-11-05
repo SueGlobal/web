@@ -1,0 +1,115 @@
+<%= render  partial: 'basic_question',
+            object: @agreement_source_study.basic_question,
+            locals: {study: @agreement_source_study } %>
+
+<%= render  partial: 'source_question',
+            object: @agreement_source_study.source_question,
+            locals: {study: @agreement_source_study } %>
+
+<%= render  partial: 'class_year_question',
+            object: @agreement_source_study.class_year_question,
+            locals: {study: @agreement_source_study} %>
+
+<%# VARIABLES %>
+<div class="variables">
+  <h2><%= t '.variables.legend' %></h2>
+  <ol>
+    <li>
+      <%= t '.variables.pes.legend' %>
+      <ol>
+        <li>
+          <%= t '.variables.pes.contract' %>
+          <ul class="boolean_list">
+            <% AgreementSourceStudy::VARIABLES_PES.each do |var| -%>
+              <li>
+              <%= render  partial: 'boolean_field',
+                          locals: { value: @agreement_source_study.send(var),
+                                    text: AgreementSourceStudy.human_attribute_name(var) } %>
+              </li>
+            <% end -%>
+            <% AgreementSourceStudy::VARIABLES_PES_OTHER.each do |var| -%>
+              <% if @agreement_source_study.send("#{var}_check") -%>
+                <li>
+                  <%= AgreementSourceStudy.human_attribute_name("#{var}_check") %>
+                  <blockquote>
+                    <%= @agreement_source_study.send(var) %>
+                  </blockquote>
+                </li>
+              <% end -%>
+            <% end -%>
+          </ul>
+        </li><%# VARIABLES_PES %>
+        <li>
+          <%= t '.variables.pes.employment_demand' %>
+          <ul class="boolean_list">
+            <% AgreementSourceStudy::VARIABLES_JD.each do |var| -%>
+              <li>
+              <%= render  partial: 'boolean_field',
+                          locals: { value: @agreement_source_study.send(var),
+                                    text: AgreementSourceStudy.human_attribute_name(var) } %>
+              </li>
+            <% end -%>
+            <% AgreementSourceStudy::VARIABLES_JD_OTHER.each do |var| -%>
+              <% if @agreement_source_study.send("#{var}_check") -%>
+                <li>
+                  <%= AgreementSourceStudy.human_attribute_name("#{var}_check") %>
+                  <blockquote>
+                    <%= @agreement_source_study.send(var) %>
+                  </blockquote>
+                </li>
+              <% end -%>
+            <% end -%>
+          </ul>
+        </li><%# VARIABLES_JD %>
+      </ol>
+    </li>
+
+    <li><%= t'.variables.ss.legend' %>
+      <ul class="boolean_list">
+        <% AgreementSourceStudy::VARIABLES_SS.each do |var| -%>
+          <li>
+          <%= render  partial: 'boolean_field',
+                      locals: { value: @agreement_source_study.send(var),
+                                text: AgreementSourceStudy.human_attribute_name(var) } %>
+          </li>
+        <% end -%>
+        <% AgreementSourceStudy::VARIABLES_SS_OTHER.each do |var| -%>
+          <% if @agreement_source_study.send("#{var}_check") -%>
+            <li>
+            <%= AgreementSourceStudy.human_attribute_name("#{var}_check") %>
+            <blockquote>
+              <%= @agreement_source_study.send(var) %>
+            </blockquote>
+            </li>
+          <% end -%>
+        <% end -%>
+      </ul>
+    </li>
+
+    <% AgreementSourceStudy::VARIABLES_OTHER.each do |var| -%>
+      <% if @agreement_source_study.send("#{var}_check") -%>
+        <li>
+        <%= AgreementSourceStudy.human_attribute_name("#{var}_check") %>
+        <blockquote>
+          <%= @agreement_source_study.send(var) %>
+        </blockquote>
+        </li>
+      <% end -%>
+    <% end -%>
+  </ol>
+</div>
+
+<%= render  partial: 'software_question',
+            object: @agreement_source_study.software_question,
+            locals: {study: @agreement_source_study} %>
+
+<%= render  partial: 'funding_question',
+            object: @agreement_source_study.funding_question,
+            locals: {study: @agreement_source_study} %>
+
+<%= render  partial: 'information_question', object: @agreement_source_study.information_question,
+            locals: {study: @agreement_source_study} %>
+
+<%= render  partial: 'notes',
+            object: @agreement_source_study.notes,
+            locals: {study: @agreement_source_study} %>

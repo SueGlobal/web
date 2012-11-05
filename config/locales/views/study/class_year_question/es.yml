@@ -5,4 +5,4 @@ es:
       significant:
         'true': 'Con datos significantes'
         'false': 'Sin datos significantes'
-      no_class_year: 'No se añadieron promociones estudiadas'
+      no_class_years: 'No se añadieron promociones estudiadas'

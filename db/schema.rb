@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121104224308) do
+ActiveRecord::Schema.define(:version => 20121105002409) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20121104224308) do
     t.boolean  "variable_jd_unemployment_benefit"
     t.boolean  "variable_jd_index"
     t.boolean  "variable_jd_other_check"
-    t.text     "variable_js_other"
+    t.text     "variable_jd_other"
     t.boolean  "variable_ss_working_life"
     t.boolean  "variable_ss_crossing_date"
     t.boolean  "variable_ss_user_id"

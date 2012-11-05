@@ -3,6 +3,6 @@ en:
     class_year_question:
       legend: 'Time from graduation'
       significant:
-        true: 'Contains significant data'
-        false: 'Does not contain significant data'
+        "true": 'Contains significant data'
+        "false": 'Does not contain significant data'
       no_class_years: 'No academic courses were added to this study.'

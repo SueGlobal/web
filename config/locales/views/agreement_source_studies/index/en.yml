@@ -1,0 +1,5 @@
+en:
+  agreement_source_studies:
+    index:
+      header: "Listing %{university}'s agreement source studies"
+      new_agreement_source_study: 'New agreement source study'

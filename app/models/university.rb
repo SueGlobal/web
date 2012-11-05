@@ -29,6 +29,10 @@ class University < ActiveRecord::Base
     include: :basic_question,
     order: 'basic_questions.year desc'
 
+  has_many :agreement_source_studies,
+    include: :basic_question,
+    order: 'basic_questions.year desc'
+
   has_many :database_studies,
     include: :basic_question,
     order: 'basic_questions.year desc'

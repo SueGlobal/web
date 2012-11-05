@@ -1,0 +1,16 @@
+en:
+  agreement_source_studies:
+    form:
+      variables:
+        legend: 'Variables'
+        pes:
+          legend: 'Public Employment Service variable'
+          contract: 'Contract variables'
+          employment_demand: 'Employment demand variables'
+        ss:
+          legend: 'SS variables'
+  helpers:
+    submit:
+      agreement_source_study:
+        create: 'Add study'
+        update: 'Update study'

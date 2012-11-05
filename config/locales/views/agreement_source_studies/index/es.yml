@@ -1,0 +1,5 @@
+es:
+  agreement_source_studies:
+    index:
+      header: "Listado de estudios de fuentes provenientes de convenios de %{university}"
+      new_agreement_source_study: 'Nuevo estudio'

@@ -1,0 +1,16 @@
+es:
+  agreement_source_studies:
+    form:
+      variables:
+        legend: 'Variables'
+        pes:
+          legend: 'Variables modelo de los Servicios Públicos de Empleo'
+          contract: 'Variables de contratos'
+          employment_demand: 'Variables de demanda de empleo'
+        ss:
+          legend: 'Variables modelo de la Seguridad Social'
+  helpers:
+    submit:
+      agreement_source_study:
+        create: 'Añadir estudio'
+        update: 'Actualizar estudio'

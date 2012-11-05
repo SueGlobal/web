@@ -5,7 +5,7 @@ class Ability
   UNIVERSITY_DEPENDENT_MODELS = [
     Service, GeneralFrame, AchievedActivity,
     StudentStudy, EmployerStudy, PublicSourceStudy,
-    DatabaseStudy, OtherStudy]
+    AgreementSourceStudy, DatabaseStudy, OtherStudy]
 
   def initialize(user)
     # Define abilities for the passed in (current) user. For example:

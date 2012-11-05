@@ -56,11 +56,10 @@ class AgreementSourceStudy < ActiveRecord::Base
 
   VARIABLES_SS_OTHER = [
     :variable_ss_other,
-    :variable_ss_other_check,
   ]
 
   VARIABLES_OTHER = [
-    :variables_other
+    :variable_other
   ]
 
   attr_accessible :slug, :notes

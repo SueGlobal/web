@@ -1,0 +1,11 @@
+en:
+  agreement_source_studies:
+    show:
+      variables:
+        legend: 'Variables'
+        pes:
+          legend: 'Public Employment Service variable'
+          contract: 'Contract variables'
+          employment_demand: 'Employment demand variables'
+        ss:
+          legend: 'SS variables'

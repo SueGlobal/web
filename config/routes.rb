@@ -13,6 +13,7 @@ SueGlobal::Application.routes.draw do
     resources :student_studies, shallow: true
     resources :employer_studies, shallow: true
     resources :public_source_studies, shallow: true
+    resources :agreement_source_studies, shallow: true
     resources :database_studies, shallow: true
     resources :other_studies, shallow: true
   end

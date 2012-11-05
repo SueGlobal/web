@@ -30,7 +30,7 @@ FactoryGirl.define do
     variable_jd_unemployment_benefit false
     variable_jd_index false
     variable_jd_other_check false
-    variable_js_other "MyText"
+    variable_jd_other "MyText"
     variable_ss_working_life false
     variable_ss_crossing_date false
     variable_ss_user_id false

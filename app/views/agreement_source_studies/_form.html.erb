@@ -1,0 +1,106 @@
+<%= simple_form_for(@path) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for :basic_question do |builder| %>
+      <%= render 'basic_question_form', f: builder %>
+    <% end -%>
+
+    <%= f.simple_fields_for :source_question do |builder| %>
+      <%= render 'source_question_form', f: builder %>
+    <% end -%>
+
+    <%= f.simple_fields_for :class_year_question do |builder| %>
+      <%= render 'class_year_question_form', f: builder %>
+    <% end -%>
+
+
+    <%# VARIABLES %>
+    <fieldset class="variables">
+      <legend><%= t '.variables.legend' %></legend>
+      <ol class="options">
+        <li><%= t '.variables.pes.legend'%>
+        <ol class="options">
+          <li><%= t '.variables.pes.contract' %>
+            <ol class="options">
+              <% AgreementSourceStudy::VARIABLES_PES.each do |var| -%>
+                <li>
+                <%= f.input var,
+                            wrapper: :checkbox,
+                            label_html: {:class => 'checkbox'} %>
+                </li>
+              <% end -%>
+
+              <%= render  partial: 'other_collapsable_field',
+                          collection: AgreementSourceStudy::VARIABLES_PES_OTHER,
+                          locals: { surrounding_tag: "li",
+                                    f: f} %>
+            </ol>
+          </li><%# PES CONTRACT %>
+
+          <li><%= t '.variables.pes.employment_demand' %>
+            <ol class="options">
+              <% AgreementSourceStudy::VARIABLES_JD.each do |var| -%>
+                <li>
+                <%= f.input var,
+                            wrapper: :checkbox,
+                            label_html: {:class => 'checkbox'} %>
+                </li>
+              <% end -%>
+
+              <%= render  partial: 'other_collapsable_field',
+                          collection: AgreementSourceStudy::VARIABLES_JD_OTHER,
+                          locals: { surrounding_tag: "li",
+                                    f: f} %>
+            </ol>
+          </li>
+        </ol>
+        </li>
+        <li><%= t '.variables.ss.legend' %>
+        <ol class="options">
+          <% AgreementSourceStudy::VARIABLES_SS.each do |var| -%>
+            <li>
+            <%= f.input var,
+                        wrapper: :checkbox,
+                        label_html: {:class => 'checkbox'} %>
+            </li>
+          <% end -%>
+
+          <%= render  partial: 'other_collapsable_field',
+                      collection: AgreementSourceStudy::VARIABLES_SS_OTHER,
+                      locals: { surrounding_tag: "li",
+                                f: f} %>
+        </ol>
+        </li>
+
+        <%= render  partial: 'other_collapsable_field',
+                    collection: AgreementSourceStudy::VARIABLES_OTHER,
+                    locals: { surrounding_tag: "li",
+                              f: f} %>
+      </ol>
+    </fieldset>
+
+
+    <%= f.simple_fields_for :software_question do |builder| %>
+      <%= render 'software_question_form', f: builder %>
+    <% end -%>
+
+    <%= f.simple_fields_for :funding_question do |builder| %>
+      <%= render 'funding_question_form', f: builder %>
+    <% end -%>
+
+    <%= f.simple_fields_for :information_question do |builder| %>
+      <%= render 'information_question_form', f: builder %>
+    <% end -%>
+
+    <%= render  partial: 'notes_form',
+                object: :notes,
+                locals: { f: f,
+                          klass: PublicSourceStudy } %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
