@@ -14,4 +14,4 @@ es:
           four_monthly: 'Cuatrimestral'
           three_monthly: 'Trimestral'
           no_periodicity: 'Sin periodicidad'
-          other: 'Otro'
+          other: 'Otra periodicidad'
