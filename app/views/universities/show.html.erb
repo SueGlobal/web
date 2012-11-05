@@ -292,5 +292,5 @@
     <% else -%>
       <p><%= t '.other_studies.none_found' %></p>
     <% end -%>
-    <%= link_to_if can?(:edit, @university), t('.other_studies.new'), new_university_employer_study_path(@university), :class => 'btn' do "" end %>
+    <%= link_to_if can?(:edit, @university), t('.other_studies.new'), new_university_other_study_path(@university), :class => 'btn' do "" end %>
 </div>
