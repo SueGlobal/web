@@ -26,3 +26,16 @@ if Province.count.zero?
 
     Province.connection.execute "INSERT INTO provinces(id_prov, name, created_at, updated_at) VALUES #{inserts}"
 end
+
+# Comunidades
+if Community.count.zero?
+  inserts = ['Andalucía', 'Aragón', 'Principado de Asturias', 'Baleares',
+    'Canarias', 'Cantabria', 'Castilla-La Mancha', 'Castilla y León',
+    'Cataluña', 'Comunidad Valenciana', 'Extremadura', 'Galicia', 'La Rioja',
+    'Comunidad de Madrid', 'Navarra', 'País Vasco', 'Región de Murcia'].map do |o|
+    "('#{o}', now(), now())"
+  end.join(', ')
+
+
+  Community.connection.execute "INSERT INTO communities(name, created_at, updated_at) VALUES #{inserts}"
+end

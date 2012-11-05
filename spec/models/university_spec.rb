@@ -7,7 +7,7 @@ describe University do
 
   it { should allow_mass_assignment_of(:name) }
   it { should allow_mass_assignment_of(:abbreviation) }
-  it { should allow_mass_assignment_of(:province_id) }
+  it { should allow_mass_assignment_of(:community_id) }
   it { should allow_mass_assignment_of(:admin_emails) }
 
   it { should validate_presence_of(:name) }
@@ -16,7 +16,7 @@ describe University do
   it { should validate_presence_of(:abbreviation) }
   it { should validate_uniqueness_of(:abbreviation) }
 
-  it { should belong_to(:province) }
+  it { should belong_to(:community) }
   it { should have_many(:users) }
   it { should have_many(:services) }
   it { should have_many(:student_studies) }

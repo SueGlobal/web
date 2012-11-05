@@ -8,8 +8,8 @@ class University < ActiveRecord::Base
   attr_accessor :admin_emails
   attr_accessible :admin_emails
 
-  attr_accessible :abbreviation, :name, :province_id
-  belongs_to :province
+  attr_accessible :abbreviation, :name, :community_id
+  belongs_to :community
   has_many :users
   has_many :services
   has_many :general_frames,

@@ -7,6 +7,7 @@ es:
     attributes:
       university:
         name: 'Nombre'
+        community: 'Comunidad Autónoma'
         abbreviation: 'Siglas'
         admin_emails: 'Correos de administradores'
     errors:

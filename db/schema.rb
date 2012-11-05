@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105104852) do
+ActiveRecord::Schema.define(:version => 20121105125553) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -122,6 +122,12 @@ ActiveRecord::Schema.define(:version => 20121105104852) do
   end
 
   add_index "class_years", ["class_year_question_id"], :name => "index_class_years_on_class_year_question_id"
+
+  create_table "communities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "database_studies", :force => true do |t|
     t.integer  "university_id"
@@ -451,7 +457,7 @@ ActiveRecord::Schema.define(:version => 20121105104852) do
   create_table "universities", :force => true do |t|
     t.string   "name"
     t.string   "abbreviation"
-    t.integer  "province_id"
+    t.integer  "community_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "slug"

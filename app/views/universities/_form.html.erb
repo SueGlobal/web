@@ -1,39 +1,21 @@
-<%= form_for(@university) do |f| %>
-  <% if @university.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= t '.errors_header', count: @university.errors.count %></h2>
+<%= simple_form_for(@university) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @university.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="form-inputs">
+    <%= f.input :name, as: :string %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.input :abbreviation, as: :string %>
+
+    <%= f.input :community,
+                collection: Community.for_select,
+                include_blank: false %>
+
+    <% unless @university.persisted? -%>
+      <%= f.input :admin_emails %>
+    <% end -%>
   </div>
 
-  <div class="field">
-    <%= f.label :abbreviation %>
-    <%= f.text_field :abbreviation %>
-  </div>
-
-  <div class="field">
-    <%= f.label :province_id, Province.model_name.human %>
-    <%= f.select :province_id, Province.for_select %>
-  </div>
-
-  <% unless @university.persisted? -%>
-    <div class="field">
-      <%= f.label :admin_emails %>
-      <%= f.text_field :admin_emails %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>
