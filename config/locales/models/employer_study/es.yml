@@ -14,13 +14,15 @@ es:
         variable_contract_characteristics: 'Características de los contratos ofertados para recién graduados.'
         variable_knowledge_evaluation: 'Valoración de los conocimientos poseídos por los graduados. Los conocimientos que se adquieren, (formación teórica, prácticas, de idiomas, informáticos etc.)'
         variable_competence_evaluation: 'Valoración de las competencias desarrolladas por los graduados. Las competencias que se desarrollan, (capacidad de trabajo en equipo, liderazgo, capacidad de comunicación, gestión de proyectos, cultura de la calidad etc.)'
+        variable_other: 'Especificar'
+        variable_other_check: 'Otros'
         segmentation_variable_activity_sector: 'Sector de actividad'
         segmentation_variable_organization_size: 'Tamaño de la organización'
         segmentation_variable_companies_using_ues: 'Empresas que solicitan puestos al Servicio de Empleo de la Universidad'
         segmentation_variable_companies_hiring_graduates: 'Empresas de la Comunidad Autónoma colaboradoras del Servicio de Empleo de la Universidad que hayan contratado graduados en los últimos tres años'
         segmentation_variable_no_segmentation: 'No hay variables de segmentación'
-        segmentation_variable_other: 'Especificar'
-        segmentation_variable_other_check: 'Otros'
+        segmentation_variable_others: 'Especificar'
+        segmentation_variable_others_check: 'Otros'
     errors:
       models:
         employer_study:
