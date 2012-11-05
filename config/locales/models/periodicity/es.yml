@@ -7,8 +7,11 @@ es:
         periodicity_type: 'Periodicidad'
         other_description: 'Otro, especificar'
         select_attributes:
+          three_years: 'Cada tres años'
+          two_years: 'Cada dos años'
           anual: 'Anual'
           six_monthly: 'Semestral'
           four_monthly: 'Cuatrimestral'
+          three_monthly: 'Trimestral'
           no_periodicity: 'Sin periodicidad'
           other: 'Otro'

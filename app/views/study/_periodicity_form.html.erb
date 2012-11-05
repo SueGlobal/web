@@ -1,7 +1,8 @@
 <div class="periodicity">
   <div class="field">
-    <%= f.label :periodicity_type %>
-    <%= f.select :periodicity_type, Periodicity.select_options %>
+    <%= f.input :periodicity_type,
+                collection: Periodicity.select_options,
+                include_blank: false %>
   </div>
   <div class="field other">
     <%= f.input :other_description, input_html: { rows: 4 } %>
