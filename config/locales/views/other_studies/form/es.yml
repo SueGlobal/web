@@ -5,7 +5,7 @@ es:
         one: 'No se pudo guardar el estudio por un error:'
         other: 'No se pudo guardar el estudio por %{count} errores:'
   helpers:
-    other_study:
-      services:
+    submit:
+      other_study:
         create: 'Añadir estudio'
         update: 'Actualizar estudio'
