@@ -40,14 +40,11 @@
               </li>
             <% end -%>
             <% AgreementSourceStudy::VARIABLES_PES_OTHER.each do |var| -%>
-              <% if @agreement_source_study.send("#{var}_check") -%>
-                <li>
-                  <%= AgreementSourceStudy.human_attribute_name("#{var}_check") %>
-                  <blockquote>
-                    <%= @agreement_source_study.send(var) %>
-                  </blockquote>
-                </li>
-              <% end -%>
+              <%= render  partial: 'other_field',
+                          locals: { object: @agreement_source_study,
+                                    check_attr: "#{var}_check",
+                                    :attr => var,
+                                    klass: AgreementSourceStudy } %>
             <% end -%>
           </ul>
         </li><%# VARIABLES_PES %>
@@ -62,14 +59,11 @@
               </li>
             <% end -%>
             <% AgreementSourceStudy::VARIABLES_JD_OTHER.each do |var| -%>
-              <% if @agreement_source_study.send("#{var}_check") -%>
-                <li>
-                  <%= AgreementSourceStudy.human_attribute_name("#{var}_check") %>
-                  <blockquote>
-                    <%= @agreement_source_study.send(var) %>
-                  </blockquote>
-                </li>
-              <% end -%>
+              <%= render  partial: 'other_field',
+                          locals: { object: @agreement_source_study,
+                                    check_attr: "#{var}_check",
+                                    :attr => var,
+                                    klass: AgreementSourceStudy } %>
             <% end -%>
           </ul>
         </li><%# VARIABLES_JD %>
@@ -86,27 +80,21 @@
           </li>
         <% end -%>
         <% AgreementSourceStudy::VARIABLES_SS_OTHER.each do |var| -%>
-          <% if @agreement_source_study.send("#{var}_check") -%>
-            <li>
-            <%= AgreementSourceStudy.human_attribute_name("#{var}_check") %>
-            <blockquote>
-              <%= @agreement_source_study.send(var) %>
-            </blockquote>
-            </li>
-          <% end -%>
+          <%= render  partial: 'other_field',
+                      locals: { object: @agreement_source_study,
+                                check_attr: "#{var}_check",
+                                :attr => var,
+                                klass: AgreementSourceStudy } %>
         <% end -%>
       </ul>
     </li>
 
     <% AgreementSourceStudy::VARIABLES_OTHER.each do |var| -%>
-      <% if @agreement_source_study.send("#{var}_check") -%>
-        <li>
-        <%= AgreementSourceStudy.human_attribute_name("#{var}_check") %>
-        <blockquote>
-          <%= @agreement_source_study.send(var) %>
-        </blockquote>
-        </li>
-      <% end -%>
+      <%= render  partial: 'other_field',
+                  locals: { object: @agreement_source_study,
+                            check_attr: "#{var}_check",
+                            :attr => var,
+                            klass: AgreementSourceStudy } %>
     <% end -%>
   </ol>
 </div>

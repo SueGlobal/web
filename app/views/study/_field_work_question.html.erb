@@ -9,13 +9,10 @@
       </li>
     <% end -%>
 
-    <% if field_work_question.other_check -%>
-      <li>
-      <%= FieldWorkQuestion.human_attribute_name(:other_check) %>
-      <blockquote>
-        <%= field_work_question.other %>
-      </blockquote>
-      </li>
-    <% end -%>
+    <%= render  partial: 'other_field',
+                locals: { object: field_work_question,
+                          check_attr: 'other_check',
+                          :attr => 'other',
+                          klass: FieldWorkQuestion } %>
   </ul>
 </div>

@@ -1,0 +1,8 @@
+<% if object.send(check_attr) -%>
+  <li>
+    <%= klass.human_attribute_name check_attr -%>
+    <blockquote>
+      <%= object.send attr %>
+    </blockquote>
+  </li>
+<% end -%>
