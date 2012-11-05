@@ -199,6 +199,38 @@
     <%= link_to_if can?(:edit, @university), t('.public_source_studies.new'), new_university_public_source_study_path(@university), :class => 'btn' do "" end %>
 </div>
 
+<div class="agreement_source_studies">
+  <h2>
+    <%= AgreementSourceStudy.model_name.human(count: 2) %>
+    <% if can? :edit, @university -%>
+      <%= new_link new_university_agreement_source_study_path(@university) %>
+    <% end -%>
+  </h2>
+  <% if @university.agreement_source_studies.any? -%>
+
+    <ul id="agreement_source_studies">
+      <% @university.agreement_source_studies.each do |agreement_source_study| -%>
+        <li>
+        <%= link_to agreement_source_study.basic_question.title, agreement_source_study %>
+        <span class="actions">
+          <% if can? :edit, agreement_source_study -%>
+            <%= edit_link edit_agreement_source_study_path(agreement_source_study) %>
+          <% end -%>
+          <% if can? :destroy, agreement_source_study -%>
+            <%= destroy_link agreement_source_study_path(agreement_source_study),
+              method: :delete,
+              data: {confirm: t('.agreement_source_studies.destroy_confirmation') } %>
+            <% end -%>
+          </span>
+          </li>
+        <% end -%>
+      </ul>
+    <% else -%>
+      <p><%= t '.agreement_source_studies.none_found' %></p>
+    <% end -%>
+    <%= link_to_if can?(:edit, @university), t('.agreement_source_studies.new'), new_university_agreement_source_study_path(@university), :class => 'btn' do "" end %>
+</div>
+
 <div class="database_studies">
   <h2>
     <%= DatabaseStudy.model_name.human(count: 2) %>

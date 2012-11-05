@@ -37,6 +37,12 @@ es:
         destroy: 'Borrar estudio realizado a partir de fuentes secundarias públicas'
         destroy_confirmation: '¿Está seguro de querer borrar este estudio realizado a partir de fuentes secundarias públicas?'
         new: 'Nuevo estudio realizado a partir de fuentes secundarias públicas'
+      agreement_source_studies:
+        none_found: 'La universidad no ha registrado ningún estudio realizado a partir de datos provenientes de un acuerdo o convenio.'
+        edit: 'Editar estudio realizado a partir de datos provenientes de un acuerdo o convenio'
+        destroy: 'Borrar estudio realizado a partir de datos provenientes de un acuerdo o convenio'
+        destroy_confirmation: '¿Está seguro de querer borrar este estudio?'
+        new: 'Nuevo estudio'
       database_studies:
         none_found: 'La universidad no ha registrado ningún estudio realizado a partir de las bases de datos de los servicios de empleo universitarios.'
         edit: 'Editar estudio'

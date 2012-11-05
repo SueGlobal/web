@@ -5,11 +5,11 @@ describe AgreementSourceStudiesController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/agreement_source_studies").should route_to("agreement_source_studies#index")
+      get("/universities/1/agreement_source_studies").should route_to("agreement_source_studies#index", university_id: '1')
     end
 
     it "routes to #new" do
-      get("/agreement_source_studies/new").should route_to("agreement_source_studies#new")
+      get("/universities/1/agreement_source_studies/new").should route_to("agreement_source_studies#new", university_id: '1')
     end
 
     it "routes to #show" do
@@ -21,7 +21,7 @@ describe AgreementSourceStudiesController do
     end
 
     it "routes to #create" do
-      post("/agreement_source_studies").should route_to("agreement_source_studies#create")
+      post("/universities/1/agreement_source_studies").should route_to("agreement_source_studies#create", university_id: '1')
     end
 
     it "routes to #update" do

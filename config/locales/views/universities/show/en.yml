@@ -37,6 +37,12 @@ en:
         edit: 'Edit public source study'
         destroy: 'Destroy public source study'
         new: 'New public source study'
+      agreement_source_studies:
+        destroy_confirmation: 'Are you sure you want to delete this agreement source study?'
+        none_found: 'University has registered no agreement source studies.'
+        edit: 'Edit agreement source study'
+        destroy: 'Destroy agreement source study'
+        new: 'New agreement source study'
       database_studies:
         destroy_confirmation: 'Are you sure you want to delete this database study?'
         none_found: 'University has registered no database studies.'
