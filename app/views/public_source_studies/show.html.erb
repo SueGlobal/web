@@ -6,6 +6,13 @@
             object: @public_source_study.source_question,
             locals: {study: @public_source_study } %>
 
+<div class="population">
+  <h2><%= PublicSourceStudy.human_attribute_name :population %></h2>
+  <blockquote>
+    <%= @public_source_study.population %>
+  </blockquote>
+</div>
+
 <%= render  partial: 'class_year_question',
             object: @public_source_study.class_year_question,
             locals: {study: @public_source_study} %>

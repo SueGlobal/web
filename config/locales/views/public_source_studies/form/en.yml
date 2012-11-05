@@ -3,6 +3,8 @@ en:
     form:
       variables:
         explanation: 'Add all variables separated by commas'
+      population:
+        explanation: 'Sample population'
   helpers:
     submit:
       public_source_study:

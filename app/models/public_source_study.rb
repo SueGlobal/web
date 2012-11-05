@@ -7,7 +7,7 @@ class PublicSourceStudy < ActiveRecord::Base
     :software_question, :source_question
 
   belongs_to :university
-  attr_accessible :slug, :variables, :notes
+  attr_accessible :slug, :variables, :notes, :population
 
   def column_for_slug
     basic_question.title

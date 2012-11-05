@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105002409) do
+ActiveRecord::Schema.define(:version => 20121105101735) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -316,6 +316,7 @@ ActiveRecord::Schema.define(:version => 20121105002409) do
     t.text     "notes"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.text     "population"
   end
 
   add_index "public_source_studies", ["slug"], :name => "index_public_source_studies_on_slug", :unique => true

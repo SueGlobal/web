@@ -10,6 +10,14 @@
       <%= render 'source_question_form', f: builder %>
     <% end -%>
 
+    <fieldset class="population">
+      <legend><%= PublicSourceStudy.human_attribute_name :population %></legend>
+
+      <%= f.input :population,
+                  label: t('.population.explanation'),
+                  input_html: {rows: 4, :class => 'notes'} %>
+    </fieldset>
+
     <%= f.simple_fields_for :class_year_question do |builder| %>
       <%= render 'class_year_question_form', f: builder %>
     <% end -%>

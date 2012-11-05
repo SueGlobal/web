@@ -12,5 +12,6 @@ FactoryGirl.define do
     source_question
     slug "MyText"
     variables "var1, var2"
+    population "some strange population"
   end
 end

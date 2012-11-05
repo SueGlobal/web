@@ -8,6 +8,7 @@ es:
       public_source_study:
         variables: 'Variables'
         notes: 'Notas'
+        population: 'Población'
     errors:
       models:
         public_source_study:

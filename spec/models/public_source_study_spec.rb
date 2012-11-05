@@ -8,6 +8,7 @@ describe PublicSourceStudy do
   it { should allow_mass_assignment_of(:slug) }
   it { should allow_mass_assignment_of(:variables) }
   it { should allow_mass_assignment_of(:notes) }
+  it { should allow_mass_assignment_of(:population) }
 
   it_behaves_like "a study", :basic, :class_year,
     :funding, :information, :software, :source
