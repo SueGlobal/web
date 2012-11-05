@@ -11,7 +11,7 @@ class ClassYearQuestion < ActiveRecord::Base
   class << self
 
     def select_options
-      [:one_year, :three_years, :five_years, :other].map do |opt|
+      [:one_year, :three_years, :five_years, :other, :no_considered].map do |opt|
         [translate_option(opt), opt.to_s]
       end
     end

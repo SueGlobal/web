@@ -2,13 +2,14 @@
   <legend><%= t 'legend', scope: 'study.class_year_question_form' %></legend>
 
   <div class="field">
-    <%= f.label :time_from_graduation_type %>
-    <%= f.select :time_from_graduation_type, ClassYearQuestion.select_options %>
+    <%= f.input :time_from_graduation_type,
+                collection: ClassYearQuestion.select_options,
+                include_blank: false %>
   </div>
 
   <div class="field other">
-    <%= f.label :time_from_graduation_other %> <br>
-    <%= f.text_area :time_from_graduation_other %>
+    <%= f.input :time_from_graduation_other,
+                input_html: { rows: 4, :class => 'notes' } %>
   </div>
 
   <%= f.fields_for :class_years do |builder| %>

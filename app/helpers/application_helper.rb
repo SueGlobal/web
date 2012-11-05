@@ -31,7 +31,7 @@ module ApplicationHelper
       render(association.to_s.singularize + "_form", f: builder)
     end
     link_to name, '#',
-            "class" => "add_fields add_#{association.to_s.singularize}",
+            "class" => "btn add_fields add_#{association.to_s.singularize}",
             data: {id: id, fields: fields.gsub("\n", "")}
   end
 
