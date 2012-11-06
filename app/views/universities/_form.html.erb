@@ -6,7 +6,7 @@
 
     <%= f.input :abbreviation, as: :string %>
 
-    <%= f.input :community,
+    <%= f.association :community,
                 collection: Community.for_select,
                 include_blank: false %>
 

@@ -3,6 +3,6 @@
 
 FactoryGirl.define do
   factory :community do
-    name "MyString"
+    sequence(:name) { |n| "Community#{n}" }
   end
 end
