@@ -26,7 +26,7 @@ describe UserSessionsController do
     let!(:user) { create :user, :active, password: password }
 
     context "with valid access data" do
-      let(:attrs) { {email: user.email, password: password, remember_me: true} }
+      let(:attrs) { {signin: {email: user.email, password: password, remember_me: true}} }
 
       before :each do
         post 'create', attrs
@@ -38,7 +38,7 @@ describe UserSessionsController do
     end
 
     context "with invalid access data" do
-      let(:attrs) { {email: user.email, password: "p" + password} }
+      let(:attrs) { {signin: {email: user.email, password: "p" + password}} }
       before :each do
         post 'create', attrs
       end
