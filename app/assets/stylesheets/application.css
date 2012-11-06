@@ -10,5 +10,18 @@
  *
  *= require_self
  *= require bootstrap_and_overrides
- *= require_tree .
+ *= require achieved_activities
+ *= require actions
+ *= require boolean_field
+ *= require common
+ *= require general_frames
+ *= require login
+ *= require password_resets
+ *= require services
+ *= require show_data
+ *= require study
+ *= require university
+ *= require user_sessions
+ *= require users
+ *= require_tree ./questions
  */
