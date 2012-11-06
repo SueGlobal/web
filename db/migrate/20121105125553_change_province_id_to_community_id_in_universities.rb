@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChangeProvinceIdToCommunityIdInUniversities < ActiveRecord::Migration
   def up
     rename_column :universities, :province_id, :community_id

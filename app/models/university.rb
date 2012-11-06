@@ -11,7 +11,8 @@ class University < ActiveRecord::Base
   attr_accessible :abbreviation, :name, :community_id
   belongs_to :community
   has_many :users
-  has_many :services
+  has_many :services,
+           order: 'name ASC'
   has_many :general_frames,
            order: 'year DESC'
   has_many :achieved_activities,

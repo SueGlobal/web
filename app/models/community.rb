@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Community < ActiveRecord::Base
 
   def self.for_select
