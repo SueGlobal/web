@@ -23,13 +23,13 @@
                                 text: InformationQuestion.human_attribute_name("#{field}_check")} %>
 
           <% if information_question.send("#{field}_check") -%>
-            <%= render  partial: 'periodicity',
-                        object: information_question.send("#{field}_periodicity") %>
             <div class="field">
               <blockquote>
                 <%= information_question.send("#{field}_description") %>
               </blockquote>
             </div>
+            <%= render  partial: 'periodicity',
+                        object: information_question.send("#{field}_periodicity") %>
           <% end -%>
           </li>
         <% end -%>
@@ -58,13 +58,13 @@
                                 text: InformationQuestion.human_attribute_name("#{field}_check")} %>
 
           <% if information_question.send("#{field}_check") -%>
-            <%= render  partial: 'periodicity',
-                        object: information_question.send("#{field}_periodicity") %>
             <div class="field">
               <blockquote>
                 <%= information_question.send("#{field}_description") %>
               </blockquote>
             </div>
+            <%= render  partial: 'periodicity',
+                        object: information_question.send("#{field}_periodicity") %>
           <% end -%>
           </li>
         <% end -%>

@@ -29,13 +29,11 @@
                         label_html: {:class => 'checkbox'} %>
 
             <div class="js-other-collapsable other-description">
+              <%= f.input :"#{field}_description",
+                          input_html: {rows: 4} %>
               <%= f.simple_fields_for :"#{field}_periodicity" do |builder| %>
                 <%= render 'periodicity_form', f: builder %>
               <% end -%>
-
-              <br>
-              <%= f.input :"#{field}_description",
-                          input_html: {rows: 4} %>
             </div>
           </li>
         <% end -%>
@@ -69,13 +67,11 @@
                         label_html: {:class => 'checkbox'} %>
 
             <div class="js-other-collapsable other-description">
+              <%= f.input :"#{field}_description",
+                          input_html: {rows: 4} %>
               <%= f.simple_fields_for :"#{field}_periodicity" do |builder| %>
                 <%= render 'periodicity_form', f: builder %>
               <% end -%>
-
-              <br>
-              <%= f.input :"#{field}_description",
-                          input_html: {rows: 4} %>
             </div>
           </li>
         <% end -%>
