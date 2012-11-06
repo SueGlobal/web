@@ -4,6 +4,16 @@ class University < ActiveRecord::Base
   default_scope do
     order('name ASC')
   end
+  class << self
+
+    def has_many_studies *names
+      names.each do |study|
+        has_many :"#{study}_studies",
+          include: :basic_question,
+          order: 'basic_questions.year DESC, basic_questions.title ASC'
+      end
+    end
+  end
 
   attr_accessor :admin_emails
   attr_accessible :admin_emails
@@ -18,29 +28,8 @@ class University < ActiveRecord::Base
   has_many :achieved_activities,
            order: 'year DESC'
 
-  has_many :student_studies,
-    include: :basic_question,
-    order: 'basic_questions.year DESC'
-
-  has_many :employer_studies,
-    include: :basic_question,
-    order: 'basic_questions.year DESC'
-
-  has_many :public_source_studies,
-    include: :basic_question,
-    order: 'basic_questions.year desc'
-
-  has_many :agreement_source_studies,
-    include: :basic_question,
-    order: 'basic_questions.year desc'
-
-  has_many :database_studies,
-    include: :basic_question,
-    order: 'basic_questions.year desc'
-
-  has_many :other_studies,
-    include: :basic_question,
-    order: 'basic_questions.year DESC'
+  has_many_studies :student, :employer, :public_source,
+    :agreement_source, :database, :other
 
   validates :name,
     presence: true,
@@ -53,12 +42,12 @@ class University < ActiveRecord::Base
   validates :slug,
     presence: true
 
+  include FriendlyId
+  friendly_id :name_for_slug, use: :slugged
   def should_generate_new_friendly_id?
     new_record? || self[:slug].blank?
   end
 
-  include FriendlyId
-  friendly_id :name_for_slug, use: :slugged
   def name_for_slug
     (abbreviation || "").delete "."
   end
