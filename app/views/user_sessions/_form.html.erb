@@ -1,17 +1,22 @@
-<%= form_tag user_sessions_path, method: :post, id: 'login-form' do %>
-  <div class="field">
-    <%= label_tag :email %><br>
-    <%= text_field_tag :email, nil, class: 'js-email' %>
+<%= simple_form_for :signin, { url: user_sessions_path, method: :post, id: 'login-form'} do |f| %>
+  <% if display_errors -%>
+    <%= f.error_notification %>
+  <% end -%>
+
+  <div class="form-inputs">
+    <%= f.input :email, input_html: {:class => 'js-email'} %>
+    <%= f.input :password, input_html: {:class => 'js-password'} %>
+    <%= f.input :remember_me,
+                as: :boolean,
+                wrapper: :checkbox,
+                label: t('.remember_me'),
+                input_html: {:class => 'js-remember'},
+                label_html: {:class => 'checkbox'} %>
   </div>
-  <div class="field">
-    <%= label_tag :password %><br>
-    <%= password_field_tag :password, nil, class: 'js-password' %>
-  </div>
-  <div class="field">
-    <%= check_box_tag :remember_me, nil, false, class: 'js-remember' %>
-    <%= label_tag :remember_me, t('.remember_me')  %>
-  </div>
-  <div class="actions">
-     <%= submit_tag t('.submit'), class: 'js-submit' %>
+
+  <div class="form-actions">
+    <%= f.button  :submit,
+                  :value => t('.submit'),
+                  :class => 'js-submit' %>
   </div>
 <% end -%>

@@ -1,0 +1,23 @@
+#header {
+  form.signin {
+    margin: 10px 5px 0;
+
+    .form-inputs {
+      .control-group {
+        margin-bottom: 2px;
+      }
+
+      input.boolean {
+        margin-top: 0;
+      }
+    }
+
+    .form-actions {
+      margin: 5px 0 0;
+      padding: {
+        top: 5px;
+        bottom: 5px;
+      }
+    }
+  }
+}

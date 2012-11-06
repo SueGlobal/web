@@ -1,6 +1,7 @@
 <h1><%= t('.header') %></h1>
 
-<%= render 'form' %>
+<%= render partial: 'form',
+           locals: {display_errors: true} %>
 
 <h1><%= t('.forgot_question') %></h1>
 <%= render 'forgot_password_form' %>
