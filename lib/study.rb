@@ -19,7 +19,7 @@ module Study
 
     def include_questions *questions
       questions.each do |q|
-        has_one q, as: :studiable
+        has_one q, as: :studiable, dependent: :destroy
         attr_accessible :"#{q}_attributes"
         accepts_nested_attributes_for q
         add_question q

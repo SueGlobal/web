@@ -10,7 +10,8 @@ class University < ActiveRecord::Base
       names.each do |study|
         has_many :"#{study}_studies",
           include: :basic_question,
-          order: 'basic_questions.year DESC, basic_questions.title ASC'
+          order: 'basic_questions.year DESC, basic_questions.title ASC',
+          dependent: :destroy
       end
     end
   end
@@ -22,11 +23,14 @@ class University < ActiveRecord::Base
   belongs_to :community
   has_many :users
   has_many :services,
-           order: 'name ASC'
+           order: 'name ASC',
+           dependent: :destroy
   has_many :general_frames,
-           order: 'year DESC'
+           order: 'year DESC',
+           dependent: :destroy
   has_many :achieved_activities,
-           order: 'year DESC'
+           order: 'year DESC',
+           dependent: :destroy
 
   has_many_studies :student, :employer, :public_source,
     :agreement_source, :database, :other
