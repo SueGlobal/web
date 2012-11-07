@@ -173,6 +173,38 @@ describe UniversitiesController do
             post :create, {:university => valid_attributes}, valid_session
             should set_the_flash
           end
+
+          context "and admin emails" do
+            let!(:admin_emails) { [" admin1@example.com  ", " admin2@example.com"]  }
+            def create_with_emails
+              va = valid_attributes
+              va[:admin_emails] = admin_emails.join(', ')
+              post :create, {:university => va}, valid_session
+            end
+
+            it "creates those users" do
+              expect{
+                create_with_emails
+              }.to change(User, :count).by(admin_emails.size)
+            end
+
+            it "activates the new users" do
+              create_with_emails
+              admin_emails.each do |email|
+                u = User.find_by_email(email.strip)
+                expect(u.email).to eq(email.strip)
+              end
+            end
+
+            it "makes those user admin of the new university" do
+              create_with_emails
+              university = assigns(:university)
+              admin_emails.each do |email|
+                u = User.find_by_email(email.strip)
+                expect(u.university).to eq(university)
+              end
+            end
+          end
         end
 
         describe "with invalid params" do

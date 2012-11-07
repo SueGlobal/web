@@ -3,7 +3,8 @@ require 'spec_helper'
 
 describe "universities/show" do
   before(:each) do
-    @university = assign(:university, stub_model(University))
+    view.lookup_context.prefixes << "application"
+    @university = assign(:university, UniversityDecorator.decorate(create(:university)))
   end
 
   before :each do
@@ -27,5 +28,11 @@ describe "universities/show" do
     render
 
     expect(rendered).not_to include(edit_university_path(@university))
+  end
+
+  it "renders 'university_dependent_model_list' partial for each dependent model" do
+    render
+
+    expect(rendered).to render_template(partial: '_university_dependent_model_list', count: 9)
   end
 end

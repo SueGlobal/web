@@ -8,8 +8,8 @@ es:
         legend: 'Actividades'
         paragraph: 'Actividad del Observatorio de Empleo de la Universidad y otras actividades de la Universidad para promover el empleo:'
       sources:
-        legend: 'Fuentes'
-        paragraph: 'Marcar aquellas fuentes incluidas en el Observatorio de empleo de su Universidad, independientemente del órgano que los realice:'
+        legend: 'Estudios'
+        paragraph: 'Marcar aquellos estudios incluidos en el Observatorio de empleo de su Universidad, independientemente del órgano que los realice:'
   helpers:
     submit:
       achieved_activity:

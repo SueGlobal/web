@@ -37,6 +37,17 @@ describe UserSessionsController do
       end
     end
 
+    context "with valid access data with spaces in its email" do
+      let(:attrs) { {signin: {email: "#{  user.email  }", password: password, remember_me: true}} }
+
+      before :each do
+        post 'create', attrs
+      end
+
+      it "redirects to root when no back url is found" do
+        response.should redirect_to(root_path)
+      end
+    end
     context "with invalid access data" do
       let(:attrs) { {signin: {email: user.email, password: "p" + password}} }
       before :each do

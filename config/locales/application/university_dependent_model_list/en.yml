@@ -1,0 +1,57 @@
+en:
+  application:
+    university_dependent_model_list:
+      services:
+        destroy_confirmation: 'Are you sure you want to delete this service?'
+        none_found: 'University has registered no services.'
+        edit: 'Edit service'
+        destroy: 'Destroy service'
+        new: 'New service'
+      achieved_activities:
+        destroy_confirmation: 'Are you sure you want to delete this achieved activity?'
+        none_found: 'University has registered no achieved activities.'
+        edit: 'Edit achieved activity'
+        destroy: 'Destroy achieved activity'
+        new: 'New achieved activity'
+      general_frames:
+        destroy_confirmation: 'Are you sure you want to delete this general frame?'
+        none_found: 'University has registered no general frames'
+        edit: 'Edit general frame'
+        destroy: 'Destroy general frame'
+        new: 'New general frame'
+      student_studies:
+        destroy_confirmation: 'Are you sure you want to delete this student study?'
+        none_found: 'University has registered no student studies.'
+        edit: 'Edit student study'
+        destroy: 'Destroy student study'
+        new: 'New student study'
+      employer_studies:
+        destroy_confirmation: 'Are you sure you want to delete this employer study?'
+        none_found: 'University has registered no employer studies.'
+        edit: 'Edit employer study'
+        destroy: 'Destroy employer study'
+        new: 'New employer study'
+      public_source_studies:
+        destroy_confirmation: 'Are you sure you want to delete this public source study?'
+        none_found: 'University has registered no public source studies.'
+        edit: 'Edit public source study'
+        destroy: 'Destroy public source study'
+        new: 'New public source study'
+      agreement_source_studies:
+        destroy_confirmation: 'Are you sure you want to delete this agreement source study?'
+        none_found: 'University has registered no agreement source studies.'
+        edit: 'Edit agreement source study'
+        destroy: 'Destroy agreement source study'
+        new: 'New agreement source study'
+      database_studies:
+        destroy_confirmation: 'Are you sure you want to delete this database study?'
+        none_found: 'University has registered no database studies.'
+        edit: 'Edit database study'
+        destroy: 'Destroy database study'
+        new: 'New database study'
+      other_studies:
+        destroy_confirmation: 'Are you sure you want to delete this other study?'
+        none_found: 'University has registered no other studies.'
+        edit: 'Edit other study'
+        destroy: 'Destroy other study'
+        new: 'New other study'

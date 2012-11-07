@@ -3,6 +3,6 @@ en:
     show:
       header: "%{university}'s activity report for year %{year}"
       activities: 'Activities'
-      sources: 'Sources'
+      sources: 'Studies'
       edit: 'Edit'
       back: 'Back'

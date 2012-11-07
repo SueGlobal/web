@@ -31,6 +31,58 @@ class UniversityDecorator < Draper::Base
   #                   :class => 'timestamp'
   #   end
 
+  def render_services
+    render_dependent_models :services, 'service_line_item', Service
+  end
+
+  def render_achieved_activities
+    render_dependent_models :achieved_activities, 'achieved_activity_line_item', AchievedActivity
+  end
+
+  def render_general_frames
+    render_dependent_models :general_frames, 'general_frame_line_item', GeneralFrame
+  end
+  def render_student_studies
+    render_dependent_models :student_studies, "study_line_item", StudentStudy
+  end
+
+  def render_employer_studies
+    render_dependent_models :employer_studies, "study_line_item", EmployerStudy
+  end
+
+  def render_public_source_studies
+    render_dependent_models :public_source_studies, "study_line_item", PublicSourceStudy
+  end
+
+  def render_agreement_source_studies
+    render_dependent_models :agreement_source_studies, "study_line_item", AgreementSourceStudy
+  end
+
+  def render_database_studies
+    render_dependent_models :database_studies, "study_line_item", DatabaseStudy
+  end
+
+  def render_other_studies
+    render_dependent_models :other_studies, "study_line_item", OtherStudy
+  end
+
+  def render_dependent_models assoc, item_partial, klass = nil
+    b = h.render partial: 'university_dependent_model_list',
+              locals: locals_for_dependent_models_partial(assoc, item_partial, klass)
+    b
+  end
+
+  def locals_for_dependent_models_partial(assoc, item_partial, klass)
+    Hash.new.tap do |locals|
+      locals[:objects] = university.send(assoc)
+      locals[:item_partial] = item_partial
+      locals[:university] = university
+      locals[:klass] = klass || Object.const_get(assoc.to_s.singularize.camelize)
+      locals[:model_name] = locals[:klass].name.underscore
+      locals[:model_name_plural] = locals[:model_name].pluralize
+    end
+  end
+
   def general_frame_years
     @general_frame_years ||= GeneralFrame.where(university_id: university.id).order('year ASC').uniq.pluck(:year)
   end

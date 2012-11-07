@@ -18,7 +18,7 @@ class UniversitiesController < ApplicationController
   # GET /universities/1
   # GET /universities/1.json
   def show
-    @university = University.find(params[:id])
+    @university = UniversityDecorator.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -42,7 +42,7 @@ class UniversitiesController < ApplicationController
   # POST /universities
   # POST /universities.json
   def create
-    emails = (params[:university][:admin_emails] || "").split(',')
+    emails = (params[:university][:admin_emails] || "").split(',').map(&:strip)
     register = UniversityRegister.new(@university, emails)
     respond_to do |format|
       if register.save

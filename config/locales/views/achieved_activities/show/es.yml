@@ -3,6 +3,6 @@ es:
     show:
       header: "Informe de actividades de %{university} del %{year}"
       activities: 'Actividades'
-      sources: 'Fuentes'
+      sources: 'Estudios'
       edit: 'Editar'
       back: 'Atrás'

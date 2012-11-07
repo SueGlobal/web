@@ -1,59 +1,5 @@
 es:
   universities:
     show:
-      services:
-        none_found: 'La universidad no ha registrado ningún servicio de empleo.'
-        edit: 'Editar servicio'
-        destroy: 'Borrar servicio'
-        destroy_confirmation: '¿Está seguro de querer borrar este servicio?'
-        new: 'Nuevo servicio'
-      achieved_activities:
-        none_found: 'La universidad no ha registrado ningún actividad.'
-        edit: 'Editar actividad'
-        destroy: 'Borrar actividad'
-        destroy_confirmation: '¿Está seguro de querer borrar este actividad?'
-        new: 'Nueva actividad'
-      general_frames:
-        none_found: 'La universidad no ha registrado ningún marco general.'
-        edit: 'Editar marco general'
-        destroy: 'Borrar marco general'
-        destroy_confirmation: '¿Está seguro de querer borrar este marco general?'
-        new: 'Nuevo marco general'
-      student_studies:
-        none_found: 'La universidad no ha registrado ningún estudio realizado sobre los estudiantes.'
-        edit: 'Editar estudio realizado sobre los estudiantes'
-        destroy: 'Borrar estudio realizado sobre los estudiantes'
-        destroy_confirmation: '¿Está seguro de querer borrar este estudio realizado sobre los estudiantes?'
-        new: 'Nuevo estudio realizado sobre los estudiantes'
-      employer_studies:
-        none_found: 'La universidad no ha registrado ningún estudio realizado sobre los empleadores.'
-        edit: 'Editar estudio realizado sobre los empleadores'
-        destroy: 'Borrar estudio realizado sobre los empleadores'
-        destroy_confirmation: '¿Está seguro de querer borrar este estudio realizado sobre los empleadores?'
-        new: 'Nuevo estudio realizado sobre los empleadores'
-      public_source_studies:
-        none_found: 'La universidad no ha registrado ningún estudio realizado a partir de la información de fuentes secundarias de acceso público.'
-        edit: 'Editar estudio realizado a partir de fuentes secundarias públicas'
-        destroy: 'Borrar estudio realizado a partir de fuentes secundarias públicas'
-        destroy_confirmation: '¿Está seguro de querer borrar este estudio realizado a partir de fuentes secundarias públicas?'
-        new: 'Nuevo estudio realizado a partir de fuentes secundarias públicas'
-      agreement_source_studies:
-        none_found: 'La universidad no ha registrado ningún estudio realizado a partir de datos provenientes de un acuerdo o convenio.'
-        edit: 'Editar estudio realizado a partir de datos provenientes de un acuerdo o convenio'
-        destroy: 'Borrar estudio realizado a partir de datos provenientes de un acuerdo o convenio'
-        destroy_confirmation: '¿Está seguro de querer borrar este estudio?'
-        new: 'Nuevo estudio'
-      database_studies:
-        none_found: 'La universidad no ha registrado ningún estudio realizado a partir de las bases de datos de los servicios de empleo universitarios.'
-        edit: 'Editar estudio'
-        destroy: 'Borrar estudio'
-        destroy_confirmation: '¿Está seguro de querer borrar este estudio?'
-        new: 'Nuevo estudio'
-      other_studies:
-        none_found: 'La universidad no ha registrado ningún estudio de otro tipo'
-        edit: 'Editar estudio de otro tipo'
-        destroy: 'Borrar estudio de otro tipo'
-        destroy_confirmation: '¿Está seguro de querer borrar este estudio?'
-        new: 'Nuevo estudio de otro tipo'
       edit: 'Editar'
       back: 'Atrás'

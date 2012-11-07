@@ -7,9 +7,9 @@ en:
       activities:
         legend: 'Activities'
         paragraph: 'Activities...'
-      sources:
-        legend: 'Sources'
-        paragraph: 'Sources...'
+      studies:
+        legend: 'Studies'
+        paragraph: 'Studies...'
   helpers:
     submit:
       achieved_activities:
