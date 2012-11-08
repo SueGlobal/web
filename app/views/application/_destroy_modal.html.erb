@@ -1,0 +1,14 @@
+<div id="destroy-modal" class="modal hide fade in" role="dialog" tabindex="-1" aria-labelledby="destroy-modal-label">
+	<div class="modal-header">
+		<button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 id="destroy-modal-label"><%= t '.modal_header' %></h3>
+	</div>
+	<div class="modal-body">
+		<p class="message"></p>
+    <p class="disclaimer"><%= t '.modal_disclaimer' %></p>
+	</div>
+	<div class="modal-footer">
+    <a href="#destroy-modal" data-dismiss="modal" class="btn close-modal"><%= t 'actions.close' %></a>
+    <%= link_to t('actions.delete'), '#', remote: true, method: :delete, :class => 'btn btn-primary destroy close-modal' %>
+	</div>
+</div>

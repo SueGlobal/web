@@ -76,6 +76,7 @@ class AchievedActivitiesController < UniversityDependentModelController
     respond_to do |format|
       format.html { redirect_to @university, notice: t2('destroy.notice') }
       format.json { head :no_content }
+      format.js { render partial: 'destroy_animation', locals: { resource: @achieved_activity } }
     end
   end
 

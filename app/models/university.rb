@@ -55,4 +55,8 @@ class University < ActiveRecord::Base
   def name_for_slug
     (abbreviation || "").delete "."
   end
+
+  def to_key
+    [slug]
+  end
 end

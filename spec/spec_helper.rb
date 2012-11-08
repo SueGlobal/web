@@ -75,6 +75,11 @@ Spork.prefork do
     end
 
     config.before :each do
+      if Capybara.current_driver = :rack_test
+        DatabaseCleaner[:active_record].strategy = :transaction
+      else
+        DatabaseCleaner[:active_record].strategy = :truncation
+      end
       DatabaseCleaner[:active_record].start
       ActionMailer::Base.deliveries.clear
     end

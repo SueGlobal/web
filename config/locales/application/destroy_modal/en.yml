@@ -1,0 +1,5 @@
+en:
+  application:
+    destroy_modal:
+      modal_header: 'Delete this record'
+      modal_disclaimer: 'Take into account that, once deleted, it will not be recoverable.'

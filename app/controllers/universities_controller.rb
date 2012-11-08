@@ -77,6 +77,7 @@ class UniversitiesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to universities_url }
       format.json { head :no_content }
+      format.js { render partial: 'destroy_animation', locals: { resource: @university } }
     end
   end
 

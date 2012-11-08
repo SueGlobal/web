@@ -76,6 +76,7 @@ class OtherStudiesController < StudyController
     respond_to do |format|
       format.html { redirect_to university_path(@university), notice: t2('destroy.notice') }
       format.json { head :no_content }
+      format.js { render partial: 'destroy_animation', locals: { resource: @other_study } }
     end
   end
 

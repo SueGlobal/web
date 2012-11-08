@@ -7,7 +7,7 @@
 
   <tbody>
     <% studies.each do |study| %>
-      <tr>
+      <%= content_tag_for :tr, study do %>
         <td><%=link_to study.basic_question.title, study %></td>
         <td><%= study.basic_question.year %></td>
         <td>
@@ -27,8 +27,8 @@
             <% end -%>
           </ul>
         </td>
-      </tr>
-    <% end %>
+      <% end -%>
+    <% end -%>
   </tbody>
 </table>
 

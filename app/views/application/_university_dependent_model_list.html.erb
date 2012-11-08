@@ -9,24 +9,24 @@
 
     <ul id="<%= model_name_plural %>">
       <% objects.each do |o| -%>
-        <li>
-        <%= render  partial: item_partial,
-                    object: o %>
-        <span class="actions">
-          <% if can? :edit, o -%>
-            <%= edit_link polymorphic_path(o, action: 'edit') %>
-          <% end -%>
-          <% if can? :destroy, o -%>
-            <%= destroy_link  polymorphic_path(o),
-                              method: :delete,
-                              data: {confirm: t(".#{model_name_plural}.destroy_confirmation") } %>
+        <%= content_tag_for :li, o do %>
+          <%= render  partial: item_partial,
+            object: o %>
+          <span class="actions">
+            <% if can? :edit, o -%>
+              <%= edit_link polymorphic_path(o, action: 'edit') %>
+            <% end -%>
+            <% if can? :destroy, o -%>
+              <%= destroy_link  polymorphic_path(o),
+                method: :delete,
+                data: {confirm: t(".#{model_name_plural}.destroy_confirmation") } %>
             <% end -%>
           </span>
-          </li>
         <% end -%>
-      </ul>
-    <% else -%>
-      <p><%= t ".#{model_name_plural}.none_found" %></p>
-    <% end -%>
-    <%= link_to_if can?(:edit, @university), t(".#{model_name_plural}.new"), polymorphic_path([@university, model_name], action: 'new'), :class => 'btn' do "" end %>
+      <% end -%>
+    </ul>
+  <% else -%>
+    <p><%= t ".#{model_name_plural}.none_found" %></p>
+  <% end -%>
+  <%= link_to_if can?(:edit, @university), t(".#{model_name_plural}.new"), polymorphic_path([@university, model_name], action: 'new'), :class => 'btn' do "" end %>
 </div>

@@ -13,7 +13,7 @@
   </tr>
 
 <% @services.each do |service| %>
-  <tr>
+  <%= content_tag_for :tr, service do %>
     <td><%= service.name %></td>
     <td><%= service.dependency %></td>
     <td>
@@ -26,8 +26,8 @@
                          data: { confirm: t('.destroy_confirmation') } %>
       <% end -%>
     </td>
-  </tr>
-<% end %>
+  <% end -%>
+<% end -%>
 </table>
 
 <br />

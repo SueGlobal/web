@@ -6,3 +6,4 @@ es:
     destroy: "Borrar"
     index: 'Listado'
     new: 'Nuevo'
+    close: 'Cerrar'

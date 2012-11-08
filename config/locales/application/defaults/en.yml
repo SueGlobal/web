@@ -6,3 +6,4 @@ en:
     destroy: "Remove"
     index: 'Index'
     new: 'New'
+    close: 'Close'

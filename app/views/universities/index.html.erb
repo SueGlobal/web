@@ -13,7 +13,7 @@
 
   <tbody>
     <% @universities.each do |university| %>
-      <tr>
+      <%= content_tag_for :tr, university do %>
         <td>
           <%= link_to university.name, university %>
           <span class="university_abbreviation">(<%= university.abbreviation %>)</span>
@@ -30,7 +30,7 @@
             <% end -%>
           </ul>
         </td>
-      </tr>
+      <% end -%>
     <% end %>
   </tbody>
 </table>

@@ -16,4 +16,8 @@ module UniversityDependentModel
   def name_for_slug
     "#{university.abbreviation} #{column_for_slug}".delete "."
   end
+
+  def to_key
+    [slug]
+  end
 end

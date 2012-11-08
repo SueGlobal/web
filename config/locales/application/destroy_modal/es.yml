@@ -1,0 +1,5 @@
+es:
+  application:
+    destroy_modal:
+      modal_header: 'Borrar registro'
+      modal_disclaimer: 'Tenga en cuenta que, una vez borrado, no podrá recuperarse.'

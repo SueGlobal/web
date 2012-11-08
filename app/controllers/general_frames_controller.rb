@@ -75,6 +75,7 @@ class GeneralFramesController < UniversityDependentModelController
     respond_to do |format|
       format.html { redirect_to @general_frame.university, notice: t2('destroy.notice') }
       format.json { head :no_content }
+      format.js { render partial: 'destroy_animation', locals: { resource: @general_frame } }
     end
   end
 

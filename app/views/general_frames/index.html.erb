@@ -12,7 +12,7 @@
   </tr>
 
 <% @general_frames.each do |general_frame| %>
-  <tr>
+  <%= content_tag_for :tr, general_frame do %>
     <td><%= link_to general_frame.year, general_frame %></td>
     <td>
       <% if can? :edit, general_frame -%>
@@ -24,7 +24,7 @@
                           data: { confirm: t('.destroy_confirmation')} %>
       <% end -%>
     </td>
-  </tr>
+  <% end -%>
 <% end %>
 </table>
 
