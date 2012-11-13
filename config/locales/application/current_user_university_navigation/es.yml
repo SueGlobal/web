@@ -1,6 +1,8 @@
 es:
   application:
     current_user_university_navigation:
+      university: 'Ficha'
+      add_user: 'Añadir usuarios'
       service:
         new: 'Nuevo servicio'
       achieved_activity:

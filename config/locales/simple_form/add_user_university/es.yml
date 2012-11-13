@@ -6,5 +6,7 @@ es:
     hints:
       add_user:
         email: 'Lista de direcciones de correos separadas por comas.'
-  helper:
-    submit: 'Añadir usuarios'
+  helpers:
+    submit:
+      add_user:
+        submit: 'Añadir usuario'
