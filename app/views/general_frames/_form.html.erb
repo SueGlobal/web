@@ -20,8 +20,8 @@
   <%= optional_numeric_field_for :number_of_campus, f %>
 
   <fieldset class="graduates">
-    <legend><%= t '.graduates_legend' %></legend>
-
+    <legend><%= t '.graduates.legend' %></legend>
+    <p class="explanation"><%= t ('.graduates.explanation') %></p>
     <ol class="options">
       <% GeneralFrame::GRADUATES.each do |field| -%>
         <%= optional_numeric_field_for field, f, :li %>
@@ -30,7 +30,7 @@
   </fieldset>
 
   <fieldset class="qualifications">
-    <legend><%= t '.qualifications_legend' %></legend>
+    <legend><%= t '.qualifications.legend' %></legend>
     <ol class="options">
       <% GeneralFrame::QUALIFICATIONS.each do |field| -%>
         <%= optional_numeric_field_for field, f, :li %>

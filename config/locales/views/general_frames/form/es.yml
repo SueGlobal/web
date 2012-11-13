@@ -4,8 +4,11 @@ es:
       errors_header:
         one: 'No se pudo guardar el marco general por un error:'
         other: 'No se pudo guardar el marco general por %{count} errores:'
-      graduates_legend: 'Número de egresados'
-      qualifications_legend: 'Número de titulaciones'
+      graduates:
+        legend: 'Número de egresados'
+        explanation: 'Se considera egresado a todo aquel que haya abonado el importe del título correspondiente'
+      qualifications:
+        legend: 'Número de titulaciones'
       explanation: 'Selecciona cada campo del que dispongas información y añade el dato correspondiente.'
   helpers:
     submit:
