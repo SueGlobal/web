@@ -19,7 +19,8 @@ class UniversityChangeRequest < ActiveRecord::Base
   def complete_request
     if pending?
       self.state = 'done'
-      send_notification_email if save
+      user.university = university
+      send_notification_email if user.save
     end
   end
 

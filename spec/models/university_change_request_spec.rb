@@ -54,8 +54,9 @@ describe UniversityChangeRequest do
   end
 
   describe '#complete_request' do
+    let(:user) { create :user }
     context 'when ucr is done' do
-      let!(:ucr) { create :university_change_request, :done }
+      let!(:ucr) { create :university_change_request, :done, user: user }
 
       it "is still done" do
         ucr.complete_request
@@ -70,7 +71,7 @@ describe UniversityChangeRequest do
     end
 
     context 'when ucr is pending' do
-      let!(:ucr) { create :university_change_request, :pending }
+      let!(:ucr) { create :university_change_request, :pending, user: user }
 
       it "is done" do
         ucr.complete_request
@@ -81,6 +82,11 @@ describe UniversityChangeRequest do
         expect {
           ucr.complete_request
         }.to change { number_of_emails }.by(1)
+      end
+
+      it "sets the university to the user" do
+        ucr.complete_request
+        expect(user.reload.university).to eq(ucr.university)
       end
     end
   end
