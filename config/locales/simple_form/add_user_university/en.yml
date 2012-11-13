@@ -1,0 +1,10 @@
+es:
+  simple_form:
+    labels:
+      add_user:
+        email: 'Email addresses'
+    hints:
+      add_user:
+        email: 'Comma-separated list of email addresses'
+  helper:
+    submit: 'Add users'

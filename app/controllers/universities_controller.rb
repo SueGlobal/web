@@ -2,7 +2,7 @@
 class UniversitiesController < ApplicationController
   load_and_authorize_resource except: [:index, :show]
   before_filter :require_login, except: [:index, :show]
-  before_filter :add_breadcrumb_for_university, only: [:edit, :update]
+  before_filter :add_breadcrumb_for_university, only: [:add_user, :edit, :update]
 
   # GET /universities
   # GET /universities.json
@@ -42,7 +42,7 @@ class UniversitiesController < ApplicationController
   # POST /universities
   # POST /universities.json
   def create
-    emails = (params[:university][:admin_emails] || "").split(',').map(&:strip)
+    emails = get_emails_from(params[:university][:admin_emails])
     register = UniversityRegister.new(@university, emails)
     respond_to do |format|
       if register.save
@@ -81,10 +81,27 @@ class UniversitiesController < ApplicationController
     end
   end
 
+  # GET /universities/1/add_user
+  # GET /universities/1/add_user.json
+  def add_user
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def do_add_user
+    @register = UniversityRegister.new @university, get_emails_from(params[:add_user][:email])
+    @register.save
+  end
+
   protected
 
   def add_breadcrumb_for_university
     add_breadcrumb @university.abbreviation, university_path(@university)
+  end
+
+  def get_emails_from attr
+    (attr || "").split(',').map(&:strip)
   end
 
   def t2 path

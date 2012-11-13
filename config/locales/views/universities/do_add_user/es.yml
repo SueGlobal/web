@@ -1,0 +1,14 @@
+es:
+  universities:
+    do_add_user:
+      header: 'Usuarios añadidos'
+      success:
+        par: 'Todos los usuarios son ya administradores de tu universidad'
+        header: 'Nuevos administradores'
+        explanation: 'Los siguientes usuarios pueden administrar ahora tu universidad.'
+      pending_users:
+        header: 'Usuarios pendientes'
+        explanation: 'Los siguientes usuarios han recibido un correo de confirmación para administrar tu universidad.'
+      failed_users:
+        header: 'Fallos'
+        explanation: "Por alguna razón, no se pudo realizar el cambio de estos usuarios."

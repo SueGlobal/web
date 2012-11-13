@@ -1,0 +1,17 @@
+Good day!
+
+We have received a request of making you an administrator for
+<%= @university.name %> (<%= @university.abbreviation %>).
+
+<% if @previous_university -%>
+By accepting this request, you will no longer manage
+<%= @previous_university.name %>.
+<% end -%>
+
+If you accept this request, please follow this link
+
+<%= @url %>
+
+If you don't want to accept it, just ignore this email.
+
+Have a nice day!

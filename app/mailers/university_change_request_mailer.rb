@@ -1,5 +1,6 @@
+# -*- encoding : utf-8 -*-
 class UniversityChangeRequestMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: APP_CONFIG[:email_address]
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -7,9 +8,10 @@ class UniversityChangeRequestMailer < ActionMailer::Base
   #   en.university_change_request_mailer.request.subject
   #
   def request_email ucr
-    @greeting = "Hi"
+    extract_variables ucr
+    @url = accept_change_request_url(ucr.token)
 
-    mail to: "to@example.org"
+    mail to: @user.email
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -18,8 +20,15 @@ class UniversityChangeRequestMailer < ActionMailer::Base
   #   en.university_change_request_mailer.acceptance.subject
   #
   def acceptance_email ucr
-    @greeting = "Hi"
+    extract_variables ucr
 
-    mail to: "to@example.org"
+    mail to: @user.email
+  end
+
+  protected
+  def extract_variables ucr
+    @user = ucr.user
+    @university = ucr.university
+    @previous_university = ucr.previous_university
   end
 end

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateUniversityChangeRequests < ActiveRecord::Migration
   def change
     create_table :university_change_requests do |t|

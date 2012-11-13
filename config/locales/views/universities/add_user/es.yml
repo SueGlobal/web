@@ -1,0 +1,4 @@
+es:
+  universities:
+    add_user:
+      header: 'Añadir usuarios'

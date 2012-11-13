@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106094005) do
+ActiveRecord::Schema.define(:version => 20121112135226) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -102,6 +102,8 @@ ActiveRecord::Schema.define(:version => 20121106094005) do
     t.datetime "updated_at",     :null => false
   end
 
+  add_index "basic_questions", ["studiable_id", "studiable_type"], :name => "index_basic_questions_on_studiable_id_and_studiable_type"
+
   create_table "class_year_questions", :force => true do |t|
     t.string   "time_from_graduation_type"
     t.text     "time_from_graduation_other"
@@ -168,6 +170,7 @@ ActiveRecord::Schema.define(:version => 20121106094005) do
     t.text     "notes"
   end
 
+  add_index "employer_studies", ["slug"], :name => "index_employer_studies_on_slug"
   add_index "employer_studies", ["university_id"], :name => "index_employer_studies_on_university_id"
 
   create_table "field_work_questions", :force => true do |t|
@@ -186,6 +189,8 @@ ActiveRecord::Schema.define(:version => 20121106094005) do
     t.boolean  "other_check"
   end
 
+  add_index "field_work_questions", ["studiable_id", "studiable_type"], :name => "index_field_work_questions_on_studiable_id_and_studiable_type"
+
   create_table "funding_questions", :force => true do |t|
     t.boolean  "fixed_state_funding"
     t.boolean  "variable_state_funding"
@@ -197,6 +202,7 @@ ActiveRecord::Schema.define(:version => 20121106094005) do
     t.datetime "updated_at",               :null => false
   end
 
+  add_index "funding_questions", ["studiable_id", "studiable_type"], :name => "index_funding_questions_on_studiable_id_and_studiable_type"
   add_index "funding_questions", ["studiable_id"], :name => "index_funding_questions_on_studiable_id"
 
   create_table "general_frames", :force => true do |t|
@@ -365,6 +371,8 @@ ActiveRecord::Schema.define(:version => 20121106094005) do
     t.datetime "updated_at",                    :null => false
   end
 
+  add_index "sample_questions", ["studiable_id", "studiable_type"], :name => "index_sample_questions_on_studiable_id_and_studiable_type"
+
   create_table "services", :force => true do |t|
     t.string   "name"
     t.string   "dependency"
@@ -386,6 +394,8 @@ ActiveRecord::Schema.define(:version => 20121106094005) do
     t.integer  "studiable_id"
     t.string   "studiable_type"
   end
+
+  add_index "software_questions", ["studiable_id", "studiable_type"], :name => "index_software_questions_on_studiable_id_and_studiable_type"
 
   create_table "source_questions", :force => true do |t|
     t.text     "source"
@@ -453,7 +463,7 @@ ActiveRecord::Schema.define(:version => 20121106094005) do
   end
 
   add_index "study_periodicity_questions", ["periodicity_id"], :name => "index_study_periodicity_questions_on_periodicity_id"
-  add_index "study_periodicity_questions", ["studiable_id"], :name => "index_study_periodicity_questions_on_studiable_id"
+  add_index "study_periodicity_questions", ["studiable_id", "studiable_type"], :name => "index_study_periodicity_on_studiable"
 
   create_table "universities", :force => true do |t|
     t.string   "name"
@@ -466,6 +476,22 @@ ActiveRecord::Schema.define(:version => 20121106094005) do
 
   add_index "universities", ["abbreviation"], :name => "index_universities_on_abbreviation", :unique => true
   add_index "universities", ["slug"], :name => "index_universities_on_slug", :unique => true
+
+  create_table "university_change_requests", :force => true do |t|
+    t.integer  "university_id"
+    t.integer  "user_id"
+    t.string   "token"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.string   "state"
+    t.integer  "previous_university_id"
+  end
+
+  add_index "university_change_requests", ["previous_university_id"], :name => "index_university_change_requests_on_previous_university_id"
+  add_index "university_change_requests", ["state"], :name => "index_university_change_requests_on_state"
+  add_index "university_change_requests", ["token"], :name => "index_university_change_requests_on_token"
+  add_index "university_change_requests", ["university_id"], :name => "index_university_change_requests_on_university_id"
+  add_index "university_change_requests", ["user_id"], :name => "index_university_change_requests_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"

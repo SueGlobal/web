@@ -1,0 +1,15 @@
+<h1><%= t '.header' %></h1>
+
+<%= simple_form_for(:add_user,
+                    { url: add_user_university_path(@university),
+                      method: :post,
+                      id: 'add_user_form'}) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :email, as: :string %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end -%>

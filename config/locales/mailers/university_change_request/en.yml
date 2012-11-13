@@ -1,0 +1,6 @@
+en:
+  university_change_request_mailer:
+    request_email:
+      subject: 'University Change Request'
+    acceptance:
+      subject_email: 'University Change Accepted'

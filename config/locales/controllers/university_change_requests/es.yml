@@ -1,0 +1,5 @@
+es:
+  controllers:
+    university_change_requests:
+      accept:
+        notice: 'Cambio aceptado.'

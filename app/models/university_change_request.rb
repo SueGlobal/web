@@ -1,9 +1,12 @@
+# -*- encoding : utf-8 -*-
 class UniversityChangeRequest < ActiveRecord::Base
   belongs_to :university
+  belongs_to :previous_university, class_name: 'University'
   belongs_to :user
   attr_accessible :token, :user, :university, :state
   after_create :send_notification_email
   before_create :set_token
+  before_create :set_previous_university
 
   def done?
     self.state == 'done'
@@ -11,6 +14,13 @@ class UniversityChangeRequest < ActiveRecord::Base
 
   def pending?
     self.state == 'pending'
+  end
+
+  def complete_request
+    if pending?
+      self.state = 'done'
+      send_notification_email if save
+    end
   end
 
   class << self
@@ -23,9 +33,17 @@ class UniversityChangeRequest < ActiveRecord::Base
       end
     end
 
+    def do_change token
+      ucr = self.where(state: 'pending', token: token).first
+      ucr.complete_request if ucr
+    end
   end
 
   protected
+
+  def set_previous_university
+    self.previous_university = user.university
+  end
 
   def set_token
     self.token = ::Sorcery::Model::TemporaryToken.generate_random_token

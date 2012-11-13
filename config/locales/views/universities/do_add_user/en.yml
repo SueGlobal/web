@@ -1,0 +1,14 @@
+en:
+  universities:
+    do_add_user:
+      header: 'Added users.'
+      success:
+        par: 'All users are now admin of your university.'
+        header: 'New admin users'
+        explanation: 'Following users can already manage your university'
+      pending_users:
+        header: 'Pending users'
+        explanation: 'These users have reveived an email asking them to accept the new role.'
+      failed_users:
+        header: 'Fails'
+        explanation: "These users couldn't be added to its new role."

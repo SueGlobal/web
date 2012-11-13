@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 SueGlobal::Application.routes.draw do
 
+  get "accept_change_request/:token", to: "university_change_request#accept", as: "accept_change_request"
+
   filter :locale
   resources :password_resets, only: [:create, :update, :edit]
   resources :user_sessions
@@ -16,6 +18,11 @@ SueGlobal::Application.routes.draw do
     resources :agreement_source_studies, shallow: true
     resources :database_studies, shallow: true
     resources :other_studies, shallow: true
+
+    member do
+      get 'add_user'
+      post 'add_user', action: 'do_add_user'
+    end
   end
 
   match 'login' => 'user_sessions#new', as: :login

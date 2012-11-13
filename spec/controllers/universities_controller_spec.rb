@@ -344,4 +344,106 @@ describe UniversitiesController do
       it_behaves_like "user is not authorized"
     end
   end
+
+  describe "GET add_user" do
+
+    before :each do
+      login_user user if user
+    end
+
+    context "when there is no user logged in" do
+      let(:user) { nil }
+
+      before :each do
+        get :add_user, {id: university.to_param}, valid_session
+      end
+
+      it_behaves_like "user is not authenticated"
+    end
+
+    context "when user is logged in" do
+      let(:user) { create :user }
+
+      context "when user cannot add user" do
+
+        before :each do
+          controller.should_receive(:authorize!).and_raise(CanCan::AccessDenied)
+          get :add_user, {id: university.to_param}, valid_session
+        end
+
+        it_behaves_like "user is not authorized"
+      end
+
+      context "when user can add user" do
+        let(:user) { create :user }
+
+        before :each do
+          controller.should_receive(:authorize!).and_return(true)
+          get :add_user, {id: university.to_param}, valid_session
+        end
+
+        it "renders the view" do
+          expect(response).to render_template('add_user')
+        end
+      end
+    end
+  end
+
+  context "POST do_add_user" do
+    before :each do
+      login_user user if user
+    end
+
+    context "when there is no user logged in" do
+      let(:user) { nil }
+
+      before :each do
+        post :do_add_user, {id: university.to_param}, valid_session
+      end
+
+      it_behaves_like "user is not authorized"
+    end
+
+    context "when there is a user logged in" do
+      let(:user) { create :user }
+
+      context "when user can actually add_users" do
+        before :each do
+          controller.should_receive(:authorize!).and_return(true)
+          expect {
+            put :do_add_user,
+            { id: university.to_param,
+              add_user: { email: attributes_for_list(:user, 2).map{|x| x[:email]}.join(', ') }},
+              valid_session
+          }.to change(User, :count).by(2)
+        end
+
+        it "assigns university" do
+          expect(assigns(:university)).to be_a(University)
+        end
+
+        it "assigns a university register" do
+          expect(assigns(:register)).to be_a(UniversityRegister)
+        end
+
+        it "renders a proper template" do
+          expect(response).to render_template("do_add_user")
+        end
+      end
+
+      context "when user cannot add user" do
+        before :each do
+          controller.should_receive(:authorize!).and_raise(CanCan::AccessDenied)
+          expect {
+            put :do_add_user,
+            { id: university.to_param,
+              add_user: { email: attributes_for_list(:user, 2).map{|x| x[:email]}.join(', ') }},
+              valid_session
+          }.not_to change(User, :count)
+        end
+
+        it_behaves_like "user is not authorized"
+      end
+    end
+  end
 end

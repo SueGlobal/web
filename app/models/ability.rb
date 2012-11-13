@@ -6,6 +6,7 @@ class Ability
     Service, GeneralFrame, AchievedActivity,
     StudentStudy, EmployerStudy, PublicSourceStudy,
     AgreementSourceStudy, DatabaseStudy, OtherStudy]
+  ADD_USER_PERMITS = [:add_user, :do_add_user]
 
   def initialize(user)
     # Define abilities for the passed in (current) user. For example:
@@ -43,14 +44,18 @@ class Ability
   end
 
   def simple_abilities user
-    can :manage, UNIVERSITY_DEPENDENT_MODELS , university_id: user.university_id
-    can [:edit, :update], University, id: user.university_id
+    if user.university_id
+      can ADD_USER_PERMITS, University, id: user.university_id
+      can :manage, UNIVERSITY_DEPENDENT_MODELS , university_id: user.university_id
+      can [:edit, :update], University, id: user.university_id
+    end
     cannot [:new, :create], University
     can [:read, :update], User, id: user.id
     cannot :index, User
   end
 
   def admin_abilities user
+    can ADD_USER_PERMITS, University
     can :manage, UNIVERSITY_DEPENDENT_MODELS
     can :manage, University
     cannot :destroy, University

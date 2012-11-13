@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def change_university_to university
+    UniversityChangeRequest.change(user: self, university: university)
+  end
+
   private
   def ensure_one_role_is_set
     self.roles = [:simple] if self.roles_mask.zero?

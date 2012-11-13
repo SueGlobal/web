@@ -99,4 +99,21 @@ describe User do
       end
     end
   end
+
+  describe "#change_university_to" do
+    let(:user) { create :user, :active, university: nil }
+    let(:university) { create :university }
+
+    it "calls change on UniversityChangeRequest" do
+      UniversityChangeRequest.should_receive(:change).with(any_args())
+      user.change_university_to university
+    end
+
+    subject { user.change_university_to university }
+
+    it { should be_a(UniversityChangeRequest) }
+    it { should be_persisted }
+    its(:user) { should be(user) }
+    its(:university) { should be(university) }
+  end
 end

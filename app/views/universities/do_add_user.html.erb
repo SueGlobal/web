@@ -1,0 +1,35 @@
+<h1><%= t '.header' %></h1>
+
+<% if @register.success? -%>
+  <p><%= t '.success.par' %></p>
+<% end -%>
+
+<h2><%= t '.success.header' %></h2>
+<p><%= t '.success.explanation' %></p>
+
+<ol id='activated_users'>
+  <% @register.activated_users.each do |user| -%>
+    <li><%= user.email %></li>
+  <% end -%>
+</ol>
+
+<% if @register.pending_users.any? -%>
+  <h2><%= t '.pending_users.header' %></h2>
+  <p><%= t '.pending_users.explanation' %></p>
+  <ol id="pending_users">
+    <% @register.pending_users.each do |user| -%>
+      <li><%= user.email %></li>
+    <% end -%>
+  </ol>
+<% end -%>
+
+<% if @register.failed_users.any? -%>
+  <h2><%= t '.failed_users.header' %></h2>
+  <p><%= t '.failed_users.explanation' %></p>
+  <ol id="failed_users">
+    <% @register.failed_users.each do |user| -%>
+      <li><%= user.email %></li>
+    <% end -%>
+  </ol>
+<% end -%>
+

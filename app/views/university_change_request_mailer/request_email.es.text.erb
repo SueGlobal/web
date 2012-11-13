@@ -1,0 +1,16 @@
+¡Buen día!
+
+Hemos recibido una petición para hacerte administrador de
+<%= @university.name %> (<%= @university.abbreviation %>).
+
+<% if @previous_university -%>
+Si aceptas, ya no administrarás <%= @previous_university.name %>
+<% end -%>
+
+Si quieres aceptar la petición, ve al siguiente enlace:
+
+<%= @url %>
+
+Si no quieres aceptarla, ignora este email.
+
+¡Pasa un buen día!

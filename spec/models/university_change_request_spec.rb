@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe UniversityChangeRequest do
@@ -9,6 +10,10 @@ describe UniversityChangeRequest do
     it { should allow_mass_assignment_of(:user) }
     it { should allow_mass_assignment_of(:university) }
     it { should allow_mass_assignment_of(:state) }
+
+    it { should belong_to(:user) }
+    it { should belong_to(:university) }
+    it { should belong_to(:previous_university).class_name("University") }
   end
 
   describe '#done?' do
@@ -28,6 +33,78 @@ describe UniversityChangeRequest do
 
     it "returns false if ucr is pending" do
       create(:university_change_request, :done).should_not be_pending
+    end
+  end
+
+  describe "#previous_university" do
+    it "adds previous university if it exists" do
+      old_university = create :university
+      new_university = create :university
+      user = create :user, university: old_university
+      ucr = UniversityChangeRequest.create user: user, university: new_university
+      expect(ucr.previous_university).to be(old_university)
+    end
+
+    it "does not add previous university if it does not exist" do
+      new_university = create :university
+      user = create :user, university: nil
+      ucr = UniversityChangeRequest.create user: user, university: new_university
+      expect(ucr.previous_university).to be_nil
+    end
+  end
+
+  describe '#complete_request' do
+    context 'when ucr is done' do
+      let!(:ucr) { create :university_change_request, :done }
+
+      it "is still done" do
+        ucr.complete_request
+        ucr.should be_done
+      end
+
+      it "does not send any email" do
+        expect {
+          ucr.complete_request
+        }.not_to change { number_of_emails }.by(1)
+      end
+    end
+
+    context 'when ucr is pending' do
+      let!(:ucr) { create :university_change_request, :pending }
+
+      it "is done" do
+        ucr.complete_request
+        ucr.should be_done
+      end
+
+      it "sends and email" do
+        expect {
+          ucr.complete_request
+        }.to change { number_of_emails }.by(1)
+      end
+    end
+  end
+
+  describe '.do_change' do
+    let(:university) { create :university }
+    let(:user) { create :user }
+
+    context "if ucr exist" do
+      let(:ucr) { create :university_change_request, user: user, university: university }
+
+      it "calls change in ucr" do
+        UniversityChangeRequest.should_receive(:where).with(any_args()).and_return([ucr])
+        ucr.should_receive(:complete_request)
+        UniversityChangeRequest.do_change ucr.token
+      end
+    end
+
+    context "if ucr does not exist" do
+
+      it "does not fail" do
+        UniversityChangeRequest.should_receive(:where).with(any_args()).and_return([])
+        UniversityChangeRequest.do_change "some_unknown_token"
+      end
     end
   end
 
