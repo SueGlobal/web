@@ -2,8 +2,8 @@ es:
   activerecord:
     models:
       employer_study:
-        one: 'Estudio realizado sobre los empleadores'
-        other: 'Estudios realizados sobre los empleadores'
+        one: 'Estudio a empleadores'
+        other: 'Estudios a empleadores'
     attributes:
       employer_study:
         notes: 'Notas'

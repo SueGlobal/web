@@ -20,7 +20,7 @@ class UniversityChangeRequest < ActiveRecord::Base
     if pending?
       self.state = 'done'
       user.university = university
-      send_notification_email if user.save
+      send_notification_email if user.save && self.save
     end
   end
 

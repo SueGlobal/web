@@ -2,8 +2,8 @@ es:
   activerecord:
     models:
       student_study:
-        one: 'Estudio realizado sobre los universitarios'
-        other: 'Estudios realizados sobre los universitarios'
+        one: 'Estudio a universitarios'
+        other: 'Estudios a universitarios'
     attributes:
       student_study:
         notes: 'Notas'

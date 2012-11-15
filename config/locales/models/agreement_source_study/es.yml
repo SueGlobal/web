@@ -2,8 +2,8 @@ es:
   activerecord:
     models:
       agreement_source_study:
-        one: 'Estudio realizado a partir del análisis de datos obtenidos mediante convenio o acuerdo.'
-        other: 'Estudios realizados a partir del análisis de datos obtenidos mediante convenio o acuerdo'
+        one: 'Estudio realizado a partir de datos procedentes de fuentes secundarias, obtenidos mediante convenio o acuerdo'
+        other: 'Estudios realizados a partir de datos procedentes de fuentes secundarias, obtenidos mediante convenio o acuerdo'
     attributes:
       agreement_source_study:
         agreement_signers: 'Firmantes del Convenio'

@@ -5,6 +5,7 @@
       <%= new_link polymorphic_path([@university, model_name], action: 'new') %>
     <% end -%>
   </h2>
+  <p class="explanation"><%= t ".#{model_name_plural}.explanation" %></p>
   <% if objects.any? -%>
 
     <ul id="<%= model_name_plural %>">

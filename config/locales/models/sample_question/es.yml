@@ -6,7 +6,7 @@ es:
       sample_question:
         scope: 'Ámbito'
         population: 'Población objeto del estudio'
-        sampling_option: 'Tipo de muestreo'
+        sampling_option: 'Diseño muestral'
         non_probabilistic_description: 'Descripción de la técnica utilizada'
         sampling_type: 'Tipo de muestreo'
         disintegration_level: 'Nivel de desagregación'
