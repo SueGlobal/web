@@ -4,15 +4,16 @@ ul.boolean_list {
 
   li {
     list-style: none;
+    margin: 2px 0px;
   }
 
   .false {
     padding-left: 24px;
-    background: url(image-path('exclamation.png')) 0 1px no-repeat;
+    background: url(image-path('exclamation.png')) 0 2px no-repeat;
   }
 
   .true {
     padding-left: 24px;
-    background: url(image-path('tick.png')) 0 1px no-repeat;
+    background: url(image-path('tick.png')) 0 2px no-repeat;
   }
 }

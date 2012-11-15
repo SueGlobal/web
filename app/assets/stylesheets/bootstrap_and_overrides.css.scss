@@ -72,4 +72,13 @@ legend + .control-group {
 span.radio > input.radio_buttons {
   display: inline;
 }
+
+.field {
+  margin: 5px;
+
+  blockquote {
+    margin: 1px;
+  }
+}
+
 @import "bootstrap-responsive"

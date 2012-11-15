@@ -1,11 +1,15 @@
-<p>
-  <%= Periodicity.model_name.human(count: 1) %>
-  <span class="periodicity_type">
+<div class="periodicity field">
+  <p>
+  <span class="data-label">
+    <%= Periodicity.model_name.human(count: 1) %>:
+  </span>
+  <span class="data">
     <%= Periodicity.translate_option(periodicity.periodicity_type) %>
   </span>
-</p>
-<% if periodicity.other? -%>
-  <blockquote>
-    <%= periodicity.other_description %>
-  </blockquote>
-<% end -%>
+  </p>
+  <% if periodicity.other? -%>
+    <blockquote>
+      <%= periodicity.other_description %>
+    </blockquote>
+  <% end -%>
+</div>

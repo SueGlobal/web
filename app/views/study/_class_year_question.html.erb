@@ -25,7 +25,7 @@
       <% class_year_question.class_years.each do |cy| -%>
         <li>
           <%= cy.year %>
-          <span class="significant"><%= t(".significant.#{cy.significant}") %></span>
+          <span class="significant">(<%= t(".significant.#{cy.significant}") %>)</span>
         </li>
       <% end -%>
     </ul>
