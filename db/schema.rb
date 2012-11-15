@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112135226) do
+ActiveRecord::Schema.define(:version => 20121115094017) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -424,7 +424,6 @@ ActiveRecord::Schema.define(:version => 20121112135226) do
     t.boolean  "participates_european_institutions"
     t.boolean  "participates_labor_unions"
     t.boolean  "participates_professional_associations"
-    t.text     "participates_others"
     t.text     "reference_period"
     t.boolean  "variable_graduate_profile"
     t.boolean  "variable_complementary_activities"
@@ -446,9 +445,12 @@ ActiveRecord::Schema.define(:version => 20121112135226) do
     t.boolean  "participates_other_universities"
     t.integer  "university_id"
     t.boolean  "variable_other_check"
-    t.boolean  "participates_others_check"
     t.string   "slug"
     t.boolean  "variable_job_satisfaction"
+    t.text     "participates_internal_other"
+    t.boolean  "participates_internal_other_check"
+    t.text     "participates_external_other"
+    t.boolean  "participates_external_other_check"
   end
 
   add_index "student_studies", ["slug"], :name => "index_student_studies_on_slug", :unique => true

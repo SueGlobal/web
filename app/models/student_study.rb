@@ -26,7 +26,10 @@ class StudentStudy < ActiveRecord::Base
               :participates_labor_unions,
               :participates_professional_associations
             ],
-    other: [:participates_others]
+    other: [
+              :participates_internal_other,
+              :participates_external_other
+            ]
   }
 
   VARIABLES = [

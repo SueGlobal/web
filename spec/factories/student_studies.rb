@@ -26,8 +26,10 @@ FactoryGirl.define do
     participates_european_institutions false
     participates_labor_unions false
     participates_professional_associations false
-    participates_others_check false
-    participates_others "Others"
+    participates_internal_other_check false
+    participates_external_other_check false
+    participates_internal_other ""
+    participates_external_other ""
     reference_period "MyText"
     variable_graduate_profile false
     variable_complementary_activities false

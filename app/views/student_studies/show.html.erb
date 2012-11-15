@@ -19,6 +19,14 @@
                               text: StudentStudy.human_attribute_name(participates)} %>
         </li>
       <% end -%>
+      <% if @student_study.send("participates_internal_other_check") -%>
+        <li>
+        <%= StudentStudy.human_attribute_name("participates_internal_other_check") %>
+        <blockquote>
+          <%= @student_study.send(:participates_internal_other) %>
+        </blockquote>
+        </li>
+      <% end -%>
     </ul>
     </li>
     <li>
@@ -31,18 +39,16 @@
                               text: StudentStudy.human_attribute_name(participates)} %>
         </li>
       <% end -%>
-    </ul>
-    </li>
-    <% StudentStudy::PARTICIPATES[:other].each do |participates| -%>
-      <% if @student_study.send("#{participates}_check") -%>
+      <% if @student_study.send("participates_external_other_check") -%>
         <li>
-        <%= StudentStudy.human_attribute_name("#{participates}_check") %>
+        <%= StudentStudy.human_attribute_name("participates_external_other_check") %>
         <blockquote>
-          <%= @student_study.send(participates) %>
+          <%= @student_study.send(:participates_external_other) %>
         </blockquote>
         </li>
       <% end -%>
-    <% end -%>
+    </ul>
+    </li>
 	</ol>
 </div>
 

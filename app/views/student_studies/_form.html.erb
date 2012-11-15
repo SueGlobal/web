@@ -22,6 +22,10 @@
                         label_html: {:class => 'checkbox'} %>
             </li>
           <% end -%>
+          <%= render  partial: 'other_collapsable_field',
+                      object: :participates_internal_other,
+                      locals: { surrounding_tag: "li",
+                                f: f} %>
         </ol>
         </li>
         <li><%= t '.participation.extern' %>
@@ -33,13 +37,12 @@
                         label_html: {:class => 'checkbox'} %>
             </li>
           <% end -%>
+          <%= render  partial: 'other_collapsable_field',
+                      object: :participates_external_other,
+                      locals: { surrounding_tag: "li",
+                                f: f} %>
         </ol>
         </li>
-
-        <%= render  partial: 'other_collapsable_field',
-                    collection: StudentStudy::PARTICIPATES[:other],
-                    locals: { surrounding_tag: "li",
-                              f: f} %>
       </ol>
     </fieldset>
 
