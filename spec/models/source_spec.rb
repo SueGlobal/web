@@ -8,4 +8,6 @@ describe Source do
   it { should allow_mass_assignment_of(:name) }
   it { should allow_mass_assignment_of(:uri) }
   it { should_not allow_mass_assignment_of(:slug) }
+
+  it { should validate_presence_of(:name) }
 end

@@ -1,0 +1,18 @@
+es:
+  activerecord:
+    models:
+      source:
+        one: 'Fuente'
+        other: 'Fuentes'
+    attributes:
+      source:
+        name: 'Nombre'
+        url: 'URL'
+    errors:
+      models:
+        source:
+          attributes:
+            slug:
+              blank: 'No se generó el slug correctamente.'
+            name:
+              blank: 'Es necesario poner el nombre del servicio.'
