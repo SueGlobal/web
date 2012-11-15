@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115103428) do
+ActiveRecord::Schema.define(:version => 20121115123706) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -408,6 +408,16 @@ ActiveRecord::Schema.define(:version => 20121115103428) do
   end
 
   add_index "source_questions", ["studiable_id", "studiable_type"], :name => "index_source_questions_on_studiable_id_and_studiable_type"
+
+  create_table "sources", :force => true do |t|
+    t.string   "slug"
+    t.text     "name"
+    t.text     "uri"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sources", ["slug"], :name => "index_sources_on_slug"
 
   create_table "student_studies", :force => true do |t|
     t.text     "scope"
