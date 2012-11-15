@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115094017) do
+ActiveRecord::Schema.define(:version => 20121115103428) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -471,12 +471,14 @@ ActiveRecord::Schema.define(:version => 20121115094017) do
     t.string   "name"
     t.string   "abbreviation"
     t.integer  "community_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "slug"
+    t.string   "name_for_order"
   end
 
   add_index "universities", ["abbreviation"], :name => "index_universities_on_abbreviation", :unique => true
+  add_index "universities", ["name_for_order"], :name => "index_universities_on_name_for_order"
   add_index "universities", ["slug"], :name => "index_universities_on_slug", :unique => true
 
   create_table "university_change_requests", :force => true do |t|

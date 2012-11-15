@@ -1,8 +1,9 @@
 # -*- encoding : utf-8 -*-
 class University < ActiveRecord::Base
 
+  REJECT_WORDS = ["universidad", "universitat", "Universidad", "Universitat", "de", "la", "el", "las", "los"]
   default_scope do
-    order('name ASC')
+    order('name_for_order ASC')
   end
   class << self
 
@@ -32,6 +33,8 @@ class University < ActiveRecord::Base
            order: 'year DESC',
            dependent: :destroy
 
+  before_save :set_name_for_order
+
   has_many_studies :student, :employer, :public_source,
     :agreement_source, :database, :other
 
@@ -58,5 +61,12 @@ class University < ActiveRecord::Base
 
   def to_key
     [slug]
+  end
+
+  protected
+  def set_name_for_order
+    if changed_attributes.key?("name") || self.name_for_order.blank?
+      self.name_for_order = self.name.split(" ").reject{|x| REJECT_WORDS.include? x }.join(' ')
+    end
   end
 end
