@@ -6,7 +6,12 @@ class Ability
     Service, GeneralFrame, AchievedActivity,
     StudentStudy, EmployerStudy, PublicSourceStudy,
     AgreementSourceStudy, DatabaseStudy, OtherStudy]
+
   ADD_USER_PERMITS = [:add_user, :do_add_user]
+
+  INDEX_RELATED_MODELS = [
+    Source
+  ]
 
   def initialize(user)
     # Define abilities for the passed in (current) user. For example:
@@ -41,6 +46,7 @@ class Ability
   def basic_abilities
     can :read, University
     can :read, UNIVERSITY_DEPENDENT_MODELS
+    can :read, INDEX_RELATED_MODELS
   end
 
   def simple_abilities user
@@ -55,6 +61,7 @@ class Ability
   end
 
   def admin_abilities user
+    can :manage, INDEX_RELATED_MODELS
     can ADD_USER_PERMITS, University
     can :manage, UNIVERSITY_DEPENDENT_MODELS
     can :manage, University

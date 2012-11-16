@@ -156,4 +156,8 @@ describe Ability do
   context "regarding other studies" do
     include_examples "abilities for university dependent model", OtherStudy
   end
+
+  context "regarding sources" do
+    include_examples "abilities for index related model", Source
+  end
 end
