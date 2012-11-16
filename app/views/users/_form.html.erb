@@ -1,29 +1,20 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? -%>
-    <div id="error_explanation">
-      <h2><%= t '.errors_header', count: @user.errors.count %></h2>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| -%>
-          <li><%= msg %></li>
-        <% end -%>
-      </ul>
-    </div>
-  <% end -%>
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email, class: 'js-email' %>
+  <div class="form-inputs">
+    <%= f.input :email, as: :string,
+                        disabled: @user.persisted?,
+                        input_html: { :class => 'js-email' } %>
+
+    <%= f.input :password, as: :password,
+                           input_html: { :class => 'js-password' } %>
+
+    <%= f.input :password_confirmation,
+                as: :password,
+                input_html: { :class => 'js-password-confirmation' } %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, class: 'js-password' %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, class: 'js-password-confirmation' %>
-  </div>
-  <div class="actions">
-    <%= f.submit class: 'js-submit' %>
+  <div class="form-actions">
+     <%= f.button :submit %>
   </div>
 <% end -%>

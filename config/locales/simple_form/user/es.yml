@@ -1,0 +1,9 @@
+es:
+  simple_form:
+    labels:
+      user:
+        email: 'Dirección de correo'
+        password: 'Contraseña'
+        password_confirmation: 'Confirme la contraseña'
+        edit:
+          password: 'Rellene para cambiar la contraseña'

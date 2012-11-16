@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     presence: true
   validates :password,
     confirmation: true,
-    length: {minimum: 6}, if: :password
+    length: {minimum: 6}
 
   before_validation :ensure_one_role_is_set
 

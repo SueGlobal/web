@@ -29,4 +29,4 @@ es:
               blank: 'Es necesario dar un email.'
             password:
               confirmation: 'La contraseña ha de ser igual al campo de confirmación.'
-              too_short: 'La contraseña ha de tener al menos #{:minimum} caracteres.'
+              too_short: 'La contraseña ha de tener al menos %{count} caracteres.'
