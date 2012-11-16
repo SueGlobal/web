@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115123706) do
+ActiveRecord::Schema.define(:version => 20121116123039) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -91,6 +91,12 @@ ActiveRecord::Schema.define(:version => 20121115123706) do
 
   add_index "agreement_source_studies", ["slug"], :name => "index_agreement_source_studies_on_slug", :unique => true
   add_index "agreement_source_studies", ["university_id"], :name => "index_agreement_source_studies_on_university_id"
+
+  create_table "announcements", :force => true do |t|
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "basic_questions", :force => true do |t|
     t.text     "title"

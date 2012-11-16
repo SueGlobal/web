@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require common
+//= require announcements
+//= require custom_announcements
 //= require_tree .
 //= require_tree ./questions

@@ -60,6 +60,7 @@
           </div><!--/span-->
 
           <div class="span9">
+            <%= render partial: 'custom_announcement' %>
             <%= render partial: 'flashes' %>
             <% if @breadcrumbs -%>
               <%= render partial: 'breadcrumbs', object: @breadcrumbs %>
