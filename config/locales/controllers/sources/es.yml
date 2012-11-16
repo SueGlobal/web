@@ -1,0 +1,9 @@
+es:
+  controllers:
+    sources:
+      create:
+        notice: 'Has añadido una fuente.'
+      update:
+        notice: 'Has actualizado la fuente.'
+      destroy:
+        notice: 'Has borrado una fuente.'

@@ -1,0 +1,9 @@
+en:
+  controllers:
+    sources:
+      create:
+        notice: 'Source was successfully created.'
+      update:
+        notice: 'Source was successfully updated.'
+      destroy:
+        notice: 'Source was successfully removed.'

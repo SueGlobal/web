@@ -1,0 +1,46 @@
+<h1>
+  <%= t '.header' %>
+  <% if can? :new, Source -%>
+    <%= new_link new_source_path %>
+  <% end -%>
+</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= Source.model_name.human(count: 1) %></th>
+      <th><%= Source.human_attribute_name :url %></th>
+      <% if current_user && (current_user.admin? || current_user.god?) -%>
+        <th><%= t '.actions' %></th>
+      <% end -%>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sources.each do |source| %>
+      <%= content_tag_for :tr, source do %>
+        <td><%= link_to source.name, source %></td>
+        <td><%= link_to t('.external_link'), source.uri %></td>
+        <% if current_user && (current_user.admin? || current_user.god?) -%>
+          <td>
+            <ul class="actions">
+              <% if can? :edit, source -%>
+                <li><%= edit_link edit_source_path(source) %></li>
+              <% end -%>
+              <% if can? :destroy, source -%>
+                <li><%= destroy_link  source, method: :delete,
+                                      data: { confirm: t('.destroy_confirmation') } %></li>
+              <% end -%>
+            </ul>
+          </td>
+        <% end -%>
+      <% end -%>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<% if can? :new, Source -%>
+  <%= link_to t('.new_source'), new_source_path %>
+<% end -%>

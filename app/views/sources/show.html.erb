@@ -1,0 +1,15 @@
+<h1>
+  <%= @source.name %>
+</h1>
+
+<% if @source.uri.present? -%>
+  <div class="web"><%= link_to t('.web'), @source.uri %></div>
+<% end -%>
+
+<!--
+<div class="indexes">
+  <h2><%#= Index.model_name.human(count: 2) %></h2>
+  <ul>
+  </ul>
+</div>
+-->

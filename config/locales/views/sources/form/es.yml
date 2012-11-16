@@ -1,0 +1,6 @@
+es:
+  helpers:
+    submit:
+      sources:
+        create: 'Añadir fuente'
+        update: 'Actualizar fuente'

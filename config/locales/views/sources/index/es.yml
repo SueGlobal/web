@@ -1,0 +1,8 @@
+es:
+  sources:
+    index:
+      header: 'Listado de fuentes'
+      actions: 'Acciones'
+      external_link: 'Enlace externo'
+      destroy_confirmation: '¿Estás seguro de querer borrar esta fuente?'
+      new_source: 'Nueva fuente'

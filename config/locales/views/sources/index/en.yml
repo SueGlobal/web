@@ -1,0 +1,8 @@
+en:
+  sources:
+    index:
+      header: 'List of sources'
+      actions: 'Actions'
+      external_link: 'External link'
+      destroy_confirmation: 'Are you sure you want to delete this source?'
+      new_source: 'New source'
