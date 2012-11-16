@@ -10,7 +10,7 @@
     <tr>
       <th><%= Source.model_name.human(count: 1) %></th>
       <th><%= Source.human_attribute_name :url %></th>
-      <% if current_user && (current_user.admin? || current_user.god?) -%>
+      <% if can? :admin, :site -%>
         <th><%= t '.actions' %></th>
       <% end -%>
     </tr>
@@ -21,7 +21,7 @@
       <%= content_tag_for :tr, source do %>
         <td><%= link_to source.name, source %></td>
         <td><%= link_to t('.external_link'), source.uri %></td>
-        <% if current_user && (current_user.admin? || current_user.god?) -%>
+        <% if can? :admin, :site -%>
           <td>
             <ul class="actions">
               <% if can? :edit, source -%>

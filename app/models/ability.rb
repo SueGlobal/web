@@ -73,6 +73,7 @@ class Ability
     cannot :assign_roles, User do |other_user|
       other_user.roles != [:simple]
     end
+    can :admin, :site
   end
 
   def god_abilities user

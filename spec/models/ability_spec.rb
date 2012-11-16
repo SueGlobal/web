@@ -6,6 +6,25 @@ describe Ability do
   subject { ability }
   let(:ability) { Ability.new user }
 
+  describe 'regarding site' do
+    context "when there is no user" do
+      let(:user) { nil }
+      it { should_not be_able_to :admin, :site }
+    end
+    context "when it is a simple registered user" do
+      let(:user) { create :user, :simple }
+      it { should_not be_able_to :admin, :site }
+    end
+    context "when it is an admin user" do
+      let(:user) { create :user, :admin }
+      it { should be_able_to :admin, :site }
+    end
+    context "when it is god" do
+      let(:user) { create :user, :god }
+      it { should be_able_to :admin, :site }
+    end
+  end
+
   describe 'regarding users' do
     context "when there is no user" do
       let(:user) { nil }
