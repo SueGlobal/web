@@ -33,7 +33,9 @@
                 <%= render partial: 'current_user_university_navigation',
                            locals: {university: current_user.university } %>
               <% end -%>
-
+              <% if can? :admin, :site -%>
+                <%= render partial: 'admin_user_navigation' %>
+              <% end -%>
             </ul>
 
             <ul class="nav pull-right">

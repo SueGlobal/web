@@ -7,7 +7,7 @@ es:
     attributes:
       source:
         name: 'Nombre'
-        url: 'URL'
+        uri: 'URL'
     errors:
       models:
         source:

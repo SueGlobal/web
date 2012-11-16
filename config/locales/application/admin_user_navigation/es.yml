@@ -1,0 +1,4 @@
+es:
+  application:
+    admin_user_navigation:
+      header: 'Administración'
