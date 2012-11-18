@@ -36,6 +36,9 @@
               <% if can? :admin, :site -%>
                 <%= render partial: 'admin_user_navigation' %>
               <% end -%>
+              <% if current_user && current_user.god? -%>
+                <%= render partial: 'god_user_navigation' %>
+              <% end -%>
             </ul>
 
             <ul class="nav pull-right">

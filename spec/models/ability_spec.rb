@@ -179,4 +179,23 @@ describe Ability do
   context "regarding sources" do
     include_examples "abilities for index related model", Source
   end
+
+  context "regarding announcements" do
+    context "when no user" do
+      let(:user) { nil }
+      it { should_not be_able_to :manage, Announcement }
+    end
+    context "when simple user" do
+      let(:user) { create :user, :simple, :active }
+      it { should_not be_able_to :manage, Announcement }
+    end
+    context "when admin user" do
+      let(:user) { create :user, :admin, :active }
+      it { should_not be_able_to :manage, Announcement }
+    end
+    context "when god user" do
+      let(:user) { create :user, :god, :active }
+      it { should be_able_to :manage, Announcement }
+    end
+  end
 end

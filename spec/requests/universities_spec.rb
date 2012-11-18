@@ -12,7 +12,7 @@ describe "Universities" do
   end
 
   describe "creating a university" do
-    let(:user) { create :user, :active, :admin, password: password }
+    let!(:user) { create :user, :active, :admin, password: password }
     let(:password) { "123456" }
     let!(:communities) { create_list :community, 3 }
     before :each do
@@ -39,7 +39,7 @@ describe "Universities" do
   end
 
   describe "deleting a university", js: true do
-    let(:user) { create :user, :active, :god, password: password, university: university}
+    let!(:user) { create :user, :active, :god, password: password, university: university}
     let(:password) { "123456" }
     let(:university) { create :university }
 
@@ -67,8 +67,8 @@ describe "Universities" do
   end
 
   describe "deleting dependent models in university#show" do
-    let(:user) { create :user, :active, :god, password: password, university: university}
     let(:password) { "123456" }
+    let!(:user) { create :user, :active, :god, password: password, university: university}
     let(:university) { create :university }
 
     before :each do

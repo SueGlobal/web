@@ -1,5 +1,4 @@
 <% if can? :admin, :site -%>
-
   <% if current_announcement.exists? && !announcement_hidden?(current_announcement) -%>
     <div class="announcement alert">
       <button type="button" data-announcement="announcement_<%= current_announcement.created_at %>" data-dismiss="alert" class="close">x</button>

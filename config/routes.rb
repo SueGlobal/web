@@ -4,6 +4,7 @@ SueGlobal::Application.routes.draw do
   get "accept_change_request/:token", to: "university_change_request#accept", as: "accept_change_request"
 
   filter :locale
+  resources :announcements
   resources :sources
   resources :password_resets, only: [:create, :update, :edit]
   resources :user_sessions

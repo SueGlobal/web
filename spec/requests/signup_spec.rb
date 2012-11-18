@@ -51,7 +51,7 @@ describe "Signup" do
       end
 
       it 'shows one error' do
-        expect(page).to have_css('div#error_explanation ul li', count: 1)
+        expect(page).to have_css('div.control-group.string.error', count: 1)
       end
     end
 
@@ -72,7 +72,7 @@ describe "Signup" do
       end
 
       it 'shows one error' do
-        expect(page).to have_css('div#error_explanation ul li', count: 1)
+        expect(page).to have_css('div.control-group.password.error', count: 1)
       end
     end
 
