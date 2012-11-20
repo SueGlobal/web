@@ -7,4 +7,15 @@ class SegmentationVariable < ActiveRecord::Base
 
   has_many :segmentation_variable_values,
     order: 'order ASC'
+
+  include FriendlyId
+  friendly_id :name, use: :slugged
+
+  def should_generate_new_friendly_id?
+    new_record? || self[:slug].blank?
+  end
+
+  def to_key
+    [slug]
+  end
 end
