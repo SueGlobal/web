@@ -1,0 +1,17 @@
+es:
+  activerecord:
+    models:
+      segmentation_variable:
+        one: 'Variable de segmentación'
+        other: 'Variables de segmentación'
+    attributes:
+      segmentation_variable:
+        name: 'Nombre de la variable'
+    errors:
+      models:
+        segmentation_variable:
+          attributes:
+            name:
+              blank: 'Es necesario poner el nombre de la variable.'
+            slug:
+              blank: 'No se pudo calcular el slug.'

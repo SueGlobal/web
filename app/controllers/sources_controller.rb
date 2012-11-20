@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SourcesController < IndexRelatedModelController
   related_model :source
   # GET /sources

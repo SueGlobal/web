@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121116123039) do
+ActiveRecord::Schema.define(:version => 20121120174528) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -250,6 +250,48 @@ ActiveRecord::Schema.define(:version => 20121116123039) do
   add_index "general_frames", ["university_id"], :name => "index_general_frames_on_university_id"
   add_index "general_frames", ["year"], :name => "index_general_frames_on_year"
 
+  create_table "index_descriptions", :force => true do |t|
+    t.text     "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "index_details", :force => true do |t|
+    t.integer  "index_level_id"
+    t.integer  "periodicity_id"
+    t.integer  "source_id"
+    t.text     "methodology_url"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "index_details", ["index_level_id"], :name => "index_index_details_on_index_level_id"
+  add_index "index_details", ["periodicity_id"], :name => "index_index_details_on_periodicity_id"
+  add_index "index_details", ["source_id"], :name => "index_index_details_on_source_id"
+
+  create_table "index_levels", :force => true do |t|
+    t.string   "toplevel"
+    t.string   "sublevel"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "index_levels", ["toplevel", "sublevel"], :name => "index_index_levels_on_toplevel_and_sublevel"
+  add_index "index_levels", ["toplevel"], :name => "index_index_levels_on_toplevel"
+
+  create_table "indices", :force => true do |t|
+    t.integer  "index_description_id"
+    t.integer  "index_details_id"
+    t.string   "slug"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "indices", ["index_description_id"], :name => "index_indices_on_index_description_id"
+  add_index "indices", ["index_details_id"], :name => "index_indices_on_index_details_id"
+  add_index "indices", ["slug"], :name => "index_indices_on_slug"
+
   create_table "information_questions", :force => true do |t|
     t.boolean  "university_government_check"
     t.integer  "university_government_periodicity_id"
@@ -378,6 +420,13 @@ ActiveRecord::Schema.define(:version => 20121116123039) do
   end
 
   add_index "sample_questions", ["studiable_id", "studiable_type"], :name => "index_sample_questions_on_studiable_id_and_studiable_type"
+
+  create_table "segmentation_variables", :force => true do |t|
+    t.string   "slug"
+    t.text     "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "services", :force => true do |t|
     t.string   "name"
