@@ -73,6 +73,8 @@ class Ability
     cannot :assign_roles, User do |other_user|
       other_user.roles != [:simple]
     end
+    can :manage, SegmentationVariable
+    can :manage, SegmentationVariableValue
     can :admin, :site
   end
 
