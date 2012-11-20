@@ -1,0 +1,21 @@
+<h1>Listing segmentation_variables</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @segmentation_variables.each do |segmentation_variable| %>
+  <tr>
+    <td><%= link_to 'Show', segmentation_variable %></td>
+    <td><%= link_to 'Edit', edit_segmentation_variable_path(segmentation_variable) %></td>
+    <td><%= link_to 'Destroy', segmentation_variable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Segmentation variable', new_segmentation_variable_path %>
