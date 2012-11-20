@@ -14,7 +14,7 @@ jQuery ->
     time = new Date().getTime()
     regexp = new RegExp($this.data('id'), 'g')
     $this.before($this.data('fields').replace(regexp, time))
-    event.preventDefault()
+    evt.preventDefault()
 
   # Remove fields
   $classYear.on 'click', '.remove_fields', (evt) ->

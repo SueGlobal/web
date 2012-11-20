@@ -1,0 +1,21 @@
+es:
+  activerecord:
+    models:
+      segmentation_variable_value:
+        one: 'Valor de variable de segmentacion'
+        other: 'Valores de variable de segmentación'
+    attributes:
+      segmentation_variable_value:
+        value: 'Valor'
+        order: 'Orden'
+    errors:
+      models:
+        segmentation_variable_value:
+          attributes:
+            value:
+              blank: 'El valor es obligatorio'
+            order:
+              blank: 'El orden es obligatorio'
+              not_a_number: "El orden ha de ser un número"
+              greater_than_or_equal_to: "El orden ha de ser mayor que %{count}"
+              not_an_integer: "El orden ha de ser un entero"
