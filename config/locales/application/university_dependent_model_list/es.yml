@@ -7,7 +7,7 @@ es:
         destroy: 'Borrar servicio'
         destroy_confirmation: '¿Está seguro de querer borrar este servicio?'
         new: 'Nuevo servicio'
-        explanation: 'Unidad/es que realizan estudios sobre el empleo en la universidad.'
+        explanation: 'Unidad/es que realizan los estudios que realiza la sobre el empleo.'
       achieved_activities:
         none_found: 'La universidad no ha registrado ningún actividad.'
         edit: 'Editar actividad'
