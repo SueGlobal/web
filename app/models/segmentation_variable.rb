@@ -4,4 +4,7 @@ class SegmentationVariable < ActiveRecord::Base
 
   validates :name,
     presence: true
+
+  has_many :segmentation_variable_values,
+    order: 'order ASC'
 end

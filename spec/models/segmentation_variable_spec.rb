@@ -8,4 +8,6 @@ describe SegmentationVariable do
   it { should_not allow_mass_assignment_of :slug }
 
   it { should validate_presence_of(:name) }
+
+  it { should have_many(:segmentation_variable_values).order('order ASC') }
 end
