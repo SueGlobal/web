@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class SegmentationVariableValue < ActiveRecord::Base
-  belongs_to :segmentation_variable
+  belongs_to :segmentation_variable,
+    counter_cache: true
   attr_accessible :value, :order
 
   validates :value,
