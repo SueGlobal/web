@@ -180,6 +180,10 @@ describe Ability do
     include_examples "abilities for index related model", Source
   end
 
+  context "regarding indices" do
+    include_examples "abilities for index related model", Index
+  end
+
   context "regarding announcements" do
     context "when no user" do
       let(:user) { nil }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122113316) do
+ActiveRecord::Schema.define(:version => 20121122124200) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -280,6 +280,17 @@ ActiveRecord::Schema.define(:version => 20121122113316) do
   add_index "index_levels", ["toplevel", "sublevel"], :name => "index_index_levels_on_toplevel_and_sublevel"
   add_index "index_levels", ["toplevel"], :name => "index_index_levels_on_toplevel"
 
+  create_table "index_segmentation_variables", :force => true do |t|
+    t.boolean  "primary"
+    t.integer  "index_id"
+    t.integer  "segmentation_variable_id"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "index_segmentation_variables", ["index_id"], :name => "index_index_segmentation_variables_on_index_id"
+  add_index "index_segmentation_variables", ["segmentation_variable_id"], :name => "index_index_segmentation_variables_on_segmentation_variable_id"
+
   create_table "indices", :force => true do |t|
     t.string   "slug"
     t.text     "name"
@@ -289,8 +300,10 @@ ActiveRecord::Schema.define(:version => 20121122113316) do
     t.text     "methodology_url"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.boolean  "informative"
   end
 
+  add_index "indices", ["informative"], :name => "index_indices_on_informative"
   add_index "indices", ["periodicity_id"], :name => "index_indices_on_periodicity_id"
   add_index "indices", ["slug"], :name => "index_indices_on_slug", :unique => true
   add_index "indices", ["source_id"], :name => "index_indices_on_source_id"

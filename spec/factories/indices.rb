@@ -6,8 +6,17 @@ FactoryGirl.define do
     slug "MyString"
     name "MyText"
     description "MyText"
-    source nil
-    periodicity nil
+    source
+    periodicity
     methodology_url "MyText"
+    ignore do
+      segmentation_variable_count 2
+    end
+
+    after(:create) do |index, evaluator|
+      create_list(:index_segmentation_variable,
+                  evaluator.segmentation_variable_count,
+                  index: index)
+    end
   end
 end

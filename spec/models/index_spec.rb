@@ -18,5 +18,8 @@ describe Index do
     it { should validate_presence_of :name }
     it { should validate_presence_of :description }
     it { should validate_presence_of :methodology_url }
+
+    it { should have_many :index_segmentation_variables }
+    it { should have_many(:segmentation_variables).through(:index_segmentation_variables) }
   end
 end
