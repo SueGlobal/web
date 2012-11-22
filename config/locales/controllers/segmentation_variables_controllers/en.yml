@@ -1,0 +1,9 @@
+en:
+  controllers:
+    segmentation_variables:
+      create:
+        notice: 'Segmentation variable was successfully created.'
+      update:
+        notice: 'Segmentation variable was successfully updated.'
+      destroy:
+        notice: 'Segmentation variable was successfully removed.'

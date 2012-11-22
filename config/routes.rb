@@ -6,7 +6,7 @@ SueGlobal::Application.routes.draw do
   filter :locale
   resources :announcements
   resources :sources
-  resources :segmentation_variables
+  resources :segmentation_variables, except: [:destroy]
   resources :password_resets, only: [:create, :update, :edit]
   resources :user_sessions
   resources :universities do

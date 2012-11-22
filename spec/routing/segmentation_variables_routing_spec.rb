@@ -29,7 +29,7 @@ describe SegmentationVariablesController do
     end
 
     it "routes to #destroy" do
-      delete("/segmentation_variables/1").should route_to("segmentation_variables#destroy", :id => "1")
+      delete("/segmentation_variables/1").should_not be_routable
     end
 
   end

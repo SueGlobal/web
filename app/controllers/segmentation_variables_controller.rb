@@ -62,8 +62,7 @@ class SegmentationVariablesController < IndexRelatedModelController
     end
   end
 
-  # DELETE /segmentation_variables/1
-  # DELETE /segmentation_variables/1.json
+  # Not routed.
   def destroy
     @segmentation_variable.destroy
 

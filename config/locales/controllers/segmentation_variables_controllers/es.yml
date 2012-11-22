@@ -1,0 +1,9 @@
+en:
+  controllers:
+    segmentation_variables:
+      create:
+        notice: 'Se ha añadido la variable de segmentación'
+      update:
+        notice: 'Se ha actualizado la variable de segmentación'
+      destroy:
+        notice: 'Se ha borrado la variable de segmentación'
