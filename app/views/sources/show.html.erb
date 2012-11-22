@@ -1,5 +1,8 @@
 <h1>
   <%= @source.name %>
+  <% if can? :edit, @source -%>
+    <%= edit_link edit_source_path(@source) %>
+  <% end -%>
 </h1>
 
 <% if @source.uri.present? -%>
