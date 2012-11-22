@@ -2,6 +2,9 @@
 class Source < ActiveRecord::Base
   attr_accessible :name, :uri
 
+  has_many :indices,
+    order: 'name ASC'
+
   validates :name,
     presence: true
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121085027) do
+ActiveRecord::Schema.define(:version => 20121122113316) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -281,16 +281,19 @@ ActiveRecord::Schema.define(:version => 20121121085027) do
   add_index "index_levels", ["toplevel"], :name => "index_index_levels_on_toplevel"
 
   create_table "indices", :force => true do |t|
-    t.integer  "index_description_id"
-    t.integer  "index_details_id"
     t.string   "slug"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.text     "name"
+    t.text     "description"
+    t.integer  "source_id"
+    t.integer  "periodicity_id"
+    t.text     "methodology_url"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
-  add_index "indices", ["index_description_id"], :name => "index_indices_on_index_description_id"
-  add_index "indices", ["index_details_id"], :name => "index_indices_on_index_details_id"
-  add_index "indices", ["slug"], :name => "index_indices_on_slug"
+  add_index "indices", ["periodicity_id"], :name => "index_indices_on_periodicity_id"
+  add_index "indices", ["slug"], :name => "index_indices_on_slug", :unique => true
+  add_index "indices", ["source_id"], :name => "index_indices_on_source_id"
 
   create_table "information_questions", :force => true do |t|
     t.boolean  "university_government_check"

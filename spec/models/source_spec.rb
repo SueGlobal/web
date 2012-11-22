@@ -10,4 +10,6 @@ describe Source do
   it { should_not allow_mass_assignment_of(:slug) }
 
   it { should validate_presence_of(:name) }
+
+  it { should have_many(:indices).order('name ASC') }
 end

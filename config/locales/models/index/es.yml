@@ -1,0 +1,22 @@
+es:
+  activerecord:
+    models:
+      index:
+        one: 'Indicador'
+        other: 'Indicadores'
+    attributes:
+      index:
+        name: 'Nombre'
+        description: 'Descripción'
+        methodology_url: 'Enlace a la metodología'
+        informative: 'Caracter informativo'
+    errors:
+      models:
+        index:
+          attributes:
+            name:
+              blank: 'Es necesario poner el nombre del indicador'
+            description:
+              blank: 'Es necesario poner la descripción del indicador'
+            methodology_url:
+              blank: 'Es necesario añadir el enlace a la metodología'
