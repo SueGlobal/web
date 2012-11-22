@@ -12,7 +12,7 @@ jQuery ->
       evt.preventDefault()
       evt.stopPropagation()
 
-  $('.container a.destroy').each ->
+  $('.container a.destroy:not(.remove_fields)').each ->
     $this = $(this)
     href = $this.attr('href')
     msg = $this.data('confirm')

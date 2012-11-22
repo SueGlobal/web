@@ -1,0 +1,6 @@
+es:
+  segmentation_variables:
+    index:
+      header: 'Listado de variables de segmentación'
+      actions: 'Acciones'
+      new_variable: 'Nueva variable'

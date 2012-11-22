@@ -3,7 +3,8 @@ require 'spec_helper'
 
 describe "segmentation_variables/new" do
   before(:each) do
-    assign(:segmentation_variable, stub_model(SegmentationVariable).as_new_record)
+    view.lookup_context.prefixes << "application"
+    assign(:segmentation_variable, build(:segmentation_variable))
   end
 
   it "renders new segmentation_variable form" do

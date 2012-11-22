@@ -23,6 +23,7 @@ class SegmentationVariablesController < IndexRelatedModelController
   # GET /segmentation_variables/new
   # GET /segmentation_variables/new.json
   def new
+    @segmentation_variable.segmentation_variable_values.build order: 1
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @segmentation_variable }
@@ -51,7 +52,7 @@ class SegmentationVariablesController < IndexRelatedModelController
   # PUT /segmentation_variables/1.json
   def update
     respond_to do |format|
-      if @segmentation_variable.update_attributes(params[:segmentation_variable])
+      if @segmentation_variable.clean_update_attributes(params[:segmentation_variable])
         format.html { redirect_to root_path, notice: t2('update.notice') }
         format.json { head :no_content }
       else

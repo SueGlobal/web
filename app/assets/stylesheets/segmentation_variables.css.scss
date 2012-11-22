@@ -1,0 +1,17 @@
+.segmentation_variables {
+  &.edit {
+    .remove_segmentation_variable_value {
+      display: none;
+    }
+  }
+  form {
+    .field.segmentation_variable_value {
+      .control-group, .controls {
+        display: inline;
+      }
+    }
+    input[type=number] {
+      width: 33px;
+    }
+  }
+}

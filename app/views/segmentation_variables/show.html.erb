@@ -1,5 +1,15 @@
-<p id="notice"><%= notice %></p>
+<h1>
+  <%= SegmentationVariable.model_name.human count: 1 %>
+  <% if can? :edit, @segmentation_variable -%>
+    <%= edit_link edit_segmentation_variable_path(@segmentation_variable) %>
+  <% end -%>
+</h1>
 
+<h2><%= @segmentation_variable.name %></h2>
 
-<%= link_to 'Edit', edit_segmentation_variable_path(@segmentation_variable) %> |
-<%= link_to 'Back', segmentation_variables_path %>
+<p><%= t('.values') %>:</p>
+<ol class="segmentation_variable_values">
+  <% @segmentation_variable.segmentation_variable_values.each do |value| -%>
+    <li><%= value.value %></li>
+  <% end -%>
+</ol>

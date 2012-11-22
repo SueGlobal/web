@@ -1,0 +1,5 @@
+es:
+  segmentation_variables:
+    form:
+      values: 'Valores'
+      add_value: 'Añadir valor'

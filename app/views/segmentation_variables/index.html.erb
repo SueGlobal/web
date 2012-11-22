@@ -1,21 +1,38 @@
-<h1>Listing segmentation_variables</h1>
+<h1>
+   <%= t '.header' %>
+   <% if can? :new, SegmentationVariable -%>
+     <%= new_link new_segmentation_variable_path -%>
+   <% end -%>
+</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= SegmentationVariable.model_name.human count: 1 %></th>
+      <th><%= SegmentationVariable.human_attribute_name :segmentation_variable_values_count %></th>
+      <th><%= t '.actions' %></th>
+    </tr>
+  </thead>
 
-<% @segmentation_variables.each do |segmentation_variable| %>
-  <tr>
-    <td><%= link_to 'Show', segmentation_variable %></td>
-    <td><%= link_to 'Edit', edit_segmentation_variable_path(segmentation_variable) %></td>
-    <td><%= link_to 'Destroy', segmentation_variable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @segmentation_variables.each do |variable| %>
+      <%= content_tag_for :tr, variable do %>
+      <td>
+        <%= link_to variable.name, variable %>
+      </td>
+      <td>
+         <%= variable.segmentation_variable_values.count %>
+      </td>
+      <td>
+        <% if can? :edit, variable -%>
+          <%= edit_link edit_segmentation_variable_path(variable) %>
+        <% end -%>
+      </td>
+      <% end -%>
+    <% end %>
+  </tbody>
 </table>
 
 <br />
 
-<%= link_to 'New Segmentation variable', new_segmentation_variable_path %>
+<%= link_to_if can?(:new, SegmentationVariable), t('.new_variable'), new_segmentation_variable_path, :class => 'btn' do "" end %>

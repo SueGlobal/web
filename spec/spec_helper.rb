@@ -71,16 +71,16 @@ Spork.prefork do
     config.order = "random"
 
     config.before :suite do
-      DatabaseCleaner[:active_record].strategy = :truncation
+      DatabaseCleaner.clean_with :truncation
     end
 
     config.before :each do
-      if Capybara.current_driver = :rack_test
+      if Capybara.current_driver == :rack_test
         DatabaseCleaner[:active_record].strategy = :transaction
+        DatabaseCleaner[:active_record].start
       else
         DatabaseCleaner[:active_record].strategy = :truncation
       end
-      DatabaseCleaner[:active_record].start
       ActionMailer::Base.deliveries.clear
     end
 

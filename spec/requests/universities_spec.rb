@@ -39,11 +39,12 @@ describe "Universities" do
   end
 
   describe "deleting a university", js: true do
-    let!(:user) { create :user, :active, :god, password: password, university: university}
+    let(:user) { create :user, :active, :god, password: password, university: university}
     let(:password) { "123456" }
     let(:university) { create :university }
 
     before :each do
+      user
       login_with user.email, password
       university
       visit universities_path
@@ -60,7 +61,7 @@ describe "Universities" do
           find('a.destroy').click
       end
 
-      page.should have_no_selector('tr.university')
+      page.should have_no_selector('tr.university', visible: true)
 
       expect(University.find_by_slug(university.slug)).to be_nil
     end

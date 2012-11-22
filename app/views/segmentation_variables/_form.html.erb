@@ -2,6 +2,17 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :name, as: :string %>
+
+    <fieldset class="segmentation_variable_values">
+      <legend><%= t '.values' %></legend>
+      <%= f.simple_fields_for :segmentation_variable_values do |builder| %>
+        <%= render 'segmentation_variable_value_form', f: builder %>
+      <% end -%>
+      <% if @segmentation_variable.new_record? -%>
+        <%= link_to_add_fields t('.add_value'), f, :segmentation_variable_values %>
+      <% end -%>
+    </fieldset>
   </div>
 
   <div class="form-actions">

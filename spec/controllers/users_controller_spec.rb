@@ -31,6 +31,7 @@ describe UsersController do
       end
 
       it "assigns all users as @users" do
+        User.should_receive(:all).and_return [user]
         get :index, {}, valid_session
         assigns(:users).should eq([user])
       end

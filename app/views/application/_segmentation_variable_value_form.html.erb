@@ -1,0 +1,11 @@
+<div class="field segmentation_variable_value">
+  <%= f.input :order,
+    label: false,
+    as: :integer,
+    input_html: {min: 1, cols: 3}
+  %>
+  <%= f.input :value,
+              label: false %>
+  <%= f.hidden_field :_destroy %>
+  <%= destroy_link '#', {:class => 'remove_fields remove_segmentation_variable_value'} %>
+</div>

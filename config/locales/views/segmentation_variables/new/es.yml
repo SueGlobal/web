@@ -1,0 +1,4 @@
+es:
+  segmentation_variables:
+    new:
+      header: 'Nueva variable de segmentación'

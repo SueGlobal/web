@@ -7,6 +7,7 @@ es:
     attributes:
       segmentation_variable:
         name: 'Nombre de la variable'
+        segmentation_variable_values_count: 'Número de valores'
     errors:
       models:
         segmentation_variable:

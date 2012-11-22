@@ -14,6 +14,7 @@
  *= require actions
  *= require boolean_field
  *= require common
+ *= require segmentation_variables
  *= require general_frames
  *= require login
  *= require password_resets
