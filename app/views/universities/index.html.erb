@@ -24,6 +24,10 @@
               <li><%= edit_link edit_university_path(university) %>
             <% end -%>
 
+            <% if can? :add_user, university -%>
+              <li><%= user_link add_user_university_path(university) -%>
+            <% end -%>
+
             <% if can? :destroy, university -%>
               <li><%= destroy_link  university, method: :delete,
                                     data: { confirm: t('.destroy_confirmation') } %>

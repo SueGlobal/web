@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 module ApplicationHelper
 
+  def user_link url, options={}
+    action_link :user, url, options
+  end
   def show_link url, options={}
     action_link :show, url, options
   end
@@ -73,7 +76,7 @@ module ApplicationHelper
 
   def i_class_for action
     {edit: "icon-edit", destroy: "icon-remove", show: "icon-info-sign",
-     new: "icon-plus-sign"}[action.to_sym]
+     new: "icon-plus-sign", user: 'icon-user'}[action.to_sym]
   end
 
   def add_action_as_class action, options

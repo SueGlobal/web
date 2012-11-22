@@ -24,9 +24,11 @@
          <%= variable.segmentation_variable_values.count %>
       </td>
       <td>
-        <% if can? :edit, variable -%>
-          <%= edit_link edit_segmentation_variable_path(variable) %>
-        <% end -%>
+        <ul class="actions">
+          <% if can? :edit, variable -%>
+            <li><%= edit_link edit_segmentation_variable_path(variable) %>
+          <% end -%>
+        </ul>
       </td>
       <% end -%>
     <% end %>

@@ -3,6 +3,9 @@
   <% if can? :edit, @university -%>
     <%= edit_link edit_university_path(@university) %>
   <% end -%>
+  <% if can? :add_user, @university -%>
+    <%= user_link add_user_university_path(@university) %>
+  <% end -%>
 </h1>
 
 <%= @university.render_services %>
