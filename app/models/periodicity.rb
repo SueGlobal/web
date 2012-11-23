@@ -23,6 +23,12 @@ class Periodicity < ActiveRecord::Base
       end
     end
 
+    def select_options_without_other
+      TYPES[0...-1].map do |opt|
+        [translate_option(opt), opt.to_s]
+      end
+    end
+
     def translate_option opt
       I18n.t(opt, scope: 'activerecord.attributes.periodicity.select_attributes')
     end

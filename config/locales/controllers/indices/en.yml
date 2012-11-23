@@ -1,0 +1,9 @@
+en:
+  controllers:
+    indices:
+      create:
+        notice: 'Index was successfully created.'
+      update:
+        notice: 'Index was successfully updated.'
+      destroy:
+        notice: 'Index was successfully removed.'

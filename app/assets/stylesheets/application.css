@@ -24,5 +24,6 @@
  *= require university
  *= require user_sessions
  *= require users
+ *= require indices
  *= require_tree ./questions
  */

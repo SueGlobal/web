@@ -1,0 +1,22 @@
+<h1>
+  <%= @index.name %>
+  <% if can? :edit, @index -%>
+    <%= edit_link edit_index_path(@index) %>
+  <% end -%>
+</h1>
+
+<p class="description"><%= @index.description %></p>
+
+<h2>
+  <%= t '.informative.header' %>
+</h2>
+
+<p><%= t '.informative.description' %></p>
+
+<%= @index.render_source %>
+
+<%= @index.render_periodicity %>
+
+<%= @index.render_methodology %>
+
+<%= @index.render_segmentation_variables %>

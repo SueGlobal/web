@@ -1,0 +1,9 @@
+es:
+  controllers:
+    indices:
+      create:
+        notice: 'Has añadido un indicador.'
+      update:
+        notice: 'Has actualizado el indicador.'
+      destroy:
+        notice: 'Has borrado un indicador.'

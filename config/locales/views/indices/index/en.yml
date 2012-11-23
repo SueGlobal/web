@@ -1,0 +1,6 @@
+en:
+  indices:
+    index:
+      header: 'Listing indices'
+      actions: 'Actions'
+      new_index: 'New Index'

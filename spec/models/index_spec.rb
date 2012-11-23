@@ -10,6 +10,9 @@ describe Index do
     it { should allow_mass_assignment_of :description }
     it { should allow_mass_assignment_of :methodology_url }
     it { should allow_mass_assignment_of :informative }
+    it { should allow_mass_assignment_of :periodicity_id }
+    it { should allow_mass_assignment_of :source_id }
+    it { should allow_mass_assignment_of :segmentation_variable_ids }
     it { should_not allow_mass_assignment_of :slug }
 
     it { should belong_to :source }

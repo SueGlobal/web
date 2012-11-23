@@ -1,0 +1,21 @@
+body.indices {
+
+  input.boolean {
+    margin-top: 0;
+  }
+
+  .control-group {
+    margin-top: 3px;
+  }
+  span.checkbox {
+    display: block;
+
+    input[type=checkbox] {
+       display: inline;
+    }
+
+    label {
+      display: inline;
+    }
+  }
+}

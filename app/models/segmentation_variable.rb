@@ -10,6 +10,9 @@ class SegmentationVariable < ActiveRecord::Base
 
   accepts_nested_attributes_for :segmentation_variable_values
 
+  default_scope do
+    order('name ASC')
+  end
   def clean_update_attributes attrs
     update_attributes clean_attributes(attrs)
   end
@@ -36,5 +39,14 @@ class SegmentationVariable < ActiveRecord::Base
 
   def to_key
     [slug]
+  end
+
+  class << self
+
+    def for_check_boxes
+      self.all.map do |var|
+        [var.id, "#{var.name} (#{var.segmentation_variable_values.count})"]
+      end
+    end
   end
 end

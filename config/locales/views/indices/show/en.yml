@@ -1,0 +1,6 @@
+en:
+  indices:
+    show:
+      informative:
+        header: 'Additional information'
+        description: 'The following data is not conclusive. The real data is in each sample.'

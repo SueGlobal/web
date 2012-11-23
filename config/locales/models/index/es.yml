@@ -10,6 +10,9 @@ es:
         description: 'Descripción'
         methodology_url: 'Enlace a la metodología'
         informative: 'Caracter informativo'
+        source: 'Fuente'
+        periodicity: 'Periodicidad'
+        segmentation_variables: 'Variables de segmentación'
     errors:
       models:
         index:

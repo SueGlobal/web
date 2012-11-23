@@ -1,0 +1,4 @@
+es:
+  indices:
+    edit:
+      header: 'Editar indicador'

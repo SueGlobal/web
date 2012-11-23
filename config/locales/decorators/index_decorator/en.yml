@@ -1,0 +1,6 @@
+en:
+  index_decorator:
+    source:
+      none: 'There is no source'
+    periodicity:
+      none: 'There is no periodicity'

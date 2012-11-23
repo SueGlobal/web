@@ -1,0 +1,4 @@
+en:
+  application:
+    segmentation_variables:
+      none: 'No segmentation variables'

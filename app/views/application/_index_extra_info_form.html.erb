@@ -1,0 +1,8 @@
+<%= f.association :source,
+  include_blank: false %>
+
+<%= f.association :periodicity,
+  collection: Periodicity.select_options_without_other,
+  include_blank: false %>
+
+<%= f.input :methodology_url, as: :url %>

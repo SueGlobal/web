@@ -1,0 +1,21 @@
+<%= simple_form_for(@index) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, as: :string %>
+    <%= f.input :description, input_html: {rows: 4} %>
+    <%= f.input :informative,
+                wrapper: :checkbox,
+                label_html: {:class => 'checkbox'} %>
+
+    <%= render  partial: 'index_extra_info_form',
+                locals: { f: f } %>
+
+    <%= f.association :segmentation_variables, as: :check_boxes,
+             wrapper: :checkbox %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

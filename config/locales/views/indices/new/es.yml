@@ -1,0 +1,4 @@
+es:
+  indices:
+    new:
+      header: 'Crear indicador'

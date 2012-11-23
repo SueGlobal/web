@@ -1,0 +1,12 @@
+<div class="field segmentation_variables">
+  <h3><%= SegmentationVariable.model_name.human count: 3 %></h3>
+  <% if segmentation_variables.empty? -%>
+    <p><%= t '.none' %></p>
+  <% else -%>
+    <ul>
+       <% segmentation_variables.each do |var| -%>
+         <li><%= var.name -%>
+       <% end -%>
+    </ul>
+  <% end -%>
+</div>

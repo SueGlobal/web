@@ -1,0 +1,6 @@
+es:
+  indices:
+    index:
+      header: 'Listado de indicadores'
+      actions: 'Acciones'
+      new_index: 'Nuevo indicador'

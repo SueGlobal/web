@@ -5,10 +5,27 @@ SueGlobal::Application.routes.draw do
 
   filter :locale
   resources :announcements
+
+  # Index related routes
   resources :sources
+  resources :indices
   resources :segmentation_variables, except: [:destroy]
+
+  # User related routes
   resources :password_resets, only: [:create, :update, :edit]
   resources :user_sessions
+
+  match 'login' => 'user_sessions#new', as: :login
+  match 'logout' => 'user_sessions#destroy', as: :logout
+
+  get 'signup' => 'users#new', as: 'signup'
+  resources :users do
+    member do
+      get :activate, as: :activate
+    end
+  end
+
+  # Universities related stuff
   resources :universities do
     resources :services, shallow: true, except: :show
     resources :achieved_activities, shallow: true
@@ -28,15 +45,6 @@ SueGlobal::Application.routes.draw do
     end
   end
 
-  match 'login' => 'user_sessions#new', as: :login
-  match 'logout' => 'user_sessions#destroy', as: :logout
-
-  get 'signup' => 'users#new', as: 'signup'
-  resources :users do
-    member do
-      get :activate, as: :activate
-    end
-  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

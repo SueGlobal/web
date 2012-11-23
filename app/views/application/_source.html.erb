@@ -1,0 +1,12 @@
+<div class="field source">
+  <span class="data-label"><%= Source.model_name.human(count: 1) %></span>
+  <span class="data">
+    <% if source.nil? -%>
+      <p><%= t '.none' %></p>
+    <% elsif source.uri -%>
+      <%= link_to source.name, source.uri %>
+    <% else -%>
+      <%= source.name %>
+    <% end -%>
+  </span>
+</div>
