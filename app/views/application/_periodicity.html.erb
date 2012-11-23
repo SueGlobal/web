@@ -3,13 +3,17 @@
   <span class="data-label">
     <%= Periodicity.model_name.human(count: 1) %>:
   </span>
-  <span class="data">
-    <%= Periodicity.translate_option(periodicity.periodicity_type) %>
-  </span>
-  </p>
-  <% if periodicity.other? -%>
-    <blockquote>
-      <%= periodicity.other_description %>
-    </blockquote>
+  <% if periodicity.nil? -%>
+    <span class="data"><%= t '.none' %></span>
+  <% else -%>
+    <span class="data">
+      <%= Periodicity.translate_option(periodicity.periodicity_type) %>
+    </span>
+    </p>
+    <% if periodicity.other? -%>
+      <blockquote>
+        <%= periodicity.other_description %>
+      </blockquote>
+    <% end -%>
   <% end -%>
 </div>
