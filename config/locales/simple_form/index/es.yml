@@ -1,0 +1,5 @@
+es:
+  simple_form:
+    hints:
+      index:
+        informative: 'Un indicador informativo no admite muestras.'
