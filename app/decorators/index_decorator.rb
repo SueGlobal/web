@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class IndexDecorator < Draper::Base
   decorates :index
 

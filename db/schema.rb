@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122124200) do
+ActiveRecord::Schema.define(:version => 20121123112735) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -447,6 +447,14 @@ ActiveRecord::Schema.define(:version => 20121122124200) do
 
   add_index "segmentation_variable_values", ["segmentation_variable_id"], :name => "index_segmentation_variable_values_on_segmentation_variable_id"
 
+  create_table "segmentation_variable_values_segments", :force => true do |t|
+    t.integer "segment_id"
+    t.integer "segmentation_variable_value_id"
+  end
+
+  add_index "segmentation_variable_values_segments", ["segment_id"], :name => "segments_to_values_segment_id"
+  add_index "segmentation_variable_values_segments", ["segmentation_variable_value_id"], :name => "segments_to_values_value_id"
+
   create_table "segmentation_variables", :force => true do |t|
     t.string   "slug"
     t.text     "name"
@@ -454,6 +462,17 @@ ActiveRecord::Schema.define(:version => 20121122124200) do
     t.datetime "updated_at",                                        :null => false
     t.integer  "segmentation_variable_values_count", :default => 0
   end
+
+  create_table "segments", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.integer  "segmentation_variable_id"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "segments", ["segmentation_variable_id"], :name => "index_segments_on_segmentation_variable_id"
+  add_index "segments", ["slug"], :name => "index_segments_on_slug"
 
   create_table "services", :force => true do |t|
     t.string   "name"

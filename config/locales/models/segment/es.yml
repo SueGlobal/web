@@ -1,0 +1,17 @@
+es:
+  activerecord:
+    models:
+      segment:
+        one: 'Segmento'
+        other: 'Segmentos'
+    attributes:
+      segment:
+        name: 'Nombre'
+    errors:
+      models:
+        segment:
+          attributes:
+            slug:
+              blank: 'No se generó el slug correctamente.'
+            name:
+              blank: 'Es necesario poner el nombre del segmento.'

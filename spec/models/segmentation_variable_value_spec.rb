@@ -8,6 +8,7 @@ describe SegmentationVariableValue do
   it { should allow_mass_assignment_of(:order) }
 
   it { should belong_to(:segmentation_variable) }
+  it { should have_and_belong_to_many(:segments) }
 
   it { should validate_presence_of(:value) }
   it { should validate_presence_of(:order) }

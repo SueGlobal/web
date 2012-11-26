@@ -12,6 +12,8 @@ describe SegmentationVariable do
     it { should validate_presence_of(:name) }
 
     it { should have_many(:segmentation_variable_values).order('"order" ASC') }
+
+    it { should have_many(:segments).order('"name" ASC') }
   end
 
   describe "#clean_attributes" do

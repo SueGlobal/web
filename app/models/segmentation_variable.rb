@@ -8,6 +8,9 @@ class SegmentationVariable < ActiveRecord::Base
   has_many :segmentation_variable_values,
     order: '"order" ASC'
 
+  has_many :segments,
+    order: '"name" ASC'
+
   accepts_nested_attributes_for :segmentation_variable_values
 
   default_scope do
