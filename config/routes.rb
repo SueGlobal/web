@@ -9,7 +9,9 @@ SueGlobal::Application.routes.draw do
   # Index related routes
   resources :sources
   resources :indices
-  resources :segmentation_variables, except: [:destroy]
+  resources :segmentation_variables, except: [:destroy] do
+    resources :segments, only: [:new, :create]
+  end
 
   # User related routes
   resources :password_resets, only: [:create, :update, :edit]

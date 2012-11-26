@@ -1,0 +1,5 @@
+en:
+  controllers:
+    segments:
+      create:
+        notice: 'Segment was successfully created.'

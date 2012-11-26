@@ -5,6 +5,7 @@ describe Segment do
   subject { create :segment }
 
   it { should allow_mass_assignment_of(:name) }
+  it { should allow_mass_assignment_of(:segmentation_variable_values_ids) }
   it { should_not allow_mass_assignment_of(:slug) }
 
   it { should belong_to :segmentation_variable }

@@ -4,7 +4,6 @@
 FactoryGirl.define do
   factory :segment do
     name "MyString"
-    slug "MyString"
-    segmentation_variable nil
+    segmentation_variable
   end
 end

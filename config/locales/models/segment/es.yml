@@ -7,6 +7,7 @@ es:
     attributes:
       segment:
         name: 'Nombre'
+        segmentation_variable_values: 'Valores a añadir al segmento'
     errors:
       models:
         segment:

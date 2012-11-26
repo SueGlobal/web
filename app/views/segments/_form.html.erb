@@ -1,0 +1,17 @@
+<%= simple_form_for([@segmentation_variable, @segment]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, as: :string %>
+    <%= f.association :segmentation_variable_values,
+          collection: @segmentation_variable.segmentation_variable_values,
+          as: :check_boxes,
+          wrapper: :checkbox,
+          label_method: :value,
+          value_method: :id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

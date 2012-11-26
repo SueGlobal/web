@@ -1,0 +1,5 @@
+es:
+  controllers:
+    segments:
+      create:
+        notice: 'El segmento se ha creado correctamente'

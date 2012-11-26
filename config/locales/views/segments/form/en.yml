@@ -1,0 +1,5 @@
+en:
+  helpers:
+    submit:
+      segments:
+        create: 'Add segment'
