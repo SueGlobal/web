@@ -16,7 +16,7 @@ class SegmentationVariable < ActiveRecord::Base
   accepts_nested_attributes_for :segmentation_variable_values
 
   default_scope do
-    order('name ASC')
+    order('name ASC').includes(:segments)
   end
   def clean_update_attributes attrs
     update_attributes clean_attributes(attrs)

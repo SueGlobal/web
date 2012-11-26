@@ -3,6 +3,7 @@ require 'spec_helper'
 
 describe "segmentation_variables/show" do
   before(:each) do
+    view.lookup_context.prefixes << "application"
     @segmentation_variable = assign(:segmentation_variable, create(:segmentation_variable, value_count: 2))
   end
 

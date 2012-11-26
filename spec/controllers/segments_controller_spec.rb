@@ -101,6 +101,7 @@ describe SegmentsController do
 
         describe "with valid params" do
           it "creates a new Segment" do
+            var
             expect {
               post_create
             }.to change(Segment, :count).by(1)
