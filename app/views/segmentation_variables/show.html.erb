@@ -7,9 +7,23 @@
 
 <h2><%= @segmentation_variable.name %></h2>
 
-<p><%= t('.values') %>:</p>
+<h3><%= t('.values') %>:</h3>
 <ol class="segmentation_variable_values">
   <% @segmentation_variable.segmentation_variable_values.each do |value| -%>
     <li><%= value.value %></li>
   <% end -%>
 </ol>
+
+<h3><%= t '.segments.header' %>:</h3>
+
+<% if @segmentation_variable.segments.any? -%>
+  <ol class="segmentation_variable_segments">
+    <%= render partial: 'segment', collection: @segmentation_variable.segments %>
+  </ol>
+<% else -%>
+  <p><%= t 'segments.none' %></p>
+<% end -%>
+
+<% if can? :new, @segmentation_variable.segments.build -%>
+  <%= link_to t('.segments.new'), new_segmentation_variable_segment_path(@segmentation_variable), :class => 'btn' %>
+<% end -%>

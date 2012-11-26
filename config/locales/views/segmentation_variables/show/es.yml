@@ -2,3 +2,7 @@ es:
   segmentation_variables:
     show:
       values: 'Valores'
+      segments:
+        header: 'Segmentos'
+        none: 'No hay segmentos para esta variable'
+        new: 'Añadir segmento'

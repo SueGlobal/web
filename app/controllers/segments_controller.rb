@@ -6,6 +6,8 @@ class SegmentsController < ApplicationController
   load_and_authorize_resource :segmentation_variable, find_by: :slug
   load_and_authorize_resource :segment, throug: :segmentation_variable,
     find_by: :slug
+
+  before_filter :add_breadcrumbs_for_variable
   # GET /segments/new
   # GET /segments/new.json
   def new
@@ -36,5 +38,10 @@ class SegmentsController < ApplicationController
   protected
   def t2 path
     I18n.t path, scope: 'controllers.segments'
+  end
+
+  def add_breadcrumbs_for_variable
+    add_breadcrumb SegmentationVariable.model_name.human(count: 2), segmentation_variables_path
+    add_breadcrumb @segmentation_variable.name, @segmentation_variable
   end
 end

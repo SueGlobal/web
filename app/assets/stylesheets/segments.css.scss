@@ -1,0 +1,11 @@
+.segments {
+  form {
+    span.checkbox {
+      display: block;
+
+      input[type=checkbox] {
+        display: inline;
+      }
+    }
+  }
+}

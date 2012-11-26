@@ -16,6 +16,36 @@ describe SegmentationVariable do
     it { should have_many(:segments).order('"name" ASC') }
   end
 
+  describe 'filters' do
+    it "creates a segment" do
+      expect {
+        create :segmentation_variable
+      }.to change(Segment, :count).by(1)
+    end
+  end
+
+  describe "#create_total_segment" do
+    let(:var) { create :segmentation_variable, value_count: 3 }
+
+    it "creates a new segment" do
+      var
+      expect {
+        var.create_total_segment
+      }.to change(Segment, :count).by(1)
+    end
+
+    it "creates a new segment with all the values" do
+      segment = var.create_total_segment
+      var.segmentation_variable_values.each do |value|
+        expect(segment.segmentation_variable_values).to include(value)
+      end
+    end
+
+    it "creates a new segment with name 'Total'" do
+      expect(var.create_total_segment.name).to eql('Total')
+    end
+  end
+
   describe "#clean_attributes" do
     let(:variable) { create :segmentation_variable, value_count: 3 }
     let(:unclean_attributes) do

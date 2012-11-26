@@ -11,6 +11,8 @@ class SegmentationVariable < ActiveRecord::Base
   has_many :segments,
     order: '"name" ASC'
 
+  after_create :create_total_segment
+
   accepts_nested_attributes_for :segmentation_variable_values
 
   default_scope do
@@ -44,6 +46,13 @@ class SegmentationVariable < ActiveRecord::Base
     [slug]
   end
 
+  def create_total_segment
+    segments.build.tap do |s|
+      s.name = 'Total'
+      s.segmentation_variable_values = segmentation_variable_values
+      s.save
+    end
+  end
   class << self
 
     def for_check_boxes
