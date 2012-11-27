@@ -2,12 +2,14 @@
 class Index < ActiveRecord::Base
   belongs_to :source
   belongs_to :periodicity
-  has_many :index_segmentation_variables
+  has_many :index_segments
+  has_many :segments,
+    through: :index_segments
   has_many :segmentation_variables,
-    through: :index_segmentation_variables
+    through: :segments
   attr_accessible :description, :methodology_url,
     :name, :informative, :periodicity_id, :source_id,
-    :segmentation_variable_ids
+    :segments_ids
 
   validates_presence_of :name, :description, :methodology_url
 

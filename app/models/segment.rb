@@ -6,4 +6,8 @@ class Segment < ActiveRecord::Base
 
   validates :name,
     presence: true
+
+  def to_label
+    "#{name} (#{segmentation_variable.name})"
+  end
 end

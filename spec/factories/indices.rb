@@ -10,12 +10,12 @@ FactoryGirl.define do
     periodicity
     methodology_url "MyText"
     ignore do
-      segmentation_variable_count 2
+      segments_count 2
     end
 
     after(:create) do |index, evaluator|
-      create_list(:index_segmentation_variable,
-                  evaluator.segmentation_variable_count,
+      create_list(:index_segment,
+                  evaluator.segments_count,
                   index: index)
     end
   end

@@ -11,8 +11,10 @@
     <%= render  partial: 'index_extra_info_form',
                 locals: { f: f } %>
 
-    <%= f.association :segmentation_variables, as: :check_boxes,
-             wrapper: :checkbox %>
+    <%= f.association :segments,
+              as: :check_boxes,
+              label_method: :to_label,
+              wrapper: :checkbox %>
   </div>
 
   <div class="form-actions">
