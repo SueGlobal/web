@@ -13,6 +13,7 @@
 
     <%= f.association :segments,
               as: :check_boxes,
+              collection: Segment.includes(:segmentation_variable).order("segmentation_variables.name ASC, segments.name ASC"),
               label_method: :to_label,
               wrapper: :checkbox %>
   </div>
