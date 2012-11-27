@@ -14,9 +14,11 @@
   	</thead>
     <tbody>
       <% @studies.each do |study| -%>
-        <td><%= link_to study.basic_question.title, study %></td>
-        <td><%= study.basic_question.year %></td>
-        <td><%= link_to study.university.abbreviation, study.university %></td>
+        <tr>
+          <td><%= link_to study.basic_question.title, study %></td>
+          <td><%= study.basic_question.year %></td>
+          <td><%= link_to study.university.abbreviation, study.university %></td>
+        </tr>
       <% end -%>
     </tbody>
   </table>
