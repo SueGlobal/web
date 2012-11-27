@@ -1,0 +1,5 @@
+es:
+  controllers:
+    studies:
+      show:
+        alert: 'El tipo de estudio seleccionado no existe'

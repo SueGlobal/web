@@ -1,0 +1,23 @@
+<h1><%= @title %></h1>
+
+<% if @studies.empty? -%>
+  <p><%= t '.studies.none' %></p>
+<% else -%>
+
+  <table class="table table-hover">
+  	<thead>
+  		<tr>
+        <th><%= BasicQuestion.human_attribute_name :title %></th>
+        <th><%= BasicQuestion.human_attribute_name :year %></th>
+        <th><%= University.model_name.human count: 1 %></th>
+  		</tr>
+  	</thead>
+    <tbody>
+      <% @studies.each do |study| -%>
+        <td><%= link_to study.basic_question.title, study %></td>
+        <td><%= study.basic_question.year %></td>
+        <td><%= link_to study.university.abbreviation, study.university %></td>
+      <% end -%>
+    </tbody>
+  </table>
+<% end -%>

@@ -1,0 +1,5 @@
+en:
+  controllers:
+    studies:
+      show:
+        alert: 'Selected study type does not exists'
