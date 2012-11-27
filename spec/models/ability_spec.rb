@@ -240,4 +240,23 @@ describe Ability do
       it { should be_able_to :manage, SegmentationVariableValue }
     end
   end
+
+  context "regarding segments" do
+    context "when no user" do
+      let(:user) { nil }
+      it { should_not be_able_to :manage, Segment }
+    end
+    context "when simple user" do
+      let(:user) { create :user, :simple, :active }
+      it { should_not be_able_to :manage, Segment }
+    end
+    context "when admin user" do
+      let(:user) { create :user, :admin, :active }
+      it { should be_able_to :manage, Segment }
+    end
+    context "when god user" do
+      let(:user) { create :user, :god, :active }
+      it { should be_able_to :manage, Segment }
+    end
+  end
 end

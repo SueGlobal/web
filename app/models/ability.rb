@@ -13,6 +13,11 @@ class Ability
     Source, Index
   ]
 
+  SEGMENTATION_VARIABLE_MODELS = [
+     SegmentationVariable, SegmentationVariableValue,
+     Segment
+  ]
+
   def initialize(user)
     # Define abilities for the passed in (current) user. For example:
     #
@@ -73,8 +78,7 @@ class Ability
     cannot :assign_roles, User do |other_user|
       other_user.roles != [:simple]
     end
-    can :manage, SegmentationVariable
-    can :manage, SegmentationVariableValue
+    can :manage, SEGMENTATION_VARIABLE_MODELS
     can :admin, :site
   end
 
