@@ -27,7 +27,7 @@ SueGlobal::Application.routes.draw do
     end
   end
 
-  get 'studies/:type', to: 'studies#show'
+  get 'studies/:type', to: 'studies#show', as: 'studies_by_type'
   # Universities related stuff
   resources :universities do
     resources :services, shallow: true, except: :show

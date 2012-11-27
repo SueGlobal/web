@@ -59,6 +59,16 @@
                 <li class="nav-header"><%= University.model_name.human count: 2 %></li>
                 <li><%= link_to t('actions.index'), universities_path  %></li>
               </ul>
+
+              <ul class="nav nav-list">
+                <li class="nav-header"><%= t '.studies.header' %></li>
+                <li><%= link_to t('.studies.student'), studies_by_type_path(type: :student )%></li>
+                <li><%= link_to t('.studies.employer'), studies_by_type_path(type: :employer) %></li>
+                <li><%= link_to t('.studies.public_source'), studies_by_type_path(type: :public_source) %></li>
+                <li><%= link_to t('.studies.agreement'), studies_by_type_path(type: :agreement) %></li>
+                <li><%= link_to t('.studies.database'), studies_by_type_path(type: :database) %></li>
+                <li><%= link_to t('.studies.other'), studies_by_type_path(type: :other) %></li>
+              </ul>
             </div><!--/.well -->
           </div><!--/span-->
 

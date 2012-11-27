@@ -2,3 +2,11 @@ en:
   layouts:
     bootstrap:
       menu: 'Menu'
+      studies:
+        header: 'Studies by source'
+        student: 'Students'
+        employer: 'Employers'
+        public_source: 'Public access source'
+        agreement: 'Agreement'
+        database: 'University database'
+        other: 'Other'
