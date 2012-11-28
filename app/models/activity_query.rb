@@ -17,13 +17,7 @@ class ActivityQuery
      :research_projects,
      :entrepreneur_advising,
      :formation_for_employement,
-     :international_dimension,
-     :includes_studies_on_students,
-     :includes_studies_on_employers,
-     :includes_public_secondary_sources,
-     :includes_non_public_secondary_sources,
-     :includes_university_databases,
-     :includes_other_studies
+     :international_dimension
   ]
   BOOLEAN_ATTRIBUTES.each do |bool_attr|
     attribute bool_attr, Boolean

@@ -1,8 +1,8 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
-describe "ActivitiesSearches" do
-  describe "GET /activities_searches" do
+describe "ActivitiesSearch" do
+  describe "GET /activities_search" do
     it "filters the universities" do
 
       university = create :university
