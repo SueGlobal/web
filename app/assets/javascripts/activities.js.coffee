@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+jQuery ->
+  $form = $('form.new_activity_query')
+  $submit = $form.find("input[type=submit]")
+  handler = (evt) ->
+    $submit.attr('disabled', $form.find('input.boolean:checked').length is 0)
+
+  handler()
+  $form.find('input.boolean').on 'change', handler
