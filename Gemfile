@@ -71,3 +71,4 @@ gem 'breadcrumbs_on_rails'
 gem 'friendly_id', "~> 4.0"
 gem 'paul_revere'
 gem 'virtus'
+gem 'high_voltage'

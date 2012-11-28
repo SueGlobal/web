@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 SueGlobal::Application.routes.draw do
 
+  # HighVoltage
+  get "/pages/*id" => "pages#show", as: :page, format: false
   get "accept_change_request/:token", to: "university_change_request#accept", as: "accept_change_request"
 
   filter :locale
