@@ -1,0 +1,5 @@
+es:
+  controllers:
+    activities:
+      retrieve:
+        alert: 'Ninguna universidad pasa el filtro.'

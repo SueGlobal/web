@@ -69,6 +69,10 @@ legend + .control-group {
   margin-top: 0;
 }
 
+.boolean.control-group input.boolean {
+  margin-top: 0;
+}
+
 span.radio > input.radio_buttons {
   display: inline;
 }

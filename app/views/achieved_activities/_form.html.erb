@@ -1,15 +1,5 @@
 <%= simple_form_for(@path) do |f| %>
-  <% if @achieved_activity.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= t '.errors_header' %></h2>
-
-      <ul>
-      <% @achieved_activity.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.error_notification %>
 
   <%= f.input :year, as: :course %>
 

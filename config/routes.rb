@@ -28,6 +28,8 @@ SueGlobal::Application.routes.draw do
   end
 
   get 'studies/:type', to: 'studies#show', as: 'studies_by_type'
+  get 'activities/search', to: 'activities#search', as: 'activities_search'
+  post 'activities/search', to: 'activities#retrieve', as: 'activities_search'
   # Universities related stuff
   resources :universities do
     resources :services, shallow: true, except: :show

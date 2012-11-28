@@ -1,0 +1,6 @@
+es:
+  activities:
+    search:
+      header: 'Filtro por actividades'
+      boolean_attributes:
+        filter_text: 'Selecciona las actividades por las que se ha de filtrar las universidades.'

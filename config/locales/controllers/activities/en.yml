@@ -1,0 +1,5 @@
+en:
+  controllers:
+    activities:
+      retrieve:
+        alert: 'No university with this requirements'

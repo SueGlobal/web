@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class StudiesController < ApplicationController
   def show
     @type = params[:type].to_s
