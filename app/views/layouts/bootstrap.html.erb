@@ -18,38 +18,39 @@
   </head>
   <body class="<%= "#{controller.controller_name} #{controller.action_name}" %>">
 
-    <div id="header" class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#"><%= APP_CONFIG[:name] %></a>
-          <div class="container nav-collapse">
-            <ul class="nav">
-              <% if current_user && current_user.university -%>
-                <%= render partial: 'current_user_university_navigation',
-                           locals: {university: current_user.university } %>
-              <% end -%>
-              <% if can? :admin, :site -%>
-                <%= render partial: 'admin_user_navigation' %>
-              <% end -%>
-              <% if current_user && current_user.god? -%>
-                <%= render partial: 'god_user_navigation' %>
-              <% end -%>
-            </ul>
-
-            <ul class="nav pull-right">
-              <%= render partial: 'login_or_signin' -%>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
 
     <div class="container">
+
+      <div id="header" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#"><%= APP_CONFIG[:name] %></a>
+            <div class="container nav-collapse">
+              <ul class="nav">
+                <% if current_user && current_user.university -%>
+                  <%= render partial: 'current_user_university_navigation',
+                    locals: {university: current_user.university } %>
+                <% end -%>
+                <% if can? :admin, :site -%>
+                  <%= render partial: 'admin_user_navigation' %>
+                <% end -%>
+                <% if current_user && current_user.god? -%>
+                  <%= render partial: 'god_user_navigation' %>
+                <% end -%>
+              </ul>
+
+              <ul class="nav pull-right">
+                <%= render partial: 'login_or_signin' -%>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
 
         <div class="row">
           <div class="span3">
@@ -83,16 +84,17 @@
           </div>
         </div><!--/row-->
 
-      <footer class="footer">
-      <p class="pull-right">&copy; <%= APP_CONFIG[:copyright] %> 2012</p>
-      <ul class="pull-left">
-        <li><%= link_to image_tag('runae_smaller.png', alt: 'Logo RUNAE'), "http://www.runae.org", title: 'Web RUNAE' %></li>
-        <li><%= link_to image_tag('crue_smaller.png', alt: 'Logo CRUE'), "http://www.crue.org", title: 'Web CRUE' %></li>
-        <li><%= link_to image_tag('ministerio_smaller.png', alt: 'Logo Ministerio Educación, Cultura y Deporte'),"http://www.mecd.gob.es/portada-mecd/", title: 'Web MECD' %></li>
-      </ul>
-      </footer>
-
     </div> <!-- /container -->
+
+    <footer class="muted footer">
+    <p class="pull-right">&copy; <%= APP_CONFIG[:copyright] %> 2012</p>
+    <ul class="pull-left">
+      <li><%= link_to image_tag('runae_smaller.png', alt: 'Logo RUNAE'), "http://www.runae.org", title: 'Web RUNAE' %></li>
+      <li><%= link_to image_tag('crue_smaller.png', alt: 'Logo CRUE'), "http://www.crue.org", title: 'Web CRUE' %></li>
+      <li><%= link_to image_tag('ministerio_smaller.png', alt: 'Logo Ministerio Educación, Cultura y Deporte'),"http://www.mecd.gob.es/portada-mecd/", title: 'Web MECD' %></li>
+    </ul>
+    </footer>
+
 
 
     <%= render partial: 'destroy_modal' %>

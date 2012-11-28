@@ -81,7 +81,13 @@ span.radio > input.radio_buttons {
   }
 }
 
-.footer ul {
-  list-style: none;
+.footer {
+  padding-top: 70px;
+  margin-top: 70px;
+  border-top: 1px solid #E5E5E5;
+  ul {
+    list-style: none;
+  }
 }
+
 @import "bootstrap-responsive"
