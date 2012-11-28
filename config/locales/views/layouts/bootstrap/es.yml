@@ -2,6 +2,8 @@ es:
   layouts:
     bootstrap:
       menu: 'Menú'
+      universities:
+        by_activity: 'Por actividades'
       studies:
         header: 'Estudios por tipo'
         student: 'A universitarios'
