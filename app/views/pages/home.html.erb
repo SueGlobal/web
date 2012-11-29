@@ -2,39 +2,7 @@
   <h1>ObservaEmpleo</h1>
   <p>
   La presente web se ha desarrollado en el marco del proyecto
-  <em>Sistema Universitario para le Empleabilidad, SUE-Global</em>, con participación
-  de todas las universidades españolas y promovido por <abbr title="Conferencia de Rectores de Universidades Españolas">CRUE</abbr>.
+  <em>Sistema Universitario para la Empleabilidad, SUE-Global</em>, con participación
+  de todas las universidades españolas y la promoción de <abbr title="Conferencia de Rectores de Universidades Españolas">CRUE</abbr>.
   </p>
 </div>
-<h3>Objetivo</h3>
-<p><strong>ObservaEmpleo</strong> busca proporcionar información y datos el empleo y la inserción laboral de los universitarios
-a través de diversos recursos informativos:</p>
-<ol>
-  <li>
-  Información sobre los estudios e informes que realizan las universidades españolas para conocer el empleo y la inserción
-  laboral de sus graduados; y las actividades e iniciativas que desarrollan para promocionar el empleo. Esta información
-  es actualizada anualmente por las universidades.
-  </li>
-  <li>
-  Información estadística de empleo: <strong>tasa de actividad</strong>, <strong>tasa de paro</strong> y <strong>tasa de empleo</strong>.
-  Dichas tasas se proporcionan para distintos niveles territoriales (Europa, España y Comunidades Autónomas); para la población general
-  y universitaria; segregados por franjas de edades y sexo. Esta información es actualizada semestralmente por un equipo de universidades.
-  </li>
-</ol>
-<h3>Fuentes</h3>
-<p>Las fuentes utilizadas para obtener estos indicadores son:</p>
-<ul>
-  <% Source.all.each do |source| -%>
-    <li><%= link_to source.name, source %></li>
-  <% end -%>
-</ul>
-<h3>Otros indicadores de interés</h3>
-<p>El <abbr title="Servicio Públic de Empleo Estatal">SEPE</abbr> proporciona otros indicadores sobre el empleo no recogidos aquí.
-Dichos indicadores se encuentran segmentados por, entre otros:</p>
-<ul>
-	<li>Titulación</li>
-	<li>Sector de actividad</li>
-	<li>Comunidad Autónoma</li>
-</ul>
-
-<p>Estos indicadores se pueden encontrar en la <%= link_to "página de estadísticas del SEPE", "http://www.sepe.es/contenido/estadisticas/index.html", title: 'Sección de Estadísticas del SEPE' %></p>

@@ -2,6 +2,9 @@ en:
   layouts:
     bootstrap:
       menu: 'Menu'
+      pages:
+        header: 'About ObservaEmpleo'
+        info: 'Information'
       universities:
         by_activity: 'By activities'
       studies:

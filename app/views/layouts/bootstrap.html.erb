@@ -71,6 +71,11 @@
                 <li><%= link_to t('.studies.database'), studies_by_type_path(type: :database) %></li>
                 <li><%= link_to t('.studies.other'), studies_by_type_path(type: :other) %></li>
               </ul>
+
+              <ul class="nav nav-list">
+                <li class="nav-header"><%= t '.pages.header' %></li>
+                <li><%= link_to t('.pages.info'), page_path('info'), title: 'Info' %></li>
+              </ul>
             </div><!--/.well -->
           </div><!--/span-->
 
@@ -89,7 +94,12 @@
 
     <footer class="muted footer">
     <div class="container">
-      <p class="pull-right">&copy; <%= APP_CONFIG[:copyright] %> 2012</p>
+      <div class="pull-right">
+        <p>&copy; <%= APP_CONFIG[:copyright] %> 2012</p>
+        <ul class="footer-links">
+          <li><%= link_to t('.pages.info'), page_path('info'), title: 'Info' %></li>
+        </ul>
+      </div>
       <ul class="pull-left">
         <li><%= link_to image_tag('runae_smaller.png', alt: 'Logo RUNAE'), "http://www.runae.org", title: 'Web RUNAE' %></li>
         <li><%= link_to image_tag('crue_smaller.png', alt: 'Logo CRUE'), "http://www.crue.org", title: 'Web CRUE' %></li>

@@ -1,0 +1,34 @@
+<h2>Información de ObservaEmpleo</h2>
+<h3>Objetivo</h3>
+<p><strong>ObservaEmpleo</strong> busca proporcionar información y datos del empleo y la inserción laboral de los universitarios
+a través de diversos recursos informativos:</p>
+<ol>
+  <li>
+  Información sobre los estudios e informes que realizan las universidades españolas para conocer el empleo y la inserción
+  laboral de sus graduados; y sobre las actividades e iniciativas que desarrollan para promocionar el empleo. Esta información
+  es actualizada anualmente por las universidades.
+  </li>
+  <li>
+  Información estadística de empleo: <strong>tasa de actividad</strong>, <strong>tasa de paro</strong>, <strong>tasa de empleo</strong>
+  y número de contratos.
+</ol>
+<h3>Fuentes</h3>
+<p>Las fuentes utilizadas para obtener los valores de los indicadores arriba citados:</p>
+<ul>
+  <% Source.all.each do |source| -%>
+    <li><%= link_to source.name, source %></li>
+  <% end -%>
+</ul>
+<h3>Otros indicadores de interés</h3>
+<p>El <abbr title="Servicio Público de Empleo Estatal">SEPE</abbr> proporciona otros indicadores sobre el empleo no recogidos aquí.
+Dichos indicadores se encuentran segmentados por, entre otros:</p>
+<ul>
+	<li>Titulación</li>
+	<li>Sector de actividad</li>
+	<li>Comunidad Autónoma</li>
+</ul>
+
+<p>
+Estos indicadores se pueden encontrar en <%= link_to "varias", "http://www.sepe.es/contenido/observatorio/observatorio.html", title: 'Observatorio del SEPE' %> <%= link_to "páginas", "http://www.sepe.es/contenido/estadisticas/index.html", title: 'Sección de Estadísticas del SEPE' %>
+del SEPE.
+</p>
