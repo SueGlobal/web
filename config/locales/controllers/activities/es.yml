@@ -1,5 +1,6 @@
 es:
   controllers:
     activities:
+      breadcrumb: 'Búsqueda por actividades'
       retrieve:
         alert: 'Ninguna universidad pasa el filtro.'

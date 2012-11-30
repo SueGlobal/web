@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class UniversityDependentModelController < ApplicationController
+  before_filter :set_universities_breadcrumb
   before_filter :require_login, except: [:index, :show]
 
   load_and_authorize_resource :university, except: [:index], find_by: :slug
@@ -53,5 +54,9 @@ class UniversityDependentModelController < ApplicationController
 
   def load_university
     @university = University.find(params[:university_id])
+  end
+
+  def set_universities_breadcrumb
+    add_breadcrumb University.model_name.human(count: 2), root_path
   end
 end

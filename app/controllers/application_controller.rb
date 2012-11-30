@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def set_root_breadcrumb
-    add_breadcrumb University.model_name.human(count: 2), root_path
+    add_breadcrumb t('home'), root_path
   end
 
   def set_locale

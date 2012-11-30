@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class StudiesController < ApplicationController
+  before_filter :type_breadcrumb
   def show
     @type = params[:type].to_s
     @title = title_for_type @type
@@ -16,6 +17,10 @@ class StudiesController < ApplicationController
   end
 
   protected
+  def type_breadcrumb
+    add_breadcrumb title_for_type(params[:type]), studies_by_type_path(params[:type])
+  end
+
   def select_by_type type
     type_to_study_map.select_by_type type
   end

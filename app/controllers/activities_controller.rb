@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 class ActivitiesController < ApplicationController
+  before_filter :activities_breadcrumb_filter
+
   def search
     @query = query_by
   end
@@ -20,6 +22,11 @@ class ActivitiesController < ApplicationController
   end
 
   protected
+
+  def activities_breadcrumb_filter
+    add_breadcrumb t2('breadcrumb'), activities_search_path
+  end
+
   def t2 path
     I18n.t path, scope: 'controllers.activities'
   end

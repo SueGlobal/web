@@ -1,5 +1,6 @@
 en:
   controllers:
     activities:
+      breadcrumb: 'Filter by activities'
       retrieve:
         alert: 'No university with this requirements'

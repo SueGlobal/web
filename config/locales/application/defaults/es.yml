@@ -1,5 +1,6 @@
 es:
   link: 'Enlace'
+  home: 'Inicio'
   actions:
     show: "Mostrar"
     edit: "Editar"

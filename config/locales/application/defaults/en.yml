@@ -1,5 +1,6 @@
 en:
   link: 'Link'
+  home: 'Home'
   actions:
     show: "Show"
     edit: "Edit"
