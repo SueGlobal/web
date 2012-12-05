@@ -2,6 +2,7 @@
 class UniversitiesController < ApplicationController
   load_and_authorize_resource except: [:index, :show]
   before_filter :require_login, except: [:index, :show]
+  before_filter :add_universities_breadcrumb
   before_filter :add_breadcrumb_for_university, only: [:add_user, :edit, :update]
 
   # GET /universities
@@ -19,6 +20,7 @@ class UniversitiesController < ApplicationController
   # GET /universities/1.json
   def show
     @university = UniversityDecorator.find(params[:id])
+    add_breadcrumb_for_university
 
     respond_to do |format|
       format.html # show.html.erb
@@ -98,6 +100,10 @@ class UniversitiesController < ApplicationController
 
   def add_breadcrumb_for_university
     add_breadcrumb @university.abbreviation, university_path(@university)
+  end
+
+  def add_universities_breadcrumb
+    add_breadcrumb University.model_name.human(count: 2), universities_path
   end
 
   def get_emails_from attr
