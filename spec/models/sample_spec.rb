@@ -8,6 +8,7 @@ describe Sample do
     it { should belong_to(:index) }
     it { should belong_to(:source) }
     it { should belong_to(:periodicity) }
+    it { should have_and_belong_to_many(:segments) }
 
     it { should allow_mass_assignment_of(:methodology_url) }
     it { should allow_mass_assignment_of(:taken_at) }
@@ -23,7 +24,7 @@ describe Sample do
         idx.should_receive(:source).and_return source
         idx.should_receive(:periodicity).and_return periodicity
         idx.should_receive(:methodology_url).and_return methodology
-     #   idx.should_receive(:segments).and_return segments
+        idx.should_receive(:segments).and_return segments
       end
     end
 
