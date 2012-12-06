@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121205131033) do
+ActiveRecord::Schema.define(:version => 20121205135008) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -435,6 +435,15 @@ ActiveRecord::Schema.define(:version => 20121205131033) do
   end
 
   add_index "sample_questions", ["studiable_id", "studiable_type"], :name => "index_sample_questions_on_studiable_id_and_studiable_type"
+
+  create_table "sample_values", :force => true do |t|
+    t.integer  "value_in_cents"
+    t.integer  "sample_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "sample_values", ["sample_id"], :name => "index_sample_values_on_sample_id"
 
   create_table "samples", :force => true do |t|
     t.integer  "index_id"
