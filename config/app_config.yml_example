@@ -4,6 +4,7 @@ development:
   courses_start_year: 1980
   name: 'ObservaEmpleo'
   copyright: ''
+  orientative_footer: 'Información de caracter orientativo'
 
 test:
   email_address: test.host
@@ -11,6 +12,7 @@ test:
   courses_start_year: 1980
   name: 'ObservaEmpleo'
   copyright: ''
+  orientative_footer: 'Información de caracter orientativo'
 
 production:
   email_address: example.com
@@ -18,3 +20,4 @@ production:
   courses_start_year: 1980
   name: 'ObservaEmpleo'
   copyright: ''
+  orientative_footer: 'Información de caracter orientativo'
