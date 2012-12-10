@@ -10,7 +10,7 @@ class Ability
   ADD_USER_PERMITS = [:add_user, :do_add_user]
 
   INDEX_RELATED_MODELS = [
-    Source, Index
+    Source, Index, Sample
   ]
 
   SEGMENTATION_VARIABLE_MODELS = [

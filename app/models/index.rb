@@ -7,6 +7,7 @@ class Index < ActiveRecord::Base
     through: :index_segments
   has_many :segmentation_variables,
     through: :segments
+  has_many :samples
   attr_accessible :description, :methodology_url,
     :name, :informative, :periodicity_id, :source_id,
     :segments_ids

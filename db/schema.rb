@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121205135008) do
+ActiveRecord::Schema.define(:version => 20121210093309) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -453,10 +453,12 @@ ActiveRecord::Schema.define(:version => 20121205135008) do
     t.text     "methodology_url"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "slug"
   end
 
   add_index "samples", ["index_id"], :name => "index_samples_on_index_id"
   add_index "samples", ["periodicity_id"], :name => "index_samples_on_periodicity_id"
+  add_index "samples", ["slug"], :name => "index_samples_on_slug", :unique => true
 
   create_table "samples_segments", :id => false, :force => true do |t|
     t.integer "sample_id",  :null => false

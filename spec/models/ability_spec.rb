@@ -186,6 +186,10 @@ describe Ability do
     include_examples "abilities for index related model", Source
   end
 
+  context "regarding samples" do
+    include_examples "abilities for index related model", Sample
+  end
+
   context "regarding indices" do
     include_examples "abilities for index related model", Index
   end

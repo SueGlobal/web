@@ -10,7 +10,9 @@ SueGlobal::Application.routes.draw do
 
   # Index related routes
   resources :sources
-  resources :indices
+  resources :indices do
+    resources :samples, shallow: true
+  end
   resources :segmentation_variables, except: [:destroy] do
     resources :segments, only: [:new, :create]
   end

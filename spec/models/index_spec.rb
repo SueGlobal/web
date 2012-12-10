@@ -23,6 +23,7 @@ describe Index do
     it { should validate_presence_of :methodology_url }
 
     it { should have_many :index_segments }
+    it { should have_many :samples }
     it { should have_many(:segments).through(:index_segments) }
     it { should have_many(:segmentation_variables).through(:segments) }
   end
