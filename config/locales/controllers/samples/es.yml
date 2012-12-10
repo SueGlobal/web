@@ -1,0 +1,10 @@
+es:
+  controllers:
+    samples:
+      update:
+        notice: 'La muestra se ha actualizado'
+      create:
+        notice: 'Se ha creado una muestra'
+      destroy:
+        notice: 'Se ha borrado una muestra'
+

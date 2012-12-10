@@ -1,0 +1,10 @@
+en:
+  controllers:
+    samples:
+      update:
+        notice: 'Sample was successfully updated'
+      create:
+        notice: 'Sample was successfully created'
+      destroy:
+        notice: 'Sample was successfully deleted'
+
