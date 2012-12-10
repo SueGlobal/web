@@ -5,7 +5,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :year, as: :course, selected: Time.now.year - 1 %>
+    <%= f.input :year, as: :year, selected: Time.now.year - 1 %>
 
     <p>
     <%= t '.boolean_attributes.filter_text' %>
