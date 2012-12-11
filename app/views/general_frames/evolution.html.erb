@@ -1,5 +1,6 @@
-<div id="graduates-chart"></div>
-<div id="qualifications-chart"></div>
+<h2><%= t '.title', university: @university.abbreviation %></h2>
+<div id="graduates-chart" class="chart"></div>
+<div id="qualifications-chart" class="chart"></div>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
   google.load('visualization', "1", {packages: ["corechart"]});

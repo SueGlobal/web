@@ -26,5 +26,6 @@
  *= require user_sessions
  *= require users
  *= require indices
+ *= require charts
  *= require_tree ./questions
  */
