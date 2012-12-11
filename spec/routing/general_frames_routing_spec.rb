@@ -31,5 +31,9 @@ describe GeneralFramesController do
     it "routes to #destroy" do
       delete("/general_frames/1").should route_to("general_frames#destroy", :id => "1")
     end
+
+    it "routes to #evolution" do
+      expect(get("/universities/1/general_frames/evolution")).to route_to("general_frames#evolution", university_id: "1")
+    end
   end
 end

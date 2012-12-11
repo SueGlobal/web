@@ -146,6 +146,12 @@ describe Ability do
 
   context "regarding general frames" do
     include_examples "abilities for university dependent model", GeneralFrame
+
+    describe "evolution" do
+      let(:user) { nil }
+
+      it { should be_able_to :evolution, GeneralFrame }
+    end
   end
 
   context "regarding achieved activities" do

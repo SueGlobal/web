@@ -1,0 +1,23 @@
+<div id="graduates-chart"></div>
+<div id="qualifications-chart"></div>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', "1", {packages: ["corechart"]});
+  $(function() {
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+      var gData = google.visualization.arrayToDataTable(<%= raw @evolution.graduates_data_table.to_s %>);
+      var qData = google.visualization.arrayToDataTable(<%= raw @evolution.qualifications_data_table.to_s %>);
+
+      var gChart = new google.visualization.LineChart(document.getElementById('graduates-chart'));
+      var qChart = new google.visualization.LineChart(document.getElementById('qualifications-chart'));
+
+      var options = {
+        legend: {position: 'top'},
+        chartArea: {width: '75%', height: '75%'}
+      }
+      gChart.draw(gData, options);
+      qChart.draw(qData, options);
+      }
+  })
+</script>

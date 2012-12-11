@@ -50,6 +50,7 @@ class Ability
 
   def basic_abilities
     can :read, University
+    can :evolution, GeneralFrame
     can :read, UNIVERSITY_DEPENDENT_MODELS
     can :read, INDEX_RELATED_MODELS
   end

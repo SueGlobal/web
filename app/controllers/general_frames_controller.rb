@@ -2,6 +2,8 @@
 class GeneralFramesController < UniversityDependentModelController
   dependent_model :general_frame
 
+  skip_before_filter :require_login, only: [:evolution]
+  skip_load_and_authorize_resource :general_frame, only: [:evolution]
   # GET /general_frames
   # GET /general_frames.json
   def index
@@ -76,6 +78,14 @@ class GeneralFramesController < UniversityDependentModelController
       format.html { redirect_to @general_frame.university, notice: t2('destroy.notice') }
       format.json { head :no_content }
       format.js { render partial: 'destroy_animation', locals: { resource: @general_frame } }
+    end
+  end
+
+  def evolution
+    @university = UniversityDecorator.find_by_slug(params[:university_id])
+    @evolution = GeneralFrameEvolution.new @university
+    respond_to do |format|
+      format.html
     end
   end
 
