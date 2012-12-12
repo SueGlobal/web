@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class GeneralFrameEvolution
   attr_reader :university
 

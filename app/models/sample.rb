@@ -4,7 +4,25 @@ class Sample < ActiveRecord::Base
   belongs_to :periodicity
   belongs_to :source
   has_and_belongs_to_many :segments
+  has_many :sample_values
   attr_accessible :methodology_url, :taken_at
+
+  def value_for *variables
+    value = sample_values.find do |sv|
+      variables.all? do |v|
+        sv.segmentation_variable_values.include? v
+      end
+    end
+
+    value || new_value_for(*variables)
+  end
+
+  def new_value_for *variables
+    SampleValue.new.tap do |s|
+      s.sample = self
+      s.segmentation_variable_values.push *variables
+    end
+  end
 
   class << self
     def from_index index

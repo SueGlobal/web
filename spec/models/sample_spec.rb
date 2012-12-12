@@ -9,6 +9,7 @@ describe Sample do
     it { should belong_to(:source) }
     it { should belong_to(:periodicity) }
     it { should have_and_belong_to_many(:segments) }
+    it { should have_many(:sample_values) }
 
     it { should allow_mass_assignment_of(:methodology_url) }
     it { should allow_mass_assignment_of(:taken_at) }
