@@ -82,7 +82,7 @@ class SamplesController < ApplicationController
     @sample.destroy
 
     respond_to do |format|
-      format.html { redirect_to index_samples_url(@index), t2('destroy.notice') }
+      format.html { redirect_to index_samples_url(@index), notice: t2('destroy.notice') }
       format.json { head :no_content }
     end
   end

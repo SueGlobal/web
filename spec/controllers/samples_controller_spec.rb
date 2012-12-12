@@ -255,9 +255,10 @@ describe SamplesController do
     end # END when user is logged in
   end # END PUT update
 
-  describe "DELETE destroy", :focus do
+  describe "DELETE destroy" do
     def delete_destroy id=nil
-      delete :destroy, {id: (id || sample.to_param)}, valid_session
+      id ||= sample.to_param
+      delete :destroy, {id: id}, valid_session
     end
 
     context "when user is not logged in" do

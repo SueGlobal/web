@@ -8,8 +8,10 @@ describe SampleValue do
 
     it { should_not allow_mass_assignment_of(:value_in_cents) }
     it { should allow_mass_assignment_of(:value) }
+    it { should allow_mass_assignment_of(:segmentation_variable_values_ids) }
 
     it { should belong_to(:sample) }
+    it { should have_and_belong_to_many(:segmentation_variable_values) }
   end
 
   describe "#value" do
