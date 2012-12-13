@@ -1,0 +1,7 @@
+en:
+  samples:
+    index:
+      header: 'Samples for %{index} index'
+      actions: 'Actions'
+      new_sample: 'New sample'
+      destroy_confirmation: 'Are you sure?'

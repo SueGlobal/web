@@ -2,7 +2,7 @@
 class SampleValue < ActiveRecord::Base
   belongs_to :sample
   has_and_belongs_to_many :segmentation_variable_values
-  attr_accessible :value, :segmentation_variable_values_ids
+  attr_accessible :value, :segmentation_variable_value_ids
 
   default_scope do
     includes(:segmentation_variable_values)
@@ -13,6 +13,6 @@ class SampleValue < ActiveRecord::Base
   end
 
   def value
-    self.value_in_cents/100.0
+    (self.value_in_cents || 0)/100.0
   end
 end

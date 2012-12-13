@@ -1,0 +1,7 @@
+es:
+  samples:
+    index:
+      header: 'Muestras del índice %{index}'
+      actions: 'Acciones'
+      new_sample: 'Nueva muestra'
+      destroy_confirmation: '¿Está seguro de que desea borrar la muestra?'

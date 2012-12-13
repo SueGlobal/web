@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212111352) do
+ActiveRecord::Schema.define(:version => 20121213120158) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -446,19 +446,11 @@ ActiveRecord::Schema.define(:version => 20121212111352) do
   add_index "sample_values", ["sample_id"], :name => "index_sample_values_on_sample_id"
 
   create_table "sample_values_segmentation_variable_values", :id => false, :force => true do |t|
-    t.integer "sample_values_id"
-    t.integer "segmentation_variable_values_id"
+    t.integer "sample_value_id"
+    t.integer "segmentation_variable_value_id"
   end
 
-  add_index "sample_values_segmentation_variable_values", ["sample_values_id"], :name => "index_for_sample_values_to_segmentation_variable_values"
-
-  create_table "sample_values_to_samples", :id => false, :force => true do |t|
-    t.integer "sample_values_id"
-    t.integer "samples_id"
-  end
-
-  add_index "sample_values_to_samples", ["sample_values_id"], :name => "index_sample_values_to_samples_on_sample_values_id"
-  add_index "sample_values_to_samples", ["samples_id"], :name => "index_sample_values_to_samples_on_samples_id"
+  add_index "sample_values_segmentation_variable_values", ["sample_value_id"], :name => "index_for_sample_values_to_segmentation_variable_values"
 
   create_table "samples", :force => true do |t|
     t.integer  "index_id"

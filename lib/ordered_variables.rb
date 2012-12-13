@@ -66,6 +66,17 @@ class OrderedVariables
     values.each_slice(values_by_variable[column_variable].size).to_a
   end
 
+  def table_for_variables
+    rv = row_variables.reverse.map { |var| values_by_variable[var] }
+    rv.first.product(*rv[1..-1])
+  end
+
+  def complete_table
+    table_for_variables.zip(table_for_values).map do |arr|
+      arr.first + arr.last
+    end
+  end
+
   protected
   def gen_empty_values
     variable_values_combinations.each_with_object([]) do |val, memo|
@@ -83,5 +94,4 @@ class OrderedVariables
     vvs = variable_values.reverse
     vvs.first.product(*vvs[1..-1])
   end
-
 end

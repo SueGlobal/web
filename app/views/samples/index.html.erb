@@ -1,21 +1,34 @@
-<h1>Listing samples</h1>
+<h1>
+  <%= t '.header', index: @index.name %>
+  <% if can? :new, Sample -%>
+    <%= new_link new_index_sample_path(@index) %>
+  <% end -%>
+</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= Sample.human_attribute_name :taken_at %></th>
+      <th><%= t '.actions' %></th>
+    </tr>
+  </thead>
 
-<% @samples.each do |sample| %>
-  <tr>
-    <td><%= link_to 'Show', sample %></td>
-    <td><%= link_to 'Edit', edit_sample_path(sample) %></td>
-    <td><%= link_to 'Destroy', sample, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @samples.each do |sample| %>
+      <tr>
+        <td><%= link_to sample.taken_at.strftime("%m-%Y"), sample %></td>
+        <td>
+          <% if can? :edit, sample -%>
+            <%= edit_link edit_sample_path(sample) %>
+          <% end -%>
+          <% if can? :destroy, sample -%>
+            <%= destroy_link sample, method: :delete, data: { confirm: t('.destroy_confirmation')} %></td>
+        <% end -%>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br />
 
-<%= link_to 'New Sample', new_sample_path %>
+<%= link_to_if can?(:new, Sample), t('.new_sample'), new_index_sample_path(@index), :class => 'btn' do "" end %>

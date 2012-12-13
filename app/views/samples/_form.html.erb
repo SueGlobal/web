@@ -1,7 +1,49 @@
-<%= simple_form_for(@sample) do |f| %>
+<%= simple_form_for(@path) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= render partial: 'periodicity', object: @sample.periodicity %>
+    <% if @sample.new_record? %>
+      <%= f.input :taken_at, as: :date,
+        discard_day: true,
+        order: [:month, :year],
+        end_year: Time.now.year %>
+    <% else -%>
+      <%= @sample.taken_at.strftime("%m-%Y") %>
+    <% end -%>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <% @ordered_variables.rest_row_variables.each do |rv| -%>
+            <th><%= rv.name %></th>
+          <% end -%>
+          <th><%= @ordered_variables.main_row_variable.name %></th>
+          <% @ordered_variables.column_variable.segmentation_variable_values.each do |val| -%>
+            <th><%= val.value %></th>
+          <% end -%>
+        </tr>
+      </thead>
+      <tbody>
+        <% i =0 -%>
+        <% @ordered_variables.complete_table.each do |row| -%>
+          <tr>
+            <% row.each do |val| -%>
+              <td>
+                <% if val.is_a? SampleValue -%>
+                  <%= f.simple_fields_for "sample_values_attributes[#{i}]", val do |builder| %>
+                    <%= render 'sample_value_form', f: builder %>
+                    <% i = i + 1 %>
+                  <% end -%>
+                <% else %>
+                  <%= val.value %>
+                <% end -%>
+              </td>
+            <% end -%>
+          </tr>
+        <% end -%>
+      </tbody>
+    </table>
   </div>
 
   <div class="form-actions">

@@ -4,7 +4,11 @@ require 'spec_helper'
 describe SamplesController do
 
   def valid_attributes
-    attributes_for :sample
+    attributes_for(:sample).merge({
+      :"taken_at(3i)" => '1',
+      :"taken_at(2i)" => '4',
+      :"taken_at(1i)" => '2011',
+    })
   end
 
   def valid_session
@@ -33,7 +37,8 @@ describe SamplesController do
     it "assigns the requested sample as @sample" do
       sample
       get :show, {:id => sample.to_param}, valid_session
-      assigns(:sample).should eq(sample)
+      expect(assigns(:sample)).to eq(sample)
+      expect(assigns(:ordered_variables)).to be_a(OrderedVariables)
     end
   end
 
@@ -58,6 +63,10 @@ describe SamplesController do
 
         it "assigns a new sample as @sample" do
           expect(assigns(:sample)).to be_a_new(Sample)
+        end
+
+        it "assigns a new ordered variables" do
+          expect(assigns(:ordered_variables)).to be_a(OrderedVariables)
         end
 
         it "renders 'new'" do
@@ -103,6 +112,10 @@ describe SamplesController do
 
         it "renders 'edit'" do
           expect(response).to render_template('edit')
+        end
+
+        it "assigns an ordered variables" do
+          expect(assigns(:ordered_variables)).to be_a(OrderedVariables)
         end
       end
       context "and user cannot 'edit' the sample" do
@@ -162,17 +175,20 @@ describe SamplesController do
         end
 
         describe "with invalid params" do
-          it "assigns a newly created but unsaved sample as @sample" do
-            # Trigger the behavior that occurs when invalid params are submitted
+          before :each do
             Sample.any_instance.stub(:save).and_return(false)
             post_create {}
+          end
+
+          it "assigns a newly created but unsaved sample as @sample" do
             expect(assigns(:sample)).to be_a_new(Sample)
           end
 
+          it "assigns a new ordered variables" do
+            expect(assigns(:ordered_variables)).to be_a(OrderedVariables)
+          end
+
           it "re-renders the 'new' template" do
-            # Trigger the behavior that occurs when invalid params are submitted
-            Sample.any_instance.stub(:save).and_return(false)
-            post_create {}
             expect(response).to render_template("new")
           end
         end
@@ -237,18 +253,22 @@ describe SamplesController do
         end
 
         describe "with invalid params" do
-          it "assigns the sample as @sample" do
+          before :each do
             sample
             Sample.any_instance.stub(:save).and_return(false)
             put_update({})
+          end
+
+          it "assigns the sample as @sample" do
             expect(assigns(:sample)).to eq(sample)
           end
 
           it "re-renders the 'edit' template" do
-            sample
-            Sample.any_instance.stub(:save).and_return(false)
-            put_update({})
             expect(response).to render_template("edit")
+          end
+
+          it "assigns an ordered variables" do
+            expect(assigns(:ordered_variables)).to be_a(OrderedVariables)
           end
         end
       end # END when user can 'update' sample

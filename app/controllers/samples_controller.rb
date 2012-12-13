@@ -3,8 +3,10 @@ class SamplesController < ApplicationController
   before_filter :require_login, except: [:index, :show]
 
   load_and_authorize_resource :index, except: [:index, :show], find_by: :slug
-  load_and_authorize_resource :sample, except: [:index, :show], through: :index,
+  load_and_authorize_resource :sample, except: [:index, :show, :create], through: :index,
     shallow: true, singleton: true, find_by: :slug
+
+  before_filter :add_ordered_variables, only: [:new, :create, :edit, :update]
   # GET /samples
   # GET /samples.json
   def index
@@ -21,6 +23,7 @@ class SamplesController < ApplicationController
   # GET /samples/1.json
   def show
     @sample = Sample.find_by_slug params[:id]
+    add_ordered_variables
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @sample }
@@ -30,8 +33,9 @@ class SamplesController < ApplicationController
   # GET /samples/new
   # GET /samples/new.json
   def new
-    @sample = @index.samples.build
-
+    @sample = Sample.from_index @index
+    add_ordered_variables
+    @path = [@index, @sample]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @sample }
@@ -40,13 +44,17 @@ class SamplesController < ApplicationController
 
   # GET /samples/1/edit
   def edit
+    @sample = Sample.find(params[:id])
+    add_ordered_variables
+    @path = @sample
   end
 
   # POST /samples
   # POST /samples.json
   def create
-    @sample = @index.samples.create params[:sample]
-
+    @sample = Sample.from_index @index
+    @sample.taken_at = Time.utc params[:sample][:"taken_at(1i)"],params[:sample][:"taken_at(2i)"],params[:sample][:"taken_at(3i)"]
+    create_values_for(@sample, params[:sample][:sample_values_attributes])
     respond_to do |format|
       if @sample.save
         format.html { redirect_to @sample, notice: t2('create.notice')}
@@ -61,10 +69,9 @@ class SamplesController < ApplicationController
   # PUT /samples/1
   # PUT /samples/1.json
   def update
-    @sample = Sample.find(params[:id])
-
+    update_values_for(params[:sample][:sample_values_attributes])
     respond_to do |format|
-      if @sample.update_attributes(params[:sample])
+      if @sample.save
         format.html { redirect_to @sample, notice: t2('update.notice')}
         format.json { head :no_content }
       else
@@ -88,6 +95,30 @@ class SamplesController < ApplicationController
   end
 
   protected
+
+  def create_values_for sample, values
+    values.each_pair do |_, value|
+      SampleValue.new do |v|
+        v.segmentation_variable_value_ids = value[:segmentation_variable_value_ids]
+        v.value = value[:value].to_i
+        sample.sample_values << v
+      end
+    end
+  end
+
+  def update_values_for values
+    values.each_pair do |key,value|
+      SampleValue.find_by_id(key).tap do |v|
+        v.value = value[:value].to_i
+        v.save
+      end
+    end
+  end
+
+  def add_ordered_variables
+    @ordered_variables = OrderedVariables.new @sample
+  end
+
   def t2 path
     I18n.t path, scope: 'controllers.samples'
   end

@@ -5,7 +5,7 @@ describe GeneralFramesController do
   it_behaves_like "a university dependent model controller", GeneralFrame,
     :index, :show, :new, :edit, :create, :update, :destroy
 
-  describe "GET evolution", :focus do
+  describe "GET evolution" do
     let(:university) { create :university }
     let(:general_frames) { create_list :general_frame, 3, university: university }
 

@@ -5,7 +5,8 @@ class Sample < ActiveRecord::Base
   belongs_to :source
   has_and_belongs_to_many :segments
   has_many :sample_values
-  attr_accessible :methodology_url, :taken_at
+  accepts_nested_attributes_for :sample_values
+  attr_accessible :methodology_url, :taken_at, :sample_values_attributes
 
   def value_for *variables
     value = sample_values.find do |sv|

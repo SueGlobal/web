@@ -1,0 +1,16 @@
+es:
+  activerecord:
+    models:
+      sample:
+        one: 'Muestra'
+        other: 'Muestras'
+    attributes:
+      sample:
+        taken_at: 'Inicio del periodo'
+        segmentation_variable_values: 'Valores a añadir al segmento'
+    errors:
+      models:
+        sample:
+          attributes:
+            slug:
+              blank: 'No se generó el slug correctamente.'
