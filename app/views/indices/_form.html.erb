@@ -4,10 +4,6 @@
   <div class="form-inputs">
     <%= f.input :name, as: :string %>
     <%= f.input :description, input_html: {rows: 4} %>
-    <%= f.input :informative,
-                wrapper: :checkbox,
-                label_html: {:class => 'checkbox'} %>
-
     <%= render  partial: 'index_extra_info_form',
                 locals: { f: f } %>
 
