@@ -39,7 +39,7 @@ class SegmentationVariablesController < IndexRelatedModelController
   def create
     respond_to do |format|
       if @segmentation_variable.save
-        format.html { redirect_to root_path, notice: t2('create.notice') }
+        format.html { redirect_to @segmentation_variable, notice: t2('create.notice') }
         format.json { render json: @segmentation_variable, status: :created, location: @segmentation_variable }
       else
         format.html { render action: "new" }

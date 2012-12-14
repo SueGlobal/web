@@ -4,7 +4,7 @@ require 'spec_helper'
 describe SegmentationVariablesController do
 
   it_behaves_like "an index related model controller", SegmentationVariable,
-    :new, :edit, :create
+    :new, :edit, :create, :create_with_show
 
   def valid_session
     {}

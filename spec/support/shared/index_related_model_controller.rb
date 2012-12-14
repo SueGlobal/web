@@ -182,7 +182,7 @@ shared_examples "an index related model controller" do |model, *actions|
               assigns(model_name).should be_persisted
             end
 
-            if actions.include? :show
+            if actions.include?(:show) || actions.include?(:create_with_show)
               it "redirects to the created resource" do
                 post_create
                 response.should redirect_to(model.last)
