@@ -7,6 +7,8 @@ class Sample < ActiveRecord::Base
   has_many :sample_values
   accepts_nested_attributes_for :sample_values
   attr_accessible :methodology_url, :taken_at, :sample_values_attributes
+  accepts_nested_attributes_for :periodicity
+  attr_accessible :periodicity_attributes
 
   def value_for *variables
     value = sample_values.find do |sv|

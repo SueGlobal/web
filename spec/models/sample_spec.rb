@@ -14,8 +14,10 @@ describe Sample do
     it { should allow_mass_assignment_of(:methodology_url) }
     it { should allow_mass_assignment_of(:taken_at) }
     it { should allow_mass_assignment_of(:sample_values_attributes) }
+    it { should allow_mass_assignment_of(:periodicity_attributes) }
 
     it { should accept_nested_attributes_for(:sample_values) }
+    it { should accept_nested_attributes_for(:periodicity) }
   end
 
   describe ".from_index" do

@@ -61,6 +61,7 @@ class SamplesController < ApplicationController
   def create
     @sample = Sample.from_index @index
     @sample.taken_at = Time.utc params[:sample][:"taken_at(1i)"],params[:sample][:"taken_at(2i)"],params[:sample][:"taken_at(3i)"]
+    @sample.periodicity.periodicity_type = params[:sample][:periodicity_attributes][:periodicity_type]
     create_values_for(@sample, params[:sample][:sample_values_attributes])
     respond_to do |format|
       if @sample.save

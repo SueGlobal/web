@@ -2,7 +2,13 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= render partial: 'periodicity', object: @sample.periodicity %>
+
+    <%= f.simple_fields_for(:periodicity) do |periodicity_builder| %>
+      <%= periodicity_builder.input :periodicity_type,
+        collection: Periodicity.select_options_without_other,
+        include_blank: false %>
+    <% end -%>
+
     <% if @sample.new_record? %>
       <%= f.input :taken_at, as: :date,
         discard_day: true,
