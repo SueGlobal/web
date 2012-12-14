@@ -7,7 +7,6 @@ class SamplesController < ApplicationController
     shallow: true, singleton: true, find_by: :slug
 
   before_filter :add_index_breadcrumb, except: [:index, :show, :edit, :update, :create]
-  before_filter :add_sample_breadcrumb, except: [:index, :show, :new, :create]
   before_filter :add_ordered_variables, only: [:new, :create, :edit, :update]
   # GET /samples
   # GET /samples.json
@@ -52,6 +51,7 @@ class SamplesController < ApplicationController
   def edit
     @index = @sample.index
     add_index_breadcrumb
+    add_sample_breadcrumb
     add_ordered_variables
     @path = @sample
   end
