@@ -9,11 +9,17 @@ class Index < ActiveRecord::Base
     through: :segments
   has_many :samples,
     order: 'taken_at DESC'
+  accepts_nested_attributes_for :periodicity
   attr_accessible :description, :methodology_url,
-    :name, :informative, :periodicity_id, :source_id,
+    :name, :informative, :periodicity_attributes, :source_id,
     :segment_ids
 
   validates_presence_of :name, :description, :methodology_url
+
+
+  def periodicity
+    self[:periodicity] || Periodicity.new
+  end
 
   include FriendlyId
   friendly_id :name_for_slug, use: :slugged
