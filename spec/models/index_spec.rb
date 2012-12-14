@@ -12,7 +12,7 @@ describe Index do
     it { should allow_mass_assignment_of :informative }
     it { should allow_mass_assignment_of :periodicity_attributes }
     it { should allow_mass_assignment_of :source_id }
-    it { should allow_mass_assignment_of :segments_ids }
+    it { should allow_mass_assignment_of :segment_ids }
     it { should_not allow_mass_assignment_of :slug }
 
     it { should belong_to :source }

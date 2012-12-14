@@ -14,11 +14,12 @@ class Index < ActiveRecord::Base
     :name, :informative, :periodicity_attributes, :source_id,
     :segment_ids
 
+
   validates_presence_of :name, :description, :methodology_url
 
 
   def periodicity
-    self[:periodicity] || Periodicity.new
+    super || (self.periodicity = Periodicity.new)
   end
 
   include FriendlyId
