@@ -3,18 +3,19 @@
 
   <div class="form-inputs">
 
-    <%= f.simple_fields_for(:periodicity) do |periodicity_builder| %>
-      <%= periodicity_builder.input :periodicity_type,
-        collection: Periodicity.select_options_without_other,
-        include_blank: false %>
-    <% end -%>
 
     <% if @sample.new_record? %>
+      <%= f.simple_fields_for(:periodicity) do |periodicity_builder| %>
+        <%= periodicity_builder.input :periodicity_type,
+          collection: Periodicity.select_options_without_other,
+          include_blank: false %>
+      <% end -%>
       <%= f.input :taken_at, as: :date,
         discard_day: true,
         order: [:month, :year],
         end_year: Time.now.year %>
     <% else -%>
+      <%= render partial: 'periodicity', object: @sample.periodicity %>
       <%= @sample.taken_at.strftime("%m-%Y") %>
     <% end -%>
 
