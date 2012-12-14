@@ -45,6 +45,10 @@ SimpleForm.setup do |config|
     b.use :hint, wrap_with: { tag: 'p', :class => 'help-block' }
   end
 
+  config.wrappers :too_many_inputs, tag: 'div', :class => 'control-group', error_class: 'error' do |b|
+    b.use :input
+  end
+
   # Wrappers for forms and inputs using the Twitter Bootstrap toolkit.
   # Check the Bootstrap docs (http://twitter.github.com/bootstrap)
   # to learn about the different styles for forms and inputs,
