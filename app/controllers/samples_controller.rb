@@ -6,12 +6,15 @@ class SamplesController < ApplicationController
   load_and_authorize_resource :sample, except: [:index, :show, :create], through: :index,
     shallow: true, singleton: true, find_by: :slug
 
+  before_filter :add_index_breadcrumb, except: [:index, :show, :edit, :update, :create]
+  before_filter :add_sample_breadcrumb, except: [:index, :show, :new, :create]
   before_filter :add_ordered_variables, only: [:new, :create, :edit, :update]
   # GET /samples
   # GET /samples.json
   def index
     @index = Index.find_by_slug(params[:index_id])
     @samples = @index.samples
+    add_index_breadcrumb
 
     respond_to do |format|
       format.html # index.html.erb
@@ -23,6 +26,9 @@ class SamplesController < ApplicationController
   # GET /samples/1.json
   def show
     @sample = Sample.find_by_slug params[:id]
+    @index = @sample.index
+    add_index_breadcrumb
+    add_sample_breadcrumb
     add_ordered_variables
     respond_to do |format|
       format.html # show.html.erb
@@ -44,7 +50,8 @@ class SamplesController < ApplicationController
 
   # GET /samples/1/edit
   def edit
-    @sample = Sample.find(params[:id])
+    @index = @sample.index
+    add_index_breadcrumb
     add_ordered_variables
     @path = @sample
   end
@@ -100,7 +107,11 @@ class SamplesController < ApplicationController
     values.each_pair do |_, value|
       SampleValue.new do |v|
         v.segmentation_variable_value_ids = value[:segmentation_variable_value_ids]
-        v.value = value[:value].to_i
+        v.value = if value[:value].blank?
+                    nil
+                  else
+                    value[:value].to_i
+                  end
         sample.sample_values << v
       end
     end
@@ -109,10 +120,22 @@ class SamplesController < ApplicationController
   def update_values_for values
     values.each_pair do |key,value|
       SampleValue.find_by_id(key).tap do |v|
-        v.value = value[:value].to_i
+        v.value = if value[:value].blank?
+                    nil
+                  else
+                    value[:value].to_i
+                  end
         v.save
       end
     end
+  end
+
+  def add_index_breadcrumb
+    add_breadcrumb @index.name, index_path(@index)
+  end
+
+  def add_sample_breadcrumb
+    add_breadcrumb @sample.taken_at.strftime('%m-%Y'), sample_path(@sample)
   end
 
   def add_ordered_variables

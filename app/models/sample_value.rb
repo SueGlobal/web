@@ -9,10 +9,18 @@ class SampleValue < ActiveRecord::Base
   end
 
   def value=(value)
-    self.value_in_cents = (value * 100).to_i
+    if value.nil?
+      self.value_in_cents = nil
+    else
+      self.value_in_cents = (value * 100).to_i
+    end
   end
 
   def value
-    (self.value_in_cents || 0)/100.0
+    if self.value_in_cents
+      self.value_in_cents/100.0
+    else
+      nil
+    end
   end
 end

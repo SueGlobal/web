@@ -5,6 +5,16 @@ class Periodicity < ActiveRecord::Base
 
   TYPES = [:three_years, :two_years, :anual, :six_monthly, :four_monthly, :three_monthly, :no_periodicity, :other]
 
+  TIME_FOR_TYPE = {
+    three_years: 3.years,
+    two_years: 2.years,
+    anual: 1.year,
+    six_monthly: 6.months,
+    four_monthly: 4.months,
+    three_monthly: 3.months,
+    no_periodicity: 0.seconds,
+    other: 0.seconds
+  }
   TYPES.each do |t|
     define_method :"#{t}?" do
       self.periodicity_type.to_sym == t
@@ -13,6 +23,10 @@ class Periodicity < ActiveRecord::Base
 
   def periodicity_type
     self[:periodicity_type] || "anual"
+  end
+
+  def as_time
+    TIME_FOR_TYPE[periodicity_type.to_sym] || 0.seconds
   end
 
   class << self

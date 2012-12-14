@@ -1,0 +1,6 @@
+en:
+  samples:
+    show:
+      no_data: 'No Data'
+      period: 'Period of time'
+      header: 'Sample, %{index}'

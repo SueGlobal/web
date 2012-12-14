@@ -2,6 +2,8 @@
 class IndicesController < IndexRelatedModelController
 
   related_model :index
+
+  before_filter :add_index_breadcrumb, only: [:show, :edit]
   # GET /indices
   # GET /indices.json
   def index
@@ -78,5 +80,9 @@ class IndicesController < IndexRelatedModelController
   protected
   def t2 path
     I18n.t path, scope: 'controllers.indices'
+  end
+
+  def add_index_breadcrumb
+    add_breadcrumb @index.name, index_path(@index)
   end
 end

@@ -1,0 +1,6 @@
+es:
+  samples:
+    show:
+      no_data: 'Sin datos'
+      period: 'Periodo de la muestra'
+      header: 'Muestra, %{index}'

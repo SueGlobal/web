@@ -1,3 +1,8 @@
+<h2><%= t '.header', index: @sample.index.name %></h2>
+<div class="field">
+  <span class="data-label"><%= t '.period' %></span>
+  <span class="data"><%= period_for_sample @sample %></span>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -14,7 +19,9 @@
     <% @ordered_variables.complete_table.each do |row| -%>
       <tr>
         <% row.each do |val| -%>
-          <td><%= val.value %></td>
+          <td>
+            <%= val.value || t('.no_data') %>
+          </td>
         <% end -%>
       </tr>
     <% end -%>
