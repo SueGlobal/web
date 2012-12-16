@@ -111,7 +111,7 @@ class SamplesController < ApplicationController
         v.value = if value[:value].blank?
                     nil
                   else
-                    value[:value].to_i
+                    value[:value].to_f
                   end
         sample.sample_values << v
       end
@@ -124,7 +124,7 @@ class SamplesController < ApplicationController
         v.value = if value[:value].blank?
                     nil
                   else
-                    value[:value].to_i
+                    value[:value].to_f
                   end
         v.save
       end

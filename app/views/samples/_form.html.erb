@@ -38,7 +38,7 @@
             <% row.each do |val| -%>
               <td>
                 <% if val.is_a? SampleValue -%>
-                  <%= f.simple_fields_for "sample_values_attributes[#{i}]", val do |builder| %>
+                  <%= f.simple_fields_for "sample_values_attributes[#{val.persisted? ? val.id : i}]", val do |builder| %>
                     <%= render 'sample_value_form', f: builder %>
                     <% i = i + 1 %>
                   <% end -%>
