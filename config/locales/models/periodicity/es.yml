@@ -13,5 +13,6 @@ es:
           six_monthly: 'Semestral'
           four_monthly: 'Cuatrimestral'
           three_monthly: 'Trimestral'
+          monthly: 'Mensual'
           no_periodicity: 'Sin periodicidad'
           other: 'Otra periodicidad'

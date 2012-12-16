@@ -3,7 +3,7 @@ class Periodicity < ActiveRecord::Base
   belongs_to :periodic, polymorphic: true
   attr_accessible :other_description, :periodicity_type
 
-  TYPES = [:three_years, :two_years, :anual, :six_monthly, :four_monthly, :three_monthly, :no_periodicity, :other]
+  TYPES = [:three_years, :two_years, :anual, :six_monthly, :four_monthly, :three_monthly, :monthly, :no_periodicity, :other]
 
   TIME_FOR_TYPE = {
     three_years: 3.years,
@@ -12,6 +12,7 @@ class Periodicity < ActiveRecord::Base
     six_monthly: 6.months,
     four_monthly: 4.months,
     three_monthly: 3.months,
+    monthly: 1.month,
     no_periodicity: 0.seconds,
     other: 0.seconds
   }
