@@ -8,6 +8,7 @@ es:
       universities:
         by_activity: 'Por actividades'
         summary: 'Resumen'
+        report: 'Informe'
       studies:
         header: 'Estudios por tipo'
         student: 'A universitarios'

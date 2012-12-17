@@ -8,6 +8,7 @@ en:
       universities:
         by_activity: 'By activities'
         summary: 'Summary'
+        report: 'Report'
       studies:
         header: 'Studies by source'
         student: 'Students'
