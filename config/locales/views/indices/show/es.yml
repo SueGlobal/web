@@ -6,3 +6,5 @@ es:
         description: 'Los siguientes datos son orientativos. Los verdaderos se encuentran en cada una de las muestras.'
       samples:
         header: 'Muestras'
+      children:
+        header: 'Indicadores hijo'

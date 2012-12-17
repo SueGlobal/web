@@ -1,0 +1,10 @@
+<% children_indices.each do |child_index| -%>
+  <li class="child_index">
+  <%= link_to child_index.name, child_index, :class => 'index_link' %>
+  <ul class="actions">
+    <% if can? :edit, child_index -%>
+      <li><%= edit_link edit_index_path(child_index), :class => 'index_actions' %></li>
+    <% end -%>
+  </ul>
+  </li>
+<% end -%>

@@ -7,7 +7,12 @@
 
 <p class="description"><%= @index.description %></p>
 
-<% unless @index.root? -%>
+<% if @index.root? -%>
+  <h2>
+    <%= t '.children.header' %>
+  </h2>
+  <%= render partial: 'children_list', locals: {children_indices: @index.children } %>
+<% else -%>
   <h2>
     <%= t '.informative.header' %>
   </h2>

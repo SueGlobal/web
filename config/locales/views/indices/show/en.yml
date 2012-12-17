@@ -6,3 +6,5 @@ en:
         description: 'The following data is not conclusive. The real data is in each sample.'
       samples:
         header: 'Samples'
+      children:
+        header: 'Children'

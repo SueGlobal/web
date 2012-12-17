@@ -26,4 +26,12 @@ body.indices {
       display: inline-block;
     }
   }
+
+  &.show {
+    .child_index {
+      .actions {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
