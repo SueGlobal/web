@@ -3,6 +3,9 @@ module Study
   def self.included(base)
     base.send :include, ::UniversityDependentModel
     base.extend ClassMethods
+    base.send :define_singleton_method, "report_for" do |year|
+      Report::StudyReport.new base, year
+    end
   end
 
   def build_questions

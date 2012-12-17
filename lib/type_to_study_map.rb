@@ -15,10 +15,13 @@ class TypeToStudyMap
 
   def title_for_type type
     if @map.has_key? type.to_sym
-      @map[type.to_sym].model_name.human(count: 2)
+      model_for_type(type.to_sym).model_name.human(count: 2)
     end
   end
 
+  def model_for_type type
+    @map[type.to_sym]
+  end
   class << self
 
     def default_map

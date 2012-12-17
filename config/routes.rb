@@ -1,5 +1,8 @@
 # -*- encoding : utf-8 -*-
 SueGlobal::Application.routes.draw do
+  filter :locale
+
+  get "annual_report/(:year)", to: 'annual_report#index', as: :annual_report
 
   get "summary/(:year)", to: 'summary#index', as: :summary
 
@@ -7,7 +10,6 @@ SueGlobal::Application.routes.draw do
   get "/pages/*id" => "pages#show", as: :page, format: false
   get "accept_change_request/:token", to: "university_change_request#accept", as: "accept_change_request"
 
-  filter :locale
   resources :announcements
 
   # Index related routes
@@ -34,6 +36,7 @@ SueGlobal::Application.routes.draw do
   end
 
   get 'studies/:type', to: 'studies#show', as: 'studies_by_type'
+  get 'studies/:type/annual_report/(:year)', to: 'annual_report#show', as: 'studies_annual_report'
   get 'activities/search', to: 'activities#search', as: 'activities_search'
   post 'activities/search', to: 'activities#retrieve', as: 'activities_search'
   # Universities related stuff

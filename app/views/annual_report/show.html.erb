@@ -1,0 +1,3 @@
+<% with_report Report::FieldWorkQuestionsReport, @report do |report| -%>
+  <%= render partial: 'reports/field_work_questions', locals: {report: report, total: @total} %>
+<% end -%>

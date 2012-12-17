@@ -1,0 +1,6 @@
+en:
+  reports:
+    absolute_value: 'Absolute value'
+    relative_value: 'Relative value'
+    field_work_questions:
+      caption: 'Field work data'

@@ -1,0 +1,6 @@
+es:
+  reports:
+    absolute_value: 'Valor absoluto'
+    relative_value: 'Valor relativo'
+    field_work_questions:
+      caption: 'Resumen del apartado trabajo de campo'

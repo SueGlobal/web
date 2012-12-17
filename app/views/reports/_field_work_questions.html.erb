@@ -1,0 +1,47 @@
+<table class="table table-hover">
+  <thead>
+  	<tr>
+  		<th></th>
+      <th><%= t 'reports.absolute_value' %></th>
+      <th><%= t 'reports.relative_value' %></th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<tr>
+      <td><%= FieldWorkQuestion.human_attribute_name :phone %></td>
+      <td><%= report.phone_count %></td>
+      <td><%= report.phone_relative total%>%</td>
+  	</tr>
+  	<tr>
+      <td><%= FieldWorkQuestion.human_attribute_name :email %></td>
+      <td><%= report.email_count %></td>
+      <td><%= report.email_relative total%>%</td>
+  	</tr>
+  	<tr>
+      <td><%= FieldWorkQuestion.human_attribute_name :internet %></td>
+      <td><%= report.internet_count %></td>
+      <td><%= report.internet_relative total%>%</td>
+  	</tr>
+  	<tr>
+      <td><%= FieldWorkQuestion.human_attribute_name :mail %></td>
+      <td><%= report.mail_count %></td>
+      <td><%= report.mail_relative total%>%</td>
+  	</tr>
+  	<tr>
+      <td><%= FieldWorkQuestion.human_attribute_name :interview %></td>
+      <td><%= report.interview_count %></td>
+      <td><%= report.interview_relative total%>%</td>
+  	</tr>
+  	<tr>
+      <td><%= FieldWorkQuestion.human_attribute_name :focus_group %></td>
+      <td><%= report.focus_group_count %></td>
+      <td><%= report.focus_group_relative total%>%</td>
+  	</tr>
+  	<tr>
+      <td><%= FieldWorkQuestion.human_attribute_name :other %></td>
+      <td><%= report.other_count %></td>
+      <td><%= report.other_relative total%>%</td>
+  	</tr>
+  </tbody>
+  <caption><%= t 'reports.field_work_questions.caption' %></caption>
+</table>
