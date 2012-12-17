@@ -24,7 +24,7 @@ class UniversitiesSummary
   end
 
   def universities_with_activity field
-    AchievedActivity.year(year).where(field => true).select(:university_id).uniq
+    AchievedActivity.year(year).where(field => true).map(&:university_id).uniq
   end
 
   def universities_with_activity_count field
@@ -49,7 +49,7 @@ class UniversitiesSummary
   end
 
   def universities_with_data_for klazz
-    klazz.year(year).select(:university_id).uniq
+    klazz.year(year).map(&:university_id).uniq
   end
 
   def info_classes
