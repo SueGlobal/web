@@ -73,6 +73,11 @@
               </ul>
 
               <ul class="nav nav-list">
+                <li class="nav-header"><%= t '.stats.header' %></li>
+                <li><%= link_to Index.model_name.human(count: 2), indices_path %></li>
+              </ul>
+
+              <ul class="nav nav-list">
                 <li class="nav-header"><%= t '.pages.header' %></li>
                 <li><%= link_to t('.pages.info'), page_path('info'), title: 'Info' %></li>
               </ul>
