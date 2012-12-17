@@ -8,6 +8,7 @@ es:
       sample:
         taken_at: 'Inicio del periodo'
         segmentation_variable_values: 'Valores a añadir al segmento'
+        methodology_url: 'Metodología'
     errors:
       models:
         sample:

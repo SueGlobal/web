@@ -16,7 +16,7 @@
         end_year: Time.now.year %>
     <% else -%>
       <%= render partial: 'periodicity', object: @sample.periodicity %>
-      <%= @sample.taken_at.strftime("%m-%Y") %>
+      <%= @sample.interval %>
     <% end -%>
 
     <table class="table">

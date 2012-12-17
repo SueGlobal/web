@@ -22,7 +22,7 @@
 
   <ul class="index-samples">
     <% @index.samples.each do |sample| -%>
-      <li><%= link_to sample.taken_at.strftime("%m-%Y"), sample %>
+      <li><%= link_to sample.interval, sample %>
     <% end -%>
   </ul>
 

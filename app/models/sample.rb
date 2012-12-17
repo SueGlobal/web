@@ -27,6 +27,20 @@ class Sample < ActiveRecord::Base
     end
   end
 
+  def interval
+    periodicity_type = periodicity.periodicity_type.to_sym
+    case periodicity_type
+    when :no_periodicity
+      single_date_interval
+    when :other
+      single_date_interval
+    when :monthly
+      single_date_interval
+    else
+      two_dates_interval
+    end
+  end
+
   class << self
     def from_index index
       Sample.new.tap do |obj|
@@ -52,5 +66,18 @@ class Sample < ActiveRecord::Base
 
   def to_key
     [slug]
+  end
+
+  protected
+  def format_date(date)
+    date.strftime('%m-%Y')
+  end
+
+  def single_date_interval
+    "#{format_date(taken_at)} (#{Periodicity.translate_option(periodicity.periodicity_type)})"
+  end
+
+  def two_dates_interval
+    "#{format_date(taken_at)} - #{format_date(taken_at + periodicity.as_time - 1.month)}"
   end
 end

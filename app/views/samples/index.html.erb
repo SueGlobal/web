@@ -16,7 +16,7 @@
   <tbody>
     <% @samples.each do |sample| %>
       <tr>
-        <td><%= link_to sample.taken_at.strftime("%m-%Y"), sample %></td>
+        <td><%= link_to sample.interval, sample %></td>
         <td>
           <% if can? :edit, sample -%>
             <%= edit_link edit_sample_path(sample) %>

@@ -1,7 +1,21 @@
-<h2><%= t '.header', index: @sample.index.name %></h2>
+<h2>
+  <%= t '.header', index: @sample.index.name %>
+  <% if can? :edit, @sample -%>
+    <%= edit_link edit_sample_path(@sample) -%>
+  <% end -%>
+</h2>
+
 <div class="field">
   <span class="data-label"><%= t '.period' %></span>
-  <span class="data"><%= period_for_sample @sample %></span>
+  <span class="data"><%= @sample.interval %></span>
+</div>
+<div class="field">
+  <span class="data-label"><%= Source.model_name.human count: 1 %></span>
+  <span class="data"><%= @sample.source.name %></span>
+</div>
+<div class="field">
+  <span class="data-label"><%= Sample.human_attribute_name :methodology_url %></span>
+  <span class="data"><%= link_to t('link'), @sample.methodology_url %></span>
 </div>
 <table class="table">
   <thead>
