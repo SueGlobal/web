@@ -46,16 +46,20 @@ class OrderedVariables
     end
   end
 
+  def variables_for_table_by_number_of_values
+    @values_for_table_by_variable ||= variables_by_number_of_values.drop_while {|v| values_by_variable[v].size == 1}
+  end
+
   def column_variable_values
     values_by_variable[column_variable]
   end
 
   def column_variable
-    variables_by_number_of_values.first
+    variables_for_table_by_number_of_values.first
   end
 
   def row_variables
-    @row_variables ||= variables_by_number_of_values[1..-1] || []
+    @row_variables ||= variables_for_table_by_number_of_values[1..-1] || []
   end
 
   def main_row_variable
