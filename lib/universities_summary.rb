@@ -24,7 +24,11 @@ class UniversitiesSummary
   end
 
   def universities_with_activity field
-    AchievedActivity.year(year).where(field => true).map(&:university_id).uniq
+    if field == :other_activities
+      AchievedActivity.year(year).find_all{|a| a.other_activities.present? }.map(&:university_id).uniq
+    else
+      AchievedActivity.year(year).where(field => true).map(&:university_id).uniq
+    end
   end
 
   def universities_with_activity_count field
