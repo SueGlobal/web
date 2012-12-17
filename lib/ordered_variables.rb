@@ -46,6 +46,10 @@ class OrderedVariables
     end
   end
 
+  def column_variable_values
+    values_by_variable[column_variable]
+  end
+
   def column_variable
     variables_by_number_of_values.first
   end
