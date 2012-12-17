@@ -7,6 +7,7 @@ en:
         info: 'Information'
       universities:
         by_activity: 'By activities'
+        summary: 'Summary'
       studies:
         header: 'Studies by source'
         student: 'Students'
