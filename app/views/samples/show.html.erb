@@ -10,7 +10,7 @@
         <th><%= rv.name %></th>
       <% end -%>
       <th><%= @ordered_variables.main_row_variable.name %></th>
-      <% @ordered_variables.column_variable.segmentation_variable_values.each do |val| -%>
+      <% @ordered_variables.column_variable_values.each do |val| -%>
         <th><%= val.value %></th>
       <% end -%>
     </tr>
