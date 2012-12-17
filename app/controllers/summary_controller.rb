@@ -1,6 +1,7 @@
 class SummaryController < ApplicationController
 
   before_filter :set_year
+  before_filter :set_breadcrumb
   def index
     @summary = summary_for_year(@year)
     @total = @summary.universities_with_info_count
@@ -23,6 +24,9 @@ class SummaryController < ApplicationController
       [Service, AchievedActivity, GeneralFrame,
         StudentStudy, EmployerStudy, PublicSourceStudy,
         AgreementSourceStudy, DatabaseStudy, OtherStudy]
+  end
 
+  def set_breadcrumb
+    add_breadcrumb t('controllers.summary.index.breadcrumb', year: @year), summary_path(@year)
   end
 end

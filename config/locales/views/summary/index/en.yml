@@ -1,7 +1,7 @@
 en:
   summary:
     index:
-      header: 'Summary'
+      header: 'Summary, %{year}'
       universities:
         header: 'Universities'
         registered: 'Registered universities'

@@ -1,0 +1,5 @@
+en:
+  controllers:
+    summary:
+      index:
+        breadcrumb: 'Summary, %{year}'

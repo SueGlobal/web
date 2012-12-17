@@ -1,0 +1,5 @@
+es:
+  controllers:
+    summary:
+      index:
+        breadcrumb: 'Resumen, %{year}'
