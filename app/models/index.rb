@@ -22,7 +22,9 @@ class Index < ActiveRecord::Base
     :segment_ids, :parent_id
 
 
-  validates_presence_of :name, :description, :methodology_url
+  validates_presence_of :name, :description
+
+  validates_presence_of :methodology_url, unless: :root?
 
   before_save :set_root
 
