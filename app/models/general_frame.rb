@@ -46,4 +46,6 @@ class GeneralFrame < ActiveRecord::Base
   def column_for_slug
     "general_frame_#{year}_#{year+1}"
   end
+
+  scope :year, ->(year) { where(year: year) }
 end

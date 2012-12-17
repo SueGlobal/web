@@ -1,0 +1,16 @@
+es:
+  summary:
+    index:
+      header: 'Resumen'
+      universities:
+        header: 'Universidades'
+        registered: 'Universidades registradas'
+        with_data: 'Universidades con datos registrados'
+      table:
+        header:
+          absolute: 'Valor absoluto'
+          relative: 'Valor relativo'
+      activities:
+        header: 'Actividades'
+      studies:
+        header: 'Estudios'

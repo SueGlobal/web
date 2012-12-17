@@ -38,4 +38,6 @@ class AchievedActivity < ActiveRecord::Base
   def column_for_slug
     "achieved_activity_#{year}_#{year+1}"
   end
+
+  scope :year, ->(year) { where(year: year) }
 end

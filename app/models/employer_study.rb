@@ -44,4 +44,6 @@ class EmployerStudy < ActiveRecord::Base
   def column_for_slug
     basic_question.title
   end
+
+  scope :year, ->(year) { includes(:basic_question).where('basic_questions.year = ?', [year]) }
 end

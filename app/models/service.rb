@@ -12,4 +12,7 @@ class Service < ActiveRecord::Base
   def column_for_slug
     name
   end
+
+  # For UniversitiesSummary support.
+  scope :year, ->(year) { }
 end

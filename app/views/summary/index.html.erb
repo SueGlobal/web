@@ -1,0 +1,65 @@
+<h1><%= t '.header' %></h1>
+
+<h2><%= t '.universities.header' %></h2>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th></th>
+      <th><%= t '.table.header.absolute' %></th>
+      <th><%= t '.table.header.relative' %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+      <td><%= t '.universities.registered' %></td>
+      <td><%= University.count %></td>
+			<td>100%</td>
+		</tr>
+    <tr>
+      <td><%= t '.universities.with_data' %></td>
+      <td><%= @summary.universities_with_info_count %></td>
+      <td><%= @summary.universities_with_info_relative University.count %>%</td>
+    </tr>
+	</tbody>
+</table>
+
+<h2><%= t '.activities.header' %></h2>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th></th>
+      <th><%= t '.table.header.absolute' %></th>
+      <th><%= t '.table.header.relative' %></th>
+		</tr>
+	</thead>
+	<tbody>
+    <% AchievedActivity::ACTIVITIES.each do |field| -%>
+      <tr>
+        <td><%= AchievedActivity.human_attribute_name field %></td>
+        <td><%= @summary.universities_with_activity_count field %></td>
+        <td><%= @summary.universities_with_activity_relative field, @total %>%</td>
+      </tr>
+    <% end -%>
+	</tbody>
+</table>
+
+<h2><%= t '.studies.header' %></h2>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th></th>
+      <th><%= t '.table.header.absolute' %></th>
+      <th><%= t '.table.header.relative' %></th>
+		</tr>
+	</thead>
+	<tbody>
+    <% AchievedActivity::SOURCES.each do |field| -%> <tr>
+        <td><%= AchievedActivity.human_attribute_name field %></td>
+        <td><%= @summary.universities_with_activity_count field %></td>
+        <td><%= @summary.universities_with_activity_relative field, @total %>%</td>
+      </tr>
+    <% end -%>
+	</tbody>
+</table>
