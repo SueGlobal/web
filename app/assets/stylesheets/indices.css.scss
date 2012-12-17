@@ -18,4 +18,12 @@ body.indices {
       display: inline;
     }
   }
+  .child_index {
+    .index_link {
+      display: inline-block;
+    }
+    .actions {
+      display: inline-block;
+    }
+  }
 }

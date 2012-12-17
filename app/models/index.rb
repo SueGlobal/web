@@ -2,6 +2,8 @@
 class Index < ActiveRecord::Base
   belongs_to :source
   belongs_to :periodicity
+  belongs_to :parent, class_name: 'Index'
+
   has_many :index_segments
   has_many :segments,
     through: :index_segments
@@ -9,14 +11,20 @@ class Index < ActiveRecord::Base
     through: :segments
   has_many :samples,
     order: 'taken_at DESC'
+  has_many :children, class_name: 'Index',
+    foreign_key: 'parent_id',
+    order: 'name ASC'
+
   accepts_nested_attributes_for :periodicity
+
   attr_accessible :description, :methodology_url,
     :name, :informative, :periodicity_attributes, :source_id,
-    :segment_ids
+    :segment_ids, :parent_id
 
 
   validates_presence_of :name, :description, :methodology_url
 
+  before_save :set_root
 
   def periodicity
     super || (self.periodicity = Periodicity.new)
@@ -34,5 +42,17 @@ class Index < ActiveRecord::Base
 
   def to_key
     [slug]
+  end
+
+  def set_root
+    self.root = self.parent.nil?
+    true
+  end
+
+  class << self
+
+    def root
+      where(root: true).order('name ASC')
+    end
   end
 end

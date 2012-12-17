@@ -5,34 +5,24 @@
   <% end -%>
 </h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th><%= Index.model_name.human count: 2 %></th>
-      <th><%= Source.model_name.human count: 2 %></th>
-      <th><%= Periodicity.model_name.human count: 2 %></th>
-      <th><%= t '.actions' %></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @indices.each do |index| %>
-      <%= index.with_content_tag :tr do %>
-        <td><%= link_to index.name, index %></td>
-        <td><%= index.source_name %></td>
-        <td><%= index.periodicity_type %></td>
-        <td>
+<ul class="root_indices">
+  <% @indices.each do |root_index| -%>
+    <%= root_index.with_content_tag :li do %>
+      <%= link_to root_index.name, root_index %>
+      <ul class="child_indices">
+        <% root_index.children.each do |child_index| -%>
+          <li class="child_index">
+          <%= link_to child_index.name, child_index, :class => 'index_link' %>
         	<ul class="actions">
-            <% if can? :edit, index -%>
-              <li><%= edit_link edit_index_path(index) %></li>
+            <% if can? :edit, child_index -%>
+              <li><%= edit_link edit_index_path(child_index), :class => 'index_actions' %></li>
             <% end -%>
         	</ul>
-        </td>
-      <% end -%>
-    <% end %>
-  </tbody>
-</table>
-
-<br />
+          </li>
+        <% end -%>
+      </ul>
+    <% end -%>
+  <% end -%>
+</ul>
 
 <%= link_to_if can?(:new, Index), t('.new_index'), new_index_path, :class => 'btn' do "" end %>

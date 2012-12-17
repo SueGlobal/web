@@ -7,6 +7,10 @@
     <%= render  partial: 'index_extra_info_form',
                 locals: { f: f } %>
 
+    <%= f.association :parent,
+          collection: Index.root,
+          label_method: :name,
+          include_blank: true %>
     <%= f.association :segments,
               as: :check_boxes,
               collection: Segment.includes(:segmentation_variable).order("segmentation_variables.name ASC, segments.name ASC"),

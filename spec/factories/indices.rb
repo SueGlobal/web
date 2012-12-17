@@ -9,6 +9,7 @@ FactoryGirl.define do
     source
     periodicity
     methodology_url "MyText"
+    root true
     ignore do
       segments_count 2
     end

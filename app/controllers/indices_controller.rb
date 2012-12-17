@@ -7,7 +7,7 @@ class IndicesController < IndexRelatedModelController
   # GET /indices
   # GET /indices.json
   def index
-    @indices = IndexDecorator.decorate Index.all
+    @indices = IndexDecorator.decorate Index.root
 
     respond_to do |format|
       format.html # index.html.erb
