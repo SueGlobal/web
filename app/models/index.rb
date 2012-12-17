@@ -15,7 +15,9 @@ class Index < ActiveRecord::Base
     :segment_ids
 
 
-  validates_presence_of :name, :description, :methodology_url
+  validates_presence_of :name, :description
+
+  validates_presence_of :methodology_url, unless: :root?
 
 
   def periodicity

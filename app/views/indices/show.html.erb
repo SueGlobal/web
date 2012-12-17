@@ -7,28 +7,30 @@
 
 <p class="description"><%= @index.description %></p>
 
-<h2>
-  <%= t '.informative.header' %>
-</h2>
+<% unless @index.root? -%>
+  <h2>
+    <%= t '.informative.header' %>
+  </h2>
 
-<p><%= t '.informative.description' %></p>
+  <p><%= t '.informative.description' %></p>
 
-<h2>
-  <%= t '.samples.header' %>
-  <% if can? :new, Sample -%>
-    <%= new_link new_index_sample_path(@index) %>
-  <% end -%>
-</h2>
+  <h2>
+    <%= t '.samples.header' %>
+    <% if can? :new, Sample -%>
+      <%= new_link new_index_sample_path(@index) %>
+    <% end -%>
+  </h2>
 
-<ul class="index-samples">
-  <% @index.samples.each do |sample| -%>
-    <li><%= link_to sample.taken_at.strftime("%m-%Y"), sample %>
-  <% end -%>
-</ul>
-<%= @index.render_source %>
+  <ul class="index-samples">
+    <% @index.samples.each do |sample| -%>
+      <li><%= link_to sample.taken_at.strftime("%m-%Y"), sample %>
+    <% end -%>
+  </ul>
+  <%= @index.render_source %>
 
-<%= @index.render_periodicity %>
+  <%= @index.render_periodicity %>
 
-<%= @index.render_methodology %>
+  <%= @index.render_methodology %>
 
-<%= @index.render_segmentation_variables %>
+  <%= @index.render_segmentation_variables %>
+<% end -%>
