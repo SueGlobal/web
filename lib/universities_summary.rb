@@ -29,7 +29,7 @@ class UniversitiesSummary
 
   def universities_with_activity_count field
     @universities_with_activity_count ||= Hash.new do |h,k|
-      h[k] = universities_with_activity(field).size
+      h[k] = universities_with_activity(k).size
     end
     @universities_with_activity_count[field]
   end
