@@ -11,7 +11,7 @@ class Sample < ActiveRecord::Base
   attr_accessible :periodicity_attributes
 
   def can_edit_header?
-    new_record? || (created_at - Time.zone.now) < 15.minutes
+    new_record? || (Time.zone.now - created_at) < 15.minutes
   end
 
   def value_for *variables
