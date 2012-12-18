@@ -59,9 +59,8 @@ class SamplesController < ApplicationController
   # POST /samples
   # POST /samples.json
   def create
-    @sample = Sample.from_index @index
-    @sample.taken_at = Time.utc params[:sample][:"taken_at(1i)"],params[:sample][:"taken_at(2i)"],params[:sample][:"taken_at(3i)"]
-    @sample.periodicity.periodicity_type = params[:sample][:periodicity_attributes][:periodicity_type]
+    set_time
+    set_periodicity
     create_values_for(@sample, params[:sample][:sample_values_attributes])
     respond_to do |format|
       if @sample.save
@@ -77,6 +76,8 @@ class SamplesController < ApplicationController
   # PUT /samples/1
   # PUT /samples/1.json
   def update
+    set_time
+    set_periodicity
     update_values_for(params[:sample][:sample_values_attributes])
     respond_to do |format|
       if @sample.save
@@ -130,6 +131,25 @@ class SamplesController < ApplicationController
       end
     end
   end
+
+  def set_time
+    if sample.can_edit_header? &&
+      params[:sample][:"taken_at(1i)"].present? &&
+      params[:sample][:"taken_at(2i)"].present? &&
+      params[:sample][:"taken_at(3i)"].present?
+
+      @sample.taken_at = Time.utc params[:sample][:"taken_at(1i)"],params[:sample][:"taken_at(2i)"],params[:sample][:"taken_at(3i)"]
+    end
+  end
+
+  def set_periodicity
+    if sample.can_edit_header? &&
+      params[:sample][:periodicity_attributes][:periodicity_type].present?
+
+      @sample.periodicity.periodicity_type = params[:sample][:periodicity_attributes][:periodicity_type]
+    end
+  end
+
 
   def add_index_breadcrumb
     add_breadcrumb @index.name, index_path(@index)
