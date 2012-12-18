@@ -5,7 +5,16 @@
   <% else -%>
     <ul>
        <% segmentation_variables.each do |var| -%>
-         <li><%= var.name -%>
+         <li>
+         <%= var.name -%>
+          <ul>
+            <% var.segmentation_variable_values.each do |value| -%>
+              <% if index.contains_segmentation_value? value -%>
+                <li><%= value.value %></li>
+              <% end -%>
+            <% end -%>
+          </ul>
+         </li>
        <% end -%>
     </ul>
   <% end -%>

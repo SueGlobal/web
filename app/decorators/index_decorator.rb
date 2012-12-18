@@ -49,7 +49,8 @@ class IndexDecorator < Draper::Base
 
   def render_dependent_models assoc, item_partial=assoc.to_s
     h.render partial: item_partial,
-              object: index.send(assoc)
+              object: index.send(assoc),
+              locals: {index: index}
   end
 
   def source_name

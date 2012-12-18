@@ -50,19 +50,15 @@ class Index < ActiveRecord::Base
     [slug]
   end
 
-  def set_root
-    self.root = self.parent.nil?
-    true
-  end
-
-  def set_confirmation
-    self.confirmed = false
-    true
-  end
-
   def send_confirmation
     User.admin.each do |u|
       u.confirm_index self
+    end
+  end
+
+  def contains_segmentation_value?(val)
+    segments.any? do |s|
+      s.segmentation_variable_values.include? val
     end
   end
 
@@ -93,4 +89,17 @@ class Index < ActiveRecord::Base
       where(confirmed: true)
     end
   end
+
+  protected
+
+  def set_root
+    self.root = self.parent.nil?
+    true
+  end
+
+  def set_confirmation
+    self.confirmed = false
+    true
+  end
+
 end
