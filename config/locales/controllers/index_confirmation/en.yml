@@ -1,0 +1,9 @@
+en:
+  controllers:
+    index_confirmation:
+      set_confirmation:
+        not_available: 'Action not available'
+      reject:
+        notice: 'Index destroyed'
+      confirm:
+        notice: 'Index confirmed'

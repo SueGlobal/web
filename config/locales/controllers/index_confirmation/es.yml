@@ -1,0 +1,9 @@
+es:
+  controllers:
+    index_confirmation:
+      set_confirmation:
+        not_available: 'Acción no disponible'
+      reject:
+        notice: 'Indicador borrado'
+      confirm:
+        notice: 'Indicador aceptado'
