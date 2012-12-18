@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_one_role_is_set
 
+  scope :admin, -> { where(roles_mask: [2, 3, 6]) }
+
   ROLES = [:god, :admin, :simple]
   def roles= roles
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
@@ -41,6 +43,14 @@ class User < ActiveRecord::Base
 
   def change_university_to university
     UniversityChangeRequest.change(user: self, university: university)
+  end
+
+  def confirm_index(index)
+    ic = IndexConfirmation.new
+    ic.user= self
+    ic.index= index
+    ic.save
+    IndexConfirmationMailer.ask_confirmation(self, ic).deliver
   end
 
   private

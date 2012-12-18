@@ -1,0 +1,8 @@
+en:
+  index_confirmation:
+      ask_confirmation:
+        subject: 'Confirm new index'
+      confirmation_passed:
+        subject: 'Index created'
+      confirmation_failed:
+        subject: 'Index failed'

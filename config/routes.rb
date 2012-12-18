@@ -2,6 +2,8 @@
 SueGlobal::Application.routes.draw do
   filter :locale
 
+  get 'index/confirm/:slug', to: 'index_confirmation#confirm', as: :index_confirm
+  get 'index/reject/:slug', to: 'index_confirmation#reject', as: :index_reject
   get "annual_report/(:year)", to: 'annual_report#index', as: :annual_report
 
   get "summary/(:year)", to: 'summary#index', as: :summary

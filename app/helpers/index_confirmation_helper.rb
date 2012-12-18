@@ -1,0 +1,2 @@
+module IndexConfirmationHelper
+end

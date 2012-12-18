@@ -1,0 +1,8 @@
+es:
+  index_confirmation:
+      ask_confirmation:
+        subject: 'Confirme indicador'
+      confirmation_passed:
+        subject: 'Indicador creado'
+      confirmation_failed:
+        subject: 'Indicador borrado'

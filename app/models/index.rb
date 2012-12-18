@@ -13,7 +13,9 @@ class Index < ActiveRecord::Base
     order: 'taken_at DESC'
   has_many :children, class_name: 'Index',
     foreign_key: 'parent_id',
-    order: 'name ASC'
+    order: 'name ASC',
+    conditions: {confirmed: true}
+  has_many :index_confirmations
 
   accepts_nested_attributes_for :periodicity
 
@@ -27,6 +29,8 @@ class Index < ActiveRecord::Base
   validates_presence_of :methodology_url, unless: :root?
 
   before_save :set_root
+  before_create :set_confirmation
+  after_create :send_confirmation
 
   def periodicity
     super || (self.periodicity = Periodicity.new)
@@ -51,10 +55,42 @@ class Index < ActiveRecord::Base
     true
   end
 
+  def set_confirmation
+    self.confirmed = false
+    true
+  end
+
+  def send_confirmation
+    User.admin.each do |u|
+      u.confirm_index self
+    end
+  end
+
+  def check_all_accepted
+    if self.index_confirmations.all?(&:accepted?)
+      self.confirmed = true
+      self.save
+      User.admin.each do |u|
+        IndexConfirmationMailer.confirmation_passed(u, self).deliver
+      end
+    end
+  end
+
+  def reject
+    User.admin.each do |u|
+      IndexConfirmationMailer.confirmation_failed(u, self).deliver
+    end
+    self.destroy
+  end
+
   class << self
 
     def root
-      where(root: true).order('name ASC')
+      confirmed.where(root: true).order('name ASC')
+    end
+
+    def confirmed
+      where(confirmed: true)
     end
   end
 end

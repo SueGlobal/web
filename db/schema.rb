@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121214124454) do
+ActiveRecord::Schema.define(:version => 20121218092550) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -250,6 +250,20 @@ ActiveRecord::Schema.define(:version => 20121214124454) do
   add_index "general_frames", ["university_id"], :name => "index_general_frames_on_university_id"
   add_index "general_frames", ["year"], :name => "index_general_frames_on_year"
 
+  create_table "index_confirmations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "index_id"
+    t.boolean  "accepted"
+    t.datetime "accepted_at"
+    t.string   "slug"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "index_confirmations", ["index_id"], :name => "index_index_confirmations_on_index_id"
+  add_index "index_confirmations", ["slug"], :name => "index_index_confirmations_on_slug"
+  add_index "index_confirmations", ["user_id"], :name => "index_index_confirmations_on_user_id"
+
   create_table "index_descriptions", :force => true do |t|
     t.text     "name"
     t.text     "description"
@@ -301,8 +315,10 @@ ActiveRecord::Schema.define(:version => 20121214124454) do
     t.datetime "updated_at",      :null => false
     t.boolean  "root"
     t.integer  "parent_id"
+    t.boolean  "confirmed"
   end
 
+  add_index "indices", ["confirmed"], :name => "index_indices_on_confirmed"
   add_index "indices", ["parent_id"], :name => "index_indices_on_parent_id"
   add_index "indices", ["periodicity_id"], :name => "index_indices_on_periodicity_id"
   add_index "indices", ["root"], :name => "index_indices_on_informative"
