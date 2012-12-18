@@ -59,6 +59,7 @@ class SamplesController < ApplicationController
   # POST /samples
   # POST /samples.json
   def create
+    @sample = Sample.from_index @index
     set_time
     set_periodicity
     create_values_for(@sample, params[:sample][:sample_values_attributes])
