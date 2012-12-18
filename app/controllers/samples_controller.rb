@@ -133,7 +133,7 @@ class SamplesController < ApplicationController
   end
 
   def set_time
-    if sample.can_edit_header? &&
+    if @sample.can_edit_header? &&
       params[:sample][:"taken_at(1i)"].present? &&
       params[:sample][:"taken_at(2i)"].present? &&
       params[:sample][:"taken_at(3i)"].present?
@@ -143,7 +143,7 @@ class SamplesController < ApplicationController
   end
 
   def set_periodicity
-    if sample.can_edit_header? &&
+    if @sample.can_edit_header? &&
       params[:sample][:periodicity_attributes][:periodicity_type].present?
 
       @sample.periodicity.periodicity_type = params[:sample][:periodicity_attributes][:periodicity_type]
