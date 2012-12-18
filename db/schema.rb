@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218104350) do
+ActiveRecord::Schema.define(:version => 20121218133432) do
 
   create_table "achieved_activities", :force => true do |t|
     t.boolean  "studies_on_students"
@@ -152,6 +152,21 @@ ActiveRecord::Schema.define(:version => 20121218104350) do
 
   add_index "database_studies", ["slug"], :name => "index_database_studies_on_slug", :unique => true
   add_index "database_studies", ["university_id"], :name => "index_database_studies_on_university_id"
+
+  create_table "documents", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "type"
+    t.string   "file"
+    t.string   "slug"
+    t.boolean  "published"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "documents", ["published"], :name => "index_documents_on_published"
+  add_index "documents", ["slug"], :name => "index_documents_on_slug"
+  add_index "documents", ["type"], :name => "index_documents_on_type"
 
   create_table "employer_studies", :force => true do |t|
     t.boolean  "variable_selection_process"
