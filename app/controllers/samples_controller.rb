@@ -110,24 +110,30 @@ class SamplesController < ApplicationController
     values.each_pair do |_, value|
       SampleValue.new do |v|
         v.segmentation_variable_value_ids = value[:segmentation_variable_value_ids]
-        v.value = if value[:value].blank?
-                    nil
-                  else
-                    value[:value].to_f
-                  end
+        v.value_in_cents = value_for_param value
         sample.sample_values << v
       end
     end
   end
 
+  def value_for_param value
+    if value[:value].blank?
+      nil
+    else
+      convert_to_fixnum value[:value]
+    end
+  end
+
+  def convert_to_fixnum val
+    return val.to_i * 100 unless val.include? '.'
+    val = val + "00"
+    val.match(/\d+\.\d{2}/).to_a.first.gsub('.','').to_i
+  end
+
   def update_values_for values
     values.each_pair do |key,value|
       SampleValue.find_by_id(key).tap do |v|
-        v.value = if value[:value].blank?
-                    nil
-                  else
-                    value[:value].to_f
-                  end
+        v.value_in_cents = value_for_param value
         v.save
       end
     end
