@@ -14,7 +14,6 @@ class IndexConfirmationController < ApplicationController
   protected
   def set_confirmation
     @confirmation = IndexConfirmation.find_by_slug params[:slug]
-    binding.pry
     if @confirmation.nil? || !@confirmation.active?
       redirect_to root_path, notice: t2('set_confirmation.not_available')
     end

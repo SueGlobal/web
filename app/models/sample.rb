@@ -11,7 +11,6 @@ class Sample < ActiveRecord::Base
   attr_accessible :periodicity_attributes
 
   def can_edit_header?
-    binding.pry
     new_record? || (created_at - Time.zone.now) < 15.minutes
   end
 
