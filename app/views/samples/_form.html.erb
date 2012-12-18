@@ -4,7 +4,8 @@
   <div class="form-inputs">
 
 
-    <% if @sample.new_record? %>
+    <% if @sample.can_edit_header? %>
+
       <%= f.simple_fields_for(:periodicity) do |periodicity_builder| %>
         <%= periodicity_builder.input :periodicity_type,
           collection: Periodicity.select_options_without_other,
@@ -19,7 +20,7 @@
       <%= @sample.interval %>
     <% end -%>
 
-    <table class="table">
+    <table class="sample-table table">
       <thead>
         <tr>
           <% @ordered_variables.rest_row_variables.each do |rv| -%>
@@ -54,6 +55,10 @@
   </div>
 
   <div class="form-actions">
+    <% if @sample.new_record? -%>
+      <p style="color: #c09853" class="text-warning"><%= t '.correct_data' %></p>
+    <% end -%>
+
     <%= f.button :submit %>
   </div>
 <% end %>

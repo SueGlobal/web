@@ -10,6 +10,11 @@ class Sample < ActiveRecord::Base
   accepts_nested_attributes_for :periodicity
   attr_accessible :periodicity_attributes
 
+  def can_edit_header?
+    binding.pry
+    new_record? || (created_at - Time.zone.now) < 15.minutes
+  end
+
   def value_for *variables
     value = sample_values.find do |sv|
       variables.all? do |v|
