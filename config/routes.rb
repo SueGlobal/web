@@ -7,7 +7,7 @@ SueGlobal::Application.routes.draw do
   get "summary/(:year)", to: 'summary#index', as: :summary
 
   # HighVoltage
-  get "/pages/*id" => "pages#show", as: :page, format: false
+  get "/pages/:id" => "pages#show", as: :page, format: false
   get "accept_change_request/:token", to: "university_change_request#accept", as: "accept_change_request"
 
   resources :announcements
