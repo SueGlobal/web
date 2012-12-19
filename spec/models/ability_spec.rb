@@ -269,4 +269,47 @@ describe Ability do
       it { should be_able_to :manage, Segment }
     end
   end
+
+  context "regarding journals" do
+    context "when no user" do
+      let(:user) { nil }
+      it { should_not be_able_to :read, Journal }
+      it { should_not be_able_to :new, Journal }
+      it { should_not be_able_to :create, Journal }
+      it { should_not be_able_to :edit, Journal }
+      it { should_not be_able_to :update, Journal }
+      it { should_not be_able_to :destroy, Journal }
+    end
+
+    context "when registered user" do
+      let(:user) { create :user }
+      it { should_not be_able_to :read, Journal }
+      it { should_not be_able_to :new, Journal }
+      it { should_not be_able_to :create, Journal }
+      it { should_not be_able_to :edit, Journal }
+      it { should_not be_able_to :update, Journal }
+      it { should_not be_able_to :destroy, Journal }
+    end
+
+    context "when registered user" do
+      let(:university) { create :university }
+      let(:user) { create :user, university: university }
+      it { should be_able_to :read, Journal }
+      it { should_not be_able_to :new, Journal }
+      it { should_not be_able_to :create, Journal }
+      it { should_not be_able_to :edit, Journal }
+      it { should_not be_able_to :update, Journal }
+      it { should_not be_able_to :destroy, Journal }
+    end
+
+    context "when admin user" do
+      let(:user) { create :user, :admin }
+      it { should be_able_to :manage, Journal }
+    end
+
+    context "when god" do
+      let(:user) { create :user, :god }
+      it { should be_able_to :manage, Journal }
+    end
+  end
 end

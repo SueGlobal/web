@@ -53,11 +53,14 @@ class Ability
     can :evolution, GeneralFrame
     can :read, UNIVERSITY_DEPENDENT_MODELS
     can :read, INDEX_RELATED_MODELS
+    can :read, AnnualReport
+    cannot :manage, Journal
   end
 
   def simple_abilities user
     if user.university_id
       can ADD_USER_PERMITS, University, id: user.university_id
+      can :read, Journal
       can :manage, UNIVERSITY_DEPENDENT_MODELS , university_id: user.university_id
       can [:edit, :update], University, id: user.university_id
     end
@@ -80,6 +83,7 @@ class Ability
       other_user.roles != [:simple]
     end
     can :manage, SEGMENTATION_VARIABLE_MODELS
+    can :manage, [Journal, AnnualReport]
     can :admin, :site
   end
 
