@@ -54,14 +54,14 @@ class Ability
     can :read, UNIVERSITY_DEPENDENT_MODELS
     can :read, INDEX_RELATED_MODELS
     cannot :manage, AnnualReport
-    can :read, AnnualReport
+    can :read, AnnualReport, published: true
     cannot :manage, Journal
   end
 
   def simple_abilities user
     if user.university_id
       can ADD_USER_PERMITS, University, id: user.university_id
-      can :read, Journal
+      can :read, Journal, published: true
       can :manage, UNIVERSITY_DEPENDENT_MODELS , university_id: user.university_id
       can [:edit, :update], University, id: user.university_id
     end

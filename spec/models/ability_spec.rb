@@ -271,6 +271,8 @@ describe Ability do
   end
 
   context "regarding journals" do
+    let(:published_document) { create :journal, :published }
+    let(:draft) { create :journal, :draft }
     context "when no user" do
       let(:user) { nil }
       it { should_not be_able_to :read, Journal }
@@ -291,10 +293,12 @@ describe Ability do
       it { should_not be_able_to :destroy, Journal }
     end
 
-    context "when registered user" do
+    context "when university admin user" do
       let(:university) { create :university }
       let(:user) { create :user, university: university }
-      it { should be_able_to :read, Journal }
+
+      it { should be_able_to :read, published_document }
+      it { should_not be_able_to :read, draft }
       it { should_not be_able_to :new, Journal }
       it { should_not be_able_to :create, Journal }
       it { should_not be_able_to :edit, Journal }
@@ -304,6 +308,9 @@ describe Ability do
 
     context "when admin user" do
       let(:user) { create :user, :admin }
+
+      it { should be_able_to :read, published_document }
+      it { should be_able_to :read, draft }
       it { should be_able_to :manage, Journal }
     end
 
@@ -314,9 +321,12 @@ describe Ability do
   end
 
   context "regarding annual report" do
+    let(:published_document) { create :annual_report, :published }
+    let(:draft) { create :annual_report, :draft }
     context "when no user" do
       let(:user) { nil }
-      it { should be_able_to :read, AnnualReport }
+      it { should be_able_to :read, published_document }
+      it { should_not be_able_to :read, draft }
       it { should_not be_able_to :new, AnnualReport }
       it { should_not be_able_to :create, AnnualReport }
       it { should_not be_able_to :edit, AnnualReport }
@@ -326,7 +336,8 @@ describe Ability do
 
     context "when registered user" do
       let(:user) { create :user }
-      it { should be_able_to :read, AnnualReport }
+      it { should be_able_to :read, published_document }
+      it { should_not be_able_to :read, draft }
       it { should_not be_able_to :new, AnnualReport }
       it { should_not be_able_to :create, AnnualReport }
       it { should_not be_able_to :edit, AnnualReport }
@@ -334,9 +345,12 @@ describe Ability do
       it { should_not be_able_to :destroy, AnnualReport }
     end
 
-    context "when registered user" do
+    context "when university admin user" do
       let(:university) { create :university }
       let(:user) { create :user, university: university }
+
+      it { should be_able_to :read, published_document }
+      it { should_not be_able_to :read, draft }
       it { should be_able_to :read, AnnualReport }
       it { should_not be_able_to :new, AnnualReport }
       it { should_not be_able_to :create, AnnualReport }
@@ -347,6 +361,9 @@ describe Ability do
 
     context "when admin user" do
       let(:user) { create :user, :admin }
+
+      it { should be_able_to :read, published_document }
+      it { should be_able_to :read, draft }
       it { should be_able_to :manage, AnnualReport }
     end
 
