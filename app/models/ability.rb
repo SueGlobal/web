@@ -53,6 +53,7 @@ class Ability
     can :evolution, GeneralFrame
     can :read, UNIVERSITY_DEPENDENT_MODELS
     can :read, INDEX_RELATED_MODELS
+    cannot :manage, AnnualReport
     can :read, AnnualReport
     cannot :manage, Journal
   end

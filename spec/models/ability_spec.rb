@@ -312,4 +312,47 @@ describe Ability do
       it { should be_able_to :manage, Journal }
     end
   end
+
+  context "regarding annual report" do
+    context "when no user" do
+      let(:user) { nil }
+      it { should be_able_to :read, AnnualReport }
+      it { should_not be_able_to :new, AnnualReport }
+      it { should_not be_able_to :create, AnnualReport }
+      it { should_not be_able_to :edit, AnnualReport }
+      it { should_not be_able_to :update, AnnualReport }
+      it { should_not be_able_to :destroy, AnnualReport }
+    end
+
+    context "when registered user" do
+      let(:user) { create :user }
+      it { should be_able_to :read, AnnualReport }
+      it { should_not be_able_to :new, AnnualReport }
+      it { should_not be_able_to :create, AnnualReport }
+      it { should_not be_able_to :edit, AnnualReport }
+      it { should_not be_able_to :update, AnnualReport }
+      it { should_not be_able_to :destroy, AnnualReport }
+    end
+
+    context "when registered user" do
+      let(:university) { create :university }
+      let(:user) { create :user, university: university }
+      it { should be_able_to :read, AnnualReport }
+      it { should_not be_able_to :new, AnnualReport }
+      it { should_not be_able_to :create, AnnualReport }
+      it { should_not be_able_to :edit, AnnualReport }
+      it { should_not be_able_to :update, AnnualReport }
+      it { should_not be_able_to :destroy, AnnualReport }
+    end
+
+    context "when admin user" do
+      let(:user) { create :user, :admin }
+      it { should be_able_to :manage, AnnualReport }
+    end
+
+    context "when god" do
+      let(:user) { create :user, :god }
+      it { should be_able_to :manage, AnnualReport }
+    end
+  end
 end
