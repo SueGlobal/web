@@ -19,6 +19,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass'
+  gem 'jquery-fileupload-rails'
 end
 
 gem 'jquery-rails'
@@ -72,3 +73,4 @@ gem 'friendly_id', "~> 4.0"
 gem 'paul_revere'
 gem 'virtus'
 gem 'high_voltage'
+gem 'carrierwave'
