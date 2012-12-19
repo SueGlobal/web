@@ -12,7 +12,7 @@ FactoryGirl.define do
       published true
     end
 
-    trais :draft do
+    trait :draft do
       published false
     end
   end
