@@ -9,7 +9,7 @@ shared_examples 'a document' do |model|
     it { should allow_mass_assignment_of(:description) }
     it { should allow_mass_assignment_of(:title) }
     it { should allow_mass_assignment_of(:published) }
-    it { should_not allow_mass_assignment_of(:file) }
+    it { should allow_mass_assignment_of(:file) }
     it { should_not allow_mass_assignment_of(:type) }
     it { should_not allow_mass_assignment_of(:slug) }
   end
