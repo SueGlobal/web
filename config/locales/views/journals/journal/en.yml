@@ -3,3 +3,4 @@ en:
     journal:
       destroy:
         confirmation: 'Are you sure?'
+      draft_status: '(Draft)'

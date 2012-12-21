@@ -2,6 +2,11 @@
 
   <div class="title">
     <%= journal.title %>
+    <% unless journal.published? -%>
+      <span class="draft_status">
+        <%= t '.draft_status' %>
+      </span>
+    <% end -%>
     <ul class="actions">
       <li><%= download_link journal.file_url %></li>
       <% if can? :edit, journal -%>

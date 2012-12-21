@@ -10,6 +10,13 @@
     margin-bottom: 12px;
     padding-bottom: 10px;
 
+    .draft_status {
+      font: {
+        style: italic;
+        size: 16px;
+      }
+    }
+
     ul {
       margin-bottom: 0;
       display: inline-block;
