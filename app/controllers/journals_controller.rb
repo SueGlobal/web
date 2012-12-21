@@ -2,6 +2,9 @@ class JournalsController < ApplicationController
   before_filter :require_login
 
   load_and_authorize_resource :journal
+
+  before_filter :set_journals_breadcrumb
+  before_filter :set_journal_breadcrumb, only: [:show, :edit, :update]
   # GET /journals
   # GET /journals.json
   def index
@@ -76,6 +79,14 @@ class JournalsController < ApplicationController
   end
 
   protected
+  def set_journals_breadcrumb
+    add_breadcrumb Journal.model_name.human(count: 2), journals_path
+  end
+
+  def set_journal_breadcrumb
+    add_breadcrumb @journal.title, @journal
+  end
+
   def t2 path
     I18n.t path, scope: 'controllers.journals'
   end
