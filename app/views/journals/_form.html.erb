@@ -1,0 +1,14 @@
+<%= simple_form_for(@journal, html: {multipart: true}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description, input_html: { rows: 4 } %>
+    <%= f.input :published, wrapper: :checkbox, label_html: {:class => 'checkbox'} %>
+    <%= f.input :file, as: :file, label: false %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

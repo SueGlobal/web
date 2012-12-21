@@ -1,0 +1,21 @@
+es:
+  activerecord:
+    models:
+      journal:
+        one: 'Boletín'
+        other: 'Boletines'
+    attributes:
+      journal:
+        title: 'Título'
+        description: 'Descripción'
+        file: 'Archivo'
+    errors:
+      models:
+        journal:
+          attributes:
+            slug:
+              blank: 'No se generó el slug correctamente.'
+            title:
+              blank: 'El título es obligatorio.'
+            description:
+              blank: 'La descripción es obligatorio.'

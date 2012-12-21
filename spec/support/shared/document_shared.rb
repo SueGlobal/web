@@ -12,6 +12,9 @@ shared_examples 'a document' do |model|
     it { should allow_mass_assignment_of(:file) }
     it { should_not allow_mass_assignment_of(:type) }
     it { should_not allow_mass_assignment_of(:slug) }
+
+    it { should validate_presence_of(:title) }
+    it { should validate_presence_of(:description) }
   end
 
   describe '.published' do
@@ -19,7 +22,9 @@ shared_examples 'a document' do |model|
     let(:draft) { create model_name, :draft }
 
     it "returns only published documents" do
-      expect(klazz.published).to eql([published])
+      published
+      draft
+      expect(klazz.published.all).to eql([published])
     end
   end
 end

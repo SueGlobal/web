@@ -1,0 +1,21 @@
+es:
+  activerecord:
+    models:
+      annual_report:
+        one: 'Informe anual'
+        other: 'Informes anuales'
+    attributes:
+      annual_report:
+        title: 'Título'
+        description: 'Descripción'
+        file: 'Archivo'
+    errors:
+      models:
+        annual_report:
+          attributes:
+            slug:
+              blank: 'No se generó el slug correctamente.'
+            title:
+              blank: 'El título es obligatorio.'
+            description:
+              blank: 'La descripción es obligatorio.'
