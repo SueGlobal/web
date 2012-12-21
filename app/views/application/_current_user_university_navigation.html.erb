@@ -12,6 +12,9 @@
   <li>
   <%= link_to t('.add_user'), add_user_university_path(university) %>
   </li>
+  <li>
+  <%= link_to Journal.model_name.human(count: 2), journals_path %>
+  </li>
   <li class="dropdown-submenu">
   <a href="#"><%= Service.model_name.human count: 2 %></a>
   <ul class="dropdown-menu">
