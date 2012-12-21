@@ -2,6 +2,7 @@ es:
   link: 'Enlace'
   home: 'Inicio'
   actions:
+    download: 'Descargar'
     show: "Mostrar"
     edit: "Editar"
     destroy: "Borrar"

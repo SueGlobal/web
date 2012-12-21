@@ -8,6 +8,7 @@ es:
       journal:
         title: 'Título'
         description: 'Descripción'
+        published: 'Público'
         file: 'Archivo'
     errors:
       models:

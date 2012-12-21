@@ -1,0 +1,9 @@
+es:
+  controllers:
+    journals:
+      create:
+        notice: 'Se ha creado el boletín.'
+      update:
+        notice: 'Se ha actualizado el boletín.'
+      destroy:
+        notice: 'Se ha borrado el boletín.'

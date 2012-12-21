@@ -20,6 +20,10 @@ module ApplicationHelper
     action_link :new, url, options
   end
 
+  def download_link url, options={}
+    action_link :download, url, options
+  end
+
   def action_link action, url, options
     add_action_as_class action, options
     link_to content_action(action),
@@ -76,7 +80,7 @@ module ApplicationHelper
 
   def i_class_for action
     {edit: "icon-edit", destroy: "icon-remove", show: "icon-info-sign",
-     new: "icon-plus-sign", user: 'icon-user'}[action.to_sym]
+     new: "icon-plus-sign", user: 'icon-user', download: 'icon-download-alt'}[action.to_sym]
   end
 
   def add_action_as_class action, options

@@ -1,0 +1,9 @@
+en:
+  controllers:
+    journals:
+      create:
+        notice: 'Journal was successfully created.'
+      update:
+        notice: 'Journal was successfully updated.'
+      destroy:
+        notice: 'Journal was successfully removed.'

@@ -1,0 +1,19 @@
+<%= content_tag_for :div, journal, :class => 'well' do %>
+
+  <div class="title">
+    <%= journal.title %>
+    <ul class="actions">
+      <li><%= download_link journal.file_url %></li>
+      <% if can? :edit, journal -%>
+        <li><%= edit_link edit_journal_path(journal) %></li>
+      <% end -%>
+
+      <% if can? :destroy, journal %>
+        <li><%= destroy_link journal, method: :delete, data: { confirm: t('.destroy.confirmation') } %></li>
+      <% end -%>
+    </ul>
+  </div>
+  <div class="description">
+    <%= journal.description %>
+  </div>
+<% end -%>

@@ -1,21 +1,11 @@
-<h1>Listing journals</h1>
+<h1>
+  <%= t '.header' %>
+  <% if can? :new, Journal -%>
+    <%= new_link new_journal_path %>
+  <% end -%>
+</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @journals.each do |journal| %>
-  <tr>
-    <td><%= link_to 'Show', journal %></td>
-    <td><%= link_to 'Edit', edit_journal_path(journal) %></td>
-    <td><%= link_to 'Destroy', journal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<%= render partial: 'journal', collection: @journals %>
 
-<br />
-
-<%= link_to 'New Journal', new_journal_path %>
+<%= link_to_if can?(:new, Journal), t('.new_journal') , new_journal_path, :class => 'btn' do "" end %>

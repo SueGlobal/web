@@ -41,7 +41,7 @@ class JournalsController < ApplicationController
   def create
     respond_to do |format|
       if @journal.save
-        format.html { redirect_to journals_path, notice: 'Journal was successfully created.' }
+        format.html { redirect_to journals_path, notice: t2('create.notice')  }
         format.json { render json: @journal, status: :created, location: @journal }
       else
         format.html { render action: "new" }
@@ -55,7 +55,7 @@ class JournalsController < ApplicationController
   def update
     respond_to do |format|
       if @journal.update_attributes(params[:journal])
-        format.html { redirect_to journals_path, notice: 'Journal was successfully updated.' }
+        format.html { redirect_to journals_path, notice: t2('update.notice')}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -70,8 +70,13 @@ class JournalsController < ApplicationController
     @journal.destroy
 
     respond_to do |format|
-      format.html { redirect_to journals_url }
+      format.html { redirect_to journals_url, notice: t2('destroy.notice') }
       format.json { head :no_content }
     end
+  end
+
+  protected
+  def t2 path
+    I18n.t path, scope: 'controllers.journals'
   end
 end

@@ -21,3 +21,4 @@ config/environments/production.rb
 config/app_config.yml
 .rvmrc
 
+public/uploads

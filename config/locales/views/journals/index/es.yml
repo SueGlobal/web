@@ -1,0 +1,5 @@
+es:
+  journals:
+    index:
+      header: 'Boletines'
+      new_journal: 'Nuevo boletín'

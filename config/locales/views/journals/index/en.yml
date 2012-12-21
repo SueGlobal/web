@@ -1,0 +1,5 @@
+en:
+  journals:
+    index:
+      header: 'Journals'
+      new_journal: 'New journal'

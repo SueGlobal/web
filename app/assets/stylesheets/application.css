@@ -17,6 +17,7 @@
  *= require segmentation_variables
  *= require segments
  *= require samples
+ *= require journal
  *= require general_frames
  *= require login
  *= require password_resets

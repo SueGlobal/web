@@ -2,6 +2,7 @@ en:
   link: 'Link'
   home: 'Home'
   actions:
+    download: 'Download'
     show: "Show"
     edit: "Edit"
     destroy: "Remove"
