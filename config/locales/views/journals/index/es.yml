@@ -2,4 +2,4 @@ es:
   journals:
     index:
       header: 'Boletines'
-      new_journal: 'Nuevo boletín'
+      new_journals: 'Nuevos boletines'

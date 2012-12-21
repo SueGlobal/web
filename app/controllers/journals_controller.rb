@@ -46,9 +46,11 @@ class JournalsController < ApplicationController
       if @journal.save
         format.html { redirect_to journals_path, notice: t2('create.notice')  }
         format.json { render json: @journal, status: :created, location: @journal }
+        format.js { render 'create.success' }
       else
         format.html { render action: "new" }
         format.json { render json: @journal.errors, status: :unprocessable_entity }
+        format.js { render 'create.fail' }
       end
     end
   end

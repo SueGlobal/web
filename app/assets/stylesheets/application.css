@@ -29,5 +29,6 @@
  *= require users
  *= require indices
  *= require charts
+ *= require jquery.fileupload-ui
  *= require_tree ./questions
  */

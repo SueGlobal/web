@@ -5,7 +5,22 @@
   <% end -%>
 </h1>
 
+<div id="journals">
+  <%= render partial: 'journal', collection: @journals %>
+</div>
 
-<%= render partial: 'journal', collection: @journals %>
+<% if can? :new, Journal -%>
+  <%= simple_form_for Journal.new, html: {multipart: true} do |f| %>
+    <%= f.label :file, t('.new_journals') %>
+    <%= f.input :file, as: :file, label: false, multiple: true, name: 'journal[file]' %>
+  <% end -%>
+<% end -%>
 
-<%= link_to_if can?(:new, Journal), t('.new_journal') , new_journal_path, :class => 'btn' do "" end %>
+<script id="template-upload"type="text/x-tmpl">
+  <div class="upload">
+    {%=o.name%}
+    <div class="progress">
+      <div class="bar"style="width: 0%"></div>
+    </div>
+  </div>
+</script>
