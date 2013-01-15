@@ -121,6 +121,9 @@ GEM
       thor (~> 0.14)
     jruby-pageant (1.1.1)
     json (1.7.5)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.7.4)
     launchy (2.1.2)
       addressable (~> 2.3)
@@ -279,6 +282,7 @@ DEPENDENCIES
   high_voltage
   jquery-fileupload-rails
   jquery-rails
+  kaminari
   launchy
   letter_opener
   nifty-generators
