@@ -26,6 +26,7 @@
         <% end -%>
       <% end -%>
     </ul>
+    <p><%=  link_to t(".#{model_name_plural}.go_to_index"), polymorphic_path([@university, model_name_plural]) %></p>
   <% else -%>
     <p><%= t ".#{model_name_plural}.none_found" %></p>
   <% end -%>

@@ -40,7 +40,7 @@ class UniversityDecorator < Draper::Base
   end
 
   def render_general_frames
-    render_dependent_models :general_frames, 'general_frame_line_item', GeneralFrame
+    render_dependent_models :first_general_frames, 'general_frame_line_item', GeneralFrame
   end
   def render_student_studies
     render_dependent_models :student_studies, "study_line_item", StudentStudy

@@ -8,6 +8,7 @@ es:
         destroy_confirmation: '¿Está seguro de querer borrar este servicio?'
         new: 'Nuevo servicio'
         explanation: 'Unidad/es de la universidad que realizan estudios sobre el empleo.'
+        go_to_index: 'Ver todos los servicios'
       achieved_activities:
         none_found: 'La universidad no ha registrado ningún actividad.'
         edit: 'Editar actividad'
@@ -15,6 +16,7 @@ es:
         destroy_confirmation: '¿Está seguro de querer borrar este actividad?'
         new: 'Nueva actividad'
         explanation: ''
+        go_to_index: 'Ver todas las actividades'
       general_frames:
         none_found: 'La universidad no ha registrado ningún marco general.'
         edit: 'Editar marco general'
@@ -22,6 +24,7 @@ es:
         destroy_confirmation: '¿Está seguro de querer borrar este marco general?'
         new: 'Nuevo marco general'
         explanation: ''
+        go_to_index: 'Ver todos los marcos generales'
       student_studies:
         none_found: 'La universidad no ha registrado ningún estudio realizado sobre los estudiantes.'
         edit: 'Editar estudio realizado sobre los estudiantes'
@@ -29,6 +32,7 @@ es:
         destroy_confirmation: '¿Está seguro de querer borrar este estudio realizado sobre los estudiantes?'
         new: 'Nuevo estudio realizado sobre los estudiantes'
         explanation: 'Estos estudios toman a los universitarios como fuente (encuestas, focus groups, entrevistas, etc.).'
+        go_to_index: 'Ver todos los estudios'
       employer_studies:
         none_found: 'La universidad no ha registrado ningún estudio realizado sobre los empleadores.'
         edit: 'Editar estudio realizado sobre los empleadores'
@@ -36,6 +40,7 @@ es:
         destroy_confirmation: '¿Está seguro de querer borrar este estudio realizado sobre los empleadores?'
         new: 'Nuevo estudio realizado sobre los empleadores'
         explanation: 'Estos estudios toman al empleador como fuente (encuestas, focus groups, entrevistas, etc.).'
+        go_to_index: 'Ver todos los estudios'
       public_source_studies:
         none_found: 'La universidad no ha registrado ningún estudio realizado a partir de la información de fuentes secundarias de acceso público.'
         edit: 'Editar estudio realizado a partir de fuentes secundarias públicas'
@@ -43,6 +48,7 @@ es:
         destroy_confirmation: '¿Está seguro de querer borrar este estudio realizado a partir de fuentes secundarias públicas?'
         new: 'Nuevo estudio realizado a partir de fuentes secundarias públicas'
         explanation: ''
+        go_to_index: 'Ver todos los estudios'
       agreement_source_studies:
         none_found: 'La universidad no ha registrado ningún estudio realizado a partir de datos provenientes de un acuerdo o convenio.'
         edit: 'Editar estudio realizado a partir de datos provenientes de un acuerdo o convenio'
@@ -50,6 +56,7 @@ es:
         destroy_confirmation: '¿Está seguro de querer borrar este estudio?'
         new: 'Nuevo estudio'
         explanation: ''
+        go_to_index: 'Ver todos los estudios'
       database_studies:
         none_found: 'La universidad no ha registrado ningún estudio realizado a partir de las bases de datos de los servicios de empleo universitarios.'
         edit: 'Editar estudio'
@@ -57,6 +64,7 @@ es:
         destroy_confirmation: '¿Está seguro de querer borrar este estudio?'
         new: 'Nuevo estudio'
         explanation: ''
+        go_to_index: 'Ver todos los estudios'
       other_studies:
         none_found: 'La universidad no ha registrado ningún estudio de otro tipo'
         edit: 'Editar estudio de otro tipo'
@@ -64,3 +72,4 @@ es:
         destroy_confirmation: '¿Está seguro de querer borrar este estudio?'
         new: 'Nuevo estudio de otro tipo'
         explanation: ''
+        go_to_index: 'Ver todos los estudios'

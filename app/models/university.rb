@@ -13,6 +13,10 @@ class University < ActiveRecord::Base
           include: :basic_question,
           order: 'basic_questions.year DESC, basic_questions.title ASC',
           dependent: :destroy
+
+        define_method "first_#{study}" do
+          send("#{study}_studies").limit(APP_CONFIG[:university_resource_limit])
+        end
       end
     end
   end
@@ -29,9 +33,19 @@ class University < ActiveRecord::Base
   has_many :general_frames,
            order: 'year DESC',
            dependent: :destroy
+
+  def first_general_frames
+    general_frames.limit(5)
+  end
+
   has_many :achieved_activities,
            order: 'year DESC',
            dependent: :destroy
+
+  def first_achieved_activities
+    achieved_activities.limit(APP_CONFIG[:university_resource_limit])
+  end
+
 
   before_save :set_name_for_order
 
