@@ -1,7 +1,7 @@
 <h1>
   <%= t '.header' %>
   <% if can? :new, University -%>
-    <%= new_link new_university_path %>
+      <%= new_link new_university_path %>
   <% end -%>
 </h1>
 
@@ -40,5 +40,7 @@
 </table>
 
 <br />
+
+<%= paginate @universities %>
 
 <%= link_to_if can?(:new, University), t('.new_university'), new_university_path, :class => 'btn' do "" end %>

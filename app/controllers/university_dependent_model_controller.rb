@@ -33,7 +33,7 @@ class UniversityDependentModelController < ApplicationController
       end
 
       # Breadcrumbs
-      before_filter except: [:index] do |controller|
+      before_filter do |controller|
         university = controller.instance_variable_get(:@university)
         add_breadcrumb university.abbreviation, university_path(university)
       end

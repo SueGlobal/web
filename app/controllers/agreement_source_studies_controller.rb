@@ -5,7 +5,8 @@ class AgreementSourceStudiesController < StudyController
   # GET /agreement_source_studies
   # GET /agreement_source_studies.json
   def index
-    @agreement_source_studies = @university.agreement_source_studies
+    @agreement_source_studies = @university.agreement_source_studies.page(params[:page])
+    @studies = @agreement_source_studies
 
     respond_to do |format|
       format.html # index.html.erb

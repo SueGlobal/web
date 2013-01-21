@@ -73,3 +73,5 @@ es:
         new: 'Nuevo estudio de otro tipo'
         explanation: ''
         go_to_index: 'Ver todos los estudios'
+      studies:
+        destroy_confirmation: '¿Está seguro de querer borrar este estudio?'

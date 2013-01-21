@@ -5,9 +5,9 @@ class TypeToStudyMap
     @map = self.class.default_map.merge map
   end
 
-  def select_by_type type
+  def select_by_type type, page = 1
     if @map.has_key? type.to_sym
-      @map[type.to_sym].includes(:basic_question, :university).order('basic_questions.year DESC, basic_questions.title ASC, universities.name_for_order ASC')
+      @map[type.to_sym].includes(:basic_question, :university).order('basic_questions.year DESC, basic_questions.title ASC, universities.name_for_order ASC').page(page)
     else
       nil
     end

@@ -13,18 +13,8 @@
   </h2>
   <%= render partial: 'children_list', locals: {children_indices: @index.children } %>
 <% else -%>
-  <h2>
-    <%= t '.samples.header' %>
-    <% if can? :new, Sample -%>
-      <%= new_link new_index_sample_path(@index) %>
-    <% end -%>
-  </h2>
 
-  <ul class="index-samples">
-    <% @index.samples.each do |sample| -%>
-      <li><%= link_to sample.interval, sample %>
-    <% end -%>
-  </ul>
+
 
   <h2>
     <%= t '.informative.header' %>
@@ -39,4 +29,17 @@
   <%= @index.render_methodology %>
 
   <%= @index.render_segmentation_variables %>
+
+
+  <h2>
+    <%= t '.samples.header' %>
+    <% if can? :new, Sample -%>
+        <%= new_link new_index_sample_path(@index) %>
+    <% end -%>
+  </h2>
+  <ul class="index-samples">
+    <% @index.samples.each do |sample| -%>
+        <li><%= link_to sample.interval, sample %>
+    <% end -%>
+  </ul>
 <% end -%>

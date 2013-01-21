@@ -5,7 +5,8 @@ class PublicSourceStudiesController < StudyController
   # GET /public_source_studies
   # GET /public_source_studies.json
   def index
-    @public_source_studies = @university.public_source_studies
+    @public_source_studies = @university.public_source_studies.page(params[:page])
+    @studies = @public_source_studies
 
     respond_to do |format|
       format.html # index.html.erb

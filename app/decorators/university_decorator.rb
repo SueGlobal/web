@@ -43,27 +43,27 @@ class UniversityDecorator < Draper::Base
     render_dependent_models :first_general_frames, 'general_frame_line_item', GeneralFrame
   end
   def render_student_studies
-    render_dependent_models :student_studies, "study_line_item", StudentStudy
+    render_dependent_models :first_student, "study_line_item", StudentStudy
   end
 
   def render_employer_studies
-    render_dependent_models :employer_studies, "study_line_item", EmployerStudy
+    render_dependent_models :first_employer, "study_line_item", EmployerStudy
   end
 
   def render_public_source_studies
-    render_dependent_models :public_source_studies, "study_line_item", PublicSourceStudy
+    render_dependent_models :first_public_source, "study_line_item", PublicSourceStudy
   end
 
   def render_agreement_source_studies
-    render_dependent_models :agreement_source_studies, "study_line_item", AgreementSourceStudy
+    render_dependent_models :first_agreement_source, "study_line_item", AgreementSourceStudy
   end
 
   def render_database_studies
-    render_dependent_models :database_studies, "study_line_item", DatabaseStudy
+    render_dependent_models :first_database, "study_line_item", DatabaseStudy
   end
 
   def render_other_studies
-    render_dependent_models :other_studies, "study_line_item", OtherStudy
+    render_dependent_models :first_other, "study_line_item", OtherStudy
   end
 
   def render_dependent_models assoc, item_partial, klass = nil

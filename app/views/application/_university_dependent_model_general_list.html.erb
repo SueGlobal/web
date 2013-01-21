@@ -1,0 +1,18 @@
+<ul id="<%= model_name_plural %>">
+    <% objects.each do |o| -%>
+        <%= content_tag_for :li, o do %>
+            <%= render  partial: item_partial,
+                        object: o %>
+            <span class="actions">
+            <% if can? :edit, o -%>
+              <%= edit_link polymorphic_path(o, action: 'edit') %>
+            <% end -%>
+            <% if can? :destroy, o -%>
+              <%= destroy_link  polymorphic_path(o),
+                                method: :delete,
+                                data: {confirm: t("application.university_dependent_model_list.#{model_name_plural}.destroy_confirmation") } %>
+            <% end -%>
+          </span>
+        <% end -%>
+    <% end -%>
+</ul>

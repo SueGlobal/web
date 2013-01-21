@@ -7,7 +7,7 @@ class GeneralFramesController < UniversityDependentModelController
   # GET /general_frames
   # GET /general_frames.json
   def index
-    @general_frames = @university.general_frames
+    @general_frames = @university.general_frames.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

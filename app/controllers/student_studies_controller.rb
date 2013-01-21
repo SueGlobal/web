@@ -5,7 +5,8 @@ class StudentStudiesController < StudyController
   # GET /student_studies
   # GET /student_studies.json
   def index
-    @student_studies = @university.student_studies
+    @student_studies = @university.student_studies.page(params[:page])
+    @studies = @student_studies
 
     respond_to do |format|
       format.html # index.html.erb

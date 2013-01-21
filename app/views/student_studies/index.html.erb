@@ -1,9 +1,0 @@
-<h1><%= t '.header', university: @university.abbreviation %></h1>
-
-<%= render partial: 'index_table',
-            locals: { studies: @student_studies,
-                      klass: StudentStudy } %>
-
-<br />
-
-<%= link_to_if can?(:new, StudentStudy), t('.new_student_study'), new_university_student_study_path(@university), :class => 'btn' do "" end %>

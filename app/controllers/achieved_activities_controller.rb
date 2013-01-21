@@ -5,7 +5,7 @@ class AchievedActivitiesController < UniversityDependentModelController
   # GET /achieved_activities
   # GET /achieved_activities.json
   def index
-    @achieved_activities = @university.achieved_activities
+    @achieved_activities = @university.achieved_activities.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

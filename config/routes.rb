@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 SueGlobal::Application.routes.draw do
-  filter :locale
+  filter :locale, :pagination
 
   get 'index/confirm/:slug', to: 'index_confirmation#confirm', as: :index_confirm
   get 'index/reject/:slug', to: 'index_confirmation#reject', as: :index_reject

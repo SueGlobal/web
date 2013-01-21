@@ -8,7 +8,7 @@ class UniversitiesController < ApplicationController
   # GET /universities
   # GET /universities.json
   def index
-    @universities = UniversityDecorator.decorate(University.all)
+    @universities = UniversityDecorator.decorate(University.page(params[:page]))
 
     respond_to do |format|
       format.html # index.html.erb
