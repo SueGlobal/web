@@ -17,5 +17,7 @@ en:
         agreement: 'Agreement'
         database: 'University database'
         other: 'Other'
+      documents:
+        header: "Documents"
       stats:
         header: 'Statistichs'

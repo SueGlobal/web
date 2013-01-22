@@ -80,6 +80,11 @@
               </ul>
 
               <ul class="nav nav-list">
+                <li class="nav-header"><%= t '.documents.header' %></li>
+                <li><%= link_to AnnualReport.model_name.human(count: 2), annual_reports_path %></li>
+              </ul>
+
+              <ul class="nav nav-list">
                 <li class="nav-header"><%= t '.pages.header' %></li>
                 <li><%= link_to t('.pages.info'), page_path('info'), title: 'Info' %></li>
               </ul>

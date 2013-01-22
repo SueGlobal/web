@@ -17,5 +17,7 @@ es:
         agreement: 'Convenio'
         database: 'BD de universidades'
         other: 'Otro tipo'
+      documents:
+        header: 'Documentos'
       stats:
         header: 'Estadísticas'
