@@ -10,6 +10,7 @@ class AnnualReportController < ApplicationController
     @report = @study.report_for(@year)
   end
 
+  private
   def set_year
     @year = if params[:year].present?
               params[:year].to_i
