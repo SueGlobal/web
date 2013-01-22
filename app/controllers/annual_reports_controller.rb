@@ -77,6 +77,7 @@ class AnnualReportsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to annual_reports_url, notice: t2('destroy.notice') }
       format.json { head :no_content }
+      format.js { render partial: 'destroy_animation', locals: { resource: @annual_report} }
     end
   end
 

@@ -18,6 +18,7 @@
  *= require segments
  *= require samples
  *= require journal
+ *= require annual_report
  *= require general_frames
  *= require login
  *= require password_resets

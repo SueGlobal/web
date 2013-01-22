@@ -14,7 +14,7 @@
         <% end -%>
 
         <% if can? :destroy, annual_report %>
-            <li><%= destroy_link annual_report, method: :delete, data: { confirm: t('.destroy.confirmation') } %></li>
+            <li><%= destroy_link annual_report_path(annual_report), method: :delete, data: { confirm: t('.destroy.confirmation') } %></li>
         <% end -%>
       </ul>
     </div>
