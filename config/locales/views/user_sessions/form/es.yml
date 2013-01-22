@@ -3,3 +3,4 @@ es:
     form:
       remember_me: "Recuérdame durante 5 días"
       submit: 'Acceder'
+      forgot_password: '¿Olvidaste la contraseña?'
