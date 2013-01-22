@@ -1,0 +1,16 @@
+<h1>
+    <%= @title %>
+</h1>
+
+<% if @studies.empty? -%>
+  <p><%= t '.studies.none' %></p>
+<% else -%>
+
+    <%= render partial: 'university_dependent_model_general_list',
+               locals: {
+                       model_name_plural: "studies",
+                       objects: @studies,
+                       item_partial:  "study_line_item"
+               } %>
+    <%=  paginate @studies %>
+<% end -%>
