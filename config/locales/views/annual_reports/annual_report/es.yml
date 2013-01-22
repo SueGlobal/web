@@ -1,0 +1,6 @@
+es:
+  annual_reports:
+    annual_report:
+      destroy:
+        confirmation: '¿Estás seguro de borrar este informe anual?'
+      draft_status: '(Borrador)'

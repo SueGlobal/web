@@ -8,8 +8,9 @@ SueGlobal::Application.routes.draw do
 
   get "summary/(:year)", to: 'summary#index', as: :summary
 
-  # Journals
+  # Documents
   resources :journals
+  resources :annual_reports
 
   # HighVoltage
   get "/pages/:id" => "pages#show", as: :page, format: false

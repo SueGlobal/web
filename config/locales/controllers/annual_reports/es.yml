@@ -1,0 +1,9 @@
+es:
+  controllers:
+    annual_reports:
+      create:
+        notice: 'Se ha creado el informe anual.'
+      update:
+        notice: 'Se ha actualizado el informe anual.'
+      destroy:
+        notice: 'Se ha borrado el informe anual.'

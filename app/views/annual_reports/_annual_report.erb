@@ -1,0 +1,24 @@
+<%= content_tag_for :div, annual_report, :class => 'well' do %>
+
+    <div class="title">
+      <%= annual_report.title %>
+      <% unless annual_report.published? -%>
+      <span class="draft_status">
+        <%= t '.draft_status' %>
+      </span>
+      <% end -%>
+      <ul class="actions">
+        <li><%= download_link annual_report.file_url %></li>
+        <% if can? :edit, annual_report -%>
+            <li><%= edit_link edit_annual_report_path(annual_report) %></li>
+        <% end -%>
+
+        <% if can? :destroy, annual_report %>
+            <li><%= destroy_link annual_report, method: :delete, data: { confirm: t('.destroy.confirmation') } %></li>
+        <% end -%>
+      </ul>
+    </div>
+    <div class="description">
+      <%= annual_report.description %>
+    </div>
+<% end -%>

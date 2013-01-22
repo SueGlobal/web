@@ -1,0 +1,26 @@
+<h1>
+  <%= t '.header' %>
+  <% if can? :new, AnnualReport -%>
+      <%= new_link new_annual_report_path %>
+  <% end -%>
+</h1>
+
+<div id="annual_reports">
+  <%= render partial: 'annual_report', collection: @annual_reports %>
+</div>
+
+<% if can? :new, AnnualReport -%>
+    <%= simple_form_for AnnualReport.new, html: {multipart: true} do |f| %>
+        <%= f.label :file, t('.new_annual_reports') %>
+        <%= f.input :file, as: :file, label: false, multiple: true, name: 'annual_report[file]' %>
+    <% end -%>
+<% end -%>
+
+<script id="template-upload"type="text/x-tmpl">
+  <div class="upload">
+    {%=o.name%}
+    <div class="progress">
+      <div class="bar"style="width: 0%"></div>
+    </div>
+  </div>
+</script>

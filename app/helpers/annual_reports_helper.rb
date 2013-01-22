@@ -1,0 +1,2 @@
+module AnnualReportsHelper
+end

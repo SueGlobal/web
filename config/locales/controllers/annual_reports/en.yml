@@ -1,0 +1,9 @@
+en:
+  controllers:
+    annual_reports:
+      create:
+        notice: 'Annual report was successfully created.'
+      update:
+        notice: 'Annual report was successfully updated.'
+      destroy:
+        notice: 'Annual report was successfully removed.'

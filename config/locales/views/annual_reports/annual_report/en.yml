@@ -1,0 +1,6 @@
+en:
+  annual_reports:
+    annual_report:
+      destroy:
+        confirmation: 'Are you sure?'
+      draft_status: '(Draft)'

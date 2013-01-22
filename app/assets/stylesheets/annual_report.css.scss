@@ -1,3 +1,30 @@
-// Place all the styles related to the annual_report controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.journal {
+
+  margin-bottom: 15px;
+
+  .title {
+    width: 100%;
+    font-size: 24px;
+    display: inline-block;
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+
+    .draft_status {
+      font: {
+        style: italic;
+        size: 16px;
+      }
+    }
+
+    ul {
+      margin-bottom: 0;
+      display: inline-block;
+      &.actions {
+        li {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

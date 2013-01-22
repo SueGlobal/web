@@ -1,0 +1,5 @@
+es:
+  annual_reports:
+    index:
+      header: 'Informes anuales'
+      new_annual_reports: 'Nuevos informes anuales'
