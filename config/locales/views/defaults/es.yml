@@ -1,3 +1,10 @@
 es:
   actions:
     delete: 'Borrar'
+  views:
+    pagination:
+      first: '&laquo; Principio'
+      last: 'Final &raquo;'
+      previous: 'Anterior'
+      next: 'Siguiente'
+      truncate: '...'
