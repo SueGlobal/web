@@ -7,3 +7,7 @@ es:
         notice: 'Usuario actualizado.'
       create:
         notice: 'Usuario registrado.'
+      roles:
+        alert: "No puedes editar tus propios permisos."
+      set_roles:
+        notice: "Los permisos del usuario han cambiado."

@@ -1,0 +1,16 @@
+<h1><%= t '.roles', user: @user.email %></h1>
+
+<%= simple_form_for @roles, method: :post, url: roles_user_path do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :simple, as: :boolean, wrapper: :checkbox, label_html: {class: 'checkbox'} %>
+    <%= f.input :admin, as: :boolean, wrapper: :checkbox, label_html: {class: 'checkbox'} %>
+    <% if current_user.god? -%>
+      <%= f.input :god, as: :boolean, wrapper: :checkbox, label_html: {class: 'checkbox'} %>
+    <% end -%>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end -%>

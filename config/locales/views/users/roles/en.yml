@@ -1,0 +1,4 @@
+en:
+  users:
+    roles:
+      header: 'Roles for %{user}'

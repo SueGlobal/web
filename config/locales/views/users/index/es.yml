@@ -8,5 +8,5 @@ es:
       show: 'Mostrar'
       edit: 'Editar'
       destroy: 'Borrar'
-      confirm: '¿Estás seguro?'
+      destroy_confirmation: '¿Estás seguro?'
       new_user: 'Nuevo usuario'

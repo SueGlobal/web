@@ -8,5 +8,5 @@ en:
       show: 'Show'
       edit: 'Edit'
       destroy: 'Destroy'
-      confirm: 'Are you sure?'
+      destroy_confirmation: 'Are you sure?'
       new_user: 'New User'

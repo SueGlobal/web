@@ -35,5 +35,13 @@ describe UsersController do
     it "routes to activate" do
       get("/users/123123/activate").should route_to("users#activate", id: "123123")
     end
+
+    it "routes to roles" do
+      get("/users/123123/roles").should route_to("users#roles", id: "123123")
+    end
+
+    it "routes to roles" do
+      post("/users/123123/roles").should route_to("users#set_roles", id: "123123")
+    end
   end
 end

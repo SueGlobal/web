@@ -1,21 +1,38 @@
 <h1><%= t '.header' %></h1>
 
-<table>
-  <tr>
-    <th><%= t('.email_header') %></th>
-    <th><%= t('.state_header') %></th>
-    <th><%= t('.actions_header') %></th>
-  </tr>
+<table class="table table-hover">
+  <thead>
+      <tr>
+        <th><%= t('.email_header') %></th>
+        <th><%= t('.state_header') %></th>
+        <th><%= University.model_name.human(count: 1) %></th>
+        <th>Simple</th>
+        <th>Admin</th>
+        <th>God</th>
+        <th><%= t('.actions_header') %></th>
+      </tr>
+  </thead>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= link_to t('.show'), user %></td>
-    <td><%= link_to t('.edit'), edit_user_path(user) %></td>
-    <td><%= link_to t('.destroy'), user, method: :delete, data: { confirm: t('.confirm') } %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.activation_state %></td>
+        <td><%= user.try(:university).try(:abbreviation) || "No" %></td>
+        <td><%= user.simple? ? "Sí" : "No" %></td>
+        <td><%= user.admin? ? "Sí" : "No" %></td>
+        <td><%= user.god? ? "Sí" : "No" %></td>
+        <td>
+          <% if can? :edit, user -%>
+            <%= edit_link roles_user_path(user) %>
+          <% end -%>
+          <% if can? :destroy, user -%>
+            <%= destroy_link user,
+                             method: :delete,
+                             data: { confirm: t('.destroy_confirmation') }%>
+          <% end -%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to t('.new_user'), new_user_path %>

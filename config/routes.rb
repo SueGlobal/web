@@ -38,6 +38,8 @@ SueGlobal::Application.routes.draw do
   resources :users do
     member do
       get :activate, as: :activate
+      get :roles, as: :roles, to: 'users#roles'
+      post :roles, as: :roles, to: 'users#set_roles'
     end
   end
 

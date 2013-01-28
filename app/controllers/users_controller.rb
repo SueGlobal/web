@@ -100,6 +100,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def roles
+    if current_user == @user
+      redirect_to root_path, alert: t2('roles.alert')
+    else
+      @roles = Roles.from_user @user
+      respond_to do |format|
+        format.html
+      end
+    end
+  end
+
+  def set_roles
+    params[:roles][:god] = "0" unless current_user.god?
+    @roles = Roles.from_user @user, params[:roles]
+    @roles.save
+
+    respond_to do |format|
+      format.html { redirect_to roles_user_path, notice: t2('set_roles.notice')}
+    end
+  end
+
   protected
   def t2 path
     I18n.t path, scope: 'controllers.users'
