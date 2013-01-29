@@ -1,7 +1,9 @@
 es:
   activerecord:
     models:
-      user: 'Usuario'
+      user:
+        one: 'Usuario'
+        other: 'Usuarios'
     attributes:
       user:
         email: 'Email'
