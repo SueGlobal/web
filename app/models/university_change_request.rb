@@ -34,6 +34,10 @@ class UniversityChangeRequest < ActiveRecord::Base
       end
     end
 
+    def remove_user user
+      create user: user, university: nil, state: 'done'
+    end
+
     def do_change token
       ucr = self.where(state: 'pending', token: token).first
       ucr.complete_request if ucr
@@ -51,7 +55,7 @@ class UniversityChangeRequest < ActiveRecord::Base
   end
 
   def send_notification_email
-    get_mail.deliver
+    get_mail.deliver unless university.nil?
   end
 
   def get_mail

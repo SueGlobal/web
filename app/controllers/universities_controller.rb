@@ -3,7 +3,7 @@ class UniversitiesController < ApplicationController
   load_and_authorize_resource except: [:index, :show]
   before_filter :require_login, except: [:index, :show]
   before_filter :add_universities_breadcrumb
-  before_filter :add_breadcrumb_for_university, only: [:add_user, :edit, :update]
+  before_filter :add_breadcrumb_for_university, only: [:remove_user, :add_user, :edit, :update]
 
   # GET /universities
   # GET /universities.json
@@ -83,6 +83,8 @@ class UniversitiesController < ApplicationController
     end
   end
 
+  # FIXME Refactor these methods to a nested resource.
+
   # GET /universities/1/add_user
   # GET /universities/1/add_user.json
   def add_user
@@ -94,6 +96,14 @@ class UniversitiesController < ApplicationController
   def do_add_user
     @register = UniversityRegister.new @university, get_emails_from(params[:add_user][:email])
     @register.save
+  end
+
+  def remove_user
+    @users = @university.users
+
+    respond_to do |format|
+      format.html
+    end
   end
 
   protected

@@ -1,0 +1,12 @@
+<h1><%= t '.header', university: @university.abbreviation %></h1>
+
+<ul>
+  <%= content_tag_for :li, @users do |user| %>
+    <%= user.email %>
+    <% unless user == current_user %>
+        <%= destroy_link university_user_path(@university, user),
+            method: :delete,
+            data: {confirm: t('.destroy_confirmation')} %>
+    <% end -%>
+  <% end -%>
+</ul>

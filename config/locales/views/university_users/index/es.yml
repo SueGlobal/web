@@ -1,0 +1,5 @@
+es:
+  university_users:
+    index:
+      header: 'Usuarios de %{university}'
+      destroy_confirmation: '¿Está seguro de quitar los privilegios de administrador a este usuario?'

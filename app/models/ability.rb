@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+
 class Ability
   include CanCan::Ability
 
@@ -7,7 +8,7 @@ class Ability
     StudentStudy, EmployerStudy, PublicSourceStudy,
     AgreementSourceStudy, DatabaseStudy, OtherStudy]
 
-  ADD_USER_PERMITS = [:add_user, :do_add_user]
+  MANAGE_UNIVERSITY_USER_PERMITS = [:add_user, :do_add_user]
 
   INDEX_RELATED_MODELS = [
     Source, Index, Sample
@@ -60,10 +61,11 @@ class Ability
 
   def simple_abilities user
     if user.university_id
-      can ADD_USER_PERMITS, University, id: user.university_id
+      can MANAGE_UNIVERSITY_USER_PERMITS, University, id: user.university_id
       can :read, Journal, published: true
       can :manage, UNIVERSITY_DEPENDENT_MODELS , university_id: user.university_id
       can [:edit, :update], University, id: user.university_id
+      can [:index_university_users, :destroy_university_users], University, id: user.university_id
     end
     cannot [:new, :create], University
     can [:read, :update], User, id: user.id
@@ -72,7 +74,7 @@ class Ability
 
   def admin_abilities user
     can :manage, INDEX_RELATED_MODELS
-    can ADD_USER_PERMITS, University
+    can MANAGE_UNIVERSITY_USER_PERMITS, University
     can :manage, UNIVERSITY_DEPENDENT_MODELS
     can :manage, University
     cannot :destroy, University
@@ -83,6 +85,7 @@ class Ability
     cannot :assign_roles, User do |other_user|
       other_user.roles != [:simple]
     end
+    can [:index_university_users, :destroy_university_users], University
     can :manage, SEGMENTATION_VARIABLE_MODELS
     can :manage, [Journal, AnnualReport]
     can :admin, :site

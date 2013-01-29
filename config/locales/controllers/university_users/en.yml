@@ -1,0 +1,6 @@
+en:
+  controllers:
+    university_users:
+      destroy:
+        notice: 'User removed from university.'
+        alert: 'User could not be removed from university.'

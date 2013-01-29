@@ -92,6 +92,8 @@ describe Ability do
       it { should_not be_able_to :new, University }
       it { should_not be_able_to :add_user, University }
       it { should_not be_able_to :do_add_user, University }
+      it { should_not be_able_to :remove_user, University }
+      it { should_not be_able_to :do_remove_user, University }
     end
 
     context "when it is a simple user" do
@@ -104,6 +106,8 @@ describe Ability do
       it { should be_able_to :read, University }
       it { should be_able_to :add_user, university }
       it { should be_able_to :do_add_user, university }
+      it { should be_able_to :remove_user, university }
+      it { should be_able_to :do_remove_user, university }
       it { should_not be_able_to :destroy, University }
       it { should_not be_able_to :create, University }
       it { should_not be_able_to :new, University }
@@ -111,6 +115,8 @@ describe Ability do
       it { should_not be_able_to :update, other_university }
       it { should_not be_able_to :add_user, other_university }
       it { should_not be_able_to :do_add_user, other_university }
+      it { should_not be_able_to :remove_user, other_university }
+      it { should_not be_able_to :do_remove_user, other_university }
     end
 
     context "when an admin" do

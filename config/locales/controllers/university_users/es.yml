@@ -1,0 +1,6 @@
+es:
+  controllers:
+    university_users:
+      destroy:
+        notice: 'El usuario ya no es admin de esta universidad.'
+        alert: 'El usuario no pudo quitarse de administrador.'

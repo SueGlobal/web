@@ -32,5 +32,12 @@ describe UniversitiesController do
       delete("/universities/1").should route_to("universities#destroy", :id => "1")
     end
 
+    it "routes to #remove_user" do
+      get("/universities/1/users").should route_to("university_users#index", university_id: "1")
+    end
+
+    it "routes to #do_remove_user" do
+      delete("/universities/1/users/2").should route_to("university_users#destroy", university_id: "1", id: "2")
+    end
   end
 end

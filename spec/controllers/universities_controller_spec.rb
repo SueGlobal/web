@@ -446,4 +446,53 @@ describe UniversitiesController do
       end
     end
   end
+
+  context 'GET remove_user' do
+    let(:university) { create :university }
+    let(:university_user) { create :user, university: university }
+    before :each do
+      login_user user if user
+    end
+
+    context "when no user is logged in" do
+      let(:user) { nil }
+
+      before :each do
+        get :remove_user, {id: university.to_param}, valid_session
+      end
+
+      it_behaves_like "user is not authenticated"
+    end
+
+    context "when user is logged in" do
+      let(:user) { create :user }
+
+      context "and user can remove users" do
+
+        before :each do
+          university_user
+          controller.should_receive(:authorize!).and_return true
+          get :remove_user, {id: university.to_param}, valid_session
+        end
+
+        it "sets a list of users" do
+          expect(assigns(:users)).to eql([university_user])
+        end
+
+        it "renders remove_user template" do
+          expect(response).to render_template('remove_user')
+        end
+      end
+
+      context "and user cannot remove users" do
+
+        before :each do
+          controller.should_receive(:authorize!).and_raise CanCan::AccessDenied
+          get :remove_user, {id: university.to_param}, valid_session
+        end
+
+        it_behaves_like "user is not authorized"
+      end
+    end
+  end
 end

@@ -1,5 +1,9 @@
 # -*- encoding : utf-8 -*-
 SueGlobal::Application.routes.draw do
+  get "university_users/index"
+
+  get "university_users/destroy"
+
   filter :locale, :pagination
 
   get 'index/confirm/:slug', to: 'index_confirmation#confirm', as: :index_confirm
@@ -64,6 +68,8 @@ SueGlobal::Application.routes.draw do
     resources :agreement_source_studies, shallow: true
     resources :database_studies, shallow: true
     resources :other_studies, shallow: true
+
+    resources :users,  only: [:index, :destroy], controller: 'university_users'
 
     member do
       get 'add_user'

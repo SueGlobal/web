@@ -1,0 +1,5 @@
+en:
+  university_users:
+    index:
+      header: "%{university}'s users"
+      destroy_confirmation: 'Are you sure?'
