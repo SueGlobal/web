@@ -2,6 +2,7 @@ es:
   summary:
     index:
       header: 'Resumen, %{year}'
+      go_to_year: 'Seleccionar año'
       universities:
         header: 'Universidades'
         registered: 'Universidades registradas'

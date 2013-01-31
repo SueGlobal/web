@@ -18,5 +18,6 @@
 //= require common
 //= require announcements
 //= require custom_announcements
+//= require summary
 //= require_tree .
 //= require_tree ./questions
