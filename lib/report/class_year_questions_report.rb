@@ -6,13 +6,11 @@ module Report
     end
 
     def count_by_time_from_graduation
-      @count_by_time_from_graduation ||= count_types
+      @count_by_time_from_graduation ||= counter_for_field 'time_from_graduation_type'
     end
 
-    protected
-
-    def count_types
-      counter_for_field 'time_from_graduation_type'
+    def relative_by_time_from_graduation total
+      calculate_relative count_by_time_from_graduation, total
     end
   end
 end

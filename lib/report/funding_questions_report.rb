@@ -20,5 +20,21 @@ module Report
     def variable_private_count
       @variable_private_count || count_boolean_type('variable_private_funding')
     end
+
+    def fixed_state_relative total
+      calculate_relative fixed_state_count, total
+    end
+
+    def variable_state_relative total
+      calculate_relative variable_state_count, total
+    end
+
+    def fixed_private_relative total
+      calculate_relative fixed_private_count, total
+    end
+
+    def variable_private_relative total
+      calculate_relative variable_private_count, total
+    end
   end
 end

@@ -26,14 +26,16 @@ module Report
 
     def create_counter
       Hash.new do |h,k|
-        h[k] = 0
+        h[k] =  if k.is_a? String
+                  0
+                else
+                  h[k.to_s]
+                end
       end
     end
 
     def counter_for_field field
-      questions.each_with_object(create_counter) do |q, counter|
-        counter[q.send(field)] += 1
-      end
+      select_questions.group("'#{table_name}'.'#{field}'").count
     end
 
     def questions
