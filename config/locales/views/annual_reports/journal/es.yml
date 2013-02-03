@@ -1,0 +1,6 @@
+es:
+  journals:
+    journal:
+      destroy:
+        confirmation: '¿Estás seguro de borrar este boletín?'
+      draft_status: '(Borrador)'
