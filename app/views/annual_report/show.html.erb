@@ -1,3 +1,5 @@
+<h1>Informe anual, <%= @year %></h1>
+
 <% with_report Report::ClassYearQuestionsReport, @report do |report| -%>
   <%= render partial: 'reports/class_year_questions', locals: { report: report, total: @total} %>
   <hr>
