@@ -1,0 +1,18 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th></th>
+    <th><%= t 'reports.absolute_value' %></th>
+    <th><%= t 'reports.relative_value' %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% SampleQuestion::SAMPLING_OPTIONS.each do |opt| -%>
+      <tr>
+        <td><%= SampleQuestion.translate_option opt %></td>
+        <td><%= report.count_by_sampling[opt] %></td>
+        <td><%= report.relative_by_sampling[opt].call(total) %>%</td>
+      </tr>
+  <% end -%>
+  </tbody>
+</table>

@@ -1,2 +1,3 @@
-<h1>AnnualReport#index</h1>
-<p>Find me in app/views/annual_report/index.html.erb</p>
+<h1><%= t '.header' %></h1>
+
+<%= render partial: 'select_year', locals: { action: annual_resume_path('type', @year) , year: year} %>

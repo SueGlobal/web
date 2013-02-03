@@ -2,7 +2,7 @@ module Report
   class SoftwareQuestionsReport < QuestionsReport
 
     def initialize study_report
-      super "software_question"
+      super "software_question", study_report
     end
 
     def uses_some_count

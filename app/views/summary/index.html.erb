@@ -1,9 +1,6 @@
 <h1><%= t '.header', year: @year %></h1>
 
-<%= simple_form_for :select_year, url: summary_path(@year), method: :get, html:{data: {year: @year}} do |f| %>
-    <%= f.input :year, as: :year, label: false %>
-    <%= f.button :submit, value: t('.go_to_year')%>
-<% end -%>
+<%= render partial: 'select_year', locals: { action: summary_path(@year) , year: @year} %>
 
 <h2><%= t '.universities.header' %></h2>
 <table class="table table-hover">

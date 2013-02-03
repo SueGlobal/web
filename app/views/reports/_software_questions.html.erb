@@ -1,0 +1,16 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th></th>
+    <th><%= t 'reports.absolute_value' %></th>
+    <th><%= t 'reports.relative_value' %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= SoftwareQuestion.human_attribute_name :uses_some %></td>
+    <td><%= report.uses_some_count %></td>
+    <td><%= report.uses_some_relative total %></td>
+  </tr>
+  </tbody>
+</table>

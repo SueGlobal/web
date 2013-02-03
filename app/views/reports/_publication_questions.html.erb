@@ -1,0 +1,143 @@
+<table class="table table-hover">
+  <caption><%= t 'study.information_question.intern_legend' %></caption>
+  <thead>
+  <tr>
+    <th></th>
+    <th><%= t 'reports.absolute_value' %></th>
+    <th><%= t 'reports.relative_value' %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= InformationQuestion.human_attribute_name :university_government %></td>
+    <td><%= report.university_government_count %></td>
+    <td><%= report.university_government_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= InformationQuestion.human_attribute_name :social_council %></td>
+    <td><%= report.social_council_count %></td>
+    <td><%= report.social_council_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= InformationQuestion.human_attribute_name :faculties_management %></td>
+    <td><%= report.faculties_management_count %></td>
+    <td><%= report.faculties_management_relative total %></td>
+  </tr>
+  </tbody>
+</table>
+
+<table class="table table-hover">
+  <caption><%= t 'study.information_question.extern_legend' %></caption>
+  <thead>
+  <tr>
+    <th></th>
+    <th><%= t 'reports.absolute_value' %></th>
+    <th><%= t 'reports.relative_value' %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= InformationQuestion.human_attribute_name :students %></td>
+    <td><%= report.students_count %></td>
+    <td><%= report.students_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= InformationQuestion.human_attribute_name :prestudent %></td>
+    <td><%= report.prestudent_count %></td>
+    <td><%= report.prestudent_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= InformationQuestion.human_attribute_name :counselor %></td>
+    <td><%= report.counselor_count %></td>
+    <td><%= report.counselor_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= InformationQuestion.human_attribute_name :students_parents %></td>
+    <td><%= report.students_parents_count %></td>
+    <td><%= report.students_parents_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= InformationQuestion.human_attribute_name :prestudents_parents %></td>
+    <td><%= report.prestudents_parents_count %></td>
+    <td><%= report.prestudents_parents_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= InformationQuestion.human_attribute_name :society %></td>
+    <td><%= report.society_count %></td>
+    <td><%= report.society_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= InformationQuestion.human_attribute_name :employers %></td>
+    <td><%= report.employers_count %></td>
+    <td><%= report.employers_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= InformationQuestion.human_attribute_name :public_administrations %></td>
+    <td><%= report.public_administrations_count %></td>
+    <td><%= report.public_administrations_relative total %></td>
+  </tr>
+  </tbody>
+</table>
+
+<table class="table table-hover">
+  <caption><%= t 'study.publication_question.legend' %></caption>
+  <thead>
+  <tr>
+    <th></th>
+    <th><%= t 'reports.absolute_value' %></th>
+    <th><%= t 'reports.relative_value' %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= PublicationQuestion.human_attribute_name :with_isbn %></td>
+    <td><%= report.with_isbn_count %></td>
+    <td><%= report.with_isbn_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= PublicationQuestion.human_attribute_name :without_isbn %></td>
+    <td><%= report.without_isbn_count %></td>
+    <td><%= report.without_isbn_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= PublicationQuestion.human_attribute_name :limited_distribution %></td>
+    <td><%= report.limited_distribution_count %></td>
+    <td><%= report.limited_distribution_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= PublicationQuestion.human_attribute_name :static_web %></td>
+    <td><%= report.static_web_count %></td>
+    <td><%= report.static_web_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= PublicationQuestion.human_attribute_name :dynamic_web %></td>
+    <td><%= report.dynamic_web_count %></td>
+    <td><%= report.dynamic_web_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= PublicationQuestion.human_attribute_name :pdf %></td>
+    <td><%= report.pdf_count %></td>
+    <td><%= report.pdf_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= PublicationQuestion.human_attribute_name :multimedia %></td>
+    <td><%= report.multimedia_count %></td>
+    <td><%= report.multimedia_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= PublicationQuestion.human_attribute_name :app %></td>
+    <td><%= report.app_count %></td>
+    <td><%= report.app_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= PublicationQuestion.human_attribute_name :papers %></td>
+    <td><%= report.papers_count %></td>
+    <td><%= report.papers_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= PublicationQuestion.human_attribute_name :thesis %></td>
+    <td><%= report.thesis_count %></td>
+    <td><%= report.thesis_relative total %></td>
+  </tr>
+  </tbody>
+</table>

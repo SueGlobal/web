@@ -2,7 +2,7 @@ module Report
   class InformationQuestionsReport < QuestionsReport
 
     def initialize study_report
-      super 'information_question'
+      super 'information_question', study_report
     end
 
     def university_government_count
