@@ -8,7 +8,8 @@ SueGlobal::Application.routes.draw do
 
   get 'index/confirm/:slug', to: 'index_confirmation#confirm', as: :index_confirm
   get 'index/reject/:slug', to: 'index_confirmation#reject', as: :index_reject
-  get "annual_report/(:year)", to: 'annual_report#index', as: :annual_resume
+  get "annual_report", to: 'annual_report#index', as: :annual_resumes
+  get "annual_report/:type/(:year)", to: 'annual_report#show', as: :annual_resume
 
   get "summary/(:year)", to: 'summary#index', as: :summary
 

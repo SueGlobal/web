@@ -1,0 +1,4 @@
+<%= simple_form_for :select_year, url: action, method: :get, html:{data: {year: year}} do |f| %>
+    <%= f.input :year, as: :year, label: false %>
+    <%= f.button :submit, value: t('summary.index.go_to_year')%>
+<% end -%>

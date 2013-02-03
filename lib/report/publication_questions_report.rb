@@ -4,7 +4,7 @@ module Report
     attr_reader :information_questions_report
 
     def initialize study_report
-      super 'publication_question'
+      super 'publication_question', study_report
       @information_questions_report = InformationQuestionsReport.new study_report
     end
 
@@ -120,12 +120,12 @@ module Report
       calculate_relative static_web_count, total
     end
 
-    def dynnamic_web_count
+    def dynamic_web_count
       @dynamic_web_count ||= count_boolean_type "dynamic_web_check"
     end
 
-    def dynnamic_web_relative total
-      calculate_relative dynnamic_web_count, total
+    def dynamic_web_relative total
+      calculate_relative dynamic_web_count, total
     end
 
     def pdf_count

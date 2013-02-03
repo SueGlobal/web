@@ -1,5 +1,8 @@
 <h1><%= @title %></h1>
 
+<h2>Ver informe anual de estos estudios</h2>
+<%= render partial: 'select_year', locals: { action: annual_resume_path(params[:type], Time.now.year) , year: Time.now.year} %>
+
 <% if @studies.empty? -%>
     <p><%= t '.studies.none' %></p>
 <% else -%>

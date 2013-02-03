@@ -1,3 +1,23 @@
-<% with_report Report::FieldWorkQuestionsReport, @report do |report| -%>
+<% with_report Report::ClassYearQuestionsReport, @report do |report| -%>
+  <%= render partial: 'reports/class_year_questions', locals: { report: report, total: @total} %>
+  <hr>
+<% end -%>
+
+<% with_report Report::SampleQuestionsReport, @report do |report| %>
+  <%= render partial: 'reports/sample_questions', locals: {report: report, total: @total} %>
+  <hr>
+<% end -%>
+
+<% with_report Report::SoftwareQuestionsReport, @report do |report| -%>
+  <%= render partial: 'reports/software_questions', locals: {report: report, total: @total} %>
+  <hr>
+<% end -%>
+
+<% with_report Report::FieldWorkQuestionsReport, @report do |report| %>
   <%= render partial: 'reports/field_work_questions', locals: {report: report, total: @total} %>
+  <hr>
+<% end -%>
+
+<% with_report Report::PublicationQuestionsReport, @report do |report| -%>
+   <%= render partial: 'reports/publication_questions', locals: {report: report, total: @total} %>
 <% end -%>

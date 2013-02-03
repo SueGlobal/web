@@ -35,7 +35,7 @@ module Report
     end
 
     def counter_for_field field
-      select_questions.group("'#{table_name}'.'#{field}'").count
+      select_questions.group("#{table_name}.#{field}").count
     end
 
     def questions
@@ -44,6 +44,16 @@ module Report
 
     def select_questions
       study_report.select_studies.includes(type_of_question)
+    end
+
+    def calculate_relative_counter partial_counter
+      Hash.new do |h,k|
+        h[k] =  if k.is_a? String
+                  ->(total) { calculate_relative(partial_counter.fetch(k,0), total) }
+                else
+                  h[k.to_s]
+                end
+      end
     end
 
     def calculate_relative partial, total

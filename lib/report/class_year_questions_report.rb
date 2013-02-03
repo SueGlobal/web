@@ -6,11 +6,11 @@ module Report
     end
 
     def count_by_time_from_graduation
-      @count_by_time_from_graduation ||= counter_for_field 'time_from_graduation_type'
+      @count_by_time_from_graduation ||= create_counter.merge counter_for_field('time_from_graduation_type')
     end
 
-    def relative_by_time_from_graduation total
-      calculate_relative count_by_time_from_graduation, total
+    def relative_by_time_from_graduation
+      @relative_by_time_from_graduation ||= calculate_relative_counter count_by_time_from_graduation
     end
   end
 end

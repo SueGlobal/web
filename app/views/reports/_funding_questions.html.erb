@@ -1,0 +1,31 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th></th>
+    <th><%= t 'reports.absolute_value' %></th>
+    <th><%= t 'reports.relative_value' %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= FundingQuestion.human_attribute_name :fixed_state_funding %></td>
+    <td><%= report.fixed_state_count %></td>
+    <td><%= report.fixed_state_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= FundingQuestion.human_attribute_name :variable_state_funding %></td>
+    <td><%= report.variable_state_count %></td>
+    <td><%= report.variable_state_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= FundingQuestion.human_attribute_name :fixed_private_funding %></td>
+    <td><%= report.fixed_private_count %></td>
+    <td><%= report.fixed_private_relative total %></td>
+  </tr>
+  <tr>
+    <td><%= FundingQuestion.human_attribute_name :variable_private_funding %></td>
+    <td><%= report.variable_private_count %></td>
+    <td><%= report.variable_private_relative total %></td>
+  </tr>
+  </tbody>
+</table>
