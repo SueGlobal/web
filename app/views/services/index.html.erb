@@ -1,11 +1,11 @@
 <h1>
   <%= t '.header', university: @university.abbreviation %>
   <% if can? :edit, @university -%>
-    <%= new_link new_university_service(@university) %>
+    <%= new_link new_university_service_path(@university) %>
   <% end -%>
 </h1>
 
-<table>
+<table class="table table-hover">
   <tr>
     <th><%= Service.human_attribute_name :name %></th>
     <th><%= Service.human_attribute_name :dependency %></th>
@@ -21,7 +21,7 @@
         <%= edit_link edit_service_path(service) %>
       <% end -%>
       <% if can? :destroy, service -%>
-        <%= destroy_link t('.destroy'), service,
+        <%= destroy_link service,
                          method: :delete,
                          data: { confirm: t('.destroy_confirmation') } %>
       <% end -%>
@@ -33,5 +33,5 @@
 <br />
 
 <% if can? :create, University -%>
-  <%= link_to t('.new_service'), new_university_service_path(@university) %>
+  <%= link_to t('.new_service'), new_university_service_path(@university), class: 'btn' %>
 <% end -%>

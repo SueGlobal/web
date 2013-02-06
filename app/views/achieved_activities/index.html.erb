@@ -1,6 +1,6 @@
-<h1><%= t '.header' %></h1>
+<h1><%= t '.header', university: @university.abbreviation %></h1>
 
-<table>
+<table class="table table-hover">
   <tr>
     <th><%= AchievedActivity.human_attribute_name :year %></th>
     <th><%= t '.actions' %></th>
@@ -8,10 +8,15 @@
 
 <% @achieved_activities.each do |achieved_activity| %>
   <tr>
-    <td><%= achieved_activity.year %></td>
-    <td><%= link_to t('.show'), achieved_activity %>
-        <%= link_to t('.edit'), edit_achieved_activity_path(achieved_activity) %>
-        <%= link_to t('.destroy'), achieved_activity, method: :delete, data: { confirm: t('.destroy_confirmation')} %></td>
+    <td><%= link_to achieved_activity.year, achieved_activity %></td>
+    <td>
+      <% if can? :edit, achieved_activity -%>
+        <%= edit_link edit_achieved_activity_path(achieved_activity) %>
+      <% end -%>
+      <% if can? :destroy, achieved_activity -%>
+        <%= destroy_link achieved_activity, method: :delete, data: { confirm: t('.destroy_confirmation')} %>
+      <% end -%>
+    </td>
   </tr>
 <% end %>
 </table>
@@ -20,4 +25,4 @@
 
 <%= paginate @achieved_activities %>
 
-<%= link_to t('.new_achieved_activity'), new_university_achieved_activity_path(@university) %>
+<%= link_to t('.new_achieved_activity'), new_university_achieved_activity_path(@university), class: 'btn' %>
