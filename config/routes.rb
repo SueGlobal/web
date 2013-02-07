@@ -58,7 +58,7 @@ SueGlobal::Application.routes.draw do
     resources :achieved_activities, shallow: true
     resources :general_frames, shallow: true do
       collection do
-         get 'evolution', as: :general_frame_evolution
+         get 'evolution', as: :evolution
       end
     end
 
