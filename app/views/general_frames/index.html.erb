@@ -5,7 +5,7 @@
   <% end -%>
 </h1>
 
-<table>
+<table class="table table-hover">
   <tr>
     <th><%= GeneralFrame.human_attribute_name :year %></th>
     <th><%= t('.actions') %></th>
@@ -32,6 +32,8 @@
 
 <%= paginate @general_frames %>
 
-<%= link_to t('.new_general_frame'), new_university_general_frame_path(@university) %>
+<% if can? :new, GeneralFrame -%>
+    <%= link_to t('.new_general_frame'), new_university_general_frame_path(@university), class: 'btn' %>
+<% end -%>
 
-<%= link_to t('.evolucion'), university_general_frames_path(@university) %>
+<%= link_to t('.evolucion'), university_general_frames_path(@university), class: 'btn' %>
