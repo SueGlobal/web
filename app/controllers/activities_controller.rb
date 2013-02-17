@@ -8,7 +8,7 @@ class ActivitiesController < ApplicationController
 
   def retrieve
     @query = query_by(params[:activity_query])
-    @universities = @query.universities.page(params[:page])
+    @universities = @query.universities.page(1).per(nil)
     respond_to do |format|
       if @universities.any?
         format.html { render 'universities/index' }

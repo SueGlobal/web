@@ -61,7 +61,7 @@ gem 'cancan'
 gem 'letter_opener', group: [:test, :development]
 gem 'timecop', group: [:test]
 gem 'routing-filter'
-gem 'draper'
+gem 'draper', '~> 0.17.0'
 gem 'fuubar', group: [:test]
 gem 'capistrano', group: [:development]
 gem 'rvm-capistrano', group: [:development]

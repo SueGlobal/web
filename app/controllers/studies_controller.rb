@@ -23,7 +23,7 @@ class StudiesController < ApplicationController
   end
 
   def select_by_type type, page=1
-    type_to_study_map.select_by_type type
+    type_to_study_map.select_by_type type, page
   end
 
   def title_for_type type
