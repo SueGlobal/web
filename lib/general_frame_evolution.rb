@@ -64,7 +64,7 @@ class GeneralFrameEvolution
   def data_row_for_year year, columns
     frame = general_frame_for_year year
     [year.to_s] + columns.map do |column|
-      frame.send column
+      frame.send(column) || 0
     end
   end
 
