@@ -8,10 +8,10 @@ class ActivitiesController < ApplicationController
 
   def retrieve
     @query = query_by(params[:activity_query])
-    @universities = @query.universities.page(1).per(nil)
+    @universities = @query.universities
     respond_to do |format|
       if @universities.any?
-        format.html { render 'universities/index' }
+        format.html
         format.json { render json: @universities }
       else
         flash.now.alert = t2('retrieve.alert')

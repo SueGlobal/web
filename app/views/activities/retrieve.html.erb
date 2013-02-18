@@ -1,2 +1,7 @@
-<h1>Activities#retrieve</h1>
-<p>Find me in app/views/activities/retrieve.html.erb</p>
+<h1><%=  University.model_name.human count: 2 %></h1>
+
+<ul>
+  <% @universities.each do |university| -%>
+    <li><%= link_to university.name, university %></li>
+  <% end -%>
+</ul>
