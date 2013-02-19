@@ -1,6 +1,6 @@
 // Set the correct sprite paths
-$iconSpritePath: url(image-path('glyphicons-halflings.png'));
-$iconWhiteSpritePath: url(image-path('glyphicons-halflings-white.png'));
+$iconSpritePath: image-path('glyphicons-halflings.png');
+$iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 
 @import "bootstrap";
 
